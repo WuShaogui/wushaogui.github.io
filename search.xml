@@ -9352,146 +9352,6 @@ Linux上缺少windows字体，把字体添加上去即可。</p>
       </tags>
   </entry>
   <entry>
-    <title>安装windows和linux双系统备忘录</title>
-    <url>/2016/06/01/%E5%AE%89%E8%A3%85windows%E5%92%8Clinux%E5%8F%8C%E7%B3%BB%E7%BB%9F%E5%A4%87%E5%BF%98%E5%BD%95/</url>
-    <content><![CDATA[<p>本文针对安装windows和linux双系统的流程进行梳理，汇集两个系统上常用的软件，并针对出错的问题进行记录</p>
-<a id="more"></a>
-<h2 id="安装过程"><a class="markdownIt-Anchor" href="#安装过程"></a> 安装过程</h2>
-<p>略</p>
-<h2 id="使用软件"><a class="markdownIt-Anchor" href="#使用软件"></a> 使用软件</h2>
-<table>
-<thead>
-<tr>
-<th>Windows</th>
-<th>Ubuntu</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>备份数据-》清理硬盘-》安装系统-》卸载多余的东西-》升级win10-》安装软件-》登录各软件帐号-》拷贝数据回本机</td>
-<td>刻录U盘-》安装系统-》更新源-》安装软件-》美化</td>
-</tr>
-</tbody>
-</table>
-<p>Windows:</p>
-<blockquote>
-<p>必装：<br />
-上网：校园网（<a href="http://dr.com">dr.com</a>)<br />
-杀毒软件：电脑管家<br />
-笔记：印象笔记<br />
-社交：QQ轻聊版<br />
-办公：word 2016(破解工具：KMSpico Install)<br />
-浏览器：谷歌(<a href="mailto:wushaogui123@gmail.com">wushaogui123@gmail.com</a>)/360极速(15878192524)<br />
-网盘：百度网盘<br />
-解压工具：闪电压缩<br />
-编辑工具：sublime/notepad++<br />
-音乐：网易云音乐(<a href="mailto:wushaogui2014@126.com">wushaogui2014@126.com</a>)<br />
-截图：Fast stone<br />
-翻墙：lantern<br />
-驱动：驱动人生<br />
-虚拟镜像：Daemon_Tools_Lite<br />
-英语词典：有道<br />
-选装：<br />
-视频：腾讯视频/优酷<br />
-购物：阿里旺旺<br />
-模拟器：VMwareworkstation_full<br />
-U盘刻录工具：UltraISO_cn<br />
-思维导图：mini8/visio<br />
-画网络图：Cytoscape<br />
-Markdown:马克飞象/小书匠<br />
-修图工具：Adobe CC 2015 64位<br />
-数学工具：Matlab R2016b<br />
-游戏和软件：stream<br />
-系统工具：CPU-Z<br />
-编程类：<br />
-C:C-free<br />
-R:R+R studio<br />
-python:pycham<br />
-java:jdk+eclipse<br />
-scala:ideaIC</p>
-</blockquote>
-<p>Ubuntu:<br />
-每次安装完Ubuntu后都到网上找别人的“ubuntu安装后需要做的事情”，麻烦得很，现状结合自己的需求将安装完ubuntu后，还原之前工作状态的过程记录下来，以备不时之需！</p>
-<p>系统语言的更换-&gt;源的更换与系统的更新-&gt;输入法的安装-&gt;应用的安装-&gt;其他配置</p>
-<blockquote>
-<p>输入法：搜狗输入法</p>
-<p>浏览器：火狐浏览器/Vivaldi<br />
-办公：wps</p>
-<p>思维导图：Xmind8<br />
-音乐：网易云音乐<br />
-翻墙：lantern(<a href="https://raw.githubusercontent.com/getlantern/lantern-binaries/master/lantern-installer-beta-64-bit.deb">https://raw.githubusercontent.com/getlantern/lantern-binaries/master/lantern-installer-beta-64-bit.deb</a>) / Shadowsocks-Qt5<br />
-画网络图：Cytoscape<br />
-英语词典：有道<br />
-备份：坚果云<br />
-壁纸：variety<br />
-天气:gis-weather<br />
-截图工具：shutter<br />
-系统清理：stacer<br />
-屏幕录制工具(gif):peek<br />
-屏幕录制:kazam<br />
-makedown:typroa/小书匠<br />
-文档管理：Zotero/mendeley</p>
-<p>PDF阅读器：Foxit Reader</p>
-<p>相册管理：Pix相册</p>
-<p>邮件：雷鸟邮件</p>
-<p>Windows软件模拟工具：crossover（QQ/微信）  独立的Wine-QQ与Wechat<br />
-服务器文档编辑：vim/notepadqq<br />
-编程类：VS/sublime3/git</p>
-<p>远程桌面工具：TeamViewer</p>
-<p>视频播放器：VLC</p>
-<p>終端：zsh</p>
-</blockquote>
-<blockquote>
-<p><strong>升级Ubuntu系统</strong>：<br />
-ubuntu14…10怎么升级到ubuntu15.04_百度经验</p>
-<p>安装Ubuntu要做的事：<br />
-安装Ubuntu 16.04后要做的事 - skykingf的专栏 - 博客频道 - <a href="http://CSDN.NET">CSDN.NET</a></p>
-<p><strong>美化：</strong><br />
-ubuntu16.04主题美化和软件推荐 - ZeeCoder - 博客频道 - <a href="http://CSDN.NET">CSDN.NET</a></p>
-<p><strong>其他问题：</strong></p>
-<ul>
-<li>
-<p>升级过程遇到boot空间不足：<br />
-Ubuntu升级出现/boot空间不足解决 - 海涛的CSDN博客 - 博客频道 - <a href="http://CSDN.NET">CSDN.NET</a></p>
-</li>
-<li>
-<p>更换控制台语言：</p>
-</li>
-<li>
-<p>改变ubuntu终端显示语言（桌面系统是中文，终端提示是英文） - Linux系统教程<br />
-字体安装：</p>
-</li>
-<li>
-<p>linux终端中最漂亮的几款字体介绍及安装 - 郭大侠的专栏 - 博客频道 - <a href="http://CSDN.NET">CSDN.NET</a></p>
-</li>
-<li>
-<p>网易云音乐无法启动：</p>
-</li>
-<li>
-<p>zsh-通配符问题<br />
--&gt;在~/.zshrc文件中加入下面的设置<br />
-setopt nonomatch</p>
-</li>
-<li>
-<p>WPS for Linux提示“系统缺失字体symbol、wingdings、wingdings dinphy - 孜_行 | 小知识，大家享，你也行</p>
-</li>
-<li>
-<p>设置开机启动:<br />
-<a href="http://os.51cto.com/art/201508/487326.htm">http://os.51cto.com/art/201508/487326.htm</a><br />
-<a href="http://blog.csdn.net/ocgcn2010/article/details/43260705">http://blog.csdn.net/ocgcn2010/article/details/43260705</a></p>
-</li>
-</ul>
-</blockquote>
-]]></content>
-      <categories>
-        <category>软件工具</category>
-      </categories>
-      <tags>
-        <tag>Linux</tag>
-        <tag>Windows</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Linux文本处理三剑客之awk</title>
     <url>/2016/06/01/Linux%E6%96%87%E6%9C%AC%E5%A4%84%E7%90%86%E4%B8%89%E5%89%91%E5%AE%A2%E4%B9%8Bawk/</url>
     <content><![CDATA[<p>本文针对linux中的文本处理“三剑客”之一的awk命令进行使用解释，awk对以行为单位对文本数据进行处理</p>
@@ -9852,6 +9712,146 @@ BEGIN &#123;
       <tags>
         <tag>Linux</tag>
         <tag>文本处理</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>安装windows和linux双系统备忘录</title>
+    <url>/2016/06/01/%E5%AE%89%E8%A3%85windows%E5%92%8Clinux%E5%8F%8C%E7%B3%BB%E7%BB%9F%E5%A4%87%E5%BF%98%E5%BD%95/</url>
+    <content><![CDATA[<p>本文针对安装windows和linux双系统的流程进行梳理，汇集两个系统上常用的软件，并针对出错的问题进行记录</p>
+<a id="more"></a>
+<h2 id="安装过程"><a class="markdownIt-Anchor" href="#安装过程"></a> 安装过程</h2>
+<p>略</p>
+<h2 id="使用软件"><a class="markdownIt-Anchor" href="#使用软件"></a> 使用软件</h2>
+<table>
+<thead>
+<tr>
+<th>Windows</th>
+<th>Ubuntu</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>备份数据-》清理硬盘-》安装系统-》卸载多余的东西-》升级win10-》安装软件-》登录各软件帐号-》拷贝数据回本机</td>
+<td>刻录U盘-》安装系统-》更新源-》安装软件-》美化</td>
+</tr>
+</tbody>
+</table>
+<p>Windows:</p>
+<blockquote>
+<p>必装：<br />
+上网：校园网（<a href="http://dr.com">dr.com</a>)<br />
+杀毒软件：电脑管家<br />
+笔记：印象笔记<br />
+社交：QQ轻聊版<br />
+办公：word 2016(破解工具：KMSpico Install)<br />
+浏览器：谷歌(<a href="mailto:wushaogui123@gmail.com">wushaogui123@gmail.com</a>)/360极速(15878192524)<br />
+网盘：百度网盘<br />
+解压工具：闪电压缩<br />
+编辑工具：sublime/notepad++<br />
+音乐：网易云音乐(<a href="mailto:wushaogui2014@126.com">wushaogui2014@126.com</a>)<br />
+截图：Fast stone<br />
+翻墙：lantern<br />
+驱动：驱动人生<br />
+虚拟镜像：Daemon_Tools_Lite<br />
+英语词典：有道<br />
+选装：<br />
+视频：腾讯视频/优酷<br />
+购物：阿里旺旺<br />
+模拟器：VMwareworkstation_full<br />
+U盘刻录工具：UltraISO_cn<br />
+思维导图：mini8/visio<br />
+画网络图：Cytoscape<br />
+Markdown:马克飞象/小书匠<br />
+修图工具：Adobe CC 2015 64位<br />
+数学工具：Matlab R2016b<br />
+游戏和软件：stream<br />
+系统工具：CPU-Z<br />
+编程类：<br />
+C:C-free<br />
+R:R+R studio<br />
+python:pycham<br />
+java:jdk+eclipse<br />
+scala:ideaIC</p>
+</blockquote>
+<p>Ubuntu:<br />
+每次安装完Ubuntu后都到网上找别人的“ubuntu安装后需要做的事情”，麻烦得很，现状结合自己的需求将安装完ubuntu后，还原之前工作状态的过程记录下来，以备不时之需！</p>
+<p>系统语言的更换-&gt;源的更换与系统的更新-&gt;输入法的安装-&gt;应用的安装-&gt;其他配置</p>
+<blockquote>
+<p>输入法：搜狗输入法</p>
+<p>浏览器：火狐浏览器/Vivaldi<br />
+办公：wps</p>
+<p>思维导图：Xmind8<br />
+音乐：网易云音乐<br />
+翻墙：lantern(<a href="https://raw.githubusercontent.com/getlantern/lantern-binaries/master/lantern-installer-beta-64-bit.deb">https://raw.githubusercontent.com/getlantern/lantern-binaries/master/lantern-installer-beta-64-bit.deb</a>) / Shadowsocks-Qt5<br />
+画网络图：Cytoscape<br />
+英语词典：有道<br />
+备份：坚果云<br />
+壁纸：variety<br />
+天气:gis-weather<br />
+截图工具：shutter<br />
+系统清理：stacer<br />
+屏幕录制工具(gif):peek<br />
+屏幕录制:kazam<br />
+makedown:typroa/小书匠<br />
+文档管理：Zotero/mendeley</p>
+<p>PDF阅读器：Foxit Reader</p>
+<p>相册管理：Pix相册</p>
+<p>邮件：雷鸟邮件</p>
+<p>Windows软件模拟工具：crossover（QQ/微信）  独立的Wine-QQ与Wechat<br />
+服务器文档编辑：vim/notepadqq<br />
+编程类：VS/sublime3/git</p>
+<p>远程桌面工具：TeamViewer</p>
+<p>视频播放器：VLC</p>
+<p>終端：zsh</p>
+</blockquote>
+<blockquote>
+<p><strong>升级Ubuntu系统</strong>：<br />
+ubuntu14…10怎么升级到ubuntu15.04_百度经验</p>
+<p>安装Ubuntu要做的事：<br />
+安装Ubuntu 16.04后要做的事 - skykingf的专栏 - 博客频道 - <a href="http://CSDN.NET">CSDN.NET</a></p>
+<p><strong>美化：</strong><br />
+ubuntu16.04主题美化和软件推荐 - ZeeCoder - 博客频道 - <a href="http://CSDN.NET">CSDN.NET</a></p>
+<p><strong>其他问题：</strong></p>
+<ul>
+<li>
+<p>升级过程遇到boot空间不足：<br />
+Ubuntu升级出现/boot空间不足解决 - 海涛的CSDN博客 - 博客频道 - <a href="http://CSDN.NET">CSDN.NET</a></p>
+</li>
+<li>
+<p>更换控制台语言：</p>
+</li>
+<li>
+<p>改变ubuntu终端显示语言（桌面系统是中文，终端提示是英文） - Linux系统教程<br />
+字体安装：</p>
+</li>
+<li>
+<p>linux终端中最漂亮的几款字体介绍及安装 - 郭大侠的专栏 - 博客频道 - <a href="http://CSDN.NET">CSDN.NET</a></p>
+</li>
+<li>
+<p>网易云音乐无法启动：</p>
+</li>
+<li>
+<p>zsh-通配符问题<br />
+-&gt;在~/.zshrc文件中加入下面的设置<br />
+setopt nonomatch</p>
+</li>
+<li>
+<p>WPS for Linux提示“系统缺失字体symbol、wingdings、wingdings dinphy - 孜_行 | 小知识，大家享，你也行</p>
+</li>
+<li>
+<p>设置开机启动:<br />
+<a href="http://os.51cto.com/art/201508/487326.htm">http://os.51cto.com/art/201508/487326.htm</a><br />
+<a href="http://blog.csdn.net/ocgcn2010/article/details/43260705">http://blog.csdn.net/ocgcn2010/article/details/43260705</a></p>
+</li>
+</ul>
+</blockquote>
+]]></content>
+      <categories>
+        <category>软件工具</category>
+      </categories>
+      <tags>
+        <tag>Linux</tag>
+        <tag>Windows</tag>
       </tags>
   </entry>
   <entry>
