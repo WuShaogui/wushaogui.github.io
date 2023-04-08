@@ -133,11 +133,9 @@
 <li>我们知道模型要变好，就必须构建得更加复杂，但是这来这带来一个坏处，就是模型部署的耗时会增长，这两者是相互矛盾的，<strong>结构从参数化</strong>就是两者都可以做到，在训练的时候，通过复杂的神经网络去训练，提升模型的性能，但是在推理的时候，我通过对模型结构的重参数化生成了一个更加精简的结构，使推理的时候速度更快</li>
 <li><strong>RepVGG 的结构重参数化过程</strong>：上图是左边是训练时的卷积网络，右边通过对结构进行重参数化，得到一个只有 1 个分支的结构，因此可以做到训练时提升性能，推理时提升速度</li>
 <li><strong>结构从参数化的基本原理</strong>：<strong>卷积的可加性</strong>，对于同一个输入，只要其扫描频率一致（相同的通道数、kernel size、stride、padding），其卷积可过程可以融合。如下公式 1 是一个实数乘特征图和乘卷积是等效的，公式 2卷积核 F1 与 F2 可以被融合为 1 个卷积，卷积核为 (F1+F2)</li>
-<li>
+</ul>
 <p><span class="katex-display"><span class="katex"><span class="katex-mathml"><math><semantics><mtable rowspacing="0.15999999999999992em" columnspacing="1em"><mtr><mtd><mstyle scriptlevel="0" displaystyle="false"><mrow><mi>I</mi><mo>⊗</mo><mo stretchy="false">(</mo><mi>p</mi><mi>F</mi><mo stretchy="false">)</mo><mo>=</mo><mi>p</mi><mo stretchy="false">(</mo><mi>I</mi><mo>⊗</mo><mi>F</mi><mo stretchy="false">)</mo><mspace width="1em"/></mrow></mstyle></mtd><mtd><mstyle scriptlevel="0" displaystyle="false"><mrow><mo stretchy="false">(</mo><mn>1</mn><mo stretchy="false">)</mo></mrow></mstyle></mtd></mtr><mtr><mtd><mstyle scriptlevel="0" displaystyle="false"><mrow><mi>I</mi><mo>⊗</mo><msup><mi>F</mi><mrow><mo stretchy="false">(</mo><mn>1</mn><mo stretchy="false">)</mo></mrow></msup><mo>+</mo><mi>I</mi><mo>⊗</mo><msup><mi>F</mi><mrow><mo stretchy="false">(</mo><mn>2</mn><mo stretchy="false">)</mo></mrow></msup><mo>=</mo><mi>I</mi><mo>⊗</mo><mo stretchy="false">(</mo><msup><mi>F</mi><mrow><mo stretchy="false">(</mo><mn>1</mn><mo stretchy="false">)</mo></mrow></msup><mo>+</mo><msup><mi>F</mi><mrow><mo stretchy="false">(</mo><mn>1</mn><mo stretchy="false">)</mo></mrow></msup><mo stretchy="false">)</mo><mspace width="1em"/></mrow></mstyle></mtd><mtd><mstyle scriptlevel="0" displaystyle="false"><mrow><mo stretchy="false">(</mo><mn>2</mn><mo stretchy="false">)</mo></mrow></mstyle></mtd></mtr></mtable><annotation encoding="application/x-tex">\begin{matrix}I\otimes(pF)=p(I\otimes F) \quad&amp;(1)\\I\otimes F^{(1)}+I\otimes F^{(2)}=I\otimes(F^{(1)}+F^{(1)})\quad&amp;(2)\end{matrix}
 </annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:2.4480000000000004em;vertical-align:-0.9740000000000004em;"></span><span class="mord"><span class="mtable"><span class="col-align-c"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.474em;"><span style="top:-3.634em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.07847em;">I</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">⊗</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mopen">(</span><span class="mord mathdefault">p</span><span class="mord mathdefault" style="margin-right:0.13889em;">F</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mord mathdefault">p</span><span class="mopen">(</span><span class="mord mathdefault" style="margin-right:0.07847em;">I</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">⊗</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mord mathdefault" style="margin-right:0.13889em;">F</span><span class="mclose">)</span><span class="mspace" style="margin-right:1em;"></span></span></span><span style="top:-2.3859999999999997em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.07847em;">I</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">⊗</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.13889em;">F</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8879999999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mopen mtight">(</span><span class="mord mtight">1</span><span class="mclose mtight">)</span></span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mord mathdefault" style="margin-right:0.07847em;">I</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">⊗</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.13889em;">F</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8879999999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mopen mtight">(</span><span class="mord mtight">2</span><span class="mclose mtight">)</span></span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mord mathdefault" style="margin-right:0.07847em;">I</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">⊗</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mopen">(</span><span class="mord"><span class="mord mathdefault" style="margin-right:0.13889em;">F</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8879999999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mopen mtight">(</span><span class="mord mtight">1</span><span class="mclose mtight">)</span></span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.13889em;">F</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8879999999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mopen mtight">(</span><span class="mord mtight">1</span><span class="mclose mtight">)</span></span></span></span></span></span></span></span></span><span class="mclose">)</span><span class="mspace" style="margin-right:1em;"></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.9740000000000004em;"><span></span></span></span></span></span><span class="arraycolsep" style="width:0.5em;"></span><span class="arraycolsep" style="width:0.5em;"></span><span class="col-align-c"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.474em;"><span style="top:-3.634em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mopen">(</span><span class="mord">1</span><span class="mclose">)</span></span></span><span style="top:-2.3859999999999997em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mopen">(</span><span class="mord">2</span><span class="mclose">)</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.9740000000000004em;"><span></span></span></span></span></span></span></span></span></span></span></span></p>
-</li>
-</ul>
 <h1 id="acnet-的网络结构"><a class="markdownIt-Anchor" href="#acnet-的网络结构"></a> ACNet 的网络结构？</h1>
 <ul>
 <li><img src="https://picgo-1304919305.cos.ap-guangzhou.myqcloud.com/picGo/202304082005292.png" alt="" /></li>
@@ -665,8 +663,8 @@
         <category>编程</category>
       </categories>
       <tags>
-        <tag>打包</tag>
         <tag>python</tag>
+        <tag>打包</tag>
       </tags>
   </entry>
   <entry>
@@ -8653,6 +8651,33 @@ Zotero的神级插件，这玩意可以自动获取导入文件的元数据，�
       </tags>
   </entry>
   <entry>
+    <title>linux的文件夹共享功能设置</title>
+    <url>/2016/06/01/linux%E7%9A%84%E6%96%87%E4%BB%B6%E5%A4%B9%E5%85%B1%E4%BA%AB%E5%8A%9F%E8%83%BD%E8%AE%BE%E7%BD%AE/</url>
+    <content><![CDATA[<p>本文解释linux系统向其他系统共享文件的流程，并以ipad访问过程演示</p>
+<a id="more"></a>
+<p>1.新建共享文件夹<br />
+<img src="https://picgo-1304919305.cos.ap-guangzhou.myqcloud.com/picGo/202304082045372.png" alt="enter description here" /></p>
+<p>2.设置共享用户<br />
+<img src="https://picgo-1304919305.cos.ap-guangzhou.myqcloud.com/picGo/202304082046890.png" alt="enter description here" /></p>
+<blockquote>
+<p>好像要求用户wu先是系统用户</p>
+</blockquote>
+<p>3.终端访问</p>
+<p><img src="https://picgo-1304919305.cos.ap-guangzhou.myqcloud.com/picGo/202304082046943.png" alt="enter description here" /></p>
+<p><img src="https://picgo-1304919305.cos.ap-guangzhou.myqcloud.com/picGo/202304082046556.png" alt="enter description here" /></p>
+<blockquote>
+<p>！需填写密码</p>
+</blockquote>
+]]></content>
+      <categories>
+        <category>软件工具</category>
+      </categories>
+      <tags>
+        <tag>Linux</tag>
+        <tag>文件共享</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>linux上wps系统缺失字体</title>
     <url>/2016/06/01/linux%E4%B8%8Awps%E7%B3%BB%E7%BB%9F%E7%BC%BA%E5%A4%B1%E5%AD%97%E4%BD%93/</url>
     <content><![CDATA[<p>在Linux上新安装WPS后，第一次打开就出现以下问题：</p>
@@ -8685,33 +8710,6 @@ Linux上缺少windows字体，把字体添加上去即可。</p>
       <tags>
         <tag>Linux</tag>
         <tag>WPS</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>linux的文件夹共享功能设置</title>
-    <url>/2016/06/01/linux%E7%9A%84%E6%96%87%E4%BB%B6%E5%A4%B9%E5%85%B1%E4%BA%AB%E5%8A%9F%E8%83%BD%E8%AE%BE%E7%BD%AE/</url>
-    <content><![CDATA[<p>本文解释linux系统向其他系统共享文件的流程，并以ipad访问过程演示</p>
-<a id="more"></a>
-<p>1.新建共享文件夹<br />
-<img src="https://picgo-1304919305.cos.ap-guangzhou.myqcloud.com/picGo/202304082045372.png" alt="enter description here" /></p>
-<p>2.设置共享用户<br />
-<img src="https://picgo-1304919305.cos.ap-guangzhou.myqcloud.com/picGo/202304082046890.png" alt="enter description here" /></p>
-<blockquote>
-<p>好像要求用户wu先是系统用户</p>
-</blockquote>
-<p>3.终端访问</p>
-<p><img src="https://picgo-1304919305.cos.ap-guangzhou.myqcloud.com/picGo/202304082046943.png" alt="enter description here" /></p>
-<p><img src="https://picgo-1304919305.cos.ap-guangzhou.myqcloud.com/picGo/202304082046556.png" alt="enter description here" /></p>
-<blockquote>
-<p>！需填写密码</p>
-</blockquote>
-]]></content>
-      <categories>
-        <category>软件工具</category>
-      </categories>
-      <tags>
-        <tag>Linux</tag>
-        <tag>文件共享</tag>
       </tags>
   </entry>
   <entry>
