@@ -198,6 +198,7 @@
         <category>深度学习</category>
       </categories>
       <tags>
+        <tag>深度学习</tag>
         <tag>CNN</tag>
         <tag>结构重参数化</tag>
       </tags>
@@ -843,7 +844,7 @@
 </section>
 ]]></content>
       <categories>
-        <category>编程</category>
+        <category>深度学习</category>
       </categories>
       <tags>
         <tag>深度学习</tag>
@@ -1315,7 +1316,7 @@
 <a href="://blog.csdn.net/leiflyy/article/details/110003671">TensorFlow Serving 使用 及 部署_Eric’s Blog-CSDN博客</a></p>
 ]]></content>
       <categories>
-        <category>编程</category>
+        <category>深度学习</category>
       </categories>
       <tags>
         <tag>深度学习</tag>
@@ -7373,7 +7374,7 @@ Test Score: 46.92  RMSE  #测试数据的均方根误差</p>
 <p>全部代码可以在<a href="https://files.cnblogs.com/files/wushaogui/%E5%9F%BA%E4%BA%8ELSTM%E7%9A%84%E8%88%AA%E7%8F%AD%E4%B9%98%E5%AE%A2%E9%A2%84%E6%B5%8B.zip">这里</a>找到.</p>
 ]]></content>
       <categories>
-        <category>编程</category>
+        <category>深度学习</category>
       </categories>
       <tags>
         <tag>深度学习</tag>
@@ -7724,7 +7725,7 @@ Python版本:Python3</p>
 <a href="http://zh.gluon.ai/chapter_crashcourse/install.html">Gluon动手学深度学习</a></p>
 ]]></content>
       <categories>
-        <category>编程</category>
+        <category>深度学习</category>
       </categories>
       <tags>
         <tag>深度学习</tag>
@@ -7794,7 +7795,7 @@ Python版本:Python3</p>
 <a href="https://blog.csdn.net/roslei/article/details/61912618">推荐给初学LSTM或者懂个大概却不完全懂的人</a></p>
 ]]></content>
       <categories>
-        <category>编程</category>
+        <category>深度学习</category>
       </categories>
       <tags>
         <tag>深度学习</tag>
@@ -7843,7 +7844,7 @@ export PATH=/home/wu/miniconda3/bin:$PATH</p>
 <a href="http://zh.gluon.ai/chapter_crashcourse/install.html">Gluon动手学深度学习</a></p>
 ]]></content>
       <categories>
-        <category>编程</category>
+        <category>深度学习</category>
       </categories>
       <tags>
         <tag>深度学习</tag>
@@ -7877,7 +7878,7 @@ export PATH=/home/wu/miniconda3/bin:$PATH</p>
 </ul>
 ]]></content>
       <categories>
-        <category>编程</category>
+        <category>深度学习</category>
       </categories>
       <tags>
         <tag>深度学习</tag>
@@ -8154,7 +8155,7 @@ ImportError: No module named 'sklearn.lda'
 <a href="https://blog.csdn.net/zhaomengszu/article/details/77834845">大白话讲解BP算法</a></p>
 ]]></content>
       <categories>
-        <category>编程</category>
+        <category>深度学习</category>
       </categories>
       <tags>
         <tag>深度学习</tag>
