@@ -81,7 +81,7 @@
   </entry>
   <entry>
     <title>文本检测之DB、DB++</title>
-    <url>/2023/04/09/%E6%96%87%E6%9C%AC%E6%A3%80%E6%B5%8B%E4%B9%8BDB%E3%80%81DB++/</url>
+    <url>/2023/04/09/%E6%96%87%E6%9C%AC%E6%A3%80%E6%B5%8B%E4%B9%8BDB%E3%80%81DBPlusPlus/</url>
     <content><![CDATA[<p><img src="https://picgo-1304919305.cos.ap-guangzhou.myqcloud.com/picGo/202304091513112.png" alt="" /></p>
 <p>本文介绍两个文本检测模型： DB 及它的升级版本 DB++，主要的原理就是将“二值化”的过程做成网络可学习、可微分的一个模块，然后向网络中插入这个模块自适应去学习二值化阈值，最终预测文字区域的一个核心部分，然后再通过公式放大这个核心部分，得到目标区域</p>
 <a id="more"></a>
