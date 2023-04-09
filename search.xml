@@ -126,11 +126,36 @@
 <li><strong>binary map</strong>：蓝色标注线以内</li>
 </ul>
 <p>总结：以上 3 个标签的值范围</p>
-<p>|                 | 蓝线以内 | 蓝蓝绿之间                     | 其他 |<br />
-| --------------- | -------- | ------------------------------ | ---- |<br />
-| probability map | 1     |  0| 0  |<br />
-| threshold map   | 0.3        | 越靠近红线 0.7，越远离红线 0.3                              | 0.3    |<br />
-| binary map      | 1        | 0                              | 0    |</p>
+<table>
+<thead>
+<tr>
+<th>-</th>
+<th>蓝线以内</th>
+<th>蓝蓝绿之间</th>
+<th>其他</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>probability map</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td>threshold map</td>
+<td>0.3</td>
+<td>越靠近红线 0.7，越远离红线 0.</td>
+<td>0.3</td>
+</tr>
+<tr>
+<td>binary map</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+</tr>
+</tbody>
+</table>
 <p><strong><mark style="background: #FF5582A6;">从上面标签制作可知，DB 没有直接去学习文本的边缘（图红线），而是去学习比文本边缘更小的区域 (图绿线)，我觉得这点是除了&quot;可微二值化模块&quot;外，尤其需要关注的地方。这里说一下自己的理解</mark></strong></p>
 <h1 id="db-为什么不直接学习文本外轮廓而是学习轮廓缩小的轮廓"><a class="markdownIt-Anchor" href="#db-为什么不直接学习文本外轮廓而是学习轮廓缩小的轮廓"></a> DB 为什么不直接学习文本外轮廓，而是学习轮廓缩小的轮廓？</h1>
 <ul>
@@ -655,8 +680,8 @@
         <category>编程</category>
       </categories>
       <tags>
-        <tag>python</tag>
         <tag>打包</tag>
+        <tag>python</tag>
       </tags>
   </entry>
   <entry>
