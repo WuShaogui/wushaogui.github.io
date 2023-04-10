@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://shaogui.life/2023/04/10/SAST%EF%BC%9AA%20Single-Shot%20Arbitrarily-Shaped%20Text%20Detector%20based%20on%20Context%20Attended%20Multi-Task%20Learning/</loc>
+    
+    <lastmod>2023-04-10</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://shaogui.life/2023/04/10/EAST%EF%BC%9AAn%20Efficient%20and%20Accurate%20Scene%20Text%20Detector/</loc>
     
     <lastmod>2023-04-10</lastmod>
@@ -648,6 +655,13 @@
   </url>
   
   <url>
+    <loc>https://shaogui.life/tags/%E6%96%87%E6%9C%AC%E6%A3%80%E6%B5%8B/</loc>
+    <lastmod>2023-04-10</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://shaogui.life/tags/hexo/</loc>
     <lastmod>2023-04-10</lastmod>
     <changefreq>daily</changefreq>
@@ -690,13 +704,6 @@
   </url>
   
   <url>
-    <loc>https://shaogui.life/tags/Mxnet/</loc>
-    <lastmod>2023-04-10</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://shaogui.life/tags/%E5%9B%BE%E8%AE%BA/</loc>
     <lastmod>2023-04-10</lastmod>
     <changefreq>daily</changefreq>
@@ -711,7 +718,7 @@
   </url>
   
   <url>
-    <loc>https://shaogui.life/tags/numpy/</loc>
+    <loc>https://shaogui.life/tags/Mxnet/</loc>
     <lastmod>2023-04-10</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -719,6 +726,13 @@
   
   <url>
     <loc>https://shaogui.life/tags/python/</loc>
+    <lastmod>2023-04-10</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://shaogui.life/tags/numpy/</loc>
     <lastmod>2023-04-10</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -795,6 +809,13 @@
   </url>
   
   <url>
+    <loc>https://shaogui.life/tags/opencv/</loc>
+    <lastmod>2023-04-10</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://shaogui.life/tags/tensorflow/</loc>
     <lastmod>2023-04-10</lastmod>
     <changefreq>daily</changefreq>
@@ -803,13 +824,6 @@
   
   <url>
     <loc>https://shaogui.life/tags/%E6%9C%BA%E5%99%A8%E8%A7%86%E8%A7%89/</loc>
-    <lastmod>2023-04-10</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://shaogui.life/tags/opencv/</loc>
     <lastmod>2023-04-10</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -851,7 +865,7 @@
   </url>
   
   <url>
-    <loc>https://shaogui.life/tags/%E6%96%87%E6%9C%AC%E6%A3%80%E6%B5%8B/</loc>
+    <loc>https://shaogui.life/tags/Firefox/</loc>
     <lastmod>2023-04-10</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -879,20 +893,6 @@
   </url>
   
   <url>
-    <loc>https://shaogui.life/tags/Firefox/</loc>
-    <lastmod>2023-04-10</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://shaogui.life/tags/%E5%91%BD%E5%90%8D/</loc>
-    <lastmod>2023-04-10</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://shaogui.life/tags/%E7%89%88%E6%9C%AC%E7%AE%A1%E7%90%86/</loc>
     <lastmod>2023-04-10</lastmod>
     <changefreq>daily</changefreq>
@@ -901,6 +901,13 @@
   
   <url>
     <loc>https://shaogui.life/tags/git/</loc>
+    <lastmod>2023-04-10</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://shaogui.life/tags/%E5%91%BD%E5%90%8D/</loc>
     <lastmod>2023-04-10</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
