@@ -398,6 +398,38 @@ M834 80h400000v40h-400000z'/></svg></span></span></span><span class="vlist-s">�
       </tags>
   </entry>
   <entry>
+    <title>PSANet：Point-wise Spatial Attention Network for Scene Parsing</title>
+    <url>/2029/04/12/PSANet%EF%BC%9APoint-wise%20Spatial%20Attention%20Network%20for%20Scene%20Parsing/</url>
+    <content><![CDATA[<p>PSA设计出一个双向的空间注意力网络，使得网络比单向空间注意力网络更加有效</p>
+<a id="more"></a>
+<h1 id="什么是-psanet"><a class="markdownIt-Anchor" href="#什么是-psanet"></a> 什么是 PSANet？</h1>
+<ul>
+<li><img src="https://picgo-1304919305.cos.ap-guangzhou.myqcloud.com/picGo/PSANet-20230408143425.png" alt="PSANet-20230408143425" /></li>
+<li>PSANet 认为由于卷积核的物理结构设计，导致 CNN 中的信息流被约束在局部区域中，从而限制了复杂场景的理解</li>
+<li>PSANet 设计了<strong>双向</strong>的信息流传播路径，也就是每个位置都与其他位置相关，同时两个位置能够互相通信，互相影响。其实就是<strong>双向空间注意力</strong>，相比较单向的空间注意力，其特征更加鲁棒</li>
+</ul>
+<h1 id="psanet-的网络结构"><a class="markdownIt-Anchor" href="#psanet-的网络结构"></a> PSANet 的网络结构？</h1>
+<ul>
+<li><img src="https://picgo-1304919305.cos.ap-guangzhou.myqcloud.com/picGo/PSANet-20230408143426.png" alt="PSANet-20230408143426" /></li>
+<li>网络由 collect 和 distribute 两个平行分支构成。在每个分支中，首先应用1×1的卷积来减少输入特征图 X 的通道数 (C1、C2)，以减少计算开销</li>
+</ul>
+<h1 id="psanet-的-collect-分支的数据流"><a class="markdownIt-Anchor" href="#psanet-的-collect-分支的数据流"></a> PSANet 的 collect 分支的数据流？</h1>
+<ul>
+<li><img src="https://picgo-1304919305.cos.ap-guangzhou.myqcloud.com/picGo/PSANet-20230408143427.png" alt="PSANet-20230408143427" /></li>
+<li><strong>collect 分支</strong>：用于收集其他位置对当前点的注意力，但不是为每个位置直接预测一个 HxW 的权重矩阵，而是预测一个 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false">(</mo><mn>2</mn><mi>H</mi><mo>−</mo><mn>1</mn><mo stretchy="false">)</mo><mo>×</mo><mo stretchy="false">(</mo><mn>2</mn><mi>W</mi><mo>−</mo><mn>1</mn><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">(2H-1)\times(2W-1)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord">2</span><span class="mord mathnormal" style="margin-right:0.08125em;">H</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">1</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord">2</span><span class="mord mathnormal" style="margin-right:0.13889em;">W</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">1</span><span class="mclose">)</span></span></span></span> 的矩阵 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>H</mi><mi>c</mi></msup></mrow><annotation encoding="application/x-tex">H^c</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.08125em;">H</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.664392em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">c</span></span></span></span></span></span></span></span></span></span></span>，然后从该矩阵收集其他点对某个点的注意力 (1 x 1xHW)，收集所有点的的注意力构成 collect 分支的注意力矩阵 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>A</mi><mi>c</mi></msup></mrow><annotation encoding="application/x-tex">A^c</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord"><span class="mord mathnormal">A</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.664392em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">c</span></span></span></span></span></span></span></span></span></span></span> (<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>H</mi><mo>×</mo><mi>W</mi><mo>×</mo><mi>H</mi><mi>W</mi></mrow><annotation encoding="application/x-tex">H\times W\times HW</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.76666em;vertical-align:-0.08333em;"></span><span class="mord mathnormal" style="margin-right:0.08125em;">H</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.76666em;vertical-align:-0.08333em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">W</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.08125em;">H</span><span class="mord mathnormal" style="margin-right:0.13889em;">W</span></span></span></span>)，使用该注意力矩阵加权原始特征即可</li>
+<li><strong>distribute 分支</strong>：同 collect 分支构建矩阵 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>H</mi><mi>d</mi></msup></mrow><annotation encoding="application/x-tex">H^d</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.849108em;vertical-align:0em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.08125em;">H</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.849108em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">d</span></span></span></span></span></span></span></span></span></span></span> ，然后从该矩阵某个点到其他点的注意力为 (1 x 1xHW)，收集所有点的的注意力构成 distribute 分支的注意力矩阵 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>A</mi><mi>c</mi></msup></mrow><annotation encoding="application/x-tex">A^c</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord"><span class="mord mathnormal">A</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.664392em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">c</span></span></span></span></span></span></span></span></span></span></span> (<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>H</mi><mo>×</mo><mi>W</mi><mo>×</mo><mi>H</mi><mi>W</mi></mrow><annotation encoding="application/x-tex">H\times W\times HW</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.76666em;vertical-align:-0.08333em;"></span><span class="mord mathnormal" style="margin-right:0.08125em;">H</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.76666em;vertical-align:-0.08333em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">W</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.08125em;">H</span><span class="mord mathnormal" style="margin-right:0.13889em;">W</span></span></span></span>)，使用该注意力矩阵加权原始特征即可</li>
+<li><strong>为什么完整映射是 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false">(</mo><mn>2</mn><mi>H</mi><mo>−</mo><mn>1</mn><mo stretchy="false">)</mo><mo>×</mo><mo stretchy="false">(</mo><mn>2</mn><mi>W</mi><mo>−</mo><mn>1</mn><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">(2H-1)\times(2W-1)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord">2</span><span class="mord mathnormal" style="margin-right:0.08125em;">H</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">1</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord">2</span><span class="mord mathnormal" style="margin-right:0.13889em;">W</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">1</span><span class="mclose">)</span></span></span></span>？</strong> 因为一个矩阵，任意一个点和其他点有双向连接时，那么就有共计 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false">(</mo><mn>2</mn><mi>H</mi><mo>−</mo><mn>1</mn><mo stretchy="false">)</mo><mo>×</mo><mo stretchy="false">(</mo><mn>2</mn><mi>W</mi><mo>−</mo><mn>1</mn><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">(2H-1)\times(2W-1)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord">2</span><span class="mord mathnormal" style="margin-right:0.08125em;">H</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">1</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord">2</span><span class="mord mathnormal" style="margin-right:0.13889em;">W</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">1</span><span class="mclose">)</span></span></span></span> 个边，因为要去掉自己指向自己权重</li>
+</ul>
+]]></content>
+      <categories>
+        <category>深度学习</category>
+      </categories>
+      <tags>
+        <tag>语义分割</tag>
+        <tag>空间注意力</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Segment Anything</title>
     <url>/2023/05/20/Segment%20Anything/</url>
     <content><![CDATA[<p>SAM通过transformer将点、框、Mask、文本等prompt和图片进行编码学习，可以实现对图片任意目标的分割</p>
@@ -2383,6 +2415,86 @@ M834 80h400000v40h-400000z'/></svg></span></span></span><span class="vlist-s">�
       </tags>
   </entry>
   <entry>
+    <title>Segmentation Transformer：Object-Contextual Representations for Semantic Segmentation</title>
+    <url>/2022/01/23/Segmentation%20Transformer%EF%BC%9AObject-Contextual%20Representations%20for%20Semantic%20Segmentation/</url>
+    <content><![CDATA[<p>语义分割是对像素进行分类，而像素的类别标签是由它所在的目标的类别标签决定的，通常的上下文信息是基于像素之间的，OCRNet 根据类别数量，基于&quot;自注意力机制&quot;显式地增强来自同一物体的像素贡献</p>
+<a id="more"></a>
+<h1 id="什么是-ocrnet"><a class="markdownIt-Anchor" href="#什么是-ocrnet"></a> 什么是 OCRNet ？</h1>
+<ul>
+<li><img src="https://picgo-1304919305.cos.ap-guangzhou.myqcloud.com/picGo/OCRNet-20230408143335.png" alt="OCRNet-20230408143335" /></li>
+<li>语义分割是对像素进行分类，而像素的类别标签是由它所在的目标的类别标签决定的，通常的上下文信息是基于像素之间的，能不能利用像素所在目标的类别去构建上下文标签呢？</li>
+<li>OCRNet 根据类别数量，基于&quot;自注意力机制&quot;显式地增强来自同一物体的像素贡献</li>
+</ul>
+<h1 id="ocrnet-的网络结构"><a class="markdownIt-Anchor" href="#ocrnet-的网络结构"></a> OCRNet 的网络结构？</h1>
+<ul>
+<li><img src="https://picgo-1304919305.cos.ap-guangzhou.myqcloud.com/picGo/OCRNet-20230408143336.png" alt="OCRNet-20230408143336" /></li>
+<li><strong>Pixel Representations</strong>：经过 CNN 提取得到的结果，假设输出是 (BxCxHxW)</li>
+<li><strong>软对象区域（Soft Object Regions）</strong>：根据目标的类别数量，使用 1 x 1 卷积调整通道数，假设最后有 17 个类别，则输出 (Bx 17 xHxW)的特征，表示任意像素位置的 17 长度的隐向量。注意：这里有使用 loss 去监督每个像素的类别表示</li>
+<li><strong>对象区域表示（Object Region Representations）</strong>：Pixel Representations 与 Soft Object Regions 的计算结果，即  (Bx 17 xHxW) x (BxCxHxW) =(B, 17, C)，表示 17 个类的 C 长度的特征</li>
+<li><strong>对象上下文表示和增强表示</strong>：首先基于 Soft Object Regions 和 Object Region Representations 求得像素与区域相似度，即给每个像素增加区域上下文，然后和 Pixel Representations 输出 concat 在一起输出</li>
+</ul>
+<h1 id="ocrnet-比较-transformer"><a class="markdownIt-Anchor" href="#ocrnet-比较-transformer"></a> OCRNet 比较 transformer?</h1>
+<ul>
+<li><img src="https://picgo-1304919305.cos.ap-guangzhou.myqcloud.com/picGo/OCRNet-20230408143336-1.png" alt="OCRNet-20230408143336-1" /></li>
+<li><strong>Transformer 输入</strong>：包括2部分，一部分是 image representations 输入 Transformer Encoder 用于增强特征表示，另外一部分是 category queries 输入到 Transformer Decoder 中可以用于编码不同语义类别的上下文信息。在原始 OCRNet 中，我们省略了灰色部分的操作，即 pixel representations 和 region representations 上的 Self-Attention 操作</li>
+<li><strong>类比 OCRNet</strong>：K，V 就是 CNN 输出<strong>Pixel Representations</strong>，Q 就是 Soft Object Regions，首先通过 QK^T 得到 Object Region Representations，也就是注意力矩阵，然后 Object Region Representations 与<strong>Pixel Representations</strong>计算输出，也就是 (QK^T) xV 的过程</li>
+<li>综上可以看出OCRNet方法背后的思想同Transformer的做法有不少共通之处，另外最近也有2篇非常不错的图像语义分割方面工作MaskFormer和K-Net都提出了很有意思的基于Transformer Encoder + Decoder的视角与思路</li>
+</ul>
+<p>参考：</p>
+<ol>
+<li><a href="https://blog.csdn.net/Alvarez/article/details/113744646">【小白入门】超详细的OCRnet详解（含代码分析）_soft object region_Alvarez的博客-CSDN博客</a></li>
+<li><a href="https://blog.csdn.net/weixin_46142822/article/details/123887999">语义分割: 一文读懂 OCRNet_ocr语义分割_大林兄的博客-CSDN博客</a></li>
+<li><a href="https://blog.51cto.com/u_15357586/3790579">【语义分割】——读源码、论文理解OCRNet_51CTO博客_语义分割最新论文</a></li>
+</ol>
+]]></content>
+      <categories>
+        <category>深度学习</category>
+      </categories>
+      <tags>
+        <tag>语义分割</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>OCNet：Object Context Network for Scene Parsing</title>
+    <url>/2022/01/22/OCNet%EF%BC%9AObject%20Context%20Network%20for%20Scene%20Parsing/</url>
+    <content><![CDATA[<p>OCNet设计OCP模块，通过分块设计稀疏的空间注意力，减少构建注意力的性能损耗</p>
+<a id="more"></a>
+<h1 id="什么是-ocnet"><a class="markdownIt-Anchor" href="#什么是-ocnet"></a> 什么是 OCNet？</h1>
+<ul>
+<li><img src="https://picgo-1304919305.cos.ap-guangzhou.myqcloud.com/picGo/OCNet-20230408143327.png" alt="OCNet-20230408143327" /></li>
+<li>OCNet 提出了一个构建稀疏空间注意力的机制 (OCP)，基本原理是对特征采样分组后，构建组内的空间注意力，然后再次分组构建空间注意力，通过两次有重叠分组构建的注意力代表整体空间注意力</li>
+<li>其次，将 OCP 构建注意力的过程加入到 PSPNet 或者 空洞卷积金字塔池化(ASPP)，实现了更高的精度</li>
+</ul>
+<h1 id="ocnet-的网络结构"><a class="markdownIt-Anchor" href="#ocnet-的网络结构"></a> OCNet 的网络结构？</h1>
+<ul>
+<li><img src="https://picgo-1304919305.cos.ap-guangzhou.myqcloud.com/picGo/OCNet-20230408143328.png" alt="OCNet-20230408143328" /></li>
+<li>给定一幅输入图像，采用完全卷积网络 ([[FCN]])提取特征映射，然后在特征映射上使用<strong>目标语义池化机制（OCP）</strong> 输出更新后的特征映射</li>
+<li>在更新后的特征映射图的基础上，采用分类器预测像素级标签映射，并采用双线性插值方法对 label 图进行8倍上采样，最终得到预测结果</li>
+</ul>
+<h1 id="ocnet-的-ocp-中实现稀疏的空间注意力"><a class="markdownIt-Anchor" href="#ocnet-的-ocp-中实现稀疏的空间注意力"></a> OCNet 的 OCP 中实现稀疏的&quot;空间注意力&quot;？</h1>
+<ul>
+<li><img src="https://picgo-1304919305.cos.ap-guangzhou.myqcloud.com/picGo/OCNet-20230408143329.png" alt="" /></li>
+<li>分为两个步骤，一个步骤是构建全局的空间注意力 (Global)，一个是构建局部的空间注意力 (Local)</li>
+<li>Global 注意力：首先对输入 X 进行分组采样，每组之内构建空间注意力，然后合并所有组的结果，得到全局注意力矩阵 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>Z</mi><mi>g</mi></msup></mrow><annotation encoding="application/x-tex">Z^g</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.07153em;">Z</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.664392em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.03588em;">g</span></span></span></span></span></span></span></span></span></span></span></li>
+<li>Local 注意力：对全局注意力矩阵 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>Z</mi><mi>g</mi></msup></mrow><annotation encoding="application/x-tex">Z^g</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.07153em;">Z</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.664392em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.03588em;">g</span></span></span></span></span></span></span></span></span></span></span> 进行分组采样，每组之内构建空间注意力，然后合并所有组的结果，得到全局+局部注意力矩阵 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>Z</mi><mi>l</mi></msup></mrow><annotation encoding="application/x-tex">Z^l</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.849108em;vertical-align:0em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.07153em;">Z</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.849108em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.01968em;">l</span></span></span></span></span></span></span></span></span></span></span></li>
+<li>对于 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>N</mi><mo>×</mo><mi>C</mi></mrow><annotation encoding="application/x-tex">N\times C</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.76666em;vertical-align:-0.08333em;"></span><span class="mord mathnormal" style="margin-right:0.10903em;">N</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.07153em;">C</span></span></span></span> 大小的特征，不是直接计算 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>N</mi><mo>×</mo><mi>N</mi></mrow><annotation encoding="application/x-tex">N\times N</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.76666em;vertical-align:-0.08333em;"></span><span class="mord mathnormal" style="margin-right:0.10903em;">N</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.10903em;">N</span></span></span></span> 大小的注意力矩阵，而是通过 2 次采样构建稀疏的注意力矩阵</li>
+</ul>
+<h1 id="ocnet-的目标语义池化机制"><a class="markdownIt-Anchor" href="#ocnet-的目标语义池化机制"></a> OCNet 的目标语义池化机制？</h1>
+<ul>
+<li><img src="https://picgo-1304919305.cos.ap-guangzhou.myqcloud.com/picGo/OCNet-20230408143331.png" alt="OCNet-20230408143331" /></li>
+<li>本文共设计了三种形式的 object context 模块，第一种是原始 OCP，第二种借鉴了金字塔池化模块 (PSP)，第 3 种借鉴了空洞卷积金字塔模块 (ASPP)。原始 OCP 模块来源于自注意力机制，包括两个主要步骤：目标语义估计和目标语义聚合</li>
+<li><strong>目标语义估计</strong>：首先对 featrue map 进行采样分组，对每组特征构建其注意力矩阵，然后合并分组结果，然后再对结果进行分组，再次构建注意力矩阵，即对于 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>N</mi><mo>×</mo><mi>C</mi></mrow><annotation encoding="application/x-tex">N\times C</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.76666em;vertical-align:-0.08333em;"></span><span class="mord mathnormal" style="margin-right:0.10903em;">N</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.07153em;">C</span></span></span></span> 大小的特征，不是直接计算 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>N</mi><mo>×</mo><mi>N</mi></mrow><annotation encoding="application/x-tex">N\times N</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.76666em;vertical-align:-0.08333em;"></span><span class="mord mathnormal" style="margin-right:0.10903em;">N</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.10903em;">N</span></span></span></span> 大小的注意力矩阵，而是通过 2 次采样构建稀疏的注意力矩阵</li>
+<li><strong>目标语义聚合</strong>：计算过程可以表示为由第一步得到的目标语义图 N×N 和特征图 N×C 矩阵相乘，再 reshape 成 H×W×C</li>
+</ul>
+]]></content>
+      <categories>
+        <category>深度学习</category>
+      </categories>
+      <tags>
+        <tag>语义分割</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>CRNN： An End-to-End Trainable Neural Network for Image-based Sequence Recognition and Its Application to Scene Text Recognition</title>
     <url>/2021/10/20/CRNN%EF%BC%9A%20An%20End-to-End%20Trainable%20Neural%20Network%20for%20Image-based%20Sequence%20Recognition%20and%20Its%20Application%20to%20Scene%20Text%20Recognition/</url>
     <content><![CDATA[<p>传统的文本识别方法需要先对单个文字进行切割，然后再对单个文字进行识别。CRNN直接从整张图出发，将图片特征输入RNN进行序列学习，最后通过CTC计算损失</p>
@@ -2818,6 +2930,181 @@ M834 80h400000v40h-400000z'/></svg></span></span></span><span class="vlist-s">�
 <p>一个耸肩是有助于缓和僵局的。但这还不是我们所处的阶段，我们距离山穷水尽的僵局还为时尚早。然而，我相信我们已经到达了一个反思的转折点，我们可以看到我们为科技进步付出的代价，并开始采取一些行动</p>
 </blockquote>
 ]]></content>
+  </entry>
+  <entry>
+    <title>CPNet：Context Prior for Scene Segmentation</title>
+    <url>/2021/04/02/CPNet%EF%BC%9AContext%20Prior%20for%20Scene%20Segmentation/</url>
+    <content><![CDATA[<p>不像传统的上下文感知模型一样，CPNet对类内上下文、类间上下文加以区分，学习到更加鲁棒的特征</p>
+<a id="more"></a>
+<h1 id="什么是-cpnet"><a class="markdownIt-Anchor" href="#什么是-cpnet"></a> 什么是 CPNet ？</h1>
+<ul>
+<li><img src="https://picgo-1304919305.cos.ap-guangzhou.myqcloud.com/picGo/CPNet-20230408142331.png" alt="CPNet-20230408142331" /></li>
+<li>CPNet 认为目前语义分割聚合上下文有 2 种方式：（1）抓取同质的上下文关系，忽略了不同种类的上下文关系，如 PSPNet, [[DeepLabv1]]/v3/v3+；（2）缺少正则化，注意力机制的关系描述不清晰，选取错误的上下文关系，如 EncNet、DFN、PAN、DANet、OCNet、PSANet</li>
+<li>CPNet 基于此提出区分类内、类间上下文依赖，提出带有亲和损失（Affinity loss）的上下文先验层，选择性地捕获类内和类间的上下文依赖关系，从而实现鲁棒的特征表示</li>
+</ul>
+<h1 id="cpnet-的网络结构"><a class="markdownIt-Anchor" href="#cpnet-的网络结构"></a> CPNet 的网络结构？</h1>
+<ul>
+<li><img src="https://picgo-1304919305.cos.ap-guangzhou.myqcloud.com/picGo/CPNet-20230408142331-1.png" alt="CPNet-20230408142331-1" /></li>
+<li><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>X</mi></mrow><annotation encoding="application/x-tex">X</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.07847em;">X</span></span></span></span>：DCNN 提取的 featrue map</li>
+<li><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mover accent="true"><mi>X</mi><mo>^</mo></mover></mrow><annotation encoding="application/x-tex">\hat X</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.9467699999999999em;vertical-align:0em;"></span><span class="mord accent"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.9467699999999999em;"><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord mathnormal" style="margin-right:0.07847em;">X</span></span><span style="top:-3.25233em;"><span class="pstrut" style="height:3em;"></span><span class="accent-body" style="left:-0.16666em;"><span class="mord">^</span></span></span></span></span></span></span></span></span></span>：经过聚合层 Aggregation 得到的featrue map</li>
+<li><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>P</mi></mrow><annotation encoding="application/x-tex">P</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">P</span></span></span></span>：首先 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mover accent="true"><mi>X</mi><mo>^</mo></mover></mrow><annotation encoding="application/x-tex">\hat X</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.9467699999999999em;vertical-align:0em;"></span><span class="mord accent"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.9467699999999999em;"><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord mathnormal" style="margin-right:0.07847em;">X</span></span><span style="top:-3.25233em;"><span class="pstrut" style="height:3em;"></span><span class="accent-body" style="left:-0.16666em;"><span class="mord">^</span></span></span></span></span></span></span></span></span></span> 经过卷积得到 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>H</mi><mo>∗</mo><mi>W</mi><mo>×</mo><mi>H</mi><mo>×</mo><mi>W</mi></mrow><annotation encoding="application/x-tex">H*W\times H \times W</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.08125em;">H</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">∗</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.76666em;vertical-align:-0.08333em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">W</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.76666em;vertical-align:-0.08333em;"></span><span class="mord mathnormal" style="margin-right:0.08125em;">H</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">W</span></span></span></span> 的矩阵，这个矩阵表示 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mover accent="true"><mi>X</mi><mo>^</mo></mover></mrow><annotation encoding="application/x-tex">\hat X</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.9467699999999999em;vertical-align:0em;"></span><span class="mord accent"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.9467699999999999em;"><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord mathnormal" style="margin-right:0.07847em;">X</span></span><span style="top:-3.25233em;"><span class="pstrut" style="height:3em;"></span><span class="accent-body" style="left:-0.16666em;"><span class="mord">^</span></span></span></span></span></span></span></span></span></span> 任意两个元素之间的关系，reshape 得到矩阵 P (<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>H</mi><mo>∗</mo><mi>W</mi><mo>×</mo><mi>H</mi><mo>∗</mo><mi>W</mi></mrow><annotation encoding="application/x-tex">H*W\times H*W</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.08125em;">H</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">∗</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.76666em;vertical-align:-0.08333em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">W</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.08125em;">H</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">∗</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">W</span></span></span></span>)</li>
+<li><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>A</mi></mrow><annotation encoding="application/x-tex">A</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal">A</span></span></span></span>：gt mask 经过下采样及重构得到的<strong>类内监督信息</strong>，用该信息监督 P，则矩阵 P （<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>H</mi><mo>∗</mo><mi>W</mi><mo>×</mo><mi>H</mi><mo>∗</mo><mi>W</mi></mrow><annotation encoding="application/x-tex">H*W\times H*W</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.08125em;">H</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">∗</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.76666em;vertical-align:-0.08333em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">W</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.08125em;">H</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">∗</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">W</span></span></span></span>）表示的是类内关系，<strong>1-P 则是类间关系</strong></li>
+<li>Concat：原始特征+原始特征与类内关系相乘+原始特征与类间相乘，三部分特征融合后用于后续的像素级分类</li>
+</ul>
+<h1 id="cpnet-的-affinity-loss"><a class="markdownIt-Anchor" href="#cpnet-的-affinity-loss"></a> CPNet 的 Affinity Loss？</h1>
+<ul>
+<li><img src="https://picgo-1304919305.cos.ap-guangzhou.myqcloud.com/picGo/CPNet-20230408142332.png" alt="CPNet-20230408142332" /></li>
+<li>Affinity Loss 用于监督类内关系，上图是基于 gt mask 构建类内关系矩阵的过程，原始 gt mask 是 3x 3 矩阵，则任意两个元素关系表示为 9x 9 的矩阵，9x 9 矩阵的第一个元素是 gt mask <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>x</mi><mrow><mn>0</mn><mo separator="true">,</mo><mn>0</mn></mrow></msub></mrow><annotation encoding="application/x-tex">x_{0,0}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.716668em;vertical-align:-0.286108em;"></span><span class="mord"><span class="mord mathnormal">x</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.301108em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">0</span><span class="mpunct mtight">,</span><span class="mord mtight">0</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.286108em;"><span></span></span></span></span></span></span></span></span></span> 的关系，肯定是同类，填 1；第二位置是 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>x</mi><mrow><mn>0</mn><mo separator="true">,</mo><mn>1</mn></mrow></msub></mrow><annotation encoding="application/x-tex">x_{0,1}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.716668em;vertical-align:-0.286108em;"></span><span class="mord"><span class="mord mathnormal">x</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.301108em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">0</span><span class="mpunct mtight">,</span><span class="mord mtight">1</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.286108em;"><span></span></span></span></span></span></span></span></span></span>，属于不同类，所以填 0，后续依次类推</li>
+</ul>
+<h1 id="cpnet-的聚合模块-aggregation-module"><a class="markdownIt-Anchor" href="#cpnet-的聚合模块-aggregation-module"></a> CPNet 的聚合模块 Aggregation Module？</h1>
+<ul>
+<li><img src="https://picgo-1304919305.cos.ap-guangzhou.myqcloud.com/picGo/CPNet-20230408142333.png" alt="CPNet-20230408142333" /></li>
+<li>利用两个分支的 空间可分离卷积(Spatial Separable Convolutions)的特征聚合层，既降低计算量，又保持感受野</li>
+</ul>
+]]></content>
+      <categories>
+        <category>深度学习</category>
+      </categories>
+      <tags>
+        <tag>语义分割</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>SEAM：Self-supervised Equivariant Attention Mechanism for Weakly Supervised Semantic Segmentation</title>
+    <url>/2021/03/29/SEAM%EF%BC%9ASelf-supervised%20Equivariant%20Attention%20Mechanism%20for%20Weakly%20Supervised%20Semantic%20Segmentation/</url>
+    <content><![CDATA[<p>基于自监督的理念，通过观察发现同一图像经过不同的仿射变换所产生的 CAM 不一致这一特点，利用隐式的等变换约束的方式建立类似<strong>自监督对比学习</strong>的一致性正则化学习机制，减少这种不一致程度来优化 CAM，从而得到高精度的种子区域</p>
+<a id="more"></a>
+<h1 id="什么是-seam"><a class="markdownIt-Anchor" href="#什么是-seam"></a> 什么是 SEAM ？</h1>
+<ul>
+<li><img src="https://picgo-1304919305.cos.ap-guangzhou.myqcloud.com/picGo/SEAM-20230408143553.png" alt="SEAM-20230408143553" /></li>
+<li>引入大火的自监督学习理念，通过观察发现同一图像经过不同的仿射变换所产生的 CAM 不一致这一特点，利用隐式的等变换约束的方式建立类似<strong>自监督对比学习</strong>的一致性正则化学习机制，减少这种不一致程度来优化 CAM，从而得到高精度的种子区域</li>
+<li><strong>通俗理解</strong>：图片 I 直接输入网络 F 得到结果后，然后做仿射变换 A 得到 A (F (I))和先进行仿射变换再输入网络的结果 F (A (I)))应该是比较一致的结果，如果不一样就是神经网络没训练好，通过减少这种不一致，达到训练网络的目的</li>
+<li>上图是不同尺度的图片输入网络，a 是传统的 CAM，它受尺度影响较大，以至于后面已经分不清是目标形状；b 是 SEAM 的结果，可以看出不同尺度下目标依然保持较好的形状，这对分割很友好</li>
+</ul>
+<h1 id="seam-的网络结构"><a class="markdownIt-Anchor" href="#seam-的网络结构"></a> SEAM 的网络结构？</h1>
+<ul>
+<li><img src="https://picgo-1304919305.cos.ap-guangzhou.myqcloud.com/picGo/SEAM-20230408143554.png" alt="SEAM-20230408143554" /></li>
+<li>SEAM 使用<strong>孪生网络</strong>判别先仿射变换和后仿射变换的 CAM 相似程度，通过减少不一致性来训练网络</li>
+</ul>
+<h1 id="seam-的-pcm-模块"><a class="markdownIt-Anchor" href="#seam-的-pcm-模块"></a> SEAM 的 PCM 模块？</h1>
+<ul>
+<li><img src="https://picgo-1304919305.cos.ap-guangzhou.myqcloud.com/picGo/SEAM-20230408143555.png" alt="SEAM-20230408143555" /></li>
+<li>PCM 提出是为了细化 CAM，在 CAM 的基础上增加“自注意力”机制</li>
+<li>PCM 输入是原始特征和原始 CAM，使用原始特征求取自注意力权重，然后用于加权原始 CAM，得到修改后的 CAM</li>
+</ul>
+<h1 id="seam-的损失函数"><a class="markdownIt-Anchor" href="#seam-的损失函数"></a> SEAM 的损失函数？</h1>
+<ul>
+<li>SEAM 的损失分为三部分，其中 cls 分类损失用于大致定位对象，而 ER 损失用于缩小像素级和图像级监控之间的差距。 ECR 损失用于将 PCM 与网络集成在一起，以对各种仿射变换做出一致的预测<p class='katex-block'><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mi mathvariant="script">L</mi><mo>=</mo><msub><mi mathvariant="script">L</mi><mrow><mi>c</mi><mi>l</mi><mi>s</mi></mrow></msub><mo>+</mo><msub><mi mathvariant="script">L</mi><mrow><mi>E</mi><mi>R</mi></mrow></msub><mo>+</mo><msub><mi mathvariant="script">L</mi><mrow><mi>E</mi><mi>C</mi><mi>R</mi></mrow></msub></mrow><annotation encoding="application/x-tex">\mathcal{L}=\mathcal{L}_{cls}+\mathcal{L}_{ER}+\mathcal{L}_{ECR}
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord"><span class="mord mathcal">L</span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.83333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord"><span class="mord mathcal">L</span></span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.33610799999999996em;"><span style="top:-2.5500000000000003em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">c</span><span class="mord mathnormal mtight" style="margin-right:0.01968em;">l</span><span class="mord mathnormal mtight">s</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.83333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord"><span class="mord mathcal">L</span></span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.32833099999999993em;"><span style="top:-2.5500000000000003em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight" style="margin-right:0.05764em;">E</span><span class="mord mathnormal mtight" style="margin-right:0.00773em;">R</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.83333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord"><span class="mord mathcal">L</span></span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.32833099999999993em;"><span style="top:-2.5500000000000003em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight" style="margin-right:0.05764em;">E</span><span class="mord mathnormal mtight" style="margin-right:0.07153em;">C</span><span class="mord mathnormal mtight" style="margin-right:0.00773em;">R</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span></span></p>
+</li>
+<li>类别损失 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>L</mi><mrow><mi>c</mi><mi>l</mi><mi>a</mi></mrow></msub></mrow><annotation encoding="application/x-tex">L_{cla}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.83333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal">L</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.33610799999999996em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">c</span><span class="mord mathnormal mtight" style="margin-right:0.01968em;">l</span><span class="mord mathnormal mtight">a</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>：多标签分类函数multi-label soft margin loss。具体操作就是特征图经过全局平均池化后与分类标签计算损失，这是网络能够完成分类任务以及进行 CAM 操作的基础。也就是这个损失函数是基础损失，与评价两个输入的相似度无关</li>
+<li>相似度损失 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>L</mi><mrow><mi>E</mi><mi>R</mi></mrow></msub></mrow><annotation encoding="application/x-tex">L_{ER}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.83333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal">L</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.32833099999999993em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight" style="margin-right:0.05764em;">E</span><span class="mord mathnormal mtight" style="margin-right:0.00773em;">R</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span> ：一个原图的CAM与仿射变换后图像的CAM之间相似度的指标。评价的标准选用1范数</li>
+<li>相似度损失 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>L</mi><mrow><mi>E</mi><mi>C</mi><mi>R</mi></mrow></msub></mrow><annotation encoding="application/x-tex">L_{ECR}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.83333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal">L</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.32833099999999993em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight" style="margin-right:0.05764em;">E</span><span class="mord mathnormal mtight" style="margin-right:0.07153em;">C</span><span class="mord mathnormal mtight" style="margin-right:0.00773em;">R</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>：1）原图经过 PCM 修正后的的 CAM 与仿射变换后图像的 CAM 的一范数；2）原图的 CAM 与仿射变换后图像经过 PCM 修正后的 CAM 的一范数</li>
+<li><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>L</mi><mrow><mi>c</mi><mi>l</mi><mi>a</mi></mrow></msub></mrow><annotation encoding="application/x-tex">L_{cla}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.83333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal">L</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.33610799999999996em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">c</span><span class="mord mathnormal mtight" style="margin-right:0.01968em;">l</span><span class="mord mathnormal mtight">a</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>、<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>L</mi><mrow><mi>E</mi><mi>R</mi></mrow></msub></mrow><annotation encoding="application/x-tex">L_{ER}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.83333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal">L</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.32833099999999993em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight" style="margin-right:0.05764em;">E</span><span class="mord mathnormal mtight" style="margin-right:0.00773em;">R</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span> 用于监督 CAM 部分网络，<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>L</mi><mrow><mi>E</mi><mi>C</mi><mi>R</mi></mrow></msub></mrow><annotation encoding="application/x-tex">L_{ECR}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.83333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal">L</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.32833099999999993em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight" style="margin-right:0.05764em;">E</span><span class="mord mathnormal mtight" style="margin-right:0.07153em;">C</span><span class="mord mathnormal mtight" style="margin-right:0.00773em;">R</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span> 用于监督 PCM 自注意力网络</li>
+</ul>
+<h1 id="seam-最后输入如何整理两个网络的结果"><a class="markdownIt-Anchor" href="#seam-最后输入如何整理两个网络的结果"></a> SEAM 最后输入如何整理两个网络的结果？</h1>
+<ul>
+<li>孪生网络就一个结构，一套权重，直接输入网络得到两个输出 CAM 和 PCM，直接拿 PCM 输出就是最后的结果</li>
+</ul>
+<h1 id="什么是孪生网络"><a class="markdownIt-Anchor" href="#什么是孪生网络"></a> 什么是孪生网络？</h1>
+<ul>
+<li><img src="https://picgo-1304919305.cos.ap-guangzhou.myqcloud.com/picGo/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5-20230408150427.png" alt="深度学习的基本概念-20230408150427" /></li>
+<li>两个结构一模一样，而且共享权值的网络。它会衡量两个输入的相似程度。孪生神经网络有两个输入（Input1 and Input2）, 将两个输入 feed 进入两个神经网络（Network1 and Network2），这两个神经网络分别将输入映射到新的空间，形成输入在新的空间中的表示。通过 Loss 的计算，<strong>评价两个输入的相似度</strong></li>
+</ul>
+<h1 id="什么是自监督self-supervised-learning"><a class="markdownIt-Anchor" href="#什么是自监督self-supervised-learning"></a> 什么是自监督（Self-supervised learning）？</h1>
+<ul>
+<li>在深度学习模型中，通常会通过 BackBone 提取特征，这些 BackBone 通常使用大量的人工标注数据训练得到，但是人工标注成本很高，能不能在没有标注数据的情况下，训练得到一个预训练模型呢？</li>
+<li><strong>预训练（pre-train）模型：</strong> 自监督学习可以解决这个问题，它的目标是基于无标注的数据，设计辅助任务来<strong>将数据本身的某一部分的信息作为监督信号，从而基于这个监督信号来训练模型</strong></li>
+<li><strong>微调（fine-tuning）：</strong> 去掉 decoder 解码器部分，将 encoder 编码器使用到下游任务，并进行训练的过程</li>
+<li>SEAM、MAE、全卷积掩码自编码器(FCMAE) 都是属于自监督模型</li>
+</ul>
+]]></content>
+      <categories>
+        <category>深度学习</category>
+      </categories>
+      <tags>
+        <tag>语义分割</tag>
+        <tag>自监督</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>HMANet：Hybrid Multiple Attention Network for Semantic Segmentation in Aerial Images</title>
+    <url>/2021/03/28/HMANet%EF%BC%9AHybrid%20Multiple%20Attention%20Network%20for%20Semantic%20Segmentation%20in%20Aerial%20Images/</url>
+    <content><![CDATA[<p>混合多重注意力网络(Hybrid Multiple Attention,HMANet)以更有效，有效的方式从空间，渠道和类别的角度自适应地捕获全局相关性。具体来说，嵌入了类通道注意的类增强注意力（CAA）模块可用于计算基于类别的相关性并重新校准类级信息。此外，引入了一个简单而有效的区域洗牌（RSA）模块，以降低特征冗余，并通过区域表示来提高自我关注机制的效率</p>
+<a id="more"></a>
+<h1 id="什么是-hmanet"><a class="markdownIt-Anchor" href="#什么是-hmanet"></a> 什么是 HMANet ？</h1>
+<ul>
+<li><img src="https://picgo-1304919305.cos.ap-guangzhou.myqcloud.com/picGo/HMANet-20230408143043.png" alt="HMANet-20230408143043" /></li>
+<li>基于 Attention 的方法能够有效捕捉长距离的依赖性, 并进一步重建地貌地图, 以增进代表性</li>
+<li>HMA 除了从空间和 channel 的角度增加注意力，还增加类别注意力，并且提出区域洗牌（RSA）模块，降低特征冗余</li>
+</ul>
+<h1 id="hmanet-的网络结构"><a class="markdownIt-Anchor" href="#hmanet-的网络结构"></a> HMANet 的网络结构？</h1>
+<ul>
+<li><img src="https://picgo-1304919305.cos.ap-guangzhou.myqcloud.com/picGo/HMANet-20230408143043.png" alt="HMANet-20230408143043" /></li>
+<li>网络架构主要由三个注意力模块组成: Class Augmented attention (CAA)模块、Class Channel attention (CCA)模块和 Region Shuffle attention (RSA)模块，其中 CAA 模块和 CCA 模块作为网络的上分支嵌入在一起，生成的类亲和矩阵和类注意图作为输入特征，得到<strong>自适应加权类亲和矩阵</strong>，网络的下分支是 RSA 模块</li>
+<li><strong>CAA 模块</strong>：用于建模降维后特定类别与对应特征之间的依赖关系，即通过矩阵运算提取输入特征的每个通道与每个类别之间的相似关系，它有助于获得对对象类别信息更敏感的细粒度特征表示，增强网络的识别能力</li>
+<li><strong>CCA 模块</strong>：通过类通道加权改进特征重构过程，以更好地进行上下文表示</li>
+<li><strong>RSA 模块</strong>：与计算原始远程像素级别依赖相比，学习基于区域级别的依赖大大减少了计算消耗和内存占用</li>
+</ul>
+<h1 id="hmanet-的类别通道注意力模块-class-channel-attention-cca"><a class="markdownIt-Anchor" href="#hmanet-的类别通道注意力模块-class-channel-attention-cca"></a> HMANet 的类别通道注意力模块 (Class Channel attention, CCA)?</h1>
+<ul>
+<li><img src="https://picgo-1304919305.cos.ap-guangzhou.myqcloud.com/picGo/GSCNN-20230408143105.png" alt="GSCNN-20230408143105" /></li>
+<li>该模块用于生成<strong>类别注意力</strong>，即每个特征 (HW)与每个类别 (N)的关系</li>
+<li>直接对 NxHxW 的 featrue map 进行 softmax 后，得到矩阵 P’即是类别注意力矩阵，该矩阵用于后续和通道注意力相乘得到<strong>通道与类别的关系矩阵 A</strong>，与关系矩阵A相乘得到<strong>自适应加权类亲和矩阵 X’’</strong></li>
+</ul>
+<h1 id="hmanet-的类别增强注意力模块-class-augmented-attentioncaa"><a class="markdownIt-Anchor" href="#hmanet-的类别增强注意力模块-class-augmented-attentioncaa"></a> HMANet 的类别增强注意力模块 (Class Augmented attention,CAA)?</h1>
+<ul>
+<li><img src="https://picgo-1304919305.cos.ap-guangzhou.myqcloud.com/picGo/GSCNN-20230408143105.png" alt="GSCNN-20230408143105" /></li>
+<li>该模块用于生成类别+通道的注意力矩阵，即自适应加权类亲和矩阵X’’</li>
+<li>首先使用类别注意力矩阵 P’去加权 C’xHW，然后通过 softmax 求得每个通道与类别的关系矩阵 A，然后注意力矩阵 P’和关系矩阵 A 相乘，得到自适应加权类亲和矩阵X’’</li>
+</ul>
+<h1 id="hmanet-的区域洗牌-rsa模块"><a class="markdownIt-Anchor" href="#hmanet-的区域洗牌-rsa模块"></a> HMANet 的区域洗牌 (RSA)模块 ?</h1>
+<ul>
+<li><img src="https://picgo-1304919305.cos.ap-guangzhou.myqcloud.com/picGo/HMANet-20230408143127.png" alt="HMANet-20230408143127" /></li>
+<li>原始的空间注意力主要是构建像素级别的注意力，但是会带来计算消耗和内存占用</li>
+<li><strong>未混洗前的区域空间注意力</strong>：首先对输入特征进行分组，然后每组进行全局池化 (GAP)，得到每组的加权值，相比较像素级别的加权，该加权值的数量更少</li>
+<li><strong>混洗后的区域空间注意力</strong>：和上面加权方式一样，只是在加权前先混洗</li>
+</ul>
+]]></content>
+  </entry>
+  <entry>
+    <title>LRNNET：A Light-Weighted Network with Efficient Reduced Non-Local Operation for Real-Time Semantic Segmentation</title>
+    <url>/2021/03/25/LRNNET%EF%BC%9AA%20Light-Weighted%20Network%20with%20Efficient%20Reduced%20Non-Local%20Operation%20for%20Real-Time%20Semantic%20Segmentation/</url>
+    <content><![CDATA[<p>基于LEDNet改进, 使用SVD简化non-local网络, 通过分解因子卷积块（FCB）扩大感受野，通过SVN模块构建稀疏的空间注意力</p>
+<a id="more"></a>
+<h1 id="什么是-lrnnet"><a class="markdownIt-Anchor" href="#什么是-lrnnet"></a> 什么是 LRNNet？</h1>
+<ul>
+<li><img src="https://picgo-1304919305.cos.ap-guangzhou.myqcloud.com/picGo/LRNNet-20230408152301.png" alt="LRNNet-20230408152301" /></li>
+<li>基于 [[LEDNet]] 改进, 使用 SVD 简化 non-local 网络, 通过分解因子卷积块（FCB），扩大感受野</li>
+<li>通过非局部模块（SVN），利用<strong>区域奇异向量</strong>产生更有代表性的特征来建模远程依赖和全局特征选择</li>
+</ul>
+<h1 id="lrnnet-的网络结构"><a class="markdownIt-Anchor" href="#lrnnet-的网络结构"></a> LRNNet 的网络结构？</h1>
+<ul>
+<li><img src="https://picgo-1304919305.cos.ap-guangzhou.myqcloud.com/picGo/LRNNet-20230408152301.png" alt="LRNNet-20230408152301" /></li>
+<li><strong>编码器</strong>：三个阶段的 ResNet 形式组成。编码器环节的核心组件是分解因子卷积 FCB 单元，同时在最后一个下采样单元之后，采用了空洞卷积上输出特征图的分辨率保持在1/8</li>
+<li><strong>解码器</strong>：包含 2 层分支，其中下层分支是输入的残差，上层分支是非局部模块（SVN），它利用区域奇异向量产生更有代表性的特征来建模远程依赖和全局特征选择</li>
+</ul>
+<h1 id="lrnnet-的-fcbfactorized-convolution-block模块"><a class="markdownIt-Anchor" href="#lrnnet-的-fcbfactorized-convolution-block模块"></a> LRNNet 的 FCB（Factorized Convolution Block）模块？</h1>
+<ul>
+<li><img src="https://picgo-1304919305.cos.ap-guangzhou.myqcloud.com/picGo/HMANet-20230408143223.png" alt="HMANet-20230408143223" /></li>
+<li>首先将通道拆分成两组，然后在两组通道中分别用两个一维卷积处理短距离和空间较少的信息特征，这样会大大降低参数和计算量。</li>
+<li>将两个通道合并后，FCB利用2维卷积来扩大感受野捕获远距离特征，并使用深度可分离卷积来减少参数和计算量。最后设置了通道混洗操作</li>
+</ul>
+<h1 id="lrnnet-的-svn-模块"><a class="markdownIt-Anchor" href="#lrnnet-的-svn-模块"></a> LRNNet 的 SVN 模块？</h1>
+<ul>
+<li><img src="https://picgo-1304919305.cos.ap-guangzhou.myqcloud.com/picGo/LRNNet-20230408152259.png" alt="LRNNet-20230408152259" /></li>
+<li><strong>底层分支</strong>：来自输入的残余连接</li>
+<li><strong>上层分支</strong>：是简化非局部操作的瓶颈，将特征图划分为空间子区域。利用区域奇异向量产生更有代表性的特征来建模远程依赖和全局特征选择，<strong>区域优势奇异向量是特征图区域最具代表性的特征向量</strong></li>
+<li><strong>上分支构建稀疏注意力的过程</strong>(1)<strong>计算得到 K、V</strong>： 特征 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>C</mi><mi>H</mi><mi>W</mi></mrow><annotation encoding="application/x-tex">CHW</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.07153em;">C</span><span class="mord mathnormal" style="margin-right:0.08125em;">H</span><span class="mord mathnormal" style="margin-right:0.13889em;">W</span></span></span></span> 通过 1 x 1 卷积将通道调整 C-&gt;C’，然后对 HW 的区域分 S 个子区域，对每个子区域大小为 (C‘, H/S, W/S)，通过迭代算法将所有子区域简化到 (C’, 1)，所有子区域则有 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>C</mi><mo mathvariant="normal" lspace="0em" rspace="0em">′</mo></msup><mo>×</mo><mi>S</mi></mrow><annotation encoding="application/x-tex">C&#x27;\times S</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.835222em;vertical-align:-0.08333em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.07153em;">C</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.751892em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">′</span></span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.05764em;">S</span></span></span></span>，即是 K, V；<strong>(2)计算注意力</strong>：   通过 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>Q</mi><mo>×</mo><msup><mi>K</mi><mi>T</mi></msup></mrow><annotation encoding="application/x-tex">Q\times K^T</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8777699999999999em;vertical-align:-0.19444em;"></span><span class="mord mathnormal">Q</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.8413309999999999em;vertical-align:0em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.07153em;">K</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8413309999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.13889em;">T</span></span></span></span></span></span></span></span></span></span></span> 得到大小为 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>S</mi><mo>×</mo><mi>N</mi></mrow><annotation encoding="application/x-tex">S\times N</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.76666em;vertical-align:-0.08333em;"></span><span class="mord mathnormal" style="margin-right:0.05764em;">S</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.10903em;">N</span></span></span></span> 注意力矩阵，相比较构建 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>N</mi><mo>×</mo><mi>N</mi></mrow><annotation encoding="application/x-tex">N\times N</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.76666em;vertical-align:-0.08333em;"></span><span class="mord mathnormal" style="margin-right:0.10903em;">N</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.10903em;">N</span></span></span></span> 注意力矩阵，这个举证更小，所以其注意力更加稀疏；(3)<strong>加权特征</strong>，注意力矩阵 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>S</mi><mo>×</mo><mi>N</mi></mrow><annotation encoding="application/x-tex">S\times N</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.76666em;vertical-align:-0.08333em;"></span><span class="mord mathnormal" style="margin-right:0.05764em;">S</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.10903em;">N</span></span></span></span> 与 V 点成，得到大小为 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>C</mi><mo mathvariant="normal" lspace="0em" rspace="0em">′</mo></msup><mo>×</mo><mi>N</mi></mrow><annotation encoding="application/x-tex">C&#x27;\times N</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.835222em;vertical-align:-0.08333em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.07153em;">C</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.751892em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">′</span></span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.10903em;">N</span></span></span></span> 的输出，然后通过 1 x 1 卷积得到 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>C</mi><mo>×</mo><mi>N</mi></mrow><annotation encoding="application/x-tex">C\times N</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.76666em;vertical-align:-0.08333em;"></span><span class="mord mathnormal" style="margin-right:0.07153em;">C</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.10903em;">N</span></span></span></span> 的输出，然后和原始特征 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>C</mi><mi>H</mi><mi>W</mi></mrow><annotation encoding="application/x-tex">CHW</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.07153em;">C</span><span class="mord mathnormal" style="margin-right:0.08125em;">H</span><span class="mord mathnormal" style="margin-right:0.13889em;">W</span></span></span></span> 相加</li>
+<li>不考虑 1 x 1 卷积调整通道数，其实就是对空间进行分区域，然后求区域与每个像素的注意力矩阵 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>S</mi><mo>×</mo><mi>N</mi></mrow><annotation encoding="application/x-tex">S\times N</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.76666em;vertical-align:-0.08333em;"></span><span class="mord mathnormal" style="margin-right:0.05764em;">S</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.10903em;">N</span></span></span></span></li>
+</ul>
+]]></content>
+      <categories>
+        <category>深度学习</category>
+      </categories>
+      <tags>
+        <tag>语义分割</tag>
+      </tags>
   </entry>
   <entry>
     <title>在windows上使用nuitka打包Python项目</title>
@@ -7801,6 +8088,89 @@ M834 80h400000v40h-400000z'/></svg></span></span></span><span class="vlist-s">�
       </tags>
   </entry>
   <entry>
+    <title>DANet：Dual Attention Network for Scene Segmentation</title>
+    <url>/2020/03/23/DANet%EF%BC%9ADual%20Attention%20Network%20for%20Scene%20Segmentation/</url>
+    <content><![CDATA[<p>DANet利用自注意力机制自适应地整合局部特征和他们的全局依赖关系，提出了位置注意模块和通道注意模块，分别对空间和通道维度上的语义相互依赖关系进行了建模</p>
+<a id="more"></a>
+<h1 id="什么是-danet"><a class="markdownIt-Anchor" href="#什么是-danet"></a> 什么是 DANet？</h1>
+<ul>
+<li><img src="https://picgo-1304919305.cos.ap-guangzhou.myqcloud.com/picGo/DANet-20230408142340.png" alt="DANet-20230408142340" /></li>
+<li>DANet 利用自注意力机制自适应地整合局部特征和他们的全局依赖关系，提出了位置注意模块和通道注意模块，分别对空间和通道维度上的语义相互依赖关系进行了建模</li>
+</ul>
+<h1 id="danet-的网络结构"><a class="markdownIt-Anchor" href="#danet-的网络结构"></a> DANet 的网络结构？</h1>
+<ul>
+<li><img src="https://picgo-1304919305.cos.ap-guangzhou.myqcloud.com/picGo/DANet-20230408142340-1.png" alt="DANet-20230408142340-1" /></li>
+<li>在传统的扩张 FCN之上附加以下两种注意力</li>
+<li><strong>position attention module</strong>：使用自注意力机制捕获特征图在任意两个位置之间的空间依赖关系，通过加权求和对所有位置的特征进行聚合更新，权重是由对应两个位置的特征相似性决定的</li>
+<li><strong>Channel attention module</strong>：使用自注意力机制来捕获任意两个通道图之间的通道依赖关系，并使用所有通道图的加权，和更新每个通道图</li>
+</ul>
+<h1 id="danet-对位置加权的原理"><a class="markdownIt-Anchor" href="#danet-对位置加权的原理"></a> DANet 对位置加权的原理？</h1>
+<ul>
+<li><strong>关键在于如何在输入 CHW 的数据流上构建出 (HxW) x (HxW)的空间注意力矩阵，一个很快的想法就是 HWC、CHW 两个矩阵的点积</strong> <img src="https://picgo-1304919305.cos.ap-guangzhou.myqcloud.com/picGo/DANet-20230408142341.png" alt="DANet-20230408142341" /></li>
+<li>假设特征图 A 为3x2x2（CxHxW），经过卷积之后得到的 B, C, D reshape 之后为3x4（CxN），N=HxW</li>
+<li>B 经过 reshape（3×2×2—&gt;3×4）, 然后被转置<img src="https://picgo-1304919305.cos.ap-guangzhou.myqcloud.com/picGo/DANet-20230408142342.png" alt="DANet-20230408142342" /></li>
+<li><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msubsup><mi>B</mi><mrow><mi>r</mi><mi>e</mi><mi>s</mi><mi>h</mi><mi>a</mi><mi>p</mi><mi>e</mi></mrow><mi>T</mi></msubsup></mrow><annotation encoding="application/x-tex">B_{reshape}^T</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.2605469999999999em;vertical-align:-0.4192159999999999em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.05017em;">B</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.8413309999999999em;"><span style="top:-2.4168920000000003em;margin-left:-0.05017em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight" style="margin-right:0.02778em;">r</span><span class="mord mathnormal mtight">e</span><span class="mord mathnormal mtight">s</span><span class="mord mathnormal mtight">h</span><span class="mord mathnormal mtight">a</span><span class="mord mathnormal mtight">p</span><span class="mord mathnormal mtight">e</span></span></span></span><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.13889em;">T</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.4192159999999999em;"><span></span></span></span></span></span></span></span></span></span> 与 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>C</mi><mrow><mi>r</mi><mi>e</mi><mi>s</mi><mi>h</mi><mi>a</mi><mi>p</mi><mi>e</mi></mrow></msub></mrow><annotation encoding="application/x-tex">C_{reshape}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.969438em;vertical-align:-0.286108em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.07153em;">C</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3361079999999999em;"><span style="top:-2.5500000000000003em;margin-left:-0.07153em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight" style="margin-right:0.02778em;">r</span><span class="mord mathnormal mtight">e</span><span class="mord mathnormal mtight">s</span><span class="mord mathnormal mtight">h</span><span class="mord mathnormal mtight">a</span><span class="mord mathnormal mtight">p</span><span class="mord mathnormal mtight">e</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.286108em;"><span></span></span></span></span></span></span></span></span></span> 相乘，然后经过 softmax 得到 S（NxN） <img src="https://picgo-1304919305.cos.ap-guangzhou.myqcloud.com/picGo/DANet-20230408142343.png" alt="DANet-20230408142343" /></li>
+<li>特征图 D 经过 reshape 后为 C×N，D 与 S 的转置 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>S</mi><mi>T</mi></msup></mrow><annotation encoding="application/x-tex">S^T</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8413309999999999em;vertical-align:0em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.05764em;">S</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8413309999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.13889em;">T</span></span></span></span></span></span></span></span></span></span></span> 相乘得到 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>D</mi><msup><mi>S</mi><mi>T</mi></msup></mrow><annotation encoding="application/x-tex">DS^T</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8413309999999999em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">D</span><span class="mord"><span class="mord mathnormal" style="margin-right:0.05764em;">S</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8413309999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.13889em;">T</span></span></span></span></span></span></span></span></span></span></span>（得到 C×N 的矩阵） <img src="https://picgo-1304919305.cos.ap-guangzhou.myqcloud.com/picGo/DANet-20230408142343-1.png" alt="DANet-20230408142343-1" /></li>
+<li><strong>总结</strong>：DS 每一行其实是每个通道的加权展开形式：即（1,1）为第一个 channel 中第一个像素与其他像素的空间权重关系；（1,2）为第一个 channel 中第二个像素与其他像素的空间权重关系……（2,1）为第二个 channel 中第一个像素与其他像素的空间权重关系</li>
+<li><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>D</mi><msup><mi>S</mi><mi>T</mi></msup></mrow><annotation encoding="application/x-tex">DS^T</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8413309999999999em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">D</span><span class="mord"><span class="mord mathnormal" style="margin-right:0.05764em;">S</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8413309999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.13889em;">T</span></span></span></span></span></span></span></span></span></span></span>经过reshape为3×2×2（C×H×W）的矩阵之后再与原始的A相加便可得到空间注意力特征图</li>
+</ul>
+<h1 id="danet-对通道加权的原理"><a class="markdownIt-Anchor" href="#danet-对通道加权的原理"></a> DANet 对通道加权的原理？</h1>
+<ul>
+<li><strong>关键在于如何在输入 CHW 的数据流上构建出 C x C 的空间注意力矩阵，一个很快的想法就是 CHW、HWC 两个矩阵的点积</strong> <img src="https://picgo-1304919305.cos.ap-guangzhou.myqcloud.com/picGo/DANet-20230408142344.png" alt="DANet-20230408142344" /></li>
+<li>和[[DANet#^tlzblm|位置加权原理]] 类似，经过一些 reshape、transpose、softmax 之后得到通道特征图 X (CxC) <img src="https://picgo-1304919305.cos.ap-guangzhou.myqcloud.com/picGo/DANet-20230408142344-1.png" alt="DANet-20230408142344-1" /></li>
+<li><strong>总结</strong>：每一个位置是三个channel的加权，此结果reshape成C×H×W后再与原始的A相加，可得到通道注意力特征图</li>
+</ul>
+]]></content>
+      <categories>
+        <category>深度学习</category>
+      </categories>
+      <tags>
+        <tag>语义分割</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>EMANet：Expectation-Maximization Attention Networks for Semantic Segmentation</title>
+    <url>/2020/02/26/EMANet%EF%BC%9AExpectation-Maximization%20Attention%20Networks%20for%20Semantic%20Segmentation/</url>
+    <content><![CDATA[<p>EMANet摒弃了在全图上计算注意力图的流程，转而通过期望最大化（EM）算法迭代出一组紧凑的基，在这组基上运行注意力机制，从而大大降低了复杂度</p>
+<a id="more"></a>
+<h1 id="什么是-emanet"><a class="markdownIt-Anchor" href="#什么是-emanet"></a> 什么是 EMANet?</h1>
+<ul>
+<li><img src="https://picgo-1304919305.cos.ap-guangzhou.myqcloud.com/picGo/EMANet-20230408142938.png" alt="EMANet-20230408142938" /></li>
+<li>提出的期望最大化注意力机制（EMA），摒弃了在全图上计算注意力图的流程，转而通过期望最大化(Expectation-Maximum,EM)迭代出一组紧凑的基，在这组基上运行注意力机制，从而大大降低了复杂度。其中，E 步更新注意力图，M 步更新这组基。E、M 交替执行，收敛之后用来重建特征图</li>
+</ul>
+<h1 id="emanet-的网络结构"><a class="markdownIt-Anchor" href="#emanet-的网络结构"></a> EMANet 的网络结构？</h1>
+<ul>
+<li><img src="https://picgo-1304919305.cos.ap-guangzhou.myqcloud.com/picGo/EMANet-20230408142939.png" alt="EMANet-20230408142939" /></li>
+<li>图片经过 CNN 后，经过 EMA Unit 模块重建特征后，再经过分割部分预测每个像素的类别</li>
+</ul>
+<h1 id="emanet-的期望最大化注意力机制"><a class="markdownIt-Anchor" href="#emanet-的期望最大化注意力机制"></a> EMANet 的期望最大化注意力机制？</h1>
+<ul>
+<li><img src="https://picgo-1304919305.cos.ap-guangzhou.myqcloud.com/picGo/EMANet-20230408142939-1.png" alt="EMANet-20230408142939-1" /></li>
+<li>图中是 EMA 模块，其作用是<strong>对输入 X 进行 EM 优化得到一个低秩的 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mover accent="true"><mi>X</mi><mo stretchy="true">~</mo></mover></mrow><annotation encoding="application/x-tex">\widetilde X</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.94333em;vertical-align:0em;"></span><span class="mord accent"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.94333em;"><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord mathnormal" style="margin-right:0.07847em;">X</span></span><span class="svg-align" style="width:calc(100% - 0.16668em);margin-left:0.16668em;top:-3.6833299999999998em;"><span class="pstrut" style="height:3em;"></span><span style="height:0.26em;"><svg width='100%' height='0.26em' viewBox='0 0 600 260' preserveAspectRatio='none'><path d='M200 55.538c-77 0-168 73.953-177 73.953-3 0-7
+-2.175-9-5.437L2 97c-1-2-2-4-2-6 0-4 2-7 5-9l20-12C116 12 171 0 207 0c86 0
+ 114 68 191 68 78 0 168-68 177-68 4 0 7 2 9 5l12 19c1 2.175 2 4.35 2 6.525 0
+ 4.35-2 7.613-5 9.788l-19 13.05c-92 63.077-116.937 75.308-183 76.128
+-68.267.847-113-73.952-191-73.952z'/></svg></span></span></span></span></span></span></span></span></span>。从图片上来讲低秩的过程类似类似保边滤波，去掉图片上的噪声</strong></li>
+<li>EMA 模块包括 3 个阶段 Am、Ae 和 Ar，其中 Am、Ae 重复 T 次，以更新 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>μ</mi></mrow><annotation encoding="application/x-tex">\mu</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="mord mathnormal">μ</span></span></span></span> 和 Z，最后得到 Ar</li>
+<li>（1）<strong>Am</strong>：初始化 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>μ</mi><mo>∈</mo><msup><mi>R</mi><mrow><mi>K</mi><mo>×</mo><mi>C</mi></mrow></msup></mrow><annotation encoding="application/x-tex">\mu \in R^{K \times C}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7335400000000001em;vertical-align:-0.19444em;"></span><span class="mord mathnormal">μ</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">∈</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.8413309999999999em;vertical-align:0em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.00773em;">R</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8413309999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight" style="margin-right:0.07153em;">K</span><span class="mbin mtight">×</span><span class="mord mathnormal mtight" style="margin-right:0.07153em;">C</span></span></span></span></span></span></span></span></span></span></span></span>，结合输入 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>X</mi><mo>∈</mo><msup><mi>R</mi><mrow><mi>N</mi><mo>×</mo><mi>C</mi></mrow></msup></mrow><annotation encoding="application/x-tex">X \in R^{N\times C}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.72243em;vertical-align:-0.0391em;"></span><span class="mord mathnormal" style="margin-right:0.07847em;">X</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">∈</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.8413309999999999em;vertical-align:0em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.00773em;">R</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8413309999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight" style="margin-right:0.10903em;">N</span><span class="mbin mtight">×</span><span class="mord mathnormal mtight" style="margin-right:0.07153em;">C</span></span></span></span></span></span></span></span></span></span></span></span> 得到 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>Z</mi><mo>∈</mo><msup><mi>R</mi><mrow><mi>N</mi><mo>×</mo><mi>K</mi></mrow></msup></mrow><annotation encoding="application/x-tex">Z\in R^{N \times K}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.72243em;vertical-align:-0.0391em;"></span><span class="mord mathnormal" style="margin-right:0.07153em;">Z</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">∈</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.8413309999999999em;vertical-align:0em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.00773em;">R</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8413309999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight" style="margin-right:0.10903em;">N</span><span class="mbin mtight">×</span><span class="mord mathnormal mtight" style="margin-right:0.07153em;">K</span></span></span></span></span></span></span></span></span></span></span></span>，即 3+5-&gt;4 $${\bf Z}=s o f t m a x\left(\lambda{\bf X}\left(\mu^{T}\right)\right)$$</li>
+<li>（2）<strong>Ae</strong>：根据 Z 和 X 更新 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>μ</mi></mrow><annotation encoding="application/x-tex">\mu</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="mord mathnormal">μ</span></span></span></span>，以下是更新第 k 个 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>μ</mi></mrow><annotation encoding="application/x-tex">\mu</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="mord mathnormal">μ</span></span></span></span> 的过程，即 1+6-&gt;2 $$\mu_{k}={\frac{\sum_{n=1}^{N}z_{n k}{\bf x}<em>{n}}{\sum</em>{n=1}^{N}z_{n k}}} $$</li>
+<li>（3）<strong>Ar</strong>：X 的重新表达 $${\widetilde{X}}=\mathbf{Z}\mu $$</li>
+</ul>
+<h1 id="emanet-的期望最大化注意力机制和全图建立注意力的区别"><a class="markdownIt-Anchor" href="#emanet-的期望最大化注意力机制和全图建立注意力的区别"></a> EMANet 的期望最大化注意力机制和全图建立注意力的区别？</h1>
+<ul>
+<li>已知期望最大化注意力机制的更新机制如下，其构建注意力的过程在于学到 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>μ</mi></mrow><annotation encoding="application/x-tex">\mu</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="mord mathnormal">μ</span></span></span></span>，而<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>μ</mi><mo>∈</mo><msup><mi>R</mi><mrow><mi>K</mi><mo>×</mo><mi>C</mi></mrow></msup></mrow><annotation encoding="application/x-tex">\mu \in R^{K \times C}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7335400000000001em;vertical-align:-0.19444em;"></span><span class="mord mathnormal">μ</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">∈</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.8413309999999999em;vertical-align:0em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.00773em;">R</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8413309999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight" style="margin-right:0.07153em;">K</span><span class="mbin mtight">×</span><span class="mord mathnormal mtight" style="margin-right:0.07153em;">C</span></span></span></span></span></span></span></span></span></span></span></span>：$${\widetilde{X}}=\mathbf{Z}\mu=s o f t m a x\left (\lambda{\bf X}\left (\mu^{T}\right)\right)\times \mu $$</li>
+<li>对一张大小为 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>H</mi><mo>×</mo><mi>W</mi><mo>×</mo><mi>C</mi></mrow><annotation encoding="application/x-tex">H\times W\times C</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.76666em;vertical-align:-0.08333em;"></span><span class="mord mathnormal" style="margin-right:0.08125em;">H</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.76666em;vertical-align:-0.08333em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">W</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.07153em;">C</span></span></span></span> 的图构建全图注意力，需要构建大小为 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>H</mi><mi>W</mi><mo>×</mo><mi>H</mi><mi>W</mi></mrow><annotation encoding="application/x-tex">HW\times HW</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.76666em;vertical-align:-0.08333em;"></span><span class="mord mathnormal" style="margin-right:0.08125em;">H</span><span class="mord mathnormal" style="margin-right:0.13889em;">W</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.08125em;">H</span><span class="mord mathnormal" style="margin-right:0.13889em;">W</span></span></span></span> 的亲和力矩阵，相比较 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>K</mi><mo>×</mo><mi>C</mi></mrow><annotation encoding="application/x-tex">K\times C</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.76666em;vertical-align:-0.08333em;"></span><span class="mord mathnormal" style="margin-right:0.07153em;">K</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.07153em;">C</span></span></span></span>，全图注意力的矩阵很大</li>
+</ul>
+]]></content>
+      <categories>
+        <category>深度学习</category>
+      </categories>
+      <tags>
+        <tag>语义分割</tag>
+        <tag>注意力</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>书摘：《少有人走的路2》-[美]m·斯科特·派克(m.scottPeck)</title>
     <url>/2020/01/11/%E4%B9%A6%E6%91%98_%E5%B0%91%E6%9C%89%E4%BA%BA%E8%B5%B0%E7%9A%84%E8%B7%AF2-%5B%E7%BE%8E%5Dm%C2%B7%E6%96%AF%E7%A7%91%E7%89%B9%C2%B7%E6%B4%BE%E5%85%8B(m.scottPeck).hexo/</url>
     <content><![CDATA[<div class="douban-card-block">
@@ -8150,6 +8520,109 @@ F 持证人为女性（Feminino）</p>
       </tags>
   </entry>
   <entry>
+    <title>CCNet：Criss-Cross Attention for Semantic Segmentation</title>
+    <url>/2019/05/26/CCNet%EF%BC%9ACriss-Cross%20Attention%20for%20Semantic%20Segmentation/</url>
+    <content><![CDATA[<p>对于每个位置的空间注意力，Non-local 建立的是所有点与其的注意力，而 CCNet 仅建立与其十字架内点的注意力，可以大幅点降低构建注意力的成本，并通过堆叠 2 个交叉注意力模块，实现双向空间注意力</p>
+<a id="more"></a>
+<h1 id="什么是-ccnet"><a class="markdownIt-Anchor" href="#什么是-ccnet"></a> 什么是 CCNet？</h1>
+<ul>
+<li><img src="https://picgo-1304919305.cos.ap-guangzhou.myqcloud.com/picGo/CCNet-20230408142244.png" alt="CCNet-20230408142244" /></li>
+<li>CCNet 设计<strong>criss-cross attention</strong>(CCA)模块获取交叉路径上其周围像素的上下文信息。通过采取进一步的循环操作，每个像素最终可以捕获所有像素的远程依赖关系</li>
+<li>与non-local相比，recurrent CCA模块所需的GPU内存使用量减少且计算效率提高</li>
+</ul>
+<h1 id="ccnet-的网络结构"><a class="markdownIt-Anchor" href="#ccnet-的网络结构"></a> CCNet 的网络结构？</h1>
+<ul>
+<li><img src="https://picgo-1304919305.cos.ap-guangzhou.myqcloud.com/picGo/CCNet-20230408142244.png" alt="CCNet-20230408142244" /></li>
+<li><strong>BackBone</strong>：输入图像经过深度卷积神经网络（DCNN），该深度卷积神经网络是全卷积网络，然后生成特征图 X</li>
+<li><strong>CCA 注意力模块</strong>：将降维后的特征图 H 送入 CCA 模块，生成的新特征图 H’，仅在水平和垂直方向上聚合上下文信息。为了获取更丰富和更密集的上下文信息，将特征图 H’再次输入到 CCA 模块中，这样得到的特征图 H’'中的每个位置就收集了所有像素的信息</li>
+<li><strong>分割</strong>：将密集的上下文特征 H’'和局部表示特征 X 连接起来，将融合的特征图送入分割网络层</li>
+</ul>
+<h1 id="ccnet-的交叉注意力模块"><a class="markdownIt-Anchor" href="#ccnet-的交叉注意力模块"></a> CCNet 的交叉注意力模块?</h1>
+<ul>
+<li><img src="https://picgo-1304919305.cos.ap-guangzhou.myqcloud.com/picGo/BiSeNetv3-20230408142304.png" alt="BiSeNetv3-20230408142304" /></li>
+<li><strong>产生关联矩阵 A</strong>：输入 H 为 CxWxH，通过 1 x 1 卷积得到 C’xWxH (C’设置为 C 的 1/8)  Q 和 K，用 Q 和 K 生成 (H+W-1) xWxH 的 A 。具体地，提取 Q 的某一像素位置1 xC’的值，然后提取 K 上十字位置的特征向量，则其大小为 (H+W-1) xC’，进行 affinity 操作得到 (H+W-1) xWxH，再对 (H+W-1) 维度进行 softmax 操作，得到 A (H+W-1) xWxH</li>
+<li><strong>聚合特征 aggregation</strong>：将 CxWxH 大小的 V 取<strong>十字特征向量与 A 特征图进行对应元素按位相乘</strong>，得到 H’ (CxWxH)，这里是利用前一步学习到的十字权重，对十字权重位置的值进行加权处理</li>
+<li><strong>为什么需要重复执行两次 CCA？</strong> Loop 1是十字计算权重，所以深绿和深蓝位置并没有关联；但是经过 loop 2，浅绿位置已经有了深绿和深蓝位置的上下文信息，就可以将深蓝和深绿位置关联起来，两次 CCA 任意一个位置都可以感知矩阵所有位置的信息<img src="https://picgo-1304919305.cos.ap-guangzhou.myqcloud.com/picGo/BiSeNetv3-20230408142305.png" alt="BiSeNetv3-20230408142305" /></li>
+</ul>
+<h1 id="ccnet-的注意力模块和-non-local-注意力模块差异"><a class="markdownIt-Anchor" href="#ccnet-的注意力模块和-non-local-注意力模块差异"></a> CCNet 的注意力模块和 Non-local 注意力模块差异？</h1>
+<ul>
+<li><img src="https://picgo-1304919305.cos.ap-guangzhou.myqcloud.com/picGo/BiSeNetv3-20230408142305-1.png" alt="BiSeNetv3-20230408142305-1" /></li>
+<li><strong>Non-local 模块</strong>：每个位置都会生成密集的注意力图，该图的权重为 H×W（绿色）</li>
+<li><strong>criss-cross 模块</strong>：每个位置会生成一个稀疏的注意图，该图仅具有 H+W-1个权重。循环操作后，最终输出特征图中的每个位置（例如红色）都可以捕获所有像素的远程依赖关系</li>
+<li>与non-local相比，recurrent CCA模块所需的GPU内存使用量减少且计算效率提高</li>
+</ul>
+]]></content>
+      <categories>
+        <category>深度学习</category>
+      </categories>
+      <tags>
+        <tag>语义分割</tag>
+        <tag>注意力</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Non-local Neural Networks</title>
+    <url>/2019/05/20/Non-local%20Neural%20Networks/</url>
+    <content><![CDATA[<p>受到计算机视觉的Non-local means(NLM)的影响，Non-local 提出Non-local operations，用于捕获长距离的关系，提升了语义分割的效果</p>
+<a id="more"></a>
+<h1 id="什么是-non-local-operations"><a class="markdownIt-Anchor" href="#什么是-non-local-operations"></a> 什么是 Non-local operations？</h1>
+<ul>
+<li><img src="https://picgo-1304919305.cos.ap-guangzhou.myqcloud.com/picGo/Non-local-20230408143233.png" alt="Non-local-20230408143233" /></li>
+<li>CNN、RNN 都是对局部区域的操作，就是 local operations；受到计算机视觉的 [[…/C04-OpenCV/OpenCV官方指南/图像平滑(滤波)#^1ni6g8|Non-local means(NLM)]] 的影响，Non-local 提出 <strong>Non-local operations</strong>，用于捕获长距离的关系，如：像素与像素之间的关系、视频帧之间的关系、NLP 的字词之间的关系</li>
+<li><strong>Non-local operations 的定义</strong>：以下 x 是输入信号；i 代表的是输出位置，如空间、时间或者时空的索引，他的响应应该对 j 进行枚举然后计算得到的；<strong>f 函数</strong>计算 i 和 j 的相似度；<strong>g 函数</strong>计算 feature map 在 j 位置的表示；最终的 y 是通过响应因子 C (x) 进行标准化处理以后得到的 $$y_{i}=\frac{1}{C(x)} \sum_{\forall j} f\left(x_{i}, x_{j}\right) g\left(x_{j}\right)$$</li>
+</ul>
+<h1 id="non-local-operations-的-f-函数"><a class="markdownIt-Anchor" href="#non-local-operations-的-f-函数"></a> Non-local operations 的 f 函数？</h1>
+<ul>
+<li>一个用于计算 i 和 j 相似度的函数，作者提出了四个具体的函数可以用作 f 函数</li>
+<li><strong>Gaussian function</strong>：<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>e</mi><mrow><msubsup><mi>x</mi><mi>i</mi><mi>T</mi></msubsup><msub><mi>x</mi><mi>j</mi></msub></mrow></msup></mrow><annotation encoding="application/x-tex">e^{x_{i}^{T} x_{j}}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.006365em;vertical-align:0em;"></span><span class="mord"><span class="mord mathnormal">e</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:1.006365em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight"><span class="mord mathnormal mtight">x</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.9190928571428572em;"><span style="top:-2.214em;margin-left:0em;margin-right:0.07142857142857144em;"><span class="pstrut" style="height:2.5em;"></span><span class="sizing reset-size3 size1 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">i</span></span></span></span><span style="top:-2.931em;margin-right:0.07142857142857144em;"><span class="pstrut" style="height:2.5em;"></span><span class="sizing reset-size3 size1 mtight"><span class="mord mtight"><span class="mord mathnormal mtight" style="margin-right:0.13889em;">T</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.286em;"><span></span></span></span></span></span></span><span class="mord mtight"><span class="mord mathnormal mtight">x</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3280857142857143em;"><span style="top:-2.357em;margin-left:0em;margin-right:0.07142857142857144em;"><span class="pstrut" style="height:2.5em;"></span><span class="sizing reset-size3 size1 mtight"><span class="mord mtight"><span class="mord mathnormal mtight" style="margin-right:0.05724em;">j</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.2818857142857143em;"><span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span> 使用一个点乘来计算相似度，配合归一化，公式类似 softmax 的过程 $$\begin{array}{c}f\left(x_{i}, x_{j}\right)=e<sup>{x_{i}</sup>{T} x_{j}} \C(x)=\sum_{\forall j} f\left(x_{i}, x_{j}\right)\end{array}$$</li>
+<li><strong>Embedded Gaussian</strong>：基于上面的变换，现将 xi, xj 编码到一个空间再计算相似度 $$\begin{array}{l}f\left(x_{i}, x_{j}\right)=e<sup>{\theta\left(x_{i}\right)</sup>{T} \phi\left(x_{j}\right)} \C(x)=\sum_{\forall j} f\left(x_{i}, x_{j}\right)\end{array}$$</li>
+<li><strong>Dot product</strong>：$$\begin{array}{c}f\left(x_{i}, x_{j}\right)=\theta\left(x_{i}\right)^{T} \phi\left(x_{j}\right) \C(x)=N\end{array}$$</li>
+<li><strong>Concatenation</strong>：$$\begin{array}{c}f\left(x_{i}, x_{j}\right)=RELU(w_f^T.[\theta\left(x_i\right)\phi\left(x_{j}\right)] \C(x)=N\end{array}$$</li>
+</ul>
+<h1 id="non-local-operations-的-g-函数"><a class="markdownIt-Anchor" href="#non-local-operations-的-g-函数"></a> Non-local operations 的 g 函数？</h1>
+<ul>
+<li>可以看做一个线性转化（Linear Embedding），可以通过空间上的1×1卷积实现，公式如下，其中 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>W</mi><mi>g</mi></msub></mrow><annotation encoding="application/x-tex">W_g</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.969438em;vertical-align:-0.286108em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">W</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.15139200000000003em;"><span style="top:-2.5500000000000003em;margin-left:-0.13889em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.03588em;">g</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.286108em;"><span></span></span></span></span></span></span></span></span></span> 是需要学习的权重矩阵 $$g(x_j)=W_gx_j$$</li>
+<li>这个相当于计算得到每个待加注意力位置中间变量表示，后续注意力矩阵乘这个中间变量表示，得到加注意力的结果</li>
+</ul>
+<hr />
+<h1 id="什么是-non-local"><a class="markdownIt-Anchor" href="#什么是-non-local"></a> 什么是 Non-local?</h1>
+<ul>
+<li><img src="https://picgo-1304919305.cos.ap-guangzhou.myqcloud.com/picGo/Non-local-20230408143234.png" alt="Non-local-20230408143234" /></li>
+<li><strong>非局部神经网络模型</strong>（Non-local）用于有效捕捉序列中各个元素间的依赖关系。在这里，所谓的序列可以是单幅图像的不同位置（即空间序列），也可以是视频中的不同帧（即时间序列），还可以是视频中不同帧的不同位置（即时空序列）</li>
+<li>Non-local 网络更像是一个通用的“积木”，可以将其嵌入到任意具体视觉任务模型中的任意位置，可谓“即插即用”</li>
+</ul>
+<h1 id="non-local-的自注意力结构设计"><a class="markdownIt-Anchor" href="#non-local-的自注意力结构设计"></a> Non-local 的自注意力结构设计？</h1>
+<ul>
+<li><img src="https://picgo-1304919305.cos.ap-guangzhou.myqcloud.com/picGo/Non-local-20230408143235.png" alt="Non-local-20230408143235" /></li>
+<li>上图是 Non-local 选择<strong>Embedded Gaussian</strong>作为 f 函数设计的 Non-local block，模块最终输出是 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi mathvariant="bold">z</mi><mi>i</mi></msub><mo>=</mo><msub><mi>W</mi><mi>z</mi></msub><msub><mi mathvariant="bold">y</mi><mi>i</mi></msub><mo>+</mo><msub><mi mathvariant="bold">x</mi><mi>i</mi></msub></mrow><annotation encoding="application/x-tex">\mathbf{z}_i=W_z\mathbf{y}_i+\mathbf{x}_i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.59444em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord"><span class="mord mathbf">z</span></span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.8777699999999999em;vertical-align:-0.19444em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">W</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.151392em;"><span style="top:-2.5500000000000003em;margin-left:-0.13889em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.04398em;">z</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mord"><span class="mord"><span class="mord mathbf" style="margin-right:0.01597em;">y</span></span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.59444em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord"><span class="mord mathbf">x</span></span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>，其中 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>W</mi><mi>z</mi></msub><mo separator="true">,</mo><msub><mi>y</mi><mi>i</mi></msub></mrow><annotation encoding="application/x-tex">W_z,y_i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8777699999999999em;vertical-align:-0.19444em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">W</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.151392em;"><span style="top:-2.5500000000000003em;margin-left:-0.13889em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.04398em;">z</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.03588em;">y</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:-0.03588em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span> 是 f 函数和 g 函数计算得到，<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>x</mi><mi>i</mi></msub></mrow><annotation encoding="application/x-tex">x_i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.58056em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal">x</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span> 是原始输入</li>
+<li>(1)输入 X 先被编码到 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>T</mi><mo>×</mo><mi>H</mi><mo>×</mo><mi>W</mi><mo>×</mo><mn>512</mn></mrow><annotation encoding="application/x-tex">T\times H\times W\times 512</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.76666em;vertical-align:-0.08333em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">T</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.76666em;vertical-align:-0.08333em;"></span><span class="mord mathnormal" style="margin-right:0.08125em;">H</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.76666em;vertical-align:-0.08333em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">W</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">5</span><span class="mord">1</span><span class="mord">2</span></span></span></span> 空间，然后再经过 reshape，dot-product，经过 softmax 归一化得到 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo stretchy="false">(</mo><msub><mi>x</mi><mi>i</mi></msub><mo separator="true">,</mo><msub><mi>x</mi><mi>j</mi></msub><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">f(x_i,x_j)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.036108em;vertical-align:-0.286108em;"></span><span class="mord mathnormal" style="margin-right:0.10764em;">f</span><span class="mopen">(</span><span class="mord"><span class="mord mathnormal">x</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord"><span class="mord mathnormal">x</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.311664em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.05724em;">j</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.286108em;"><span></span></span></span></span></span></span><span class="mclose">)</span></span></span></span></li>
+<li>(2) x 经过 1 x 1 卷积得到 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>T</mi><mo>×</mo><mi>H</mi><mo>×</mo><mi>W</mi><mo>×</mo><mn>512</mn></mrow><annotation encoding="application/x-tex">T\times H\times W\times 512</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.76666em;vertical-align:-0.08333em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">T</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.76666em;vertical-align:-0.08333em;"></span><span class="mord mathnormal" style="margin-right:0.08125em;">H</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.76666em;vertical-align:-0.08333em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">W</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">5</span><span class="mord">1</span><span class="mord">2</span></span></span></span> ,reshape 后得到 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>g</mi><mo stretchy="false">(</mo><msub><mi>x</mi><mi>j</mi></msub><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">g(x_j)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.036108em;vertical-align:-0.286108em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">g</span><span class="mopen">(</span><span class="mord"><span class="mord mathnormal">x</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.311664em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.05724em;">j</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.286108em;"><span></span></span></span></span></span></span><span class="mclose">)</span></span></span></span></li>
+<li>(3) <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo stretchy="false">(</mo><msub><mi>x</mi><mi>i</mi></msub><mo separator="true">,</mo><msub><mi>x</mi><mi>j</mi></msub><mo stretchy="false">)</mo><mo>×</mo><mi>g</mi><mo stretchy="false">(</mo><msub><mi>x</mi><mi>j</mi></msub><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">f (x_i, x_j) \times g(x_j)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.036108em;vertical-align:-0.286108em;"></span><span class="mord mathnormal" style="margin-right:0.10764em;">f</span><span class="mopen">(</span><span class="mord"><span class="mord mathnormal">x</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord"><span class="mord mathnormal">x</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.311664em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.05724em;">j</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.286108em;"><span></span></span></span></span></span></span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1.036108em;vertical-align:-0.286108em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">g</span><span class="mopen">(</span><span class="mord"><span class="mord mathnormal">x</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.311664em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.05724em;">j</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.286108em;"><span></span></span></span></span></span></span><span class="mclose">)</span></span></span></span> 得到注意力值，经过 1 x 1 卷积调整通道后和 x 相加</li>
+</ul>
+<h1 id="non-local-在什么实体之间构建注意力"><a class="markdownIt-Anchor" href="#non-local-在什么实体之间构建注意力"></a> Non-local 在什么实体之间构建注意力？</h1>
+<ul>
+<li><img src="https://picgo-1304919305.cos.ap-guangzhou.myqcloud.com/picGo/Drawing%202023-03-18%2010.43.06.excalidraw.svg" alt="Drawing 2023-03-18 10.43.06.excalidraw" /></li>
+<li>注意力矩阵 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>T</mi><mi>H</mi><mi>W</mi><mo>×</mo><mi>T</mi><mi>H</mi><mi>W</mi></mrow><annotation encoding="application/x-tex">THW\times THW</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.76666em;vertical-align:-0.08333em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">T</span><span class="mord mathnormal" style="margin-right:0.08125em;">H</span><span class="mord mathnormal" style="margin-right:0.13889em;">W</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">T</span><span class="mord mathnormal" style="margin-right:0.08125em;">H</span><span class="mord mathnormal" style="margin-right:0.13889em;">W</span></span></span></span>，表示 T 个样例，高宽为 HW 的矩阵，<strong>对于一个位置的注意力，是只由单个样例内的所有位置计算，还是所有样例的所有位置参与了?</strong></li>
+<li>经过是证明，这种空间注意力不仅仅是一个样例参与，而是所有样例都参与，实际上可以忽略样例，假设 THW=18，那么就是 18 个特征点之间构建注意力矩阵 (18,18)，不管这 18 个特征点是来自哪些样例，来自哪个位置，都参与了注意力矩阵的构建</li>
+<li>所以总结可以，注意力空间在一个视频帧内、多个视频帧之间构建，其构建过程针对特征点，而不是样例</li>
+</ul>
+<h1 id="什么是-non-local-means-nlm"><a class="markdownIt-Anchor" href="#什么是-non-local-means-nlm"></a> 什么是 Non-local means (NLM)？</h1>
+<ul>
+<li><img src="https://picgo-1304919305.cos.ap-guangzhou.myqcloud.com/picGo/%E5%9B%BE%E5%83%8F%E5%B9%B3%E6%BB%91(%E6%BB%A4%E6%B3%A2)-20230408154020.png" alt="图像平滑(滤波)-20230408154020" /></li>
+<li><strong>局部降噪算法</strong>：均值滤波、中值滤波等，都是使用一个固定的 Kernel 对图像进行一个滤波操作。这种算法被称之为局部算法。<strong>“局部均值”滤波器采用目标像素周围的一组像素的平均值来平滑图像</strong></li>
+<li><strong>NLM</strong>：图像去噪的一种算法。与“局部均值”滤波器不同，<strong>非局部均值过滤采用图像中所有像素的平均值，并根据这些像素与目标像素的相似程度进行加权</strong>。与局部均值算法相比，这导致滤波后清晰度更高，图像中的细节损失更少</li>
+<li><strong>NLM 的实现</strong>：通过在图像块中进行搜索，通过计算滑动窗口与指定窗口的欧氏距离，从而它们之间的相似程度，从而确定加权平均的值，进行滤波操作，其中 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>W</mi><mo stretchy="false">(</mo><mi>i</mi><mo separator="true">,</mo><mi>j</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">W(i,j)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">W</span><span class="mopen">(</span><span class="mord mathnormal">i</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathnormal" style="margin-right:0.05724em;">j</span><span class="mclose">)</span></span></span></span> 表示加权平均的 kernel 值，由两个块之间的相似度决定； Opencv 使用 cv: : fastNlMeansDenoisingColored可快速执行NLM $$NL<a href="i">v</a>=\sum\limits_{j\in I}w(i,j)v(j),$$</li>
+</ul>
+]]></content>
+      <categories>
+        <category>深度学习</category>
+      </categories>
+      <tags>
+        <tag>语义分割</tag>
+        <tag>自注意力</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>书摘：《少有人走的路》-[美]M·斯科特·派克</title>
     <url>/2019/04/21/%E4%B9%A6%E6%91%98_%E5%B0%91%E6%9C%89%E4%BA%BA%E8%B5%B0%E7%9A%84%E8%B7%AF-%5B%E7%BE%8E%5DM%C2%B7%E6%96%AF%E7%A7%91%E7%89%B9%C2%B7%E6%B4%BE%E5%85%8B.hexo/</url>
     <content><![CDATA[<div class="douban-card-block">
@@ -8458,6 +8931,32 @@ F 持证人为女性（Feminino）</p>
       </categories>
       <tags>
         <tag>读书</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Unet++：A Nested U-Net Architecture for Medical Image Segmentation</title>
+    <url>/2019/04/13/Unet++%EF%BC%9AA%20Nested%20U-Net%20Architecture%20for%20Medical%20Image%20Segmentation/</url>
+    <content><![CDATA[<p>在 Unet 的基础上结合 DenseNet 的思想设计的语义分割网络</p>
+<a id="more"></a>
+<h1 id="什么是-unet"><a class="markdownIt-Anchor" href="#什么是-unet"></a> 什么是 Unet++？</h1>
+<ul>
+<li><img src="https://picgo-1304919305.cos.ap-guangzhou.myqcloud.com/picGo/UNetPlusPlus-20230408143759.png" alt="UNetPlusPlus-20230408143759" /></li>
+<li>UNet++是在 Unet 的基础上结合 DenseNet的思想设计的语义分割网络</li>
+</ul>
+<h1 id="unet的网络结构"><a class="markdownIt-Anchor" href="#unet的网络结构"></a> Unet++的网络结构？</h1>
+<ul>
+<li><img src="https://picgo-1304919305.cos.ap-guangzhou.myqcloud.com/picGo/UNetPlusPlus-20230408143759.png" alt="UNetPlusPlus-20230408143759" /></li>
+<li>Unet 的基础上增加以下 3 个东西：</li>
+<li>(1) <strong>重新设计的跳跃路径（显示为绿色）</strong>：U-Net 采用跳跃连接，直接连接编码器和解码器之间的特征映射，导致<strong>把语义上不相似的特征映射相融合</strong>。在 UNet++中，增加了重新设计的跳跃路径 (绿色显示)，以弥补编码器和解码器子路径之间的语义差别，意思是先经过绿色节点整合特征，再跳跃连接融合特征</li>
+<li>(2) <strong>密集跳跃连接（显示为蓝色）</strong>：密集跳跃连接 (用蓝色显示)实现了编码器和解码器之间的跳跃路径。这些 Dense blocks 是受到 DenseNet 的启发，目的是提高分割精度和改善梯度流</li>
+<li>(3) <strong>深度监督（显示为红色）</strong>：通过修剪模型来调整模型的复杂性，在速度 (推理时间)和性能之间实现平衡，_ accurate_模式下取所有分割分支输出的平均，_ fast_模式下选择分割分支之一</li>
+</ul>
+]]></content>
+      <categories>
+        <category>深度学习</category>
+      </categories>
+      <tags>
+        <tag>语义分割</tag>
       </tags>
   </entry>
   <entry>
@@ -10926,6 +11425,58 @@ export PATH=/home/wu/miniconda3/bin:$PATH</p>
       </tags>
   </entry>
   <entry>
+    <title>SegNet：A Deep Convolutional Encoder-Decoder Architecture for Image Segmentation</title>
+    <url>/2017/03/28/SegNet%EF%BC%9AA%20Deep%20Convolutional%20Encoder-Decoder%20Architecture%20for%20Image%20Segmentation/</url>
+    <content><![CDATA[<p>SegNet是典型的encoder-decoder语义分割网络，通过反池化进行上采样</p>
+<a id="more"></a>
+<h1 id="什么是-segnet"><a class="markdownIt-Anchor" href="#什么是-segnet"></a> 什么是 SegNet?</h1>
+<ul>
+<li><img src="https://picgo-1304919305.cos.ap-guangzhou.myqcloud.com/picGo/SegNet-20230408143607.png" alt="SegNet-20230408143607" /></li>
+<li>基于编码器-解码器的语义分割网络，主要思想：使用编码器期池化 (Pooling) 的索引，通反池化 (UnPooling) 还原图像信息，并实现像素级分类</li>
+<li>虽然SegNet没有完全领先FCN、DeepLab、DeconvNet，但是精度和速度的平衡的条件下是更好的选择</li>
+</ul>
+<h1 id="segnet的网络结构"><a class="markdownIt-Anchor" href="#segnet的网络结构"></a> SegNet的网络结构？</h1>
+<ul>
+<li><img src="https://picgo-1304919305.cos.ap-guangzhou.myqcloud.com/picGo/SegNet-20230408143608.png" alt="SegNet-20230408143608" /></li>
+<li>网络的输入 H* W* 3，输出是 H * W * C，C 为类别数量</li>
+<li><strong>编码器 (Encoder)</strong>： VGG -16 有 13 个卷积层（除去全连接层）</li>
+<li><strong>解码器 (Decoder)</strong>： 对应 decoder 也具有 13 层，其中 upsampling 使用 Encoder 期间 pooling 的位置索引，最后用 Softmax 做像素分类</li>
+</ul>
+<h1 id="segnet的损失函数"><a class="markdownIt-Anchor" href="#segnet的损失函数"></a> SegNet的损失函数？</h1>
+<ul>
+<li>输入标签的 h * w，分割后得到的输出是 h * w * C，其中 C 为每个像素的类别概率</li>
+<li>将 h* w 拉成一维，如果网络输出包括 softmax，使交叉熵损失 (CrossEntropyLoss) 计算损失</li>
+</ul>
+<h1 id="segnet-的最大池化索引-max-pooling-indices"><a class="markdownIt-Anchor" href="#segnet-的最大池化索引-max-pooling-indices"></a> SegNet 的最大池化索引 (max-pooling indices)？</h1>
+<ul>
+<li><img src="https://picgo-1304919305.cos.ap-guangzhou.myqcloud.com/picGo/SegNet-20230408143609.png" alt="SegNet-20230408143609" /></li>
+<li>在 Encoder 阶段，保存每个 2x2 区域中最大特征的索引。考虑到整个网络是对称的，所以在解码器阶段的上采样期间，1x1 特征会到达相应池化索引显示的确切位置</li>
+<li>作用：改善了边界划分，使边界轮廓更准确，减少了端到端训练的参数量，进而减少内存占用，提高推理速度</li>
+</ul>
+<h1 id="segnet-fcn的上采样差异"><a class="markdownIt-Anchor" href="#segnet-fcn的上采样差异"></a> SegNet、FCN的上采样差异？</h1>
+<ul>
+<li><img src="https://picgo-1304919305.cos.ap-guangzhou.myqcloud.com/picGo/SegNet-20230408143609-1.png" alt="SegNet-20230408143609-1" /></li>
+<li>SegNet保留pooling时的位置信息，通反池化(UnPooling)时直接将数据放在原先的位置</li>
+<li>[[FCN]]采反卷积(deconvolution)双线性插值，每一个像素都是运算后的结果</li>
+</ul>
+<h1 id="segnet与deconvnet的异同"><a class="markdownIt-Anchor" href="#segnet与deconvnet的异同"></a> SegNet与DeconvNet的异同？</h1>
+<ul>
+<li><strong>相同</strong>：（1）都使用VGG16作为特征提取网络；（2）都使用反池化(UnPooling)</li>
+<li><strong>差异</strong>：（1）DeconvNet 上采样交替使反卷积 (deconvolution) 和反池化 (UnPooling) ，SegNet 上采样只使反池化 (UnPooling) ；DeconvNet存在 VGG16的全连接层，SegNet 去掉了全连接层</li>
+</ul>
+<h1 id="segnet与unet的差异"><a class="markdownIt-Anchor" href="#segnet与unet的差异"></a> SegNet与UNet的差异？</h1>
+<ul>
+<li>U-Net没有利用池化位置索引信息，而是将编码阶段的整个特征图传输到相应的解码器（以牺牲更多内存为代价），并将其连接，再进行上采样（通反卷积(deconvolution)），从而得到解码器特征图</li>
+</ul>
+]]></content>
+      <categories>
+        <category>深度学习</category>
+      </categories>
+      <tags>
+        <tag>语义分割</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>DeepLabv2：Semantic Image Segmentation with Deep Convolutional Nets, Atrous Convolution, and Fully Connected CRFs</title>
     <url>/2017/03/28/DeepLabv2%EF%BC%9ASemantic%20Image%20Segmentation%20with%20Deep%20Convolutional%20Nets,%20Atrous%20Convolution,%20and%20Fully%20Connected%20CRFs/</url>
     <content><![CDATA[<p>DeepLabv2 是在DeepLabv1基础上的优化，主要改进是引入空洞卷积金字塔池化(ASPP)</p>
@@ -10987,6 +11538,58 @@ export PATH=/home/wu/miniconda3/bin:$PATH</p>
       </tags>
   </entry>
   <entry>
+    <title>Unet：Convolutional Networks for Biomedical Image Segmentation</title>
+    <url>/2017/03/26/Unet%EF%BC%9AConvolutional%20Networks%20for%20Biomedical%20Image%20Segmentation/</url>
+    <content><![CDATA[<p>在FCN的基础上设计解码器，并通过跨连接连接相同分辨率特征</p>
+<a id="more"></a>
+<h1 id="什么是-unet"><a class="markdownIt-Anchor" href="#什么是-unet"></a> 什么是 UNet?</h1>
+<ul>
+<li><img src="https://picgo-1304919305.cos.ap-guangzhou.myqcloud.com/picGo/UNet-20230408143738.png" alt="UNet-20230408143738" /></li>
+<li>Unet是针对医学图像开发的图像分割模型，一种U型结构，可认为是FCN基础上跨连接更彻底一点，即在每次下采样进行跨连接</li>
+</ul>
+<h1 id="unet的网络结构"><a class="markdownIt-Anchor" href="#unet的网络结构"></a> Unet的网络结构？</h1>
+<ul>
+<li><img src="https://picgo-1304919305.cos.ap-guangzhou.myqcloud.com/picGo/UNet-20230408143738.png" alt="UNet-20230408143738" /></li>
+<li><strong>输入</strong>：H * W * 3，输出是 H/n * W/n * C，n 是输出图与原图的大小比，C 是类别数</li>
+<li><strong>编码器</strong>：特征提取网络VGG/ResNet</li>
+<li><strong>解码器</strong>：特征融合网络，目标是将编码器学习的判别特征（较低分辨率）语义投影到像素空间（较高分辨率）以获得密集分类</li>
+</ul>
+<h1 id="unet的损失函数"><a class="markdownIt-Anchor" href="#unet的损失函数"></a> Unet的损失函数？</h1>
+<ul>
+<li>输入标签的h * w，分割后得到的输出是H/n * W/n * C，其中C为每个像素的类别概率</li>
+<li>使交叉熵损失(CrossEntropyLoss) 计算损失</li>
+</ul>
+<h1 id="unet如何处理超大的医学图像"><a class="markdownIt-Anchor" href="#unet如何处理超大的医学图像"></a> Unet如何处理超大的医学图像？</h1>
+<ul>
+<li><img src="https://picgo-1304919305.cos.ap-guangzhou.myqcloud.com/picGo/UEcrxjTfTq19Fpmx1CdErzZ8KSiR9B9T0gCzdymmbhiwLpezSnIFE74wnwVVIaiG0CHRmtNNXXjJkhlLA_ouRsDX8UbNGL534kfHKdvBlG7Xx4M75Ae5s1EYzlyYyrVd.png" alt="" /></li>
+<li>分割时候不可能将原图太小输入网络，所以必须切成一张一张的小patch</li>
+<li>在切成小patch的时候，Unet由于网络结构原因适合有重叠的切图</li>
+</ul>
+<h1 id="unet的缺点"><a class="markdownIt-Anchor" href="#unet的缺点"></a> Unet的缺点？</h1>
+<ul>
+<li><strong>很慢</strong>：因为这个网络必须训练每个 patch，并且因为 patch 之间的重叠有很多冗余，这样会导致同样特征被多次训练，造成资源的浪费，导致训练时间的加长且效率也会有所降低</li>
+<li><strong>定位准确性和获取上下文信息不可兼得：</strong> 大的 patches 需要更多的 max-pooling，这样会减少定位准确性，因为最大池化会丢失目标像素和周围像素之间的空间关系，而小 patches 只能看到很小的局部信息，包含的背景信息不够</li>
+</ul>
+<h1 id="unet与fcn在特征融合时的差别"><a class="markdownIt-Anchor" href="#unet与fcn在特征融合时的差别"></a> Unet与FCN在特征融合时的差别？</h1>
+<ul>
+<li>FCN是通过特征图对应像素值的相加来融合特征的</li>
+<li>UNet 通过通道数的拼接，这样可以形成更厚的特征，当然这样会更佳消耗显存</li>
+</ul>
+<h1 id="什么是-弹性变形"><a class="markdownIt-Anchor" href="#什么是-弹性变形"></a> 什么是 <strong>弹性变形？</strong></h1>
+<ul>
+<li>可对图片模拟力按压的效果，对于分割类似线等细小物体有效果提升</li>
+<li>对像素点各个维度产生(-1，1)区间的随机标准偏差，并用高斯滤波（0，sigma）对各维度的偏差矩阵进行滤波，最后用放大系数alpha控制偏差范围</li>
+<li><img src="https://picgo-1304919305.cos.ap-guangzhou.myqcloud.com/picGo/HQ5lhsO0xFHJ8w1AZPVDkhG4mwZNSGzfau99fPiQ44JzHJMP-odR-ctVSDlzX_ey2V4ZuN0wFCkJHORh7erthxOg6M-S-MPJ3GjEiS1G4E6q2VdRN0tlMwCxsj08QPpQ.png" alt="" /></li>
+</ul>
+]]></content>
+      <categories>
+        <category>深度学习</category>
+      </categories>
+      <tags>
+        <tag>语义分割</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>DeepLabv1：Semantic Image Segmentation with Deep Convolutional Nets and Fully Connected CRFs</title>
     <url>/2017/03/25/DeepLabv1%EF%BC%9ASemantic%20Image%20Segmentation%20with%20Deep%20Convolutional%20Nets%20and%20Fully%20Connected%20CRFs/</url>
     <content><![CDATA[<p>通过空洞卷积扩大感受野，使得分割可以处理大尺寸目标，通过CRF后处理模型输出，使得结果更加合理</p>
@@ -11040,6 +11643,70 @@ export PATH=/home/wu/miniconda3/bin:$PATH</p>
 <ol>
 <li><a href="https://blog.csdn.net/qq_37541097/article/details/121692445">DeepLabV1网络简析_太阳花的小绿豆的博客-CSDN博客</a></li>
 </ol>
+]]></content>
+      <categories>
+        <category>深度学习</category>
+      </categories>
+      <tags>
+        <tag>语义分割</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>DeconvNet：Learning Deconvolution Network for Semantic Segmentation</title>
+    <url>/2017/03/25/DeconvNet%EF%BC%9ALearning%20Deconvolution%20Network%20for%20Semantic%20Segmentation/</url>
+    <content><![CDATA[<p>第一个基于解码器-编码器设计的网络，编码阶段使用池化提取特征，解码阶段使用反池化、反卷积还原分辨率</p>
+<a id="more"></a>
+<h1 id="什么是deconvnet"><a class="markdownIt-Anchor" href="#什么是deconvnet"></a> 什么是DeconvNet?</h1>
+<ul>
+<li><img src="https://picgo-1304919305.cos.ap-guangzhou.myqcloud.com/picGo/DeconvNet-20230408142443.png" alt="DeconvNet-20230408142443" /></li>
+<li>第一个基于解码器-编码器设计的网络，编码阶段使用<strong>池化</strong>提取特征，解码阶段使用<strong>反池化</strong>、反卷积还原分辨率</li>
+<li>为了解决 FCN 无法分割过大、过小目标的问题，DeconvNet 通过 EdgeBox 先获取图片目标的获选框，将图片多目标语义分割问题分解为单目标的语义分割问题</li>
+</ul>
+<h1 id="deconvnet-的网络结构"><a class="markdownIt-Anchor" href="#deconvnet-的网络结构"></a> DeconvNet 的网络结构？</h1>
+<ul>
+<li><img src="https://picgo-1304919305.cos.ap-guangzhou.myqcloud.com/picGo/DeconvNet-20230408142443.png" alt="DeconvNet-20230408142443" /></li>
+<li><strong>编码器</strong>： 使用VGG-16（去除分类层），把最后分类的全连接层去掉，在适当的层间应用Relu和Maxpooling。增加两个全连接层（1x1卷积）来强化特定类别的投影</li>
+<li><strong>解码器</strong>：编码器的镜像，主要包反卷积(deconvolution) 和反池化(UnPooling)</li>
+</ul>
+<h1 id="deconvnet的损失函数"><a class="markdownIt-Anchor" href="#deconvnet的损失函数"></a> DeconvNet的损失函数？</h1>
+<ul>
+<li>输入标签的 hxw，分割后得到的输出是 hxwxC，其中 C 为每个像素的类别概率</li>
+<li>将 hxw 拉成一维，如果网络输出包括 softmax，使交叉熵损失 (CrossEntropyLoss) 计算损失</li>
+</ul>
+<h1 id="deconvnet-的训练过程"><a class="markdownIt-Anchor" href="#deconvnet-的训练过程"></a> DeconvNet 的训练过程？</h1>
+<ul>
+<li><strong>第一阶段</strong>： 用简单的样本（每个样本包含一个目标，且该目标位于中央）进行训练</li>
+<li><strong>第二阶段</strong>： 用复杂的、具有挑战性、重叠的样本在第一阶段训练好的模型上fine-turning</li>
+</ul>
+<h1 id="deconvnet-如何得到最后输出"><a class="markdownIt-Anchor" href="#deconvnet-如何得到最后输出"></a> DeconvNet 如何得到最后输出？</h1>
+<ul>
+<li><strong>合并概率图</strong>：DeconvNet 预测多个候选框的像素类别概率后，将获选框概率合并到原始大图上，规则有两个，相应位置多个获选框的同类概率最大值或平均值</li>
+<li><strong>进一步加工</strong>：获得大图尺度的概率图后，使用 Softmax 得到得到类别的条件概率映射。最后使用全连接条件随机场 (fully CRFs)得到最终的输出映射</li>
+</ul>
+<h1 id="在-deconvnet-论文中反卷积和反池化有什么差异"><a class="markdownIt-Anchor" href="#在-deconvnet-论文中反卷积和反池化有什么差异"></a> 在 DeconvNet 论文中，反卷积和反池化有什么差异？</h1>
+<ul>
+<li><img src="https://picgo-1304919305.cos.ap-guangzhou.myqcloud.com/picGo/DeconvNet-20230408142509.png" alt="DeconvNet-20230408142509" /></li>
+<li><strong>反卷积(deconvolution)</strong>：低层反卷积层可获得目标的位置，形状等粗略信息，高层反卷积层可获得更精细的信息</li>
+<li><strong>反池化 (UnPooling)</strong>：和反卷积目的不同，反池化是通过回溯原始位置来获得更好的结构细节信息，反卷积趋向于获取特定物体类别的形状</li>
+</ul>
+<h1 id="deconvnet如何进行上采样"><a class="markdownIt-Anchor" href="#deconvnet如何进行上采样"></a> DeconvNet如何进行上采样？</h1>
+<ul>
+<li><img src="https://picgo-1304919305.cos.ap-guangzhou.myqcloud.com/picGo/DeconvNet-20230408142509-1.png" alt="DeconvNet-20230408142509-1" /></li>
+<li><strong>pooling</strong>：的时候用 switch variables 记录<strong>Maxpooling 操作得到的 activation 的位置</strong></li>
+<li><strong>Unpooling</strong>：利用 switch variables 把它<strong>放回原位置</strong>，从而恢复成 pooling 前同样的大小</li>
+</ul>
+<h1 id="deconvnet-论文中总结-fcn-的缺点有哪些"><a class="markdownIt-Anchor" href="#deconvnet-论文中总结-fcn-的缺点有哪些"></a> DeconvNet 论文中，总结 FCN 的缺点有哪些？</h1>
+<ul>
+<li><strong>对于大于或者小于感受野的目标</strong>，就可能被<strong>分裂或者错误标记</strong><br />
+<img src="https://picgo-1304919305.cos.ap-guangzhou.myqcloud.com/picGo/DeconvNet-20230408142509-2.png" alt="DeconvNet-20230408142509-2" /></li>
+<li><strong>对于小目标来说，经常会被忽略掉，被当作了背景</strong><br />
+<img src="https://picgo-1304919305.cos.ap-guangzhou.myqcloud.com/picGo/DeconvNet-20230408142510.png" alt="DeconvNet-20230408142510" /></li>
+</ul>
+<h1 id="deconvnet-与-fcn-的差异"><a class="markdownIt-Anchor" href="#deconvnet-与-fcn-的差异"></a> DeconvNet 与 FCN 的差异？</h1>
+<ul>
+<li>FCN 里面对各层的输出只做了一次反卷积 (deconvolution)，然后再整体做双线性插值</li>
+<li>DeconvNet 上采样交替使反卷积 (deconvolution) 和反池化 (UnPooling) ，通过堆叠上采样，形成对称的网络</li>
+</ul>
 ]]></content>
       <categories>
         <category>深度学习</category>
