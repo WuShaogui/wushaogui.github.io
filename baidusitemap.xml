@@ -1,7 +1,103 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://shaogui.life/2019/08/02/CBST%EF%BC%9ADomain%20Adaptation%20for%20Semantic%20Segmentation%20via%20Class-Balanced%20Self-Training/</loc>
+    <lastmod>2023-05-20</lastmod>
+  </url>
+  <url>
+    <loc>https://shaogui.life/2023/05/15/%E6%88%91%E7%9A%84%E8%AF%AD%E4%B9%89%E5%88%86%E5%89%B2%E5%AD%A6%E4%B9%A0%E8%B7%AF%E7%BA%BF/</loc>
+    <lastmod>2023-05-20</lastmod>
+  </url>
+  <url>
+    <loc>https://shaogui.life/2023/04/15/HSSN%EF%BC%9ADeep%20Hierarchical%20Semantic%20Segmentation/</loc>
+    <lastmod>2023-05-20</lastmod>
+  </url>
+  <url>
+    <loc>https://shaogui.life/2022/10/11/OAA%EF%BC%9AOnline%20Attention%20Accumulation%20for%20Weakly%20Supervised%20Semantic%20Segmentation/</loc>
+    <lastmod>2023-05-20</lastmod>
+  </url>
+  <url>
+    <loc>https://shaogui.life/2021/09/23/DRNet%EF%BC%9ALearning%20Dynamic%20Routing%20for%20Semantic%20Segmentation/</loc>
+    <lastmod>2023-05-20</lastmod>
+  </url>
+  <url>
+    <loc>https://shaogui.life/2019/07/22/SegAN%EF%BC%9AAdversarial%20Network%20with%20Multi-scale%20L1%20Loss%20for%20Medical%20Image%20Segmentation/</loc>
+    <lastmod>2023-05-20</lastmod>
+  </url>
+  <url>
+    <loc>https://shaogui.life/2023/01/28/PP-LiteSeg%EF%BC%9AA%20Superior%20Real-Time%20Semantic%20Segmentation%20Model/</loc>
+    <lastmod>2023-05-20</lastmod>
+  </url>
+  <url>
+    <loc>https://shaogui.life/2022/06/15/CFPNet%EF%BC%9AChannel-wise%20Feature%20Pyramid%20for%20Real-Time%20Semantic%20Segmentation/</loc>
+    <lastmod>2023-05-20</lastmod>
+  </url>
+  <url>
+    <loc>https://shaogui.life/2022/06/19/BiSeNetv3%EF%BC%9ARethinking%20BiSeNet%20For%20Real-time%20Semantic%20Segmentation/</loc>
+    <lastmod>2023-05-20</lastmod>
+  </url>
+  <url>
+    <loc>https://shaogui.life/2022/06/17/BiSeNet%20V2%EF%BC%9ABilateral%20Network%20with%20Guided%20Aggregation%20for%20Real-Time%20Semantic%20Segmentation/</loc>
+    <lastmod>2023-05-20</lastmod>
+  </url>
+  <url>
+    <loc>https://shaogui.life/2020/01/12/LEDNet%EF%BC%9AA%20Lightweight%20Encoder-Decoder%20Network%20for%20Real-Time%20Semantic%20Segmentation/</loc>
+    <lastmod>2023-05-20</lastmod>
+  </url>
+  <url>
+    <loc>https://shaogui.life/2019/06/20/DFANet%EF%BC%9ADeep%20Feature%20Aggregation%20for%20Real-Time%20Semantic%20Segmentation/</loc>
+    <lastmod>2023-05-20</lastmod>
+  </url>
+  <url>
+    <loc>https://shaogui.life/2019/03/20/BiSeNet%EF%BC%9ABilateral%20Segmentation%20Network%20for%20Real-time%20Semantic%20Segmentation/</loc>
+    <lastmod>2023-05-20</lastmod>
+  </url>
+  <url>
+    <loc>https://shaogui.life/2017/04/10/ENet%EF%BC%9AA%20Deep%20Neural%20Network%20Architecture%20for%20Real-Time%20Semantic%20Segmentation/</loc>
+    <lastmod>2023-05-20</lastmod>
+  </url>
+  <url>
+    <loc>https://shaogui.life/2019/05/26/CCNet%EF%BC%9ACriss-Cross%20Attention%20for%20Semantic%20Segmentation/</loc>
+    <lastmod>2023-05-20</lastmod>
+  </url>
+  <url>
+    <loc>https://shaogui.life/2019/05/20/Non-local%20Neural%20Networks/</loc>
+    <lastmod>2023-05-20</lastmod>
+  </url>
+  <url>
+    <loc>https://shaogui.life/2017/03/26/Unet%EF%BC%9AConvolutional%20Networks%20for%20Biomedical%20Image%20Segmentation/</loc>
+    <lastmod>2023-05-20</lastmod>
+  </url>
+  <url>
+    <loc>https://shaogui.life/2017/03/25/DeconvNet%EF%BC%9ALearning%20Deconvolution%20Network%20for%20Semantic%20Segmentation/</loc>
+    <lastmod>2023-05-20</lastmod>
+  </url>
+  <url>
+    <loc>https://shaogui.life/2020/02/26/EMANet%EF%BC%9AExpectation-Maximization%20Attention%20Networks%20for%20Semantic%20Segmentation/</loc>
+    <lastmod>2023-05-20</lastmod>
+  </url>
+  <url>
+    <loc>https://shaogui.life/2017/03/28/SegNet%EF%BC%9AA%20Deep%20Convolutional%20Encoder-Decoder%20Architecture%20for%20Image%20Segmentation/</loc>
+    <lastmod>2023-05-20</lastmod>
+  </url>
+  <url>
+    <loc>https://shaogui.life/2019/04/13/Unet++%EF%BC%9AA%20Nested%20U-Net%20Architecture%20for%20Medical%20Image%20Segmentation/</loc>
+    <lastmod>2023-05-20</lastmod>
+  </url>
+  <url>
+    <loc>https://shaogui.life/2019/04/12/PSANet%EF%BC%9APoint-wise%20Spatial%20Attention%20Network%20for%20Scene%20Parsing/</loc>
+    <lastmod>2023-05-20</lastmod>
+  </url>
+  <url>
     <loc>https://shaogui.life/2022/01/23/Segmentation%20Transformer%EF%BC%9AObject-Contextual%20Representations%20for%20Semantic%20Segmentation/</loc>
+    <lastmod>2023-05-20</lastmod>
+  </url>
+  <url>
+    <loc>https://shaogui.life/2020/09/22/APCNet%EF%BC%9AAdaptive%20Pyramid%20Context%20Network%20for%20Semantic%20Segmentation/</loc>
+    <lastmod>2023-05-20</lastmod>
+  </url>
+  <url>
+    <loc>https://shaogui.life/2020/11/23/DMNet%EF%BC%9ADynamic%20Multi-Scale%20Filters%20for%20Semantic%20Segmentation/</loc>
     <lastmod>2023-05-20</lastmod>
   </url>
   <url>
@@ -25,43 +121,11 @@
     <lastmod>2023-05-20</lastmod>
   </url>
   <url>
-    <loc>https://shaogui.life/2029/04/12/PSANet%EF%BC%9APoint-wise%20Spatial%20Attention%20Network%20for%20Scene%20Parsing/</loc>
-    <lastmod>2023-05-20</lastmod>
-  </url>
-  <url>
     <loc>https://shaogui.life/2020/03/23/DANet%EF%BC%9ADual%20Attention%20Network%20for%20Scene%20Segmentation/</loc>
     <lastmod>2023-05-20</lastmod>
   </url>
   <url>
-    <loc>https://shaogui.life/2020/02/26/EMANet%EF%BC%9AExpectation-Maximization%20Attention%20Networks%20for%20Semantic%20Segmentation/</loc>
-    <lastmod>2023-05-20</lastmod>
-  </url>
-  <url>
-    <loc>https://shaogui.life/2019/05/26/CCNet%EF%BC%9ACriss-Cross%20Attention%20for%20Semantic%20Segmentation/</loc>
-    <lastmod>2023-05-20</lastmod>
-  </url>
-  <url>
     <loc>https://shaogui.life/2019/03/29/DeepLabv3+%EF%BC%9AEncoder-Decoder%20with%20Atrous%20Separable%20Convolution%20for%20Semantic%20Image%20Segmentation/</loc>
-    <lastmod>2023-05-20</lastmod>
-  </url>
-  <url>
-    <loc>https://shaogui.life/2019/05/20/Non-local%20Neural%20Networks/</loc>
-    <lastmod>2023-05-20</lastmod>
-  </url>
-  <url>
-    <loc>https://shaogui.life/2019/04/13/Unet++%EF%BC%9AA%20Nested%20U-Net%20Architecture%20for%20Medical%20Image%20Segmentation/</loc>
-    <lastmod>2023-05-20</lastmod>
-  </url>
-  <url>
-    <loc>https://shaogui.life/2017/03/28/SegNet%EF%BC%9AA%20Deep%20Convolutional%20Encoder-Decoder%20Architecture%20for%20Image%20Segmentation/</loc>
-    <lastmod>2023-05-20</lastmod>
-  </url>
-  <url>
-    <loc>https://shaogui.life/2017/03/26/Unet%EF%BC%9AConvolutional%20Networks%20for%20Biomedical%20Image%20Segmentation/</loc>
-    <lastmod>2023-05-20</lastmod>
-  </url>
-  <url>
-    <loc>https://shaogui.life/2017/03/25/DeconvNet%EF%BC%9ALearning%20Deconvolution%20Network%20for%20Semantic%20Segmentation/</loc>
     <lastmod>2023-05-20</lastmod>
   </url>
   <url>
@@ -74,14 +138,6 @@
   </url>
   <url>
     <loc>https://shaogui.life/2020/04/21/Gated-SCNN%EF%BC%9AGated%20Shape%20CNNs%20for%20Semantic%20Segmentation/</loc>
-    <lastmod>2023-05-20</lastmod>
-  </url>
-  <url>
-    <loc>https://shaogui.life/2020/11/23/DMNet%EF%BC%9ADynamic%20Multi-Scale%20Filters%20for%20Semantic%20Segmentation/</loc>
-    <lastmod>2023-05-20</lastmod>
-  </url>
-  <url>
-    <loc>https://shaogui.life/2020/09/22/APCNet%EF%BC%9AAdaptive%20Pyramid%20Context%20Network%20for%20Semantic%20Segmentation/</loc>
     <lastmod>2023-05-20</lastmod>
   </url>
   <url>
