@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://shaogui.life/2023/10/25/SVTR%EF%BC%9AScene%20Text%20Recognition%20with%20a%20Single%20Visual%20Model/</loc>
+    <lastmod>2023-05-20</lastmod>
+  </url>
+  <url>
+    <loc>https://shaogui.life/2021/10/20/CRNN%EF%BC%9A%20An%20End-to-End%20Trainable%20Neural%20Network%20for%20Image-based%20Sequence%20Recognition%20and%20Its%20Application%20to%20Scene%20Text%20Recognition/</loc>
+    <lastmod>2023-05-20</lastmod>
+  </url>
+  <url>
+    <loc>https://shaogui.life/2023/04/11/EAST%EF%BC%9AAn%20Efficient%20and%20Accurate%20Scene%20Text%20Detector/</loc>
+    <lastmod>2023-05-20</lastmod>
+  </url>
+  <url>
     <loc>https://shaogui.life/2022/12/20/CILP%EF%BC%9ALearning%20Transferable%20Visual%20Models%20From%20Natural%20Language%20Supervision/</loc>
     <lastmod>2023-05-20</lastmod>
   </url>
@@ -46,10 +58,6 @@
   </url>
   <url>
     <loc>https://shaogui.life/2023/04/10/SAST%EF%BC%9AA%20Single-Shot%20Arbitrarily-Shaped%20Text%20Detector%20based%20on%20Context%20Attended%20Multi-Task%20Learning/</loc>
-    <lastmod>2023-04-10</lastmod>
-  </url>
-  <url>
-    <loc>https://shaogui.life/2023/04/10/EAST%EF%BC%9AAn%20Efficient%20and%20Accurate%20Scene%20Text%20Detector/</loc>
     <lastmod>2023-04-10</lastmod>
   </url>
   <url>
