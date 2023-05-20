@@ -783,6 +783,100 @@ M834 80h400000v40h-400000z'/></svg></span></span></span><span class="vlist-s">�
       </tags>
   </entry>
   <entry>
+    <title>PRTR：Pose Recognition with Cascade Transformers</title>
+    <url>/2022/09/08/PRTR%EF%BC%9APose%20Recognition%20with%20Cascade%20Transformers/</url>
+    <content><![CDATA[<p>PRTR 是针对2D Pose Estimation 提出了<strong>基于 cascade transformer 结构的人体姿态估计网络</strong>，该网络首先使用 CNN 提取特征，然后使用 transformer 学习注意力，并最终使用类似 transformer-decoder 的方式逐个输出特征点位置</p>
+<a id="more"></a>
+<h1 id="什么是-prtr"><a class="markdownIt-Anchor" href="#什么是-prtr"></a> 什么是 PRTR？</h1>
+<ul>
+<li><img src="https://picgo-1304919305.cos.ap-guangzhou.myqcloud.com/picGo/PRTR-20230408154304.png" alt="" /></li>
+<li>PRTR 是针对2D Pose Estimation 提出了<strong>基于 cascade transformer 结构的人体姿态估计网络</strong>，该网络首先使用 CNN 提取特征，然后使用 transformer 学习注意力，并最终使用类似 transformer-decoder 的方式逐个输出特征点位置</li>
+<li>PRTR 是一个两阶段的模型，第一阶段使用 DETR 找到 human 位置，第二阶段对每个人预测关键点</li>
+</ul>
+<h1 id="prtr-的模型结构"><a class="markdownIt-Anchor" href="#prtr-的模型结构"></a> PRTR 的模型结构？</h1>
+<ul>
+<li><img src="https://picgo-1304919305.cos.ap-guangzhou.myqcloud.com/picGo/PRTR-20230408154305.png" alt="" /></li>
+<li><strong>Person Detection Transformer</strong>：基于 DETR 的检测方法，用一个 CNN Backbone 提取 RGB feature，然后通过 encoder 编码上下文关系，decoder 预测 bbox，得到 bbox 后，对 original image 进行 crop</li>
+<li><strong>Keypoint Detection Transformer</strong>：得到 crop 后的 image 和对应的 positional encoding 之后，送进 encoder 学习</li>
+</ul>
+<h1 id="prtr-的keypoint-detection-transformer部分如何训练-推理"><a class="markdownIt-Anchor" href="#prtr-的keypoint-detection-transformer部分如何训练-推理"></a> PRTR 的&quot;Keypoint Detection Transformer&quot;部分如何训练、推理？</h1>
+<ul>
+<li><img src="https://picgo-1304919305.cos.ap-guangzhou.myqcloud.com/picGo/PRTR-20230408154307.png" alt="" /></li>
+<li><strong>训练</strong>：初始化<strong>可学习</strong>的 queries，然后训练 transformer，最后输出 N 个序列的预测集合，接着使用<strong>匈牙利匹配算法</strong>计算损失，更新网络</li>
+<li><strong>推理</strong>：根据输入图片及学习到的 queries，得到图片所有关键点的位置</li>
+</ul>
+<h1 id="prtr-的-end2end-的模型结构"><a class="markdownIt-Anchor" href="#prtr-的-end2end-的模型结构"></a> PRTR 的 end2end 的模型结构？</h1>
+<ul>
+<li><img src="https://picgo-1304919305.cos.ap-guangzhou.myqcloud.com/picGo/PRTR-20230408154308.png" alt="" /></li>
+<li>PRTR 根据自己的思想设计的另一个端到端的模型，该模型也是 2 阶段的过程，和原始模型区别在于其融合了多尺度特征</li>
+</ul>
+<h1 id="prtr-的-queries-与关键点的关系"><a class="markdownIt-Anchor" href="#prtr-的-queries-与关键点的关系"></a> PRTR 的 queries 与关键点的关系？</h1>
+<ul>
+<li><strong>queries 与关键点位置</strong>：Keypoint Detection Transformer 的 decoder 使用 100 个 queries，最后输出也是 100 个关键点的位置输出，将这些预测的关键点位置按类别可视化后，通过分析 queries 与类别的关系，可知 queries 输出的关键点一定程度反应其真实位置<img src="https://picgo-1304919305.cos.ap-guangzhou.myqcloud.com/picGo/PRTR-20230408154308-1.png" alt="" /></li>
+<li><strong>queries 与关键点类别</strong>：Keypoint Detection Transformer 的 decoder 使用 100 个 queries，最后输出也是 100 个关键点的类别输出，通过分析 queries 与类别的关系，可知特定的 queries 倾向输出特定的关键点<img src="https://picgo-1304919305.cos.ap-guangzhou.myqcloud.com/picGo/PRTR-20230408154309.png" alt="" /></li>
+</ul>
+<p>参考：</p>
+<ol>
+<li><a href="https://zhuanlan.zhihu.com/p/368067142">【CVPR 2021】PRTR：基于transformer的2D Human Pose Estimation - 知乎</a></li>
+</ol>
+]]></content>
+      <categories>
+        <category>深度学习</category>
+      </categories>
+      <tags>
+        <tag>transformer</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>SOTR：Segmenting Objects with Transformers</title>
+    <url>/2022/08/10/SOTR%EF%BC%9ASegmenting%20Objects%20with%20Transformers/</url>
+    <content><![CDATA[<p>SOTR 利用 transformer 将实例分割任务简化为 2 个过程，一是通过 transformer 预测每个实例的类别，二是通过多级上采样模块动态生成分割掩码</p>
+<a id="more"></a>
+<h1 id="什么是-sotr"><a class="markdownIt-Anchor" href="#什么是-sotr"></a> 什么是 SOTR？</h1>
+<ul>
+<li><img src="https://picgo-1304919305.cos.ap-guangzhou.myqcloud.com/picGo/SOTR-20230408154925.png" alt="" /></li>
+<li>SOTR 利用 transformer 将实例分割任务简化为 2 个过程，一是通过 transformer 预测每个实例的类别，二是通过多级上采样模块动态生成分割掩码</li>
+<li>图片经过 FPN 的特征，对其进行序列化后得到 NxN 的序列，经过 transformer 后输出 NxN 个序列的结果，将原图 gt 实例某个序列上，计算损失并更新网络</li>
+</ul>
+<h1 id="sotr-的模型结构"><a class="markdownIt-Anchor" href="#sotr-的模型结构"></a> SOTR 的模型结构？</h1>
+<ul>
+<li><img src="https://picgo-1304919305.cos.ap-guangzhou.myqcloud.com/picGo/SOTR-20230408154925.png" alt="" /></li>
+<li><strong>BackBone</strong>：使用 FPN 生成 P2-P6 的多尺度特征</li>
+<li><strong>Transformer</strong>：P2-P6 特征添加添加 Positional Embedding 后，输入 Transformer 进行学习，得到每张图的预测集合</li>
+<li><strong>Multi-Level Upsampling Module</strong>：取出 BackBone 的 P 2、P 3、P 4 和 Transformer 的 P5，一起上采样到 P 2 分辨率进行合并，然后输出</li>
+</ul>
+<h1 id="sotr-的-twin-attention-模块"><a class="markdownIt-Anchor" href="#sotr-的-twin-attention-模块"></a> SOTR 的 Twin attention 模块？</h1>
+<ul>
+<li><img src="https://picgo-1304919305.cos.ap-guangzhou.myqcloud.com/picGo/SOTR-20230408154921.png" alt="" /></li>
+<li>为了降低原始 transformer block 的计算成本，SOTR 将生成注意力的过程转为 2 次生成注意力的过程，第一次是生成行注意力，第二次生成列注意力。使得针对 HxW 个 token 生成序列时，复杂度由 O (HWxHW)变为 O (H^2 W+HW^2)</li>
+<li>FFN 部分由 Linear 变为卷积实现</li>
+</ul>
+<h1 id="sotr-的-multi-level-updampling-module"><a class="markdownIt-Anchor" href="#sotr-的-multi-level-updampling-module"></a> SOTR 的 Multi-Level updampling module？</h1>
+<ul>
+<li><img src="https://picgo-1304919305.cos.ap-guangzhou.myqcloud.com/picGo/SOTR-20230408154923.png" alt="" /></li>
+<li><strong>原始特征</strong>：取出 BackBone 的 P 2、P 3、P 4 和 Transformer 的 P5，一起上采样到 P 2 分辨率进行合并</li>
+<li><strong>动态卷积核</strong>：动态卷积核由 transformer 生成</li>
+</ul>
+<h1 id="sotr-的样本匹配"><a class="markdownIt-Anchor" href="#sotr-的样本匹配"></a> SOTR 的样本匹配？</h1>
+<ul>
+<li>图片经过 FPN 的特征，对其进行序列化后得到 NxN 的序列，经过 transformer 后输出 NxN 个序列的结果，将原图 gt 实例某个序列上，计算损失并更新网络</li>
+<li>直接使用位置映射样本，是因为 SOTR 只使用 transformer 的 encoder 部分，transformer 不会打乱序列的顺序，只会使用自注意力机制更新自己的隐向量</li>
+</ul>
+<p>参考：</p>
+<ol>
+<li><a href="https://blog.csdn.net/m0_61899108/article/details/121598645">【论文笔记】SOTR: Segmenting Objects with Transformers_m0_61899108的博客-CSDN博客</a></li>
+<li><a href="https://zhuanlan.zhihu.com/p/424036708">【分割 Transformer】SOTR: Segmenting Objects with Transformers - 知乎</a></li>
+<li>[SOTR:Segmenting Objects with Transformers [ICCV 2021] | Tianliang (<a href="http://starlg.cn">starlg.cn</a>)](<a href="https://www.starlg.cn/2022/05/19/SOTR/">SOTR:Segmenting Objects with Transformers [ICCV 2021] | Tianliang</a></li>
+</ol>
+]]></content>
+      <categories>
+        <category>深度学习</category>
+      </categories>
+      <tags>
+        <tag>transformer</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>DETR：End-to-End Object Detection with Transformers</title>
     <url>/2022/07/02/DETR%EF%BC%9AEnd-to-End%20Object%20Detection%20with%20Transformers/</url>
     <content><![CDATA[<p><strong>将 transformers 运用到了 object detection 领域，取代了现在的模型需要手工设计的工作（非极大值抑制和 anchor generation）</strong>，并且取得了不错的结果。在 object detection 上 DETR 准确率和运行时间上和 Faster RCNN 相当；将模型应用到全景分割任务上，DETR 表现甚至还超过了其他的 baseline</p>
@@ -831,14 +925,10 @@ M834 80h400000v40h-400000z'/></svg></span></span></span><span class="vlist-s">�
 </ul>
 <h1 id="detr-为什么可以不使用-nms"><a class="markdownIt-Anchor" href="#detr-为什么可以不使用-nms"></a> DETR 为什么可以不使用 NMS？</h1>
 <ul>
-<li>
-<p><img src="https://picgo-1304919305.cos.ap-guangzhou.myqcloud.com/picGo/DETR-20230408152434.png" alt="DETR-20230408152434" /></p>
-</li>
-<li>
-<p>上图是每个编码器之后的 AP、AP 50 性能，可以看出当编码层大于 3 后，使用 NMS 和不使用 NMS 的效果是相近的，所以去掉NMS</p>
-</li>
-<li>
-<p>DETR 位置编码 (positional encodings)的作用？</p>
+<li><img src="https://picgo-1304919305.cos.ap-guangzhou.myqcloud.com/picGo/DETR-20230408152434.png" alt="DETR-20230408152434" /></li>
+<li>上图是每个编码器之后的 AP、AP 50 性能，可以看出当编码层大于 3 后，使用 NMS 和不使用 NMS 的效果是相近的，所以去掉NMS</li>
+</ul>
+<h1 id="detr-位置编码-positional-encodings的作用"><a class="markdownIt-Anchor" href="#detr-位置编码-positional-encodings的作用"></a> DETR 位置编码 (positional encodings)的作用？</h1>
 <ul>
 <li><img src="https://picgo-1304919305.cos.ap-guangzhou.myqcloud.com/picGo/DETR-20230408152435.png" alt="DETR-20230408152435" /></li>
 <li><strong>生成方式</strong>：DETR的 position encoding 采用原始 Transformer 论文的固定 position encoding，即对于每个 HW 维向量，用不同频率的 sin 函数对高 (H)这个维度生成 d/2 维的 position encoding，用不同频率 cos 函数对宽 (W)这个维度生成 d/2维的 position encoding，然后将两个的 position encoding concat 成 d维的 position encoding</li>
@@ -849,8 +939,6 @@ M834 80h400000v40h-400000z'/></svg></span></span></span><span class="vlist-s">�
 <li><img src="https://picgo-1304919305.cos.ap-guangzhou.myqcloud.com/picGo/DETR-20230408152435-1.png" alt="DETR-20230408152435-1" /></li>
 <li>图片经过 CNN、transformer 后，得到 (N, M, H/32, W/32)的输出，通过 Restnet featrues 模块预测每张图的 Mask 结果，一张图预测一个 Mask，即得到一张图的全景分割</li>
 <li>Restnet featrues 模块主要功能：还原分辨率及降低通道数M</li>
-</ul>
-</li>
 </ul>
 <h1 id="什么是二分图"><a class="markdownIt-Anchor" href="#什么是二分图"></a> 什么是二分图？</h1>
 <ul>
@@ -941,6 +1029,50 @@ M834 80h400000v40h-400000z'/></svg></span></span></span><span class="vlist-s">�
 <p>参考：</p>
 <ol>
 <li><a href="https://blog.csdn.net/qq_39478403/article/details/118704747">https://blog.csdn.net/qq_39478403/article/details/118704747</a></li>
+</ol>
+]]></content>
+      <categories>
+        <category>深度学习</category>
+      </categories>
+      <tags>
+        <tag>transformer</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>SETR：Rethinking Semantic Segmentation from a Sequence-to-Sequence Perspective with Transformers</title>
+    <url>/2022/06/20/SETR%EF%BC%9ARethinking%20Semantic%20Segmentation%20from%20a%20Sequence-to-Sequence%20Perspective%20with%20Transformers/</url>
+    <content><![CDATA[<p>一直以来，分割都是在 FCN 的基础上搭建 Encoder-Decoder 进行的，基于 CNN 的缺点，虽然有设计方法取增大感受野、引入注意力机制，但还是没有背离这个规则。<strong>SETR 以 transformer 替代 CNN 的 Encoder 部分</strong>，将 2D 图片问题转为序列注意力构建问题，能在保持分辨率不变的情况下进行特征学习，最后使用 CNN 类似的金字塔结构还原分辨率</p>
+<a id="more"></a>
+<h1 id="什么是-setr"><a class="markdownIt-Anchor" href="#什么是-setr"></a> 什么是 SETR？</h1>
+<ul>
+<li><img src="https://picgo-1304919305.cos.ap-guangzhou.myqcloud.com/picGo/Pasted%20image%2020230401145724.png" alt="" /></li>
+<li>一直以来，分割都是在 FCN 的基础上搭建 Encoder-Decoder 进行的，基于 CNN 的缺点，虽然有设计方法取增大感受野、引入注意力机制，但还是没有背离这个规则</li>
+<li><strong>SETR 以 transformer 替代 CNN 的 Encoder 部分</strong>，将 2D 图片问题转为序列注意力构建问题，能在保持分辨率不变的情况下进行特征学习，最后使用 CNN 类似的金字塔结构还原分辨率</li>
+</ul>
+<h1 id="setr-的模型结构"><a class="markdownIt-Anchor" href="#setr-的模型结构"></a> SETR 的模型结构？</h1>
+<ul>
+<li><img src="https://picgo-1304919305.cos.ap-guangzhou.myqcloud.com/picGo/Pasted%20image%2020230401145718.png" alt="" /></li>
+<li><strong>输入</strong>：图像 (B, C,H, W)，需要对图像进行 Patch 化，然后加入 Position embedding，得到 (B, S, L)</li>
+<li><strong>Encoder</strong>：以 tansformer block 搭建，输入 (B, S, L)，输出也是 (B, S, L)</li>
+<li><strong>Decoder</strong>：将 Encoder 输出 (B, S, L)转为 4D 数据 (B, H/16, W/16, C)，然后使用 3 种分辨率上采样方法验证 Decoder 效果</li>
+</ul>
+<h1 id="setr-的-decoder-设计"><a class="markdownIt-Anchor" href="#setr-的-decoder-设计"></a> SETR 的 Decoder 设计？</h1>
+<ul>
+<li><img src="https://picgo-1304919305.cos.ap-guangzhou.myqcloud.com/picGo/Pasted%20image%2020230401145650.png" alt="" /></li>
+<li>Encoder 输出 (B, H/16, W/16, C)数据， SETR 设计了三种解码器上采样方法还原分辨率，实验证明 PUP 效果更好，最终采样该方法</li>
+<li><strong>最原始上采样 (Naive upsampling)</strong>：通过简单的1x1卷积加上双线性插值来实现图像像素恢复</li>
+<li><strong>渐进式上采样 (Progressive UPsampling, PUP)</strong>：一步到位式的上采样可能会产生大量的噪声，渐进式上采样则可以缓解这种问题。每一次上采样只恢复上一步图像的2倍，这样经过4次操作就可以回复原始图像</li>
+<li><strong>多层次特征加总 (Multi-Level feature Aggregation, MLA)</strong>：这种设计跟特征金字塔网络类似</li>
+</ul>
+<h1 id="setr-的注意力可视化"><a class="markdownIt-Anchor" href="#setr-的注意力可视化"></a> SETR 的注意力可视化？</h1>
+<ul>
+<li><img src="https://picgo-1304919305.cos.ap-guangzhou.myqcloud.com/picGo/Pasted%20image%2020230401152844.png" alt="" /></li>
+<li><strong>第一张图</strong>：可视化 Encoder 的某些 tansformer block 的输出，可以看出在低层的 tansformer block 已经构建全局注意力关系</li>
+<li><strong>第二张图</strong>：可视化一个固定点 (patch)与其他点 (patch)的注意力关系，可以看出，tansformer block 确实构建了目标的注意力关系</li>
+</ul>
+<p>参考：</p>
+<ol>
+<li><a href="https://zhuanlan.zhihu.com/p/348418189">重新思考语义分割范式——SETR - 知乎</a></li>
 </ol>
 ]]></content>
       <categories>
@@ -3781,8 +3913,8 @@ M834 80h400000v40h-400000z'/></svg></span></span></span><span class="vlist-s">�
       </categories>
       <tags>
         <tag>cuda</tag>
-        <tag>机器视觉</tag>
         <tag>opencv</tag>
+        <tag>机器视觉</tag>
       </tags>
   </entry>
   <entry>
@@ -9531,33 +9663,6 @@ Zotero的神级插件，这玩意可以自动获取导入文件的元数据，�
       </tags>
   </entry>
   <entry>
-    <title>linux的文件夹共享功能设置</title>
-    <url>/2016/06/01/linux%E7%9A%84%E6%96%87%E4%BB%B6%E5%A4%B9%E5%85%B1%E4%BA%AB%E5%8A%9F%E8%83%BD%E8%AE%BE%E7%BD%AE/</url>
-    <content><![CDATA[<p>本文解释linux系统向其他系统共享文件的流程，并以ipad访问过程演示</p>
-<a id="more"></a>
-<p>1.新建共享文件夹<br />
-<img src="https://picgo-1304919305.cos.ap-guangzhou.myqcloud.com/picGo/202304082045372.png" alt="enter description here" /></p>
-<p>2.设置共享用户<br />
-<img src="https://picgo-1304919305.cos.ap-guangzhou.myqcloud.com/picGo/202304082046890.png" alt="enter description here" /></p>
-<blockquote>
-<p>好像要求用户wu先是系统用户</p>
-</blockquote>
-<p>3.终端访问</p>
-<p><img src="https://picgo-1304919305.cos.ap-guangzhou.myqcloud.com/picGo/202304082046943.png" alt="enter description here" /></p>
-<p><img src="https://picgo-1304919305.cos.ap-guangzhou.myqcloud.com/picGo/202304082046556.png" alt="enter description here" /></p>
-<blockquote>
-<p>！需填写密码</p>
-</blockquote>
-]]></content>
-      <categories>
-        <category>软件工具</category>
-      </categories>
-      <tags>
-        <tag>Linux</tag>
-        <tag>文件共享</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>linux上wps系统缺失字体</title>
     <url>/2016/06/01/linux%E4%B8%8Awps%E7%B3%BB%E7%BB%9F%E7%BC%BA%E5%A4%B1%E5%AD%97%E4%BD%93/</url>
     <content><![CDATA[<p>在Linux上新安装WPS后，第一次打开就出现以下问题：</p>
@@ -9590,6 +9695,33 @@ Linux上缺少windows字体，把字体添加上去即可。</p>
       <tags>
         <tag>Linux</tag>
         <tag>WPS</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>linux的文件夹共享功能设置</title>
+    <url>/2016/06/01/linux%E7%9A%84%E6%96%87%E4%BB%B6%E5%A4%B9%E5%85%B1%E4%BA%AB%E5%8A%9F%E8%83%BD%E8%AE%BE%E7%BD%AE/</url>
+    <content><![CDATA[<p>本文解释linux系统向其他系统共享文件的流程，并以ipad访问过程演示</p>
+<a id="more"></a>
+<p>1.新建共享文件夹<br />
+<img src="https://picgo-1304919305.cos.ap-guangzhou.myqcloud.com/picGo/202304082045372.png" alt="enter description here" /></p>
+<p>2.设置共享用户<br />
+<img src="https://picgo-1304919305.cos.ap-guangzhou.myqcloud.com/picGo/202304082046890.png" alt="enter description here" /></p>
+<blockquote>
+<p>好像要求用户wu先是系统用户</p>
+</blockquote>
+<p>3.终端访问</p>
+<p><img src="https://picgo-1304919305.cos.ap-guangzhou.myqcloud.com/picGo/202304082046943.png" alt="enter description here" /></p>
+<p><img src="https://picgo-1304919305.cos.ap-guangzhou.myqcloud.com/picGo/202304082046556.png" alt="enter description here" /></p>
+<blockquote>
+<p>！需填写密码</p>
+</blockquote>
+]]></content>
+      <categories>
+        <category>软件工具</category>
+      </categories>
+      <tags>
+        <tag>Linux</tag>
+        <tag>文件共享</tag>
       </tags>
   </entry>
   <entry>
