@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://shaogui.life/2023/05/20/Segment%20Anything/</loc>
+    
+    <lastmod>2023-05-20</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://shaogui.life/2023/05/09/%E4%BA%BA%E5%B7%A5%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C(ANN)%E7%9A%84%E7%90%86%E8%A7%A3/</loc>
     
     <lastmod>2023-05-20</lastmod>
@@ -620,6 +627,13 @@
   </url>
   
   <url>
+    <loc>https://shaogui.life/tags/Calibre/</loc>
+    <lastmod>2023-05-20</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://shaogui.life/tags/OCR/</loc>
     <lastmod>2023-05-20</lastmod>
     <changefreq>daily</changefreq>
@@ -627,21 +641,7 @@
   </url>
   
   <url>
-    <loc>https://shaogui.life/tags/%E6%96%87%E6%9C%AC%E6%A3%80%E6%B5%8B/</loc>
-    <lastmod>2023-05-20</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://shaogui.life/tags/%E6%96%87%E6%9C%AC%E5%AE%9A%E4%BD%8D/</loc>
-    <lastmod>2023-05-20</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://shaogui.life/tags/Calibre/</loc>
     <lastmod>2023-05-20</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -656,6 +656,13 @@
   
   <url>
     <loc>https://shaogui.life/tags/Gluon/</loc>
+    <lastmod>2023-05-20</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://shaogui.life/tags/%E6%96%87%E6%9C%AC%E6%A3%80%E6%B5%8B/</loc>
     <lastmod>2023-05-20</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -697,6 +704,13 @@
   </url>
   
   <url>
+    <loc>https://shaogui.life/tags/Mxnet/</loc>
+    <lastmod>2023-05-20</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://shaogui.life/tags/Linux/</loc>
     <lastmod>2023-05-20</lastmod>
     <changefreq>daily</changefreq>
@@ -705,13 +719,6 @@
   
   <url>
     <loc>https://shaogui.life/tags/%E6%96%87%E6%9C%AC%E5%A4%84%E7%90%86/</loc>
-    <lastmod>2023-05-20</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://shaogui.life/tags/Mxnet/</loc>
     <lastmod>2023-05-20</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -753,6 +760,20 @@
   </url>
   
   <url>
+    <loc>https://shaogui.life/tags/transformer/</loc>
+    <lastmod>2023-05-20</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://shaogui.life/tags/%E5%88%86%E5%89%B2/</loc>
+    <lastmod>2023-05-20</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://shaogui.life/tags/Zotero/</loc>
     <lastmod>2023-05-20</lastmod>
     <changefreq>daily</changefreq>
@@ -774,13 +795,6 @@
   </url>
   
   <url>
-    <loc>https://shaogui.life/tags/%E8%AF%BB%E4%B9%A6/</loc>
-    <lastmod>2023-05-20</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://shaogui.life/tags/MinGW64/</loc>
     <lastmod>2023-05-20</lastmod>
     <changefreq>daily</changefreq>
@@ -789,6 +803,13 @@
   
   <url>
     <loc>https://shaogui.life/tags/windows/</loc>
+    <lastmod>2023-05-20</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://shaogui.life/tags/%E8%AF%BB%E4%B9%A6/</loc>
     <lastmod>2023-05-20</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -865,6 +886,13 @@
   </url>
   
   <url>
+    <loc>https://shaogui.life/tags/%E9%93%BE%E5%BC%8F%E6%B1%82%E5%AF%BC/</loc>
+    <lastmod>2023-05-20</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://shaogui.life/tags/%E9%83%A8%E7%BD%B2/</loc>
     <lastmod>2023-05-20</lastmod>
     <changefreq>daily</changefreq>
@@ -873,13 +901,6 @@
   
   <url>
     <loc>https://shaogui.life/tags/%E5%8A%A0%E5%AF%86/</loc>
-    <lastmod>2023-05-20</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://shaogui.life/tags/%E9%93%BE%E5%BC%8F%E6%B1%82%E5%AF%BC/</loc>
     <lastmod>2023-05-20</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -914,6 +935,13 @@
   </url>
   
   <url>
+    <loc>https://shaogui.life/tags/%E5%91%BD%E5%90%8D/</loc>
+    <lastmod>2023-05-20</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://shaogui.life/tags/%E7%89%88%E6%9C%AC%E7%AE%A1%E7%90%86/</loc>
     <lastmod>2023-05-20</lastmod>
     <changefreq>daily</changefreq>
@@ -922,13 +950,6 @@
   
   <url>
     <loc>https://shaogui.life/tags/git/</loc>
-    <lastmod>2023-05-20</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://shaogui.life/tags/%E5%91%BD%E5%90%8D/</loc>
     <lastmod>2023-05-20</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
