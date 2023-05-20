@@ -1,6 +1,120 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>我的OCR学习路线</title>
+    <url>/2023/05/13/%E6%88%91%E7%9A%84%E5%AE%9E%E4%BE%8B%E5%88%86%E5%89%B2%E5%AD%A6%E4%B9%A0%E8%B7%AF%E7%BA%BF/</url>
+    <content><![CDATA[<p><img src="../source/Excalidraw/Drawing%202023-03-22%2013.39.58.excalidraw.svg" alt="Drawing 2023-03-22 13.39.58.excalidraw" /></p>
+<p>本文总结自己目前对实例分割 的认识，和学习过程</p>
+<a id="more"></a>
+<h1 id="什么是实例分割"><a class="markdownIt-Anchor" href="#什么是实例分割"></a> 什么是实例分割？</h1>
+<ul>
+<li><img src="../source/Excalidraw/Drawing%202023-03-22%2010.13.11.excalidraw.svg" alt="Drawing 2023-03-22 10.13.11.excalidraw" /></li>
+<li>目标检测针对的是目标，语义分割针对的是像素，而实例分割针对的是实例。所谓实例就是一个不管类别、不管是否连续的 1 个目标</li>
+<li>上图是对一张图上 3 类 4 个实例的分割示意图，最后的输出结果是<strong>每个实例的语义分割图</strong></li>
+</ul>
+<h1 id="实例分割的原理"><a class="markdownIt-Anchor" href="#实例分割的原理"></a> 实例分割的原理？</h1>
+<ul>
+<li><img src="../source/Excalidraw/Drawing%202023-03-22%2010.27.55.excalidraw.png" alt="Drawing 2023-03-22 10.27.55.excalidraw" /></li>
+<li><strong>Two-satge</strong>：既然实例分割是针对实例的语义分割，最直接的办法就是先找出单个实例的区域，然后对这个区域进行语义分割即可</li>
+<li><strong>one-stage</strong>：不找实例的区域，而是针对每个 grid 生成 1 个语义分割预测，通过后处理获得实例的类别及分割结果</li>
+</ul>
+<h1 id="实例分割的方法"><a class="markdownIt-Anchor" href="#实例分割的方法"></a> 实例分割的方法？</h1>
+<ul>
+<li><img src="../source/Excalidraw/Drawing%202023-03-22%2009.38.03.excalidraw.svg" alt="Drawing 2023-03-22 09.38.03.excalidraw" /></li>
+<li><mark style="background: #FF5582A6;">two-satge</mark>：类似于目标检测的 two-satge 模型，即<strong>先检测出目标的获选框，然后对候选框进行语义分割和位置回归</strong></li>
+<li><mark style="background: #FFB86CA6;">one-stage</mark>：类似于目标检测的 one-stage 模型，即<strong>先通过 grid 确保这个位置有目标，然后对这个位置进行位置回归 (目标检测)或者 mask 生成 (实例分割)</strong></li>
+<li>two-stage 的方法原始直接，但是对重叠目标的 Mask 预测比较麻烦，而且速度较慢；one-stage 类似 YOLO 系列的思想，速度较快</li>
+</ul>
+<h1 id="评价指标"><a class="markdownIt-Anchor" href="#评价指标"></a> 评价指标</h1>
+<ul>
+<li><img src="../source/Excalidraw/Drawing%202023-03-14%2020.11.25.excalidraw.svg" alt="Drawing 2023-03-14 20.11.25.excalidraw" /></li>
+<li>和目标检测一样，实例分割使用 mAP 评价模型性能，注意：<strong>统计某类的 TP、FP、FN 时，是针对所有图片的<mark style="background: #FF5582A6;">实例</mark>预测结果进行，不针对具体图片</strong></li>
+<li>AP 是指某个类别预测情况的平均精准率，mAP 指所有类别 AP 的平均</li>
+<li>AP 可以通过求解 PR 曲线下的面积得到，求解方式包括11个点和矩形求解</li>
+<li>每个 PR 区域是某个 IOU 阈值绘制的，并且这个 IOU 阈值已经由单阈值发展到多阈值</li>
+</ul>
+<h1 id="two-stage"><a class="markdownIt-Anchor" href="#two-stage"></a> two-stage</h1>
+<ul>
+<li><img src="../source/Excalidraw/Drawing%202023-03-22%2013.46.18.excalidraw.svg" alt="Drawing 2023-03-22 13.46.18.excalidraw" /></li>
+<li>自上而下的实例分割方法，首先按获取候选框，然后在此基础上进行目标框回归和 Mask 生成</li>
+<li><strong>Mask RCNN</strong>：使用 RPN 获得候选框、使用 Faster RCNN 预测目标类别、使用 FCN 生成 Mask</li>
+<li><strong>PAN</strong>：通过在 FPN 的基础上引入 bottom-up 路径，让底层信息更快传递到高层，其思想和 Mask RCNN 一致</li>
+</ul>
+<h1 id="one-stage"><a class="markdownIt-Anchor" href="#one-stage"></a> One-stage</h1>
+<ul>
+<li><img src="../source/Excalidraw/Drawing%202023-03-22%2013.47.15.excalidraw.svg" alt="Drawing 2023-03-22 13.47.15.excalidraw" /></li>
+<li>自下而上的实例分割方法类似 YOLO 系列将每个 grid 看作 1 个目标，这类实例分割方法将每个 grid 视为一个实例，并为每个 grid 预测 1 个 Mask</li>
+<li><strong>SOLO</strong>：输出包含 2 个分支，一个是 heatmap 分支，判定该 grid 是否包含实例，另一个分支是为该 grid 生成 Mask</li>
+<li><strong>SOLOv2</strong>：在 SOLOv1 的基础上，将 Mask 分支解藕卷积核生成、卷积特征生成 2 个分支，监督网络学习卷积核，使得网络能动态学习实例的特征</li>
+</ul>
+<h1 id="学习路线"><a class="markdownIt-Anchor" href="#学习路线"></a> 学习路线</h1>
+<ul>
+<li><img src="../source/Excalidraw/Drawing%202023-03-22%2013.39.58.excalidraw.svg" alt="Drawing 2023-03-22 13.39.58.excalidraw" /></li>
+</ul>
+<ol>
+<li><a href="MaskRCNN.md">MaskRCNN</a>：在 Faster RCNN 的基础上增加 FCN 分支，提出 ROIAlign 对齐 ROI 下采样</li>
+<li><a href="PAN.md">PAN</a>：类似 MaskRCNN 过程，BackBone 使用 PAN 进行特征融合，最后融合所有尺度目标进行目标定位与分割</li>
+<li><a href="yolact.md">yolact</a>：首先生成一批 prototype mask，然后目标分支生成一组权重，加权得到每个 grid 的分割结果</li>
+<li><a href="SOLO.md">SOLO</a>：首先 Category 分支对 grid 进行分类，然后 Mask 分支生成每个 grid 的分割，实际使用通过解藕头构建 Mask 分支</li>
+<li><a href="SOLOv2.md">SOLOv2</a>：将 SOLO 的 Mask 生成分支解藕为<strong>掩码核预测分支</strong>和掩码特征学习分支，分别负责生成卷积核和需要卷积的特征映射</li>
+<li><a href="yolactplusplus.md">yolactplusplus</a>：基本和 yolact 类似，生成更多 anchor 、重新生成的 Mask scoreing 分支</li>
+</ol>
+]]></content>
+      <categories>
+        <category>深度学习</category>
+      </categories>
+      <tags>
+        <tag>实例分割</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>我的OCR学习路线</title>
+    <url>/2023/05/10/%E6%88%91%E7%9A%84OCR%E5%AD%A6%E4%B9%A0%E8%B7%AF%E7%BA%BF/</url>
+    <content><![CDATA[<p><img src="https://picgo-1304919305.cos.ap-guangzhou.myqcloud.com/picGo/Drawing%202023-04-11%2018.42.57.excalidraw.svg" alt="Drawing 2023-04-11 18.42.57.excalidraw" /></p>
+<p>本文总结自己目前对 OCR 的认识，和学习过程</p>
+<a id="more"></a>
+<h1 id="什么是-ocr"><a class="markdownIt-Anchor" href="#什么是-ocr"></a> 什么是 OCR ？</h1>
+<ul>
+<li><img src="https://picgo-1304919305.cos.ap-guangzhou.myqcloud.com/picGo/FOTS-20230409214506.png" alt="" /></li>
+<li>OCR （Optical Character Recognition，光学字符识别）指将打字、手写或印刷文本的图像电子或机械转换为机器编码文本的过程</li>
+<li><strong>文本检测 (Text detection)</strong> ：<strong>检测文本的所在位置和范围及其布局</strong>，可以使用传统的 ROI 提取实现，也可使用目标检测去实现，如 Faster R-CNN，[[FCN]]</li>
+<li><strong>文本识别 (Text recognition)</strong>：<strong>对文本内容进行识别</strong>，将图像中的文本信息转化为文本信息</li>
+<li><strong>文本定位 (Text Spotting)</strong> ：分文本检测 (Text detection) 文本识别 (Text recognition)统一到一起的简称</li>
+</ul>
+<h1 id="ocr-的方法"><a class="markdownIt-Anchor" href="#ocr-的方法"></a> OCR 的方法？</h1>
+<ul>
+<li><img src="https://picgo-1304919305.cos.ap-guangzhou.myqcloud.com/picGo/Drawing%202023-04-11%2018.42.57.excalidraw.svg" alt="Drawing 2023-04-11 18.42.57.excalidraw" /></li>
+<li><strong>文本检测 (Text detection)</strong> ：其实就是检测文本行<strong>实例</strong>，可以使用目标检测的方法，也可使用语义分割的方法</li>
+<li><strong>文本识别 (Text recognition)</strong> ：这个是 OCR 的重点，主要有 3 条路线</li>
+<li><strong>文本定位 (Text Spotting)</strong> ：分为两种，但阶段和双阶段</li>
+</ul>
+<h1 id="评价指标-字符评价"><a class="markdownIt-Anchor" href="#评价指标-字符评价"></a> 评价指标-字符评价</h1>
+<ul>
+<li>以字符 （文字和标点符号） 为单位的统计和分析，适用于通用印刷体、手写体类非结构化数据的OCR应用评测</li>
+<li><strong>字符召回率</strong>：预测正确的字符总数占<strong>总符号</strong>的比例</li>
+<li><strong>字符准确率</strong>：预测正确的字符占<strong>总测试结果</strong>的比例</li>
+<li><strong>F-socre</strong>：字符召回率和字符准确率的综合评价指标</li>
+</ul>
+<h1 id="评价指标-文本段评价"><a class="markdownIt-Anchor" href="#评价指标-文本段评价"></a> 评价指标-文本段评价</h1>
+<ul>
+<li>以字段为单位的统计和分析，适用于卡证类、票据类等结构化程度较高的 OCR 应用评测</li>
+<li><strong>字段召回率</strong>：完全识别准确的字段总数占<strong>总字段</strong>的比例</li>
+<li><strong>字段准确率</strong>：完全识别准确的字段占<strong>总测试结果</strong>的比例</li>
+<li><strong>最小编辑距离</strong>：编辑距离是针对二个字符串（例如英文字）的差异程度的量化量测，通过替换、插入、删除，将预测结果修正为gt所需操作步骤，最小编辑距离表示最少操作步数</li>
+<li><strong>全图编辑距离</strong>：整个文本段的编辑距离</li>
+<li><strong>归一化编辑距离</strong>: 编辑距离除以字符串长度</li>
+</ul>
+<h1 id="学习路线"><a class="markdownIt-Anchor" href="#学习路线"></a> 学习路线</h1>
+<p><img src="https://picgo-1304919305.cos.ap-guangzhou.myqcloud.com/picGo/Drawing%202023-03-22%2014.25.52.excalidraw.svg" alt="Drawing 2023-03-22 14.25.52.excalidraw" /></p>
+]]></content>
+      <categories>
+        <category>深度学习</category>
+      </categories>
+      <tags>
+        <tag>OCR</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>transformer：Attention Is All You Need</title>
     <url>/2021/12/22/transformer%EF%BC%9AAttention%20Is%20All%20You%20Need/</url>
     <content><![CDATA[<p>为了解决RNN在序列数据上感受野不足和无法并行训练的问题的问题，Transformer被提出。Transformer 由且仅由 self-Attenion 和 Feed Forward Neural Network 组成，训练时一次输入所有时间步，构建所有时间步之间的注意力，不用考虑方向，不考虑长度</p>
