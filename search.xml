@@ -81,7 +81,7 @@
   <entry>
     <title>我的人体姿态估计学习路线</title>
     <url>/2023/05/14/%E6%88%91%E7%9A%84%E4%BA%BA%E4%BD%93%E5%A7%BF%E6%80%81%E4%BC%B0%E8%AE%A1%E5%AD%A6%E4%B9%A0%E8%B7%AF%E7%BA%BF/</url>
-    <content><![CDATA[<p><img src="https://picgo-1304919305.cos.ap-guangzhou.myqcloud.com/picGo/Drawing%202023-04-13%2023.28.32.excalidraw.svg" alt="" /></p>
+    <content><![CDATA[<p><img src="https://picgo-1304919305.cos.ap-guangzhou.myqcloud.com/picGo/Drawing%202023-04-13%2023.28.32.excalidraw.svg" alt="Drawing 2023-04-13 23.28.32.excalidraw" /></p>
 <p>本文总结自己目前对人体姿态估计的认识，和学习过程</p>
 <a id="more"></a>
 <h1 id="什么是人体姿态检测"><a class="markdownIt-Anchor" href="#什么是人体姿态检测"></a> 什么是人体姿态检测？</h1>
@@ -138,7 +138,7 @@ M834 80h400000v40h-400000z'/></svg></span></span></span><span class="vlist-s">�
 </li>
 </ul>
 <h1 id="学习路线"><a class="markdownIt-Anchor" href="#学习路线"></a> 学习路线</h1>
-<p><img src="https://picgo-1304919305.cos.ap-guangzhou.myqcloud.com/picGo/Drawing%202023-04-13%2023.28.32.excalidraw.svg" alt="" /></p>
+<p><img src="https://picgo-1304919305.cos.ap-guangzhou.myqcloud.com/picGo/Drawing%202023-04-13%2023.28.32.excalidraw.svg" alt="Drawing 2023-04-13 23.28.32.excalidraw" /></p>
 ]]></content>
       <categories>
         <category>深度学习</category>
@@ -1151,8 +1151,8 @@ M834 80h400000v40h-400000z'/></svg></span></span></span><span class="vlist-s">�
         <category>深度学习</category>
       </categories>
       <tags>
-        <tag>语义分割</tag>
         <tag>轻量</tag>
+        <tag>语义分割</tag>
       </tags>
   </entry>
   <entry>
@@ -1848,8 +1848,8 @@ M834 80h400000v40h-400000z'/></svg></span></span></span><span class="vlist-s">�
 </ul>
 ]]></content>
       <tags>
-        <tag>语义分割</tag>
         <tag>轻量</tag>
+        <tag>语义分割</tag>
       </tags>
   </entry>
   <entry>
@@ -1915,8 +1915,8 @@ M834 80h400000v40h-400000z'/></svg></span></span></span><span class="vlist-s">�
         <category>深度学习</category>
       </categories>
       <tags>
-        <tag>语义分割</tag>
         <tag>轻量</tag>
+        <tag>语义分割</tag>
       </tags>
   </entry>
   <entry>
@@ -9048,8 +9048,8 @@ F 持证人为女性（Feminino）</p>
         <category>深度学习</category>
       </categories>
       <tags>
-        <tag>语义分割</tag>
         <tag>轻量</tag>
+        <tag>语义分割</tag>
       </tags>
   </entry>
   <entry>

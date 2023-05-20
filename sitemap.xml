@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://shaogui.life/2023/05/14/%E6%88%91%E7%9A%84%E4%BA%BA%E4%BD%93%E5%A7%BF%E6%80%81%E4%BC%B0%E8%AE%A1%E5%AD%A6%E4%B9%A0%E8%B7%AF%E7%BA%BF/</loc>
+    
+    <lastmod>2023-05-20</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://shaogui.life/2023/05/15/%E6%88%91%E7%9A%84%E8%AF%AD%E4%B9%89%E5%88%86%E5%89%B2%E5%AD%A6%E4%B9%A0%E8%B7%AF%E7%BA%BF/</loc>
     
     <lastmod>2023-05-20</lastmod>
@@ -121,14 +128,14 @@
   </url>
   
   <url>
-    <loc>https://shaogui.life/2020/02/26/EMANet%EF%BC%9AExpectation-Maximization%20Attention%20Networks%20for%20Semantic%20Segmentation/</loc>
+    <loc>https://shaogui.life/2017/03/25/DeconvNet%EF%BC%9ALearning%20Deconvolution%20Network%20for%20Semantic%20Segmentation/</loc>
     
     <lastmod>2023-05-20</lastmod>
     
   </url>
   
   <url>
-    <loc>https://shaogui.life/2019/04/13/Unet++%EF%BC%9AA%20Nested%20U-Net%20Architecture%20for%20Medical%20Image%20Segmentation/</loc>
+    <loc>https://shaogui.life/2020/02/26/EMANet%EF%BC%9AExpectation-Maximization%20Attention%20Networks%20for%20Semantic%20Segmentation/</loc>
     
     <lastmod>2023-05-20</lastmod>
     
@@ -142,7 +149,7 @@
   </url>
   
   <url>
-    <loc>https://shaogui.life/2017/03/25/DeconvNet%EF%BC%9ALearning%20Deconvolution%20Network%20for%20Semantic%20Segmentation/</loc>
+    <loc>https://shaogui.life/2019/04/13/Unet++%EF%BC%9AA%20Nested%20U-Net%20Architecture%20for%20Medical%20Image%20Segmentation/</loc>
     
     <lastmod>2023-05-20</lastmod>
     
@@ -163,14 +170,14 @@
   </url>
   
   <url>
-    <loc>https://shaogui.life/2020/11/23/DMNet%EF%BC%9ADynamic%20Multi-Scale%20Filters%20for%20Semantic%20Segmentation/</loc>
+    <loc>https://shaogui.life/2020/09/22/APCNet%EF%BC%9AAdaptive%20Pyramid%20Context%20Network%20for%20Semantic%20Segmentation/</loc>
     
     <lastmod>2023-05-20</lastmod>
     
   </url>
   
   <url>
-    <loc>https://shaogui.life/2020/09/22/APCNet%EF%BC%9AAdaptive%20Pyramid%20Context%20Network%20for%20Semantic%20Segmentation/</loc>
+    <loc>https://shaogui.life/2020/11/23/DMNet%EF%BC%9ADynamic%20Multi-Scale%20Filters%20for%20Semantic%20Segmentation/</loc>
     
     <lastmod>2023-05-20</lastmod>
     
@@ -290,13 +297,6 @@
   
   <url>
     <loc>https://shaogui.life/2017/03/20/FCN%EF%BC%9AFully%20Convolutional%20Networks%20for%20Semantic%20Segmentation/</loc>
-    
-    <lastmod>2023-05-20</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://shaogui.life/2023/05/14/%E6%88%91%E7%9A%84%E4%BA%BA%E4%BD%93%E5%A7%BF%E6%80%81%E4%BC%B0%E8%AE%A1%E5%AD%A6%E4%B9%A0%E8%B7%AF%E7%BA%BF/</loc>
     
     <lastmod>2023-05-20</lastmod>
     
@@ -1131,14 +1131,14 @@
   </url>
   
   <url>
-    <loc>https://shaogui.life/tags/%E8%AF%AD%E4%B9%89%E5%88%86%E5%89%B2/</loc>
+    <loc>https://shaogui.life/tags/%E8%BD%BB%E9%87%8F/</loc>
     <lastmod>2023-05-20</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://shaogui.life/tags/%E8%BD%BB%E9%87%8F/</loc>
+    <loc>https://shaogui.life/tags/%E8%AF%AD%E4%B9%89%E5%88%86%E5%89%B2/</loc>
     <lastmod>2023-05-20</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -1278,14 +1278,14 @@
   </url>
   
   <url>
-    <loc>https://shaogui.life/tags/hexo/</loc>
+    <loc>https://shaogui.life/tags/%E5%85%B3%E9%94%AE%E7%82%B9%E8%AF%86%E5%88%AB/</loc>
     <lastmod>2023-05-20</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://shaogui.life/tags/%E5%85%B3%E9%94%AE%E7%82%B9%E8%AF%86%E5%88%AB/</loc>
+    <loc>https://shaogui.life/tags/hexo/</loc>
     <lastmod>2023-05-20</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -1341,14 +1341,14 @@
   </url>
   
   <url>
-    <loc>https://shaogui.life/tags/Mxnet/</loc>
+    <loc>https://shaogui.life/tags/%E5%AE%9E%E4%BE%8B%E5%88%86%E5%89%B2/</loc>
     <lastmod>2023-05-20</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://shaogui.life/tags/%E5%AE%9E%E4%BE%8B%E5%88%86%E5%89%B2/</loc>
+    <loc>https://shaogui.life/tags/Mxnet/</loc>
     <lastmod>2023-05-20</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
