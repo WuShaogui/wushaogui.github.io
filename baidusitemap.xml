@@ -1,6 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://shaogui.life/2021/02/20/Strip%20Pooling%EF%BC%9ARethinking%20Spatial%20Pooling%20for%20Scene%20Parsing/</loc>
+    <lastmod>2023-05-20</lastmod>
+  </url>
+  <url>
+    <loc>https://shaogui.life/2020/12/15/CascadePSP%EF%BC%9AToward%20Class-Agnostic%20and%20Very%20High-Resolution%20Segmentation%20via%20Global%20and%20Local%20Refinement/</loc>
+    <lastmod>2023-05-20</lastmod>
+  </url>
+  <url>
+    <loc>https://shaogui.life/2020/04/21/Gated-SCNN%EF%BC%9AGated%20Shape%20CNNs%20for%20Semantic%20Segmentation/</loc>
+    <lastmod>2023-05-20</lastmod>
+  </url>
+  <url>
+    <loc>https://shaogui.life/2020/11/23/DMNet%EF%BC%9ADynamic%20Multi-Scale%20Filters%20for%20Semantic%20Segmentation/</loc>
+    <lastmod>2023-05-20</lastmod>
+  </url>
+  <url>
+    <loc>https://shaogui.life/2020/09/22/APCNet%EF%BC%9AAdaptive%20Pyramid%20Context%20Network%20for%20Semantic%20Segmentation/</loc>
+    <lastmod>2023-05-20</lastmod>
+  </url>
+  <url>
+    <loc>https://shaogui.life/2020/06/17/FastFCN%EF%BC%9ARethinking%20Dilated%20Convolution%20in%20the%20Backbone%20for%20Semantic%20Segmentation/</loc>
+    <lastmod>2023-05-20</lastmod>
+  </url>
+  <url>
+    <loc>https://shaogui.life/2019/03/13/ICNet%20for%20Real-Time%20Semantic%20Segmentation%20on%20High-Resolution%20Images/</loc>
+    <lastmod>2023-05-20</lastmod>
+  </url>
+  <url>
     <loc>https://shaogui.life/2019/03/29/DeepLabv3+%EF%BC%9AEncoder-Decoder%20with%20Atrous%20Separable%20Convolution%20for%20Semantic%20Image%20Segmentation/</loc>
     <lastmod>2023-05-20</lastmod>
   </url>
