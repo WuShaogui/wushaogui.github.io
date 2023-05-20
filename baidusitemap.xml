@@ -1,6 +1,42 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://shaogui.life/2022/03/24/MSPN%EF%BC%9ARethinking%20on%20Multi-Stage%20Networks%20for%20Human%20Pose%20Estimation/</loc>
+    <lastmod>2023-05-20</lastmod>
+  </url>
+  <url>
+    <loc>https://shaogui.life/2022/03/18/HRNet%EF%BC%9ADeep%20High-Resolution%20Representation%20Learning%20for%20Visual%20Recognition/</loc>
+    <lastmod>2023-05-20</lastmod>
+  </url>
+  <url>
+    <loc>https://shaogui.life/2022/03/16/Simple%20Baselines%20for%20Human%20Pose%20Estimation%20and%20Tracking/</loc>
+    <lastmod>2023-05-20</lastmod>
+  </url>
+  <url>
+    <loc>https://shaogui.life/2022/03/15/CPN%EF%BC%9ACascaded%20Pyramid%20Network%20for%20Multi-Person%20Pose%20Estimation/</loc>
+    <lastmod>2023-05-20</lastmod>
+  </url>
+  <url>
+    <loc>https://shaogui.life/2022/03/12/CrowdPose%EF%BC%9AEfficient%20Crowded%20Scenes%20Pose%20Estimation%20and%20A%20New%20Benchmark/</loc>
+    <lastmod>2023-05-20</lastmod>
+  </url>
+  <url>
+    <loc>https://shaogui.life/2022/03/10/RMPE%EF%BC%9ARegional%20Multi-person%20Pose%20Estimation/</loc>
+    <lastmod>2023-05-20</lastmod>
+  </url>
+  <url>
+    <loc>https://shaogui.life/2022/03/05/MSSA%EF%BC%9AMulti-Scale%20Structure-Aware%20Network%20for%20Human%20Pose%20Estimation/</loc>
+    <lastmod>2023-05-20</lastmod>
+  </url>
+  <url>
+    <loc>https://shaogui.life/2022/03/29/PraNet%EF%BC%9ALearning%20Feature%20Pyramids%20for%20Human%20Pose%20Estimation/</loc>
+    <lastmod>2023-05-20</lastmod>
+  </url>
+  <url>
+    <loc>https://shaogui.life/2023/03/01/%E4%BA%BA%E5%B7%A5%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C(ANN)%E7%9A%84%E7%90%86%E8%A7%A3/</loc>
+    <lastmod>2023-05-20</lastmod>
+  </url>
+  <url>
     <loc>https://shaogui.life/2022/03/01/OpenPose%EF%BC%9ARealtime%20Multi-Person%202D%20Pose%20Estimation%20using%20Part%20Affinity%20Fields/</loc>
     <lastmod>2023-05-20</lastmod>
   </url>
@@ -34,10 +70,6 @@
   </url>
   <url>
     <loc>https://shaogui.life/2023/04/11/EAST%EF%BC%9AAn%20Efficient%20and%20Accurate%20Scene%20Text%20Detector/</loc>
-    <lastmod>2023-05-20</lastmod>
-  </url>
-  <url>
-    <loc>https://shaogui.life/2023/05/09/%E4%BA%BA%E5%B7%A5%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C(ANN)%E7%9A%84%E7%90%86%E8%A7%A3/</loc>
     <lastmod>2023-05-20</lastmod>
   </url>
   <url>
