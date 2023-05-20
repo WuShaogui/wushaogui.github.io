@@ -1380,6 +1380,177 @@ M834 80h400000v40h-400000z'/></svg></span></span></span><span class="vlist-s">�
       </tags>
   </entry>
   <entry>
+    <title>YOLACT++：Better Real-time Instance Segmentation</title>
+    <url>/2022/03/26/YOLACT++%EF%BC%9ABetter%20Real-time%20Instance%20Segmentation/</url>
+    <content><![CDATA[<p>yolactplusplus 通过引入可变形卷积、使用更多的 anchor、重新生成的 Mask scoreing 分支等措施，改进了 yolact 模型</p>
+<a id="more"></a>
+<h1 id="什么是-yolactplusplus"><a class="markdownIt-Anchor" href="#什么是-yolactplusplus"></a> 什么是 yolactplusplus ？</h1>
+<ul>
+<li><img src="https://picgo-1304919305.cos.ap-guangzhou.myqcloud.com/picGo/yolactplusplus-20230508212450.png" alt="" /></li>
+<li>YOLACT 主要是通过两个并行的子网络来实现实例分割的。(1) Prediction Head 分支生成各个 anchor 的类别置信度、位置回归参数以及 mask 的掩码系数；(2) Protonet 分支生成一组原型 mask。然后将原型 mask 和 mask 的掩码系数相乘，从而得到图片中每一个目标物体的 mask</li>
+<li>yolactplusplus 通过引入可变形卷积、使用更多的 anchor、重新生成的 Mask scoreing 分支等措施，改进了 yolact 模型</li>
+</ul>
+<h1 id="yolactplusplus-的网络结构"><a class="markdownIt-Anchor" href="#yolactplusplus-的网络结构"></a> yolactplusplus 的网络结构？</h1>
+<ul>
+<li><img src="https://picgo-1304919305.cos.ap-guangzhou.myqcloud.com/picGo/yolactplusplus-20230508212450-1.png" alt="" /></li>
+<li><strong>Featrue Backbone&amp;Featrue Pyramid</strong>：使用 ResNet101 提取图片特征，并引入可变形卷积，然后使用 FPN 结构进行特征融合</li>
+<li><strong>prototypes</strong>：从 P3 级别的特征生成全局的 prototype mask (138,138,32)，这里固定是 32 个 mask，后续所有实例的 mask 是这 32 个 mask 的线性组合</li>
+<li><strong>Predict Head</strong>：基于 anchor 预测目标的类别、位置和 Mask coefficients，其中 Mask coefficients 是每个 anchor 预测长度为 32 的向量，用于加权 prototypes，得到当前 anchor 的 mask 预测</li>
+<li><strong>corp&amp;Threashold</strong>：根据定位结果和 Mask 预测结果，裁剪目标区域，并使用二值化求得目标的 Mask</li>
+<li><strong>Mask Re-Scoring</strong>：受MS R-CNN的启发，高质量的mask并不一定就对应着高的分类置信度，换句话说，以包围框得分来评价mask好坏并不合理，所以在模型后添加了Mask Re-Scoring分支，该分支使用YOLACT生成的裁剪后的原型mask(未作阈值化)作为输入，输出对应每个类别的GT-mask的IoU</li>
+</ul>
+<h1 id="yolactplusplus-的-fast-mask-re-scoring-分支"><a class="markdownIt-Anchor" href="#yolactplusplus-的-fast-mask-re-scoring-分支"></a> yolactplusplus 的 Fast Mask Re-Scoring 分支？</h1>
+<ul>
+<li><img src="https://picgo-1304919305.cos.ap-guangzhou.myqcloud.com/picGo/yolactplusplus-20230508212451.png" alt="" /></li>
+<li>受MS R-CNN的启发，高质量的mask并不一定就对应着高的分类置信度，换句话说，以包围框得分来评价mask好坏并不合理，所以在模型后添加了Mask Re-Scoring分支，该分支使用YOLACT生成的裁剪后的原型mask(未作阈值化)作为输入，输出对应每个类别的GT-mask的IoU</li>
+</ul>
+<h1 id="yolactplusplus-的-prediction-head"><a class="markdownIt-Anchor" href="#yolactplusplus-的-prediction-head"></a> yolactplusplus 的 Prediction Head？</h1>
+<ul>
+<li><img src="https://picgo-1304919305.cos.ap-guangzhou.myqcloud.com/picGo/yolactplusplus-20230508212451-1.png" alt="" /></li>
+<li>YOLACT 是 anchor-based 的，yolactplusplus对 anchor 设计进行优化。经过实验，选择在每个 FPN 层上乘3种大小，相当于anchor数量较原来的YOLACT增加了3倍</li>
+</ul>
+<h1 id="yolactplusplus-的可变形卷积"><a class="markdownIt-Anchor" href="#yolactplusplus-的可变形卷积"></a> yolactplusplus 的可变形卷积？</h1>
+<ul>
+<li><img src="https://picgo-1304919305.cos.ap-guangzhou.myqcloud.com/picGo/yolactplusplus-20230508212452.png" alt="" /></li>
+<li>参考Deformable ConvNets v2的思路，将ResNet的C3-C5中的各个标准3x3卷积换成3x3可变性卷积，但没有使用堆叠的可变形卷积模块，因为延迟太高</li>
+</ul>
+<h1 id="yolactplusplus-与-yolact-的区别"><a class="markdownIt-Anchor" href="#yolactplusplus-与-yolact-的区别"></a> yolactplusplus 与 yolact 的区别？</h1>
+<ul>
+<li><img src="https://picgo-1304919305.cos.ap-guangzhou.myqcloud.com/picGo/yolactplusplus-20230508212452-1.png" alt="" /></li>
+<li>yolactplusplus 通过引入可变形卷积、使用更多的 anchor、重新生成的 Mask scoreing 分支等措施，改进了 yolact 模型，yolactplusplus 效果越来越好，但是速度变慢了</li>
+</ul>
+<h1 id="yolactplusplus-与-mask-rcnn-的区别"><a class="markdownIt-Anchor" href="#yolactplusplus-与-mask-rcnn-的区别"></a> yolactplusplus 与 Mask RCNN 的区别？</h1>
+<ul>
+<li>YOLACT++直接使用全尺寸的 mask 作为 scoring 分支的输入，而 MS R-CNN 使用的是 ROI Align 后的特征再与其经过 mask 预测分支计算后的特征拼接后的组成的特征</li>
+<li>YOLACT++的scoring分支没有使用FC层，这使得分割的速度提高</li>
+</ul>
+<p>参考：</p>
+<ol>
+<li><a href="https://blog.csdn.net/wh8514/article/details/105520870">图像分割之YOLACT &amp; YOLACT++_Vincent8514的博客-CSDN博客</a></li>
+<li><a href="https://hub.baai.ac.cn/view/19447">当前最快的实例分割模型：YOLACT 和 YOLACT++ - 智源社区</a></li>
+</ol>
+]]></content>
+      <categories>
+        <category>深度学习</category>
+      </categories>
+      <tags>
+        <tag>实例分割</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>SOLOv2：Dynamic and Fast Instance Segmentation</title>
+    <url>/2022/03/05/SOLOv2%EF%BC%9ADynamic%20and%20Fast%20Instance%20Segmentation/</url>
+    <content><![CDATA[<p>SOLOv2是在SOLO的基础上设计的网络，主要是将mask预测分支解耦成掩码核预测（Mask kernel branch）和掩码特征学习（Mask feature branch），分别负责生成卷积核和需要卷积的特征映射，使得mask分支生成速度更快，最后也提出Matrix-nms快速过滤结果</p>
+<a id="more"></a>
+<h1 id="什么是-solov2"><a class="markdownIt-Anchor" href="#什么是-solov2"></a> 什么是 SOLOv2？</h1>
+<ul>
+<li><img src="https://picgo-1304919305.cos.ap-guangzhou.myqcloud.com/picGo/SOLOv2-20230408144052.png" alt="SOLOv2-20230408144052" /></li>
+<li>在 SOLOv1 的基础上，通过重新设计 Mask 预测分支实现效果提升</li>
+<li>SOLOv 2 的 Mask 分支改进思路是将 Mask 分支解藕成掩码核预测（Mask kernel branch）和掩码特征学习（Mask feature branch），分别负责生成卷积核和需要卷积的特征映射</li>
+<li>另一个创新是使用矩阵非最大值抑制（NMS）技术显著减少了推理运算的开销</li>
+</ul>
+<h1 id="solov2-的网络结构"><a class="markdownIt-Anchor" href="#solov2-的网络结构"></a> SOLOv2 的网络结构？</h1>
+<ul>
+<li><img src="https://picgo-1304919305.cos.ap-guangzhou.myqcloud.com/picGo/SOLOv2-20230408144052.png" alt="SOLOv2-20230408144052" /></li>
+<li>继承 SOLOv1 的网络结构，将 Mask 分支解藕成掩码核预测（Mask kernel branch）和掩码特征学习（Mask feature branch），分别负责生成卷积核和需要卷积的特征映射</li>
+</ul>
+<h1 id="solov2-的动态实例分割"><a class="markdownIt-Anchor" href="#solov2-的动态实例分割"></a> SOLOv2 的动态实例分割？</h1>
+<ul>
+<li><img src="https://picgo-1304919305.cos.ap-guangzhou.myqcloud.com/picGo/SOLOv2-20230408144052.png" alt="SOLOv2-20230408144052" /></li>
+<li>已知 SOLOv1 从 FCN 的特征直接生成 SxS 个 Mask 预测结果，而 SOLOv2 不直接生成掩码预测结果，而是生成掩码核预测（Mask kernel branch）和掩码特征学习（Mask feature branch），分别负责生成卷积核和需要卷积的特征映射</li>
+<li>上图 G 表示生成的掩码核、F 表示掩码特征，假设需要计算 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>S</mi><mi>i</mi></msub><mo separator="true">,</mo><msub><mi>S</mi><mi>j</mi></msub></mrow><annotation encoding="application/x-tex">S_i,S_j</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.969438em;vertical-align:-0.286108em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.05764em;">S</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:-0.05764em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.05764em;">S</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.311664em;"><span style="top:-2.5500000000000003em;margin-left:-0.05764em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.05724em;">j</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.286108em;"><span></span></span></span></span></span></span></span></span></span> 位置的掩码预测，从 G 中取出对应位置 (i, j)处的值作为卷积核，然后去和 F 做卷积运算，得到的就是掩码预测结果<p class='katex-block'><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><msub><mi mathvariant="normal">M</mi><mrow><mi>i</mi><mo separator="true">,</mo><mi>j</mi></mrow></msub><mo>=</mo><msub><mi mathvariant="normal">G</mi><mrow><mi>i</mi><mo separator="true">,</mo><mi>j</mi></mrow></msub><mo>∗</mo><mi mathvariant="normal">F</mi></mrow><annotation encoding="application/x-tex">\mathrm{M}_{i,j}=\mathrm{G}_{i,j}*\mathrm{F}
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.969438em;vertical-align:-0.286108em;"></span><span class="mord"><span class="mord"><span class="mord mathrm">M</span></span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.311664em;"><span style="top:-2.5500000000000003em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">i</span><span class="mpunct mtight">,</span><span class="mord mathnormal mtight" style="margin-right:0.05724em;">j</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.286108em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.969438em;vertical-align:-0.286108em;"></span><span class="mord"><span class="mord"><span class="mord mathrm">G</span></span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.311664em;"><span style="top:-2.5500000000000003em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">i</span><span class="mpunct mtight">,</span><span class="mord mathnormal mtight" style="margin-right:0.05724em;">j</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.286108em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">∗</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord"><span class="mord mathrm">F</span></span></span></span></span></span></p>
+</li>
+<li><strong>Mask kernel G</strong>：已知卷积核的通用大小表达形式是 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false">(</mo><msub><mi>C</mi><mrow><mi>i</mi><mi>n</mi></mrow></msub><mo separator="true">,</mo><mi>k</mi><mo separator="true">,</mo><mi>k</mi><mo separator="true">,</mo><msub><mi>C</mi><mrow><mi>o</mi><mi>u</mi><mi>t</mi></mrow></msub><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">(C_{in}, k, k, C_{out})</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord"><span class="mord mathnormal" style="margin-right:0.07153em;">C</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:-0.07153em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">i</span><span class="mord mathnormal mtight">n</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathnormal" style="margin-right:0.03148em;">k</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathnormal" style="margin-right:0.03148em;">k</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.07153em;">C</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.2805559999999999em;"><span style="top:-2.5500000000000003em;margin-left:-0.07153em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">o</span><span class="mord mathnormal mtight">u</span><span class="mord mathnormal mtight">t</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mclose">)</span></span></span></span>，其中 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>C</mi><mrow><mi>i</mi><mi>n</mi></mrow></msub><mtext>、</mtext><msub><mi>C</mi><mrow><mi>o</mi><mi>u</mi><mi>t</mi></mrow></msub></mrow><annotation encoding="application/x-tex">C_{in}、C_{out}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.83333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.07153em;">C</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:-0.07153em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">i</span><span class="mord mathnormal mtight">n</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mord cjk_fallback">、</span><span class="mord"><span class="mord mathnormal" style="margin-right:0.07153em;">C</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.2805559999999999em;"><span style="top:-2.5500000000000003em;margin-left:-0.07153em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">o</span><span class="mord mathnormal mtight">u</span><span class="mord mathnormal mtight">t</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span> 是输入输出通道数，由于 F 的特征长度已知 E，即 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>C</mi><mrow><mi>i</mi><mi>n</mi></mrow></msub><mo>=</mo><mi>E</mi></mrow><annotation encoding="application/x-tex">C_{in}=E</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.83333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.07153em;">C</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:-0.07153em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">i</span><span class="mord mathnormal mtight">n</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.05764em;">E</span></span></span></span>，假定输出通道 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>C</mi><mrow><mi>o</mi><mi>u</mi><mi>t</mi></mrow></msub><mo>=</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">C_{out}=1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.83333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.07153em;">C</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.2805559999999999em;"><span style="top:-2.5500000000000003em;margin-left:-0.07153em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">o</span><span class="mord mathnormal mtight">u</span><span class="mord mathnormal mtight">t</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span></span></span></span>，那么当 G 使用 1x 1 卷积时，D=E 满足卷积核大小，当 G 使用 3 x 3 卷积时，D=9E 满足卷积核大小</li>
+<li><strong>Mask Feature F</strong>：将所有的 FPN 层融合到 1/4 Mask，作为 Mask 特征分支</li>
+</ul>
+<h1 id="solov2-的损失函数"><a class="markdownIt-Anchor" href="#solov2-的损失函数"></a> SOLOv2 的损失函数？</h1>
+<ul>
+<li>损失函数包含 2 部分，一部分是类别预测、一部分是实例 mask 预测<p class='katex-block'><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow></mrow><annotation encoding="application/x-tex"></annotation></semantics></math></span><span class="katex-html" aria-hidden="true"></span></span></span></p>
+<p class='katex-block'><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow></mrow><annotation encoding="application/x-tex"></annotation></semantics></math></span><span class="katex-html" aria-hidden="true"></span></span></span></p>
+</li>
+<li>实例 mask 预测使用 <strong>Dice loss</strong> ，即计算每个正样本对应 mask 的 Dice loss，然后取平均值</li>
+</ul>
+<p>参考：</p>
+<ol>
+<li><a href="https://blog.csdn.net/weixin_42708301/article/details/115557838">SOLOv2算法学习_鲸落于北的博客-CSDN博客</a></li>
+<li><a href="https://baijiahao.baidu.com/s?id=1685408649786275149&amp;wfr=spider&amp;for=pc">性能提升30%以上，实时实例分割算法SOLOv2实现产业SOTA</a></li>
+</ol>
+]]></content>
+      <categories>
+        <category>深度学习</category>
+      </categories>
+      <tags>
+        <tag>实例分割</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>SOLO：Segmenting Objects by Locations</title>
+    <url>/2022/02/20/SOLO%EF%BC%9ASegmenting%20Objects%20by%20Locations/</url>
+    <content><![CDATA[<p>SOLO是实例分割全新赛道的论文，以前的方式是先检测出实例框，然后在实例框内分割目标，而SOLO基于最后一层featrue map(SxS)位置确定实例，然后通过mask分支生成S^2个mask,表示最后一层featrue map(SxS)所有grid对应的分割结果，汇总所有grid的结果，就是实例分割结果</p>
+<a id="more"></a>
+<h1 id="什么是-solo"><a class="markdownIt-Anchor" href="#什么是-solo"></a> 什么是 SOLO?</h1>
+<ul>
+<li><img src="https://picgo-1304919305.cos.ap-guangzhou.myqcloud.com/picGo/SOLO-20230408144009.png" alt="" /></li>
+<li></li>
+<li>SOLO 的核心思想是通过位置和大小来分离对象实例</li>
+<li><strong>位置</strong>：一幅图像可以划分为一个 S×S 单元的网格，从而得到 S×S 中心位置类。<strong>根据对象中心的坐标，将对象实例指定给其中一个网格单元，作为其中心位置类别</strong>。因为本质上实例类别近似于实例的对象中心的位置，并且通过分类，可以更直接、更容易地使用固定数量的通道对不同数量的实例进行建模</li>
+<li><strong>大小</strong>：为了区分不同对象大小的实例，我们采用特征金字塔网络（FPN），将不同大小的对象分配给不同级别的特征映射，作为对象大小类</li>
+</ul>
+<h1 id="solo-的网络结构"><a class="markdownIt-Anchor" href="#solo-的网络结构"></a> SOLO 的网络结构？</h1>
+<ul>
+<li><img src="https://picgo-1304919305.cos.ap-guangzhou.myqcloud.com/picGo/SOLO-20230408144009.png" alt="" /></li>
+<li>SOLO 核心思想是将实例分割问题转化为两个同时存在的<strong>类别感知预测</strong>和<strong>实例感知掩码生成</strong>问题。具体来说，我们的系统将输入图像分成一个统一的网格，即 S×S，如果一个对象的中心落在一个网格单元中，该网格单元负责1）预测语义类别，2）分割该对象实例</li>
+<li><strong>语义分类</strong>：对于每个网格，SOLO预测C维输出以指示语义类概率，其中C是类的数量。这些概率取决于网格单元。如果我们将输入图像分成S×S网格，输出空间将是S×S×C。该设计基于这样一个假设：S×S网格的每个单元必须属于一个单独的实例</li>
+<li><strong>实例掩码</strong>：在语义类别预测的同时，每个 positive grid cell 也会生成相应的 instance mask。对于输入图像 I ，如果将其划分为 S×S 网格，则总共最多有 S×S 个预测 mask，语义类别和类不可知mask之间建立了一对一的对应关系</li>
+</ul>
+<h1 id="solo-的-mask-预测分支"><a class="markdownIt-Anchor" href="#solo-的-mask-预测分支"></a> SOLO 的 Mask 预测分支？</h1>
+<ul>
+<li><img src="https://picgo-1304919305.cos.ap-guangzhou.myqcloud.com/picGo/SOLO-20230408144036.png" alt="" /></li>
+<li><strong>使用 CoordConv</strong>：传统的卷积运算在一定程度上是空间不变的，因为空间不变性可以引入鲁棒性。然而，在本任务中，需要一个空间可变性（位置敏感）模型，因为分割 mask 是以 grid cell 为条件的，并且必须通过不同的特征通道来分离，解决办法是使用 CoordConv，在网络开始时，直接向网络提供标准化像素坐标，具体地，创建一个与输入的空间大小相同的张量，它包含每个像素点的坐标，这些坐标被规范化为[-1，1]，然后将这个张量连接到输入特征并传递到下面的层，如果原始输入是 HWD，则新张量是 HW (D+2)</li>
+<li><strong>类别预测和对应的 mask 生成</strong>：通过它们的参考网格单元自然地关联起来，在此基础上，我们可以直接为每个网格生成最终的实例分割结果。原始实例分割结果是通过收集所有网格结果生成的。最后，利用非最大值抑制（NMS）得到最终的实例分割结果。不需要其他后处理操作 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>k</mi><mo>=</mo><mi>i</mi><mo>×</mo><mi>S</mi><mo>+</mo><mi>j</mi></mrow><annotation encoding="application/x-tex">k=i\times S + j</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.03148em;">k</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.74285em;vertical-align:-0.08333em;"></span><span class="mord mathnormal">i</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.76666em;vertical-align:-0.08333em;"></span><span class="mord mathnormal" style="margin-right:0.05764em;">S</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.85396em;vertical-align:-0.19444em;"></span><span class="mord mathnormal" style="margin-right:0.05724em;">j</span></span></span></span></li>
+<li>注意：H、W 相对于原图来说是下采样 2 倍的，后面通过上采样 2 倍还原</li>
+</ul>
+<h1 id="solo-的-decoupled-mask-预测分支"><a class="markdownIt-Anchor" href="#solo-的-decoupled-mask-预测分支"></a> SOLO 的 Decoupled Mask 预测分支？</h1>
+<ul>
+<li><img src="https://picgo-1304919305.cos.ap-guangzhou.myqcloud.com/picGo/SOLO-20230408144036-1.png" alt="" /></li>
+<li>SOLO 为 SxS 的每个位置预测一个 HxW 大小的 Mask，其数量过于庞大，实际上，在 SxS 个 Mask 中仅有少数被响应，因为图片不会出现太多实例</li>
+<li>为了解决这个问题，提出了解藕的 Mask 预测分支，它有两个 HxWxS 的 featrue map 组成，分别表示 X、Y 两个方向的向量，如果第 i 个 grid 有实例，直接拿出 X 、Y 的 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>H</mi><mo>×</mo><mi>W</mi><mo>×</mo><msub><mi>S</mi><mi>i</mi></msub></mrow><annotation encoding="application/x-tex">H\times W\times S_i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.76666em;vertical-align:-0.08333em;"></span><span class="mord mathnormal" style="margin-right:0.08125em;">H</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.76666em;vertical-align:-0.08333em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">W</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.83333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.05764em;">S</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:-0.05764em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span> 相乘，即是其 Mask 预测结果</li>
+<li>解藕后的 Mask 分支，特征数量由 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>H</mi><mo>×</mo><mi>W</mi><mo>×</mo><msup><mi>S</mi><mn>2</mn></msup></mrow><annotation encoding="application/x-tex">H\times W\times S^2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.76666em;vertical-align:-0.08333em;"></span><span class="mord mathnormal" style="margin-right:0.08125em;">H</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.76666em;vertical-align:-0.08333em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">W</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.8141079999999999em;vertical-align:0em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.05764em;">S</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span></span></span></span> 变为 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>H</mi><mo>×</mo><mi>W</mi><mo>×</mo><mn>2</mn><mi>S</mi></mrow><annotation encoding="application/x-tex">H\times W\times 2S</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.76666em;vertical-align:-0.08333em;"></span><span class="mord mathnormal" style="margin-right:0.08125em;">H</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.76666em;vertical-align:-0.08333em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">W</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord">2</span><span class="mord mathnormal" style="margin-right:0.05764em;">S</span></span></span></span>，数量大大减少</li>
+</ul>
+<h1 id="solo-的标签分配"><a class="markdownIt-Anchor" href="#solo-的标签分配"></a> SOLO 的标签分配？</h1>
+<ul>
+<li>对于类别预测分支，网络需要给出每个 S×S 网格的对象类别概率，如何分配实例到哪些 grid 进行学习，是标签分配要做的事</li>
+<li><strong>根据实例尺寸决定放置的 head</strong>：这类似目标检测的多 head 单 anchor 标签分配机制，直接使用座标分配即可，在此基础上根据实例的不同尺寸将正样本放到不同的 head 上<img src="https://picgo-1304919305.cos.ap-guangzhou.myqcloud.com/picGo/SOLO-20230408144037.png" alt="" /></li>
+<li><strong>确定 grid 的正样本</strong>：根据 gt mask 区域中心映射到 SxS 网格后，选择与 gt mask 重叠大于阈值的 grid 作为正样本，一般 1 个实例分配多个正样本，下图是预测结果，可知相邻的 grid 预测了同一实例<img src="https://picgo-1304919305.cos.ap-guangzhou.myqcloud.com/picGo/SOLO-20230408144038.png" alt="" /></li>
+</ul>
+<h1 id="solo-的损失"><a class="markdownIt-Anchor" href="#solo-的损失"></a> SOLO 的损失？</h1>
+<ul>
+<li>损失函数包含 2 部分，一部分是类别预测、一部分是实例 mask 预测<p class='katex-block'><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mi mathvariant="normal">L</mi><mo>=</mo><msub><mi mathvariant="normal">L</mi><mrow><mi mathvariant="normal">c</mi><mi mathvariant="normal">a</mi><mi mathvariant="normal">t</mi><mi mathvariant="normal">e</mi></mrow></msub><mo>+</mo><mi>λ</mi><msub><mi mathvariant="normal">L</mi><mrow><mi mathvariant="normal">m</mi><mi mathvariant="normal">a</mi><mi mathvariant="normal">s</mi><mi mathvariant="normal">k</mi></mrow></msub></mrow><annotation encoding="application/x-tex">\mathrm L=\mathrm L_{\mathrm{cate}}+\lambda\mathrm L_{\mathrm{mask}}
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathrm">L</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.83333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathrm">L</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.2805559999999999em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight"><span class="mord mathrm mtight">c</span><span class="mord mathrm mtight">a</span><span class="mord mathrm mtight">t</span><span class="mord mathrm mtight">e</span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.84444em;vertical-align:-0.15em;"></span><span class="mord mathnormal">λ</span><span class="mord"><span class="mord mathrm">L</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.33610799999999996em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight"><span class="mord mathrm mtight">m</span><span class="mord mathrm mtight">a</span><span class="mord mathrm mtight">s</span><span class="mord mathrm mtight">k</span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span></span></p>
+</li>
+<li>类别预测使用 <strong>Focal loss</strong></li>
+<li>实例 mask 预测使用 <strong>Dice loss</strong> ，即计算每个正样本对应 mask 的 Dice loss，然后取平均值</li>
+</ul>
+<h1 id="solo-如何推理"><a class="markdownIt-Anchor" href="#solo-如何推理"></a> SOLO 如何推理？</h1>
+<ul>
+<li>图片输入 backbone 和 FPN 后，得到多 head 的预测结果</li>
+<li>首先使用类别打分阈值过滤低置信度的预测，然后选择 top 500 的类别打分对应的实例，以 0.5 阈值二值化这些实例的分割效果，然后进行 Mask NMS 操作</li>
+</ul>
+<p>参考：</p>
+<ol>
+<li><a href="https://blog.csdn.net/calvinpaean/article/details/103857024">SOLO: Segmenting Objects by Locations 论文学习_solo论文的主要思想_calvinpaean的博客-CSDN博客</a></li>
+<li><a href="https://zhuanlan.zhihu.com/p/259262354">SOLO: Segmenting Objects by Locations - 知乎</a></li>
+</ol>
+]]></content>
+      <categories>
+        <category>深度学习</category>
+      </categories>
+      <tags>
+        <tag>实例分割</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>CRNN： An End-to-End Trainable Neural Network for Image-based Sequence Recognition and Its Application to Scene Text Recognition</title>
     <url>/2021/10/20/CRNN%EF%BC%9A%20An%20End-to-End%20Trainable%20Neural%20Network%20for%20Image-based%20Sequence%20Recognition%20and%20Its%20Application%20to%20Scene%20Text%20Recognition/</url>
     <content><![CDATA[<p>传统的文本识别方法需要先对单个文字进行切割，然后再对单个文字进行识别。CRNN直接从整张图出发，将图片特征输入RNN进行序列学习，最后通过CTC计算损失</p>
@@ -3335,6 +3506,75 @@ M834 80h400000v40h-400000z'/></svg></span></span></span><span class="vlist-s">�
       </categories>
       <tags>
         <tag>读书</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>YOLACT：Real-time Instance Segmentation</title>
+    <url>/2021/02/10/YOLACT%EF%BC%9AReal-time%20Instance%20Segmentation/</url>
+    <content><![CDATA[<p>YOLACT (You Only Look At CoefficienTs)是第一个用于实例分割的实时模型，首先通过类似目标检测模型生成 anchor 的预测结果+一批 prototype mask，然后根据 anchor 的结果线性组合 prototype mask 得到当前目标的 mask</p>
+<a id="more"></a>
+<h1 id="什么是-yolact"><a class="markdownIt-Anchor" href="#什么是-yolact"></a> 什么是 yolact ？</h1>
+<ul>
+<li><img src="https://picgo-1304919305.cos.ap-guangzhou.myqcloud.com/picGo/yolact-20230508212509.png" alt="" /></li>
+<li><strong>YOLACT (You Only Look At CoefficienTs)</strong> 是第一个用于实例分割的实时模型，首先通过类似目标检测模型生成 anchor 的预测结果+一批 prototype mask，然后根据 anchor 的结果线性组合 prototype mask 得到当前目标的 mask</li>
+<li>YOLACT 通过双分支预测目标位置、全局 Mask，然后通过目标检测分支的<strong>mask coefficients</strong>去关联全局 Mask，所以两个分支可以同时训练，所以是一个 one-satge 模型</li>
+<li>如图所示，YOLACT 比 two-satge 的实例分割模型精度差，但是其在速度上有优势</li>
+</ul>
+<h1 id="yolact-的网络结构"><a class="markdownIt-Anchor" href="#yolact-的网络结构"></a> yolact 的网络结构？</h1>
+<ul>
+<li><img src="https://picgo-1304919305.cos.ap-guangzhou.myqcloud.com/picGo/yolact-20230508212509-1.png" alt="" /></li>
+<li><strong>Featrue Backbone&amp;Featrue Pyramid</strong>：使用 ResNet101 提取图片特征，然后使用 FPN 结构进行特征融合</li>
+<li><strong>prototypes</strong>：从 P3 级别的特征生成全局的 prototype mask (138,138,32)，这里固定是 32 个 mask，后续所有实例的 mask 是这 32 个 mask 的线性组合</li>
+<li><strong>Mask coefficients</strong>：为每个 anchor 预测长度为 32 的向量，用于加权 prototypes，得到当前 anchor 的 mask 预测</li>
+<li><strong>corp&amp;Threashold</strong>：根据定位结果和 Mask 预测结果，裁剪目标区域，并使用二值化求得目标的Mask</li>
+</ul>
+<h1 id="yolact-的数据流过程"><a class="markdownIt-Anchor" href="#yolact-的数据流过程"></a> yolact 的数据流过程？</h1>
+<ul>
+<li><img src="https://picgo-1304919305.cos.ap-guangzhou.myqcloud.com/picGo/yolact-20230508212510.png" alt="" /></li>
+<li>1）<strong>目标检测分支</strong>：对 P3-P7 的 5 个级别特征进行目标检测，每个位置检测 3 个 anchor。总计输出 19248 个 anchor 的预测结果</li>
+<li>2）<strong>Fast NMS 处理</strong>：对 19248 个 anchor 进行快速非极大值抑制，假设最终保留 n 个预测 box</li>
+<li>3）<strong>全局 Mask (prototypes) 生成</strong>：基于 P3 的特征，生成全局的 Mask (138,138,32)</li>
+</ul>
+<h1 id="yolact-的-prototype-masks-解析"><a class="markdownIt-Anchor" href="#yolact-的-prototype-masks-解析"></a> yolact 的 prototype masks 解析？</h1>
+<ul>
+<li><img src="https://picgo-1304919305.cos.ap-guangzhou.myqcloud.com/picGo/yolact-20230508212510-1.png" alt="" /></li>
+<li>YOLACT 实际上是学习了一种分布表示，<strong>在一张图片中可能有多个类别，但不同类别之间的物体共享 prototypes 的组合</strong>，如上图所示，每个 mask 激活图像的不同区域。除此之外，prototype masks 的数量与物体类别无关 (类别数量可能多于 prototypes 的数量)</li>
+<li><strong>YOLACT 是针对每张图片学习 prototypes，即：不同图片生成的 prototypes 会有差异</strong>； BoF 对整个数据集所学习的全局共享的 prototypes，BOF 是一种图像特征提取方法，假设图像相当于一个文本，图像中的不同局部区域或特征可以看作是构成图像的词汇，根据得到的图像的词汇，统计每个单词的频次，即可得到图片的特征向量<img src="https://picgo-1304919305.cos.ap-guangzhou.myqcloud.com/picGo/yolact-20230508212510-2.png" alt="" /></li>
+</ul>
+<h1 id="yolact-的-fast-nms"><a class="markdownIt-Anchor" href="#yolact-的-fast-nms"></a> yolact 的 Fast nms?</h1>
+<ul>
+<li><img src="https://picgo-1304919305.cos.ap-guangzhou.myqcloud.com/picGo/yolact-20230508212511.png" alt="" /></li>
+<li>假设属于狗这一类目前有3个预测框，并且已经按得分降序排列，1 是预测框之间的 <code>IoU</code> 值</li>
+<li><strong>NMS</strong>：使用原始 NMS 时，首先选择 bbox1，然后根据 0.7&gt;0.5 去掉 bbox2，最后选择 bbox3，因此最终输出 bbox1、bbox3</li>
+<li><strong>Fast NMS</strong>：得到 1 的 IOU 阈值后，将 IOU 矩阵的下三角置 0，然后按列取最大值，如果列最大值超过阈值则去掉，否则保留，最终只有 bbox 1 保留。所以 <code>fast-NMS</code> 倾向去掉更多的框</li>
+<li>Fast NMS 精度上比 NMS 有损失，但是速度却有很大提升</li>
+</ul>
+<h1 id="yolact-的模型输出解析"><a class="markdownIt-Anchor" href="#yolact-的模型输出解析"></a> yolact 的模型输出解析？</h1>
+<ul>
+<li><img src="https://picgo-1304919305.cos.ap-guangzhou.myqcloud.com/picGo/yolact-20230508212510.png" alt="" /></li>
+<li><strong>1）获得 n 个目标的全局 Mask</strong>：模型最终输出如图所示，现在已经有 n 个目标的位置，后续需要解析出 n 个目标的 mask？首先已有全局 prototypes (M，138x 138 x 32)和 Mask coefficients (C，nx 32)，执行 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>M</mi><mo>=</mo><mi>σ</mi><mo stretchy="false">(</mo><mi>P</mi><mo>×</mo><msup><mi>C</mi><mi>T</mi></msup><mo stretchy="false">)</mo><mo>=</mo><mtext>（</mtext><mn>138</mn><mo separator="true">,</mo><mn>138</mn><mo separator="true">,</mo><mi>n</mi><mtext>）</mtext></mrow><annotation encoding="application/x-tex">M=\sigma(P\times C^T)=（138,138,n）</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.10903em;">M</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">σ</span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1.0913309999999998em;vertical-align:-0.25em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.07153em;">C</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8413309999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.13889em;">T</span></span></span></span></span></span></span></span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.8777699999999999em;vertical-align:-0.19444em;"></span><span class="mord cjk_fallback">（</span><span class="mord">1</span><span class="mord">3</span><span class="mord">8</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord">1</span><span class="mord">3</span><span class="mord">8</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathnormal">n</span><span class="mord cjk_fallback">）</span></span></span></span> ，也就是 n 个目标的全局Mask 结果</li>
+<li><strong>2）细化目标 Mask</strong>：目标的全局 Mask 存在很多非目标区域的激活，因此为了准确，结合 box（n, 4）提取 M 目标区域的 Mask 值，然后通过 0.5 阈值对该区域二值化，即得到目标的 Mask</li>
+<li><strong>3）生成实例</strong>：结合目标位置 box 及目标 Mask 可以得到一张图片的所有实例</li>
+</ul>
+<h1 id="yolact-的损失函数"><a class="markdownIt-Anchor" href="#yolact-的损失函数"></a> yolact 的损失函数？</h1>
+<ul>
+<li>根据 yolact 的输出，损失函数包含 3 部分，即类损失、box 定位损失、mask 损失</li>
+<li>其中类别损失使用 smooth L1，box 损失使用 smooth L1，mask 损失使用二值化交差熵</li>
+</ul>
+<p>参考：</p>
+<ol>
+<li><a href="https://blog.csdn.net/qq_36523492/article/details/117198752">YOLACT_liangbaqiang的博客-CSDN博客</a></li>
+<li><a href="https://zhuanlan.zhihu.com/p/76470432">【ICCV 2019】一文读懂实时实例分割模型 YOLACT - 知乎</a></li>
+<li><a href="https://zhuanlan.zhihu.com/p/358135157">初探分割：YOLACT - 知乎</a></li>
+<li><a href="https://blog.csdn.net/qq_36530992/article/details/103069285">【深度学习】【目标检测】NMS、Soft-NMS、fast-NMS_fast nms_Hanawh的博客-CSDN博客</a></li>
+<li><a href="https://blog.csdn.net/qq_41204464/article/details/130417487">【经典论文解读】YOLACT 实例分割（yolv5、yolv8实例分割的基础）_一颗小树x的博客-CSDN博客</a></li>
+</ol>
+]]></content>
+      <categories>
+        <category>深度学习</category>
+      </categories>
+      <tags>
+        <tag>实例分割</tag>
       </tags>
   </entry>
   <entry>
@@ -6274,6 +6514,116 @@ M834 80h400000v40h-400000z'/></svg></span></span></span><span class="vlist-s">�
 <p>牛顿法（method）和拟牛顿法（Newtonmethod）也是求解无约束最优化问题的常用方法，有收敛速度快的优点。牛顿法是迭代算法，每一步需要求解目标函数的海赛矩阵的逆矩阵，计算比较复杂</p>
 </blockquote>
 ]]></content>
+  </entry>
+  <entry>
+    <title>MaskRCNN</title>
+    <url>/2020/03/27/MaskRCNN/</url>
+    <content><![CDATA[<p>实例分割的第一个模型，创造性地结合Faster RCNN和FCN，分别完成实例的定位、分类及Mask生成，同时为了解决ROI Pooling的量化误差问题，提出ROI Align替换</p>
+<a id="more"></a>
+<h1 id="什么是-mask-rcnn"><a class="markdownIt-Anchor" href="#什么是-mask-rcnn"></a> 什么是 Mask RCNN?</h1>
+<ul>
+<li><img src="https://picgo-1304919305.cos.ap-guangzhou.myqcloud.com/picGo/MaskRCNN-20230408143907.png" alt="" /></li>
+<li>在 FasterRCNN]的基础上新增 FCN分割模块，黑色部分为原来的 Faster-RCNN，红色部分为在 Faster 网络上的修改。</li>
+<li>另一个改进是通过 ROIAlign替换 Faster RCNN 的感兴趣区域池化(RoIPooling)，解决图像和网络输出的对齐问题，极大提升语义分割的效果</li>
+<li>可以认为是目标检测 +语义分割的结合，更具体一点就：<strong>RPN+ROIAlign+Fast RCNN+ FCN</strong></li>
+</ul>
+<h1 id="mask-rcnn的网络结构"><a class="markdownIt-Anchor" href="#mask-rcnn的网络结构"></a> Mask RCNN的网络结构？</h1>
+<ul>
+<li>
+<p><img src="https://picgo-1304919305.cos.ap-guangzhou.myqcloud.com/picGo/MaskRCNN-20230408143908.png" alt="" /></p>
+</li>
+<li>
+<p><strong>骨干网络：</strong> 使用 ResNet +特征金字塔网络 (FeaturePyramidNetwork, FPN)提取多尺度的特征</p>
+</li>
+<li>
+<p><strong>感兴趣区域的池化：</strong> 采用 ROIAlign而不是 Faster RCNN 的感兴趣区域池化(RoIPooling)</p>
+</li>
+<li>
+<p><strong>box分类与回归：</strong> FasterRCNN一致</p>
+</li>
+<li>
+<p><strong>object mask：</strong> 使用 FCN</p>
+<h1 id="mask-rcnn使用fpn生成多尺度的特征图roialign使用哪个尺度的特征图-83n58t"><a class="markdownIt-Anchor" href="#mask-rcnn使用fpn生成多尺度的特征图roialign使用哪个尺度的特征图-83n58t"></a> Mask RCNN使用FPN生成多尺度的特征图，ROIAlign使用哪个尺度的特征图？ ^83n58t</h1>
+<ul>
+<li>假设 FPN 产生了特征金字[P2, P3, P4, P5, P6]，通过下列公式决定宽 w 和高 h 的 ROI 到底要从哪个 Pk 来切<p class='katex-block'><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mi>k</mi><mo>=</mo><mrow><mo fence="true">⌊</mo><msub><mi>k</mi><mn>0</mn></msub><mo>+</mo><msub><mo><mi>log</mi><mo>⁡</mo></mo><mn>2</mn></msub><mo stretchy="false">(</mo><msqrt><mrow><mi>w</mi><mi>h</mi></mrow></msqrt><mi mathvariant="normal">/</mi><mn>224</mn><mo stretchy="false">)</mo><mo fence="true">⌋</mo></mrow></mrow><annotation encoding="application/x-tex">k=\left\lfloor k_{0}+\log _{2}(\sqrt{w h} / 224)\right\rfloor
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.03148em;">k</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1.80002em;vertical-align:-0.65002em;"></span><span class="minner"><span class="mopen delimcenter" style="top:0em;"><span class="delimsizing size2">⌊</span></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.03148em;">k</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:-0.03148em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">0</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mop"><span class="mop">lo<span style="margin-right:0.01389em;">g</span></span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.20696799999999996em;"><span style="top:-2.4558600000000004em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">2</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.24414em;"><span></span></span></span></span></span></span><span class="mopen">(</span><span class="mord sqrt"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.981095em;"><span class="svg-align" style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord" style="padding-left:0.833em;"><span class="mord mathnormal" style="margin-right:0.02691em;">w</span><span class="mord mathnormal">h</span></span></span><span style="top:-2.941095em;"><span class="pstrut" style="height:3em;"></span><span class="hide-tail" style="min-width:0.853em;height:1.08em;"><svg width='400em' height='1.08em' viewBox='0 0 400000 1080' preserveAspectRatio='xMinYMin slice'><path d='M95,702
+c-2.7,0,-7.17,-2.7,-13.5,-8c-5.8,-5.3,-9.5,-10,-9.5,-14
+c0,-2,0.3,-3.3,1,-4c1.3,-2.7,23.83,-20.7,67.5,-54
+c44.2,-33.3,65.8,-50.3,66.5,-51c1.3,-1.3,3,-2,5,-2c4.7,0,8.7,3.3,12,10
+s173,378,173,378c0.7,0,35.3,-71,104,-213c68.7,-142,137.5,-285,206.5,-429
+c69,-144,104.5,-217.7,106.5,-221
+l0 -0
+c5.3,-9.3,12,-14,20,-14
+H400000v40H845.2724
+s-225.272,467,-225.272,467s-235,486,-235,486c-2.7,4.7,-9,7,-19,7
+c-6,0,-10,-1,-12,-3s-194,-422,-194,-422s-65,47,-65,47z
+M834 80h400000v40h-400000z'/></svg></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.058904999999999985em;"><span></span></span></span></span></span><span class="mord">/</span><span class="mord">2</span><span class="mord">2</span><span class="mord">4</span><span class="mclose">)</span><span class="mclose delimcenter" style="top:0em;"><span class="delimsizing size2">⌋</span></span></span></span></span></span></span></p>
+</li>
+<li>其中 224 表示预训练 ImageNet 图片大小，k0 表示面积为 wxh=224x224 的 ROI 所在层级，论文将 k0 设置为 p4，如果 ROI 小于 224，比如说 122x122，则使用 k0-1=4-1=3 层特征池化</li>
+<li>这种做法很合理，大尺度的ROI要从低分辨率的feature map上切，有利于检测大目标，小尺度的ROI要从高分辨率的feature map上切，有利于检测小目标</li>
+</ul>
+<h1 id="mask-rcnn的损失函数"><a class="markdownIt-Anchor" href="#mask-rcnn的损失函数"></a> Mask RCNN的损失函数？</h1>
+<ul>
+<li>总的损失函数<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>L</mi><mo>=</mo><msub><mi>L</mi><mrow><mi>c</mi><mi>l</mi><mi>s</mi></mrow></msub><mo>+</mo><msub><mi>L</mi><mrow><mi>b</mi><mi>o</mi><mi>x</mi></mrow></msub><mo>+</mo><msub><mi>L</mi><mrow><mi>m</mi><mi>a</mi><mi>s</mi><mi>k</mi></mrow></msub></mrow><annotation encoding="application/x-tex">L = L_{cls} + L_{box} + L_{mask}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal">L</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.83333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal">L</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.33610799999999996em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">c</span><span class="mord mathnormal mtight" style="margin-right:0.01968em;">l</span><span class="mord mathnormal mtight">s</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.83333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal">L</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.33610799999999996em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">b</span><span class="mord mathnormal mtight">o</span><span class="mord mathnormal mtight">x</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.83333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal">L</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.33610799999999996em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">m</span><span class="mord mathnormal mtight">a</span><span class="mord mathnormal mtight">s</span><span class="mord mathnormal mtight" style="margin-right:0.03148em;">k</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span></li>
+<li><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>L</mi><mrow><mi>c</mi><mi>l</mi><mi>s</mi></mrow></msub></mrow><annotation encoding="application/x-tex">L_{cls}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.83333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal">L</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.33610799999999996em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">c</span><span class="mord mathnormal mtight" style="margin-right:0.01968em;">l</span><span class="mord mathnormal mtight">s</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>表示bounding box的分类损失值：使交叉熵损失(CrossEntropyLoss)</li>
+<li><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>L</mi><mrow><mi>b</mi><mi>o</mi><mi>x</mi></mrow></msub></mrow><annotation encoding="application/x-tex">L_{box}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.83333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal">L</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.33610799999999996em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">b</span><span class="mord mathnormal mtight">o</span><span class="mord mathnormal mtight">x</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>表示bounding box的回归损失值：使平滑绝对值损失(Smooth L1 Loss)</li>
+<li><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>L</mi><mrow><mi>m</mi><mi>a</mi><mi>s</mi><mi>k</mi></mrow></msub></mrow><annotation encoding="application/x-tex">L_{mask}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.83333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal">L</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.33610799999999996em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">m</span><span class="mord mathnormal mtight">a</span><span class="mord mathnormal mtight">s</span><span class="mord mathnormal mtight" style="margin-right:0.03148em;">k</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>表示mask部分的损失值：使二值交叉熵损失BCELoss ，该损失一般配合sigmoid函数使用</li>
+</ul>
+<h1 id="mask-rcnn的训练过程"><a class="markdownIt-Anchor" href="#mask-rcnn的训练过程"></a> Mask RCNN的训练过程？</h1>
+<ul>
+<li><strong>主干网络部分</strong>：将图片送入到 CNN 特征提取网络得到特征图</li>
+<li><strong>RPN 部分</strong>：对特征图的每一个像素位置设定固定个数的 ROI（Anchor），然后将 ROI 区域送入 RPN 网络进行二分类 (前景和背景) 以及坐标回归，以获得精炼后的 ROI 区域</li>
+<li><strong>ROIAlign 部分</strong>：对获得的 ROI 区域执 ROIAlign 操作，即先将原图和 feature map 的 pixel 对应起来，然后将不同目标的 feature map 转为相同大小的 featrue</li>
+<li><strong>目标检测部分</strong>：对这些 ROI 区域进行多类别分类，得到预测的目标位置及类别</li>
+<li><strong>分割部分</strong>：最后目标检测得到的所有目标输入 FCN，得到每个目标的掩码预测结果</li>
+</ul>
+<h1 id="mask-rcnn-如何对目标进行分割预测"><a class="markdownIt-Anchor" href="#mask-rcnn-如何对目标进行分割预测"></a> Mask RCNN 如何对目标进行分割预测？</h1>
+<ul>
+<li><img src="https://picgo-1304919305.cos.ap-guangzhou.myqcloud.com/picGo/MaskRCNN-20230408143909.png" alt="" /></li>
+<li>经过 ROIAlign获得 ROI 区域特征后，对每个像素进行分类，实现分割</li>
+</ul>
+<h1 id="mask-rcnn如何进行关键点检测任务"><a class="markdownIt-Anchor" href="#mask-rcnn如何进行关键点检测任务"></a> Mask RCNN如何进行关键点检测任务？</h1>
+<ul>
+<li>让Mask RCNN预测k个mask，每个mask对应一个关键点类型，比如左肩、右肘，使用cross entropy loss，鼓励网络只检测一个关键点</li>
+</ul>
+<h1 id="什么是roialign"><a class="markdownIt-Anchor" href="#什么是roialign"></a> 什么是ROIAlign？</h1>
+<ul>
+<li><img src="https://picgo-1304919305.cos.ap-guangzhou.myqcloud.com/picGo/MaskRCNN-20230408143911.png" alt="MaskRCNN-20230408143911" /></li>
+<li>ROIPooling 和 RoIAlign 的目的都是为了获取目标定长的特征，都是经历：原图目标-&gt;特征图区域-&gt;池化特征 2 次映射过程</li>
+<li><strong>ROIPooling</strong>：映射时经历两次取整，一次是目标-&gt;特征图，一次是特征图-&gt;池化，这样的操作对语义分割这种位置敏感的模型影响较大</li>
+<li><strong>RoIAlign</strong>：映射时并没有取整的过程，可以全程使用浮点数操作，最后通[[语义分割基础知识#^2ec19a|双线性插值(BilinearInterpolation)]] 计算浮点数位置的像素值 (特征值)</li>
+</ul>
+<h1 id="roialign如何计算池化结果"><a class="markdownIt-Anchor" href="#roialign如何计算池化结果"></a> ROIAlign如何计算池化结果？</h1>
+<ul>
+<li>假设模型输入是：3x512x512，经过特征提取得到512x16x16的特征，即数据下采样512/16=32倍，现有目标位置(192,296)，大小145x200 <img src="https://picgo-1304919305.cos.ap-guangzhou.myqcloud.com/picGo/MNC-20230408143921.png" alt="" /></li>
+<li><strong>ROI 映射：</strong> 计算得到该目标在特征图上位置为：(296/32=9.25, 192/32=6)，大小为 (200/32=6.25, 145/32=4.53)，ROIAlign 保留小数 <img src="https://picgo-1304919305.cos.ap-guangzhou.myqcloud.com/picGo/MaskRCNN-20230408143911-2.png" alt="" /></li>
+<li>将ROI区域划分为大小相等的9个框，每个框的宽高为(6.25,4.53)/3=(2.08,1.51) <img src="https://picgo-1304919305.cos.ap-guangzhou.myqcloud.com/picGo/MaskRCNN-20230408143912.png" alt="" /></li>
+<li>在每个框内取 4 个采样点，取样方法为将框横纵方向进行 3 等分，取框内的划分点作为采样点，如第一个点坐标 (X_box+(box_width/3) x1, Y_box+(box_height/3) x1)=(9.94, 6.50) 、第二个点坐标 (X_box+(box_width/3) x1, Y_box+(box_height/3) x2) =(9.94, 7.01)… <img src="https://picgo-1304919305.cos.ap-guangzhou.myqcloud.com/picGo/MaskRCNN-20230408143912-1.png" alt="" /></li>
+<li><strong>计算采样点的数值</strong>：按双线性插值 的原理，按照采样点与单元中心的距离计算采样点数值，依次计算采样点值 <img src="https://picgo-1304919305.cos.ap-guangzhou.myqcloud.com/picGo/MaskRCNN-20230408143913.png" alt="" /></li>
+<li><strong>ROI区域池化</strong>：根据一个bin内的4个采样点，使用最大池化获得该区域的池化特征，依次使用上述方法计算，可以得到所有bin的池化结果 <img src="https://picgo-1304919305.cos.ap-guangzhou.myqcloud.com/picGo/MaskRCNN-20230408143913.gif" alt="" /></li>
+</ul>
+<h1 id="为什么在语义分割中使用roialign而不使用roipool-the4hh"><a class="markdownIt-Anchor" href="#为什么在语义分割中使用roialign而不使用roipool-the4hh"></a> 为什么在语义分割中使用ROIAlign，而不使用ROIPool？ ^the4hh</h1>
+<ul>
+<li><img src="https://picgo-1304919305.cos.ap-guangzhou.myqcloud.com/picGo/MaskRCNN-20230408143914.png" alt="" /></li>
+<li>如图所示，这是一个Faster-RCNN检测框架。输入一张<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>800</mn><mo>×</mo><mn>800</mn></mrow><annotation encoding="application/x-tex">800\times 800</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.72777em;vertical-align:-0.08333em;"></span><span class="mord">8</span><span class="mord">0</span><span class="mord">0</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">8</span><span class="mord">0</span><span class="mord">0</span></span></span></span>的图片，图片上有一个<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>665</mn><mo>×</mo><mn>665</mn></mrow><annotation encoding="application/x-tex">665\times 665</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.72777em;vertical-align:-0.08333em;"></span><span class="mord">6</span><span class="mord">6</span><span class="mord">5</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">6</span><span class="mord">6</span><span class="mord">5</span></span></span></span>的包围框（框着一只狗）</li>
+<li><strong>第一次量化：</strong> 图片经过主干网络提取特征后，特征图缩放步长（stride）为32。因此，图像和包围框的边长都是输入时的1/32。800正好可以被32整除变为25。但665除以32以后得到20.78，带有小数，于是RoI Pooling 直接将它量化成20</li>
+<li><strong>第二次量化：</strong> 接下来需要把框内的特征池化<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>7</mn><mo>×</mo><mn>7</mn></mrow><annotation encoding="application/x-tex">7\times 7</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.72777em;vertical-align:-0.08333em;"></span><span class="mord">7</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">7</span></span></span></span>的大小，因此将上述包围框平均分割成<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>7</mn><mo>×</mo><mn>7</mn></mrow><annotation encoding="application/x-tex">7\times 7</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.72777em;vertical-align:-0.08333em;"></span><span class="mord">7</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">7</span></span></span></span>个矩形区域。显然，每个矩形区域的边长为2.86，又含有小数。于是ROI Pooling 再次把它量化到2</li>
+<li>经过这两次量化，候选区域已经出现了较明显的偏差（如图中绿色部分所示），更重要的是，该层特征图上0.1个像素的偏差，缩放到原图就是3.2个像素。那么0.8的偏差，在原图上就是接近30个像素点的差别，这一差别不容小觑</li>
+</ul>
+<h1 id="mask-rcnn目标分类为什么不使用类别竞争机制softmax"><a class="markdownIt-Anchor" href="#mask-rcnn目标分类为什么不使用类别竞争机制softmax"></a> Mask RCNN目标分类为什么不使用类别竞争机制(softmax)?</h1>
+<ul>
+<li><img src="https://picgo-1304919305.cos.ap-guangzhou.myqcloud.com/picGo/MaskRCNN-20230408143914-1.png" alt="MaskRCNN-20230408143914-1" /></li>
+<li>使用sigmoid(二分类)和使用softmax(多类别分类)的AP相差很大，证明了分离类别和mask的预测是很有必要的</li>
+</ul>
+</li>
+</ul>
+]]></content>
+      <categories>
+        <category>深度学习</category>
+      </categories>
+      <tags>
+        <tag>实例分割</tag>
+      </tags>
   </entry>
   <entry>
     <title>书摘：《少有人走的路2》-[美]m·斯科特·派克(m.scottPeck)</title>

@@ -2,6 +2,41 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://shaogui.life/2022/03/26/YOLACT++%EF%BC%9ABetter%20Real-time%20Instance%20Segmentation/</loc>
+    
+    <lastmod>2023-05-20</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://shaogui.life/2022/03/05/SOLOv2%EF%BC%9ADynamic%20and%20Fast%20Instance%20Segmentation/</loc>
+    
+    <lastmod>2023-05-20</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://shaogui.life/2022/02/20/SOLO%EF%BC%9ASegmenting%20Objects%20by%20Locations/</loc>
+    
+    <lastmod>2023-05-20</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://shaogui.life/2021/02/10/YOLACT%EF%BC%9AReal-time%20Instance%20Segmentation/</loc>
+    
+    <lastmod>2023-05-20</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://shaogui.life/2020/03/27/MaskRCNN/</loc>
+    
+    <lastmod>2023-05-20</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://shaogui.life/2022/10/25/SVTR%EF%BC%9AScene%20Text%20Recognition%20with%20a%20Single%20Visual%20Model/</loc>
     
     <lastmod>2023-05-20</lastmod>
@@ -725,13 +760,6 @@
   </url>
   
   <url>
-    <loc>https://shaogui.life/tags/Calibre/</loc>
-    <lastmod>2023-05-20</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://shaogui.life/tags/OCR/</loc>
     <lastmod>2023-05-20</lastmod>
     <changefreq>daily</changefreq>
@@ -740,6 +768,13 @@
   
   <url>
     <loc>https://shaogui.life/tags/%E6%96%87%E6%9C%AC%E8%AF%86%E5%88%AB/</loc>
+    <lastmod>2023-05-20</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://shaogui.life/tags/Calibre/</loc>
     <lastmod>2023-05-20</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -824,6 +859,13 @@
   
   <url>
     <loc>https://shaogui.life/tags/%E8%87%AA%E7%9B%91%E7%9D%A3/</loc>
+    <lastmod>2023-05-20</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://shaogui.life/tags/%E5%AE%9E%E4%BE%8B%E5%88%86%E5%89%B2/</loc>
     <lastmod>2023-05-20</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -928,13 +970,6 @@
   </url>
   
   <url>
-    <loc>https://shaogui.life/tags/LSTM/</loc>
-    <lastmod>2023-05-20</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://shaogui.life/tags/ANN/</loc>
     <lastmod>2023-05-20</lastmod>
     <changefreq>daily</changefreq>
@@ -963,14 +998,14 @@
   </url>
   
   <url>
-    <loc>https://shaogui.life/tags/opencv/</loc>
+    <loc>https://shaogui.life/tags/LSTM/</loc>
     <lastmod>2023-05-20</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://shaogui.life/tags/%E6%9C%BA%E5%99%A8%E8%A7%86%E8%A7%89/</loc>
+    <loc>https://shaogui.life/tags/opencv/</loc>
     <lastmod>2023-05-20</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -985,6 +1020,13 @@
   
   <url>
     <loc>https://shaogui.life/tags/Windows/</loc>
+    <lastmod>2023-05-20</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://shaogui.life/tags/%E6%9C%BA%E5%99%A8%E8%A7%86%E8%A7%89/</loc>
     <lastmod>2023-05-20</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -1013,6 +1055,13 @@
   
   <url>
     <loc>https://shaogui.life/tags/%E9%93%BE%E5%BC%8F%E6%B1%82%E5%AF%BC/</loc>
+    <lastmod>2023-05-20</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://shaogui.life/tags/Firefox/</loc>
     <lastmod>2023-05-20</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -1055,13 +1104,6 @@
   
   <url>
     <loc>https://shaogui.life/tags/git/</loc>
-    <lastmod>2023-05-20</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://shaogui.life/tags/Firefox/</loc>
     <lastmod>2023-05-20</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
