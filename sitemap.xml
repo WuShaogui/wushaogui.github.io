@@ -2,6 +2,132 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://shaogui.life/2023/02/19/YOLOv6%EF%BC%9AA%20Single-Stage%20Object%20Detection%20Framework%20for%20Industrial%20Applications/</loc>
+    
+    <lastmod>2023-05-21</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://shaogui.life/2021/03/12/YOLOv4%EF%BC%9AOptimal%20Speed%20and%20Accuracy%20of%20Object%20Detection/</loc>
+    
+    <lastmod>2023-05-21</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://shaogui.life/2020/06/14/YOLOv3%EF%BC%9AAn%20Incremental%20Improvement/</loc>
+    
+    <lastmod>2023-05-21</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://shaogui.life/2020/06/09/YOLO9000%EF%BC%9ABetter,%20Faster,%20Stronger/</loc>
+    
+    <lastmod>2023-05-21</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://shaogui.life/2020/06/02/You%20Only%20Look%20Once%EF%BC%9AUnified%20Real-Time%20Object%20Detection/</loc>
+    
+    <lastmod>2023-05-21</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://shaogui.life/2020/05/24/FPN%EF%BC%9AFeature%20Pyramid%20Networks%20for%20Object%20Detection/</loc>
+    
+    <lastmod>2023-05-21</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://shaogui.life/2020/05/20/FasterRCNN%EF%BC%9ATowards%20Real-Time%20Object%20Detection%20with%20Region%20Proposal%20Networks/</loc>
+    
+    <lastmod>2023-05-21</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://shaogui.life/2020/05/15/Fast%20R-CNN/</loc>
+    
+    <lastmod>2023-05-21</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://shaogui.life/2020/05/10/SPPNet%EF%BC%9ASpatial%20Pyramid%20Pooling%20in%20Deep%20Convolutional%20Networks%20for%20Visual%20Recognition/</loc>
+    
+    <lastmod>2023-05-21</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://shaogui.life/2020/05/03/RCNN%EF%BC%9ARich%20feature%20hierarchies%20for%20accurate%20object%20detection%20and%20semantic%20segmentation/</loc>
+    
+    <lastmod>2023-05-21</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://shaogui.life/2018/04/10/ENet%EF%BC%9AA%20Deep%20Neural%20Network%20Architecture%20for%20Real-Time%20Semantic%20Segmentation/</loc>
+    
+    <lastmod>2023-05-21</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://shaogui.life/2018/03/29/PSPNet%EF%BC%9ADilated%20Residual%20Networks/</loc>
+    
+    <lastmod>2023-05-21</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://shaogui.life/2018/03/14/SegNet%EF%BC%9AA%20Deep%20Convolutional%20Encoder-Decoder%20Architecture%20for%20Image%20Segmentation/</loc>
+    
+    <lastmod>2023-05-21</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://shaogui.life/2018/03/02/DeepLabv2%EF%BC%9ASemantic%20Image%20Segmentation%20with%20Deep%20Convolutional%20Nets,%20Atrous%20Convolution,%20and%20Fully%20Connected%20CRFs/</loc>
+    
+    <lastmod>2023-05-21</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://shaogui.life/2018/02/20/Unet%EF%BC%9AConvolutional%20Networks%20for%20Biomedical%20Image%20Segmentation/</loc>
+    
+    <lastmod>2023-05-21</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://shaogui.life/2018/02/18/DeepLabv1%EF%BC%9ASemantic%20Image%20Segmentation%20with%20Deep%20Convolutional%20Nets%20and%20Fully%20Connected%20CRFs/</loc>
+    
+    <lastmod>2023-05-21</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://shaogui.life/2018/02/15/DeconvNet%EF%BC%9ALearning%20Deconvolution%20Network%20for%20Semantic%20Segmentation/</loc>
+    
+    <lastmod>2023-05-21</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://shaogui.life/2018/02/13/FCN%EF%BC%9AFully%20Convolutional%20Networks%20for%20Semantic%20Segmentation/</loc>
+    
+    <lastmod>2023-05-21</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://shaogui.life/2023/05/10/%E6%88%91%E7%9A%84%E5%9B%BE%E7%89%87%E5%88%86%E7%B1%BB%E4%B9%A0%E8%B7%AF%E7%BA%BF/</loc>
     
     <lastmod>2023-05-21</lastmod>
@@ -289,13 +415,6 @@
   </url>
   
   <url>
-    <loc>https://shaogui.life/2020/04/23/YOLOv4%EF%BC%9AOptimal%20Speed%20and%20Accuracy%20of%20Object%20Detection/</loc>
-    
-    <lastmod>2023-05-21</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://shaogui.life/2019/08/21/RetinaNet%EF%BC%9AFocal%20Loss%20for%20Dense%20Object%20Detection/</loc>
     
     <lastmod>2023-05-21</lastmod>
@@ -310,48 +429,6 @@
   </url>
   
   <url>
-    <loc>https://shaogui.life/2017/06/03/RCNN%EF%BC%9ARich%20feature%20hierarchies%20for%20accurate%20object%20detection%20and%20semantic%20segmentation/</loc>
-    
-    <lastmod>2023-05-21</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://shaogui.life/2017/06/05/SPPNet%EF%BC%9ASpatial%20Pyramid%20Pooling%20in%20Deep%20Convolutional%20Networks%20for%20Visual%20Recognition/</loc>
-    
-    <lastmod>2023-05-21</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://shaogui.life/2017/06/10/Fast%20R-CNN/</loc>
-    
-    <lastmod>2023-05-21</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://shaogui.life/2017/07/12/FasterRCNN%EF%BC%9ATowards%20Real-Time%20Object%20Detection%20with%20Region%20Proposal%20Networks/</loc>
-    
-    <lastmod>2023-05-21</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://shaogui.life/2018/05/22/FPN%EF%BC%9AFeature%20Pyramid%20Networks%20for%20Object%20Detection/</loc>
-    
-    <lastmod>2023-05-21</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://shaogui.life/2018/03/19/You%20Only%20Look%20Once%EF%BC%9AUnified%20Real-Time%20Object%20Detection/</loc>
-    
-    <lastmod>2023-05-21</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://shaogui.life/2018/03/28/SSD%EF%BC%9ASingle%20Shot%20MultiBox%20Detector/</loc>
     
     <lastmod>2023-05-21</lastmod>
@@ -359,21 +436,7 @@
   </url>
   
   <url>
-    <loc>https://shaogui.life/2018/07/13/YOLO9000%EF%BC%9ABetter,%20Faster,%20Stronger/</loc>
-    
-    <lastmod>2023-05-21</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://shaogui.life/2018/08/21/DSSD%EF%BC%9ADeconvolutional%20Single%20Shot%20Detector/</loc>
-    
-    <lastmod>2023-05-21</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://shaogui.life/2019/09/23/YOLOv3%EF%BC%9AAn%20Incremental%20Improvement/</loc>
     
     <lastmod>2023-05-21</lastmod>
     
@@ -402,13 +465,6 @@
   
   <url>
     <loc>https://shaogui.life/2023/05/21/TOOD%EF%BC%9ATask-aligned%20One-stage%20Object%20Detection/</loc>
-    
-    <lastmod>2023-05-21</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://shaogui.life/2023/03/13/YOLOv6%EF%BC%9AA%20Single-Stage%20Object%20Detection%20Framework%20for%20Industrial%20Applications/</loc>
     
     <lastmod>2023-05-21</lastmod>
     
@@ -472,20 +528,6 @@
   
   <url>
     <loc>https://shaogui.life/2021/10/20/CRNN%EF%BC%9A%20An%20End-to-End%20Trainable%20Neural%20Network%20for%20Image-based%20Sequence%20Recognition%20and%20Its%20Application%20to%20Scene%20Text%20Recognition/</loc>
-    
-    <lastmod>2023-05-20</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://shaogui.life/2017/03/25/DeepLabv1%EF%BC%9ASemantic%20Image%20Segmentation%20with%20Deep%20Convolutional%20Nets%20and%20Fully%20Connected%20CRFs/</loc>
-    
-    <lastmod>2023-05-20</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://shaogui.life/2017/03/28/DeepLabv2%EF%BC%9ASemantic%20Image%20Segmentation%20with%20Deep%20Convolutional%20Nets,%20Atrous%20Convolution,%20and%20Fully%20Connected%20CRFs/</loc>
     
     <lastmod>2023-05-20</lastmod>
     
@@ -681,21 +723,7 @@
   </url>
   
   <url>
-    <loc>https://shaogui.life/2017/04/10/ENet%EF%BC%9AA%20Deep%20Neural%20Network%20Architecture%20for%20Real-Time%20Semantic%20Segmentation/</loc>
-    
-    <lastmod>2023-05-20</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://shaogui.life/2019/05/26/CCNet%EF%BC%9ACriss-Cross%20Attention%20for%20Semantic%20Segmentation/</loc>
-    
-    <lastmod>2023-05-20</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://shaogui.life/2017/03/26/Unet%EF%BC%9AConvolutional%20Networks%20for%20Biomedical%20Image%20Segmentation/</loc>
     
     <lastmod>2023-05-20</lastmod>
     
@@ -710,20 +738,6 @@
   
   <url>
     <loc>https://shaogui.life/2019/04/13/Unet++%EF%BC%9AA%20Nested%20U-Net%20Architecture%20for%20Medical%20Image%20Segmentation/</loc>
-    
-    <lastmod>2023-05-20</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://shaogui.life/2017/03/28/SegNet%EF%BC%9AA%20Deep%20Convolutional%20Encoder-Decoder%20Architecture%20for%20Image%20Segmentation/</loc>
-    
-    <lastmod>2023-05-20</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://shaogui.life/2017/03/25/DeconvNet%EF%BC%9ALearning%20Deconvolution%20Network%20for%20Semantic%20Segmentation/</loc>
     
     <lastmod>2023-05-20</lastmod>
     
@@ -780,20 +794,6 @@
   
   <url>
     <loc>https://shaogui.life/2020/03/23/DANet%EF%BC%9ADual%20Attention%20Network%20for%20Scene%20Segmentation/</loc>
-    
-    <lastmod>2023-05-20</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://shaogui.life/2017/03/29/PSPNet%EF%BC%9ADilated%20Residual%20Networks/</loc>
-    
-    <lastmod>2023-05-20</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://shaogui.life/2017/03/20/FCN%EF%BC%9AFully%20Convolutional%20Networks%20for%20Semantic%20Segmentation/</loc>
     
     <lastmod>2023-05-20</lastmod>
     
@@ -1635,13 +1635,6 @@
   </url>
   
   <url>
-    <loc>https://shaogui.life/tags/Calibre/</loc>
-    <lastmod>2023-05-21</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://shaogui.life/tags/OCR/</loc>
     <lastmod>2023-05-21</lastmod>
     <changefreq>daily</changefreq>
@@ -1650,6 +1643,13 @@
   
   <url>
     <loc>https://shaogui.life/tags/%E6%96%87%E6%9C%AC%E8%AF%86%E5%88%AB/</loc>
+    <lastmod>2023-05-21</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://shaogui.life/tags/Calibre/</loc>
     <lastmod>2023-05-21</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -1803,6 +1803,13 @@
   </url>
   
   <url>
+    <loc>https://shaogui.life/tags/Mxnet/</loc>
+    <lastmod>2023-05-21</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://shaogui.life/tags/%E5%9B%BE%E8%AE%BA/</loc>
     <lastmod>2023-05-21</lastmod>
     <changefreq>daily</changefreq>
@@ -1817,7 +1824,7 @@
   </url>
   
   <url>
-    <loc>https://shaogui.life/tags/Mxnet/</loc>
+    <loc>https://shaogui.life/tags/python/</loc>
     <lastmod>2023-05-21</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -1832,13 +1839,6 @@
   
   <url>
     <loc>https://shaogui.life/tags/numpy/</loc>
-    <lastmod>2023-05-21</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://shaogui.life/tags/python/</loc>
     <lastmod>2023-05-21</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -1929,6 +1929,13 @@
   </url>
   
   <url>
+    <loc>https://shaogui.life/tags/%E8%AF%BB%E4%B9%A6/</loc>
+    <lastmod>2023-05-21</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://shaogui.life/tags/MinGW64/</loc>
     <lastmod>2023-05-21</lastmod>
     <changefreq>daily</changefreq>
@@ -1943,7 +1950,7 @@
   </url>
   
   <url>
-    <loc>https://shaogui.life/tags/%E8%AF%BB%E4%B9%A6/</loc>
+    <loc>https://shaogui.life/tags/LSTM/</loc>
     <lastmod>2023-05-21</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -1958,13 +1965,6 @@
   
   <url>
     <loc>https://shaogui.life/tags/Linear/</loc>
-    <lastmod>2023-05-21</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://shaogui.life/tags/LSTM/</loc>
     <lastmod>2023-05-21</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -1992,13 +1992,6 @@
   </url>
   
   <url>
-    <loc>https://shaogui.life/tags/tensorflow/</loc>
-    <lastmod>2023-05-21</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://shaogui.life/tags/%E6%9C%BA%E5%99%A8%E8%A7%86%E8%A7%89/</loc>
     <lastmod>2023-05-21</lastmod>
     <changefreq>daily</changefreq>
@@ -2007,6 +2000,13 @@
   
   <url>
     <loc>https://shaogui.life/tags/Windows/</loc>
+    <lastmod>2023-05-21</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://shaogui.life/tags/tensorflow/</loc>
     <lastmod>2023-05-21</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -2062,14 +2062,14 @@
   </url>
   
   <url>
-    <loc>https://shaogui.life/tags/Firefox/</loc>
+    <loc>https://shaogui.life/tags/%E5%91%BD%E5%90%8D/</loc>
     <lastmod>2023-05-21</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://shaogui.life/tags/%E5%91%BD%E5%90%8D/</loc>
+    <loc>https://shaogui.life/tags/Firefox/</loc>
     <lastmod>2023-05-21</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
