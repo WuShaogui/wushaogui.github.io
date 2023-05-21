@@ -3,30 +3,30 @@
   <entry>
     <title>我的目标检测习路线</title>
     <url>/2023/05/19/%E6%88%91%E7%9A%84%E7%9B%AE%E6%A0%87%E6%A3%80%E6%B5%8B%E4%B9%A0%E8%B7%AF%E7%BA%BF/</url>
-    <content><![CDATA[<p><img src="../source/Excalidraw/Drawing%202023-02-09%2015.44.06.excalidraw.png" alt="Drawing 2023-02-09 15.44.06.excalidraw" /></p>
+    <content><![CDATA[<p><img src="https://picgo-1304919305.cos.ap-guangzhou.myqcloud.com/picGo/Drawing%202023-02-09%2015.44.06.excalidraw.png" alt="Drawing 2023-02-09 15.44.06.excalidraw" /></p>
 <p>本文总结自己目前对 OCR 的认识，和学习过程</p>
 <a id="more"></a>
 <h1 id="什么是目标检测"><a class="markdownIt-Anchor" href="#什么是目标检测"></a> 什么是目标检测？</h1>
 <ul>
-<li><img src="../source/images/%E7%9B%AE%E6%A0%87%E6%A3%80%E6%B5%8B%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86-20230408141236.png" alt="" /></li>
+<li><img src="https://picgo-1304919305.cos.ap-guangzhou.myqcloud.com/picGo/%E7%9B%AE%E6%A0%87%E6%A3%80%E6%B5%8B%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86-20230408141236.png" alt="" /></li>
 <li>目标检测：精确的定位出图像中某一物体<strong>类别信息</strong>和<strong>所在位置</strong></li>
 <li>2014年，基于候选区域 (two stage)的目标检测算法代表算法RCNN 发表，2015年基于回归 (one stage)的目标检测算法代表 YOLOv1 发表。前者往往准确度更高但速度上较慢，后者往往更快但准头略差一些，目前在向 one-satge、anchor-free 的方向发展</li>
 </ul>
 <h1 id="目标检测的疑问"><a class="markdownIt-Anchor" href="#目标检测的疑问"></a> “目标检测”的疑问</h1>
 <ul>
-<li><img src="../source/Excalidraw/Drawing%202023-03-14%2020.55.52.excalidraw.png" alt="Drawing 2023-03-14 20.55.52.excalidraw" /></li>
+<li><img src="https://picgo-1304919305.cos.ap-guangzhou.myqcloud.com/picGo/Drawing%202023-03-14%2020.55.52.excalidraw.png" alt="Drawing 2023-03-14 20.55.52.excalidraw" /></li>
 <li>以前不清楚目标检测的时候，老是对一个问题不明白：<strong>一张图片上目标数量不定，但神经网络的最后输出一定是定长的，那怎么预测一张图上的多个目标呢？</strong></li>
 </ul>
 <h1 id="检测目标检测的朴素想法"><a class="markdownIt-Anchor" href="#检测目标检测的朴素想法"></a> 检测目标检测的“朴素想法”</h1>
 <ul>
-<li><img src="../source/Excalidraw/Drawing%202023-03-16%2021.34.10.excalidraw.png" alt="Drawing 2023-03-16 21.34.10.excalidraw" /></li>
+<li><img src="https://picgo-1304919305.cos.ap-guangzhou.myqcloud.com/picGo/Drawing%202023-03-16%2021.34.10.excalidraw.png" alt="Drawing 2023-03-16 21.34.10.excalidraw" /></li>
 <li>就拿我们最熟悉的<strong>分类</strong>来说：已知分类模型的最后输出等于类别数量 (N)，而且计算损失的时候也是输出 (N)与 gt (N)等长度的向量计算，也就是说每个输出都参与损失的计算 (假设是多标签分类)</li>
 <li>但是<strong>目标检测</strong>情况有点不一样，即图片上的目标数量是未知的，有2种思路去解决模型输出的问题：<strong>RCNN 系列</strong>：先生成能覆盖住目标<strong>大量的获选框</strong>，然后将网络输出固定为框的分类及定位预；<strong>YOLO 系列</strong>：直接输入全图，然后模型<strong>设计大量的输出</strong>，然后选择某些输出去监督网络的学习，最后过滤所有输出，找到预测框</li>
 <li>无论是先生成大量获选框、还是设计大量的输出，都是为了使用“大数量”的输出确保覆盖目标数量不定的图片</li>
 </ul>
 <h1 id="目标检测常用的方法"><a class="markdownIt-Anchor" href="#目标检测常用的方法"></a> 目标检测常用的方法？</h1>
 <ul>
-<li><img src="../source/Excalidraw/Drawing%202023-03-15%2008.31.34.excalidraw.png" alt="Drawing 2023-03-15 08.31.34.excalidraw" /></li>
+<li><img src="https://picgo-1304919305.cos.ap-guangzhou.myqcloud.com/picGo/Drawing%202023-03-15%2008.31.34.excalidraw.png" alt="Drawing 2023-03-15 08.31.34.excalidraw" /></li>
 <li>two-stage：先找出目标的大量获选框，然后对获选框进行分类和回归，实现对目标的检测</li>
 <li>one-stage：从最后的 featrue map 开始，在 grid 设置多个 anchor，然后对这些 anchor 进行分类和位置检测，实现对目标的检测</li>
 <li>anchor-free：从最后的 featrue map 开始，直接用每个 grid 去学习目标的类别及 gt 框</li>
@@ -43,7 +43,7 @@
 </ol>
 <h1 id="目标检测如何进行样本匹配"><a class="markdownIt-Anchor" href="#目标检测如何进行样本匹配"></a> 目标检测如何进行样本匹配？</h1>
 <ul>
-<li><img src="../source/Excalidraw/Drawing%202023-03-16%2023.06.28.excalidraw.png" alt="Drawing 2023-03-16 23.06.28.excalidraw" /></li>
+<li><img src="https://picgo-1304919305.cos.ap-guangzhou.myqcloud.com/picGo/Drawing%202023-03-16%2023.06.28.excalidraw.png" alt="Drawing 2023-03-16 23.06.28.excalidraw" /></li>
 <li><strong>静态分配</strong>：按照位置、IOU、Shape 提前将 gt 框分配到某个检测器，<strong>所有的 anchor-base+单头输出的 anchor-free</strong>，比如：YOLOv1-YOLOv5、SSD、RetinaNet、CornerNet、CenterNet、FOCS</li>
 <li><strong>动态分配</strong>：根据模型输出和 gt 框的损失，选择损失小的去监督网络，<strong>多 head 输出 anchor-free</strong> 均使用这种方式，比如 YOLOX、YOLOF、YOLOv6、YOLOv7</li>
 </ul>
@@ -55,13 +55,13 @@
 </ul>
 <h1 id="目标检测的评价指标"><a class="markdownIt-Anchor" href="#目标检测的评价指标"></a> 目标检测的评价指标？</h1>
 <ul>
-<li><img src="../source/Excalidraw/Drawing%202023-03-14%2020.11.25.excalidraw.png" alt="Drawing 2023-03-14 20.11.25.excalidraw" /></li>
+<li><img src="https://picgo-1304919305.cos.ap-guangzhou.myqcloud.com/picGo/Drawing%202023-03-14%2020.11.25.excalidraw.png" alt="Drawing 2023-03-14 20.11.25.excalidraw" /></li>
 <li>目标检测常使用 mAP 评价模型性能，注意：<strong>统计某类的 TP、FP、FN 时，是针对所有图片<mark style="background: #FFB8EBA6;">目标框</mark>预测结果进行，不针对具体图片</strong></li>
 <li>mAP 是所有类别 AP 值的平均</li>
 <li>每个 PR 区域是某个 IOU 阈值绘制的，并且这个 IOU 阈值已经由单阈值发展到多阈值</li>
 </ul>
 <h1 id="学习路线"><a class="markdownIt-Anchor" href="#学习路线"></a> 学习路线</h1>
-<p><img src="../source/Excalidraw/Drawing%202023-02-09%2015.44.06.excalidraw.png" alt="Drawing 2023-02-09 15.44.06.excalidraw" /></p>
+<p><img src="https://picgo-1304919305.cos.ap-guangzhou.myqcloud.com/picGo/Drawing%202023-02-09%2015.44.06.excalidraw.png" alt="Drawing 2023-02-09 15.44.06.excalidraw" /></p>
 ]]></content>
       <categories>
         <category>深度学习</category>
@@ -15134,33 +15134,6 @@ Zotero的神级插件，这玩意可以自动获取导入文件的元数据，�
       </tags>
   </entry>
   <entry>
-    <title>linux的文件夹共享功能设置</title>
-    <url>/2016/06/01/linux%E7%9A%84%E6%96%87%E4%BB%B6%E5%A4%B9%E5%85%B1%E4%BA%AB%E5%8A%9F%E8%83%BD%E8%AE%BE%E7%BD%AE/</url>
-    <content><![CDATA[<p>本文解释linux系统向其他系统共享文件的流程，并以ipad访问过程演示</p>
-<a id="more"></a>
-<p>1.新建共享文件夹<br />
-<img src="https://picgo-1304919305.cos.ap-guangzhou.myqcloud.com/picGo/202304082045372.png" alt="enter description here" /></p>
-<p>2.设置共享用户<br />
-<img src="https://picgo-1304919305.cos.ap-guangzhou.myqcloud.com/picGo/202304082046890.png" alt="enter description here" /></p>
-<blockquote>
-<p>好像要求用户wu先是系统用户</p>
-</blockquote>
-<p>3.终端访问</p>
-<p><img src="https://picgo-1304919305.cos.ap-guangzhou.myqcloud.com/picGo/202304082046943.png" alt="enter description here" /></p>
-<p><img src="https://picgo-1304919305.cos.ap-guangzhou.myqcloud.com/picGo/202304082046556.png" alt="enter description here" /></p>
-<blockquote>
-<p>！需填写密码</p>
-</blockquote>
-]]></content>
-      <categories>
-        <category>软件工具</category>
-      </categories>
-      <tags>
-        <tag>Linux</tag>
-        <tag>文件共享</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>linux上wps系统缺失字体</title>
     <url>/2016/06/01/linux%E4%B8%8Awps%E7%B3%BB%E7%BB%9F%E7%BC%BA%E5%A4%B1%E5%AD%97%E4%BD%93/</url>
     <content><![CDATA[<p>在Linux上新安装WPS后，第一次打开就出现以下问题：</p>
@@ -15193,6 +15166,33 @@ Linux上缺少windows字体，把字体添加上去即可。</p>
       <tags>
         <tag>Linux</tag>
         <tag>WPS</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>linux的文件夹共享功能设置</title>
+    <url>/2016/06/01/linux%E7%9A%84%E6%96%87%E4%BB%B6%E5%A4%B9%E5%85%B1%E4%BA%AB%E5%8A%9F%E8%83%BD%E8%AE%BE%E7%BD%AE/</url>
+    <content><![CDATA[<p>本文解释linux系统向其他系统共享文件的流程，并以ipad访问过程演示</p>
+<a id="more"></a>
+<p>1.新建共享文件夹<br />
+<img src="https://picgo-1304919305.cos.ap-guangzhou.myqcloud.com/picGo/202304082045372.png" alt="enter description here" /></p>
+<p>2.设置共享用户<br />
+<img src="https://picgo-1304919305.cos.ap-guangzhou.myqcloud.com/picGo/202304082046890.png" alt="enter description here" /></p>
+<blockquote>
+<p>好像要求用户wu先是系统用户</p>
+</blockquote>
+<p>3.终端访问</p>
+<p><img src="https://picgo-1304919305.cos.ap-guangzhou.myqcloud.com/picGo/202304082046943.png" alt="enter description here" /></p>
+<p><img src="https://picgo-1304919305.cos.ap-guangzhou.myqcloud.com/picGo/202304082046556.png" alt="enter description here" /></p>
+<blockquote>
+<p>！需填写密码</p>
+</blockquote>
+]]></content>
+      <categories>
+        <category>软件工具</category>
+      </categories>
+      <tags>
+        <tag>Linux</tag>
+        <tag>文件共享</tag>
       </tags>
   </entry>
   <entry>
