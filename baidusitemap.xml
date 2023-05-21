@@ -1,11 +1,179 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://shaogui.life/2023/05/10/%E6%88%91%E7%9A%84%E5%9B%BE%E7%89%87%E5%88%86%E7%B1%BB%E4%B9%A0%E8%B7%AF%E7%BA%BF/</loc>
+    <lastmod>2023-05-21</lastmod>
+  </url>
+  <url>
+    <loc>https://shaogui.life/2016/12/21/LeNet%EF%BC%9AGradient-Based%20Learning%20Applied%20to%20Document%20Recognition/</loc>
+    <lastmod>2023-05-21</lastmod>
+  </url>
+  <url>
+    <loc>https://shaogui.life/2023/03/22/ConvNeXt%20V2%EF%BC%9ACo-designing%20and%20Scaling%20ConvNets%20with%20Masked%20Autoencoders/</loc>
+    <lastmod>2023-05-21</lastmod>
+  </url>
+  <url>
+    <loc>https://shaogui.life/2023/02/12/ConvNeXt%EF%BC%9AA%20ConvNet%20for%20the%202020s/</loc>
+    <lastmod>2023-05-21</lastmod>
+  </url>
+  <url>
+    <loc>https://shaogui.life/2022/08/16/EfficientNetV2%EF%BC%9ASmaller%20Models%20and%20Faster%20Training/</loc>
+    <lastmod>2023-05-21</lastmod>
+  </url>
+  <url>
+    <loc>https://shaogui.life/2022/09/10/RepVGG%EF%BC%9AMaking%20VGG-style%20ConvNets%20Great%20Again/</loc>
+    <lastmod>2023-05-21</lastmod>
+  </url>
+  <url>
+    <loc>https://shaogui.life/2022/08/19/RegNet%EF%BC%9ADesigning%20Network%20Design%20Spaces/</loc>
+    <lastmod>2023-05-21</lastmod>
+  </url>
+  <url>
+    <loc>https://shaogui.life/2022/08/12/EfficientNetv1%EF%BC%9ARethinking%20Model%20Scaling%20for%20Convolutional%20Neural%20Networks/</loc>
+    <lastmod>2023-05-21</lastmod>
+  </url>
+  <url>
+    <loc>https://shaogui.life/2017/07/26/CAM%EF%BC%9ALearning%20Deep%20Features%20for%20Discriminative%20Localization/</loc>
+    <lastmod>2023-05-21</lastmod>
+  </url>
+  <url>
+    <loc>https://shaogui.life/2021/06/25/SKNet%EF%BC%9ASelective%20Kernel%20Networks/</loc>
+    <lastmod>2023-05-21</lastmod>
+  </url>
+  <url>
+    <loc>https://shaogui.life/2021/06/20/SENet%EF%BC%9ASqueeze-and-Excitation%20Networks/</loc>
+    <lastmod>2023-05-21</lastmod>
+  </url>
+  <url>
+    <loc>https://shaogui.life/2020/06/15/CBAM%EF%BC%9AConvolutional%20Block%20Attention%20Module/</loc>
+    <lastmod>2023-05-21</lastmod>
+  </url>
+  <url>
+    <loc>https://shaogui.life/2023/01/13/GhostNetV2%EF%BC%9AEnhance%20Cheap%20Operation%20with%20Long-Range%20Attention/</loc>
+    <lastmod>2023-05-21</lastmod>
+  </url>
+  <url>
+    <loc>https://shaogui.life/2021/04/18/MobileNetV3%EF%BC%9ASearching%20for%20MobileNetV3/</loc>
+    <lastmod>2023-05-21</lastmod>
+  </url>
+  <url>
+    <loc>https://shaogui.life/2021/03/10/GhostNet%EF%BC%9AMore%20Features%20from%20Cheap%20Operations/</loc>
+    <lastmod>2023-05-21</lastmod>
+  </url>
+  <url>
+    <loc>https://shaogui.life/2021/02/11/MobileNetv2%EF%BC%9AInverted%20Residuals%20and%20Linear%20Bottlenecks/</loc>
+    <lastmod>2023-05-21</lastmod>
+  </url>
+  <url>
+    <loc>https://shaogui.life/2019/09/22/ShuffleNetv1%EF%BC%9AAn%20Extremely%20Efficient%20Convolutional%20Neural%20Network%20for%20Mobile%20Devices/</loc>
+    <lastmod>2023-05-21</lastmod>
+  </url>
+  <url>
+    <loc>https://shaogui.life/2019/08/12/MobileNetv1%EF%BC%9AEfficient%20Convolutional%20Neural%20Networks%20for%20Mobile%20Vision%20Applications/</loc>
+    <lastmod>2023-05-21</lastmod>
+  </url>
+  <url>
+    <loc>https://shaogui.life/2017/09/28/SqueezeNet%EF%BC%9AAlexNet-level%20accuracy%20with%2050x%20fewer%20parameters%20and%200.5MB%20model%20size/</loc>
+    <lastmod>2023-05-21</lastmod>
+  </url>
+  <url>
+    <loc>https://shaogui.life/2021/07/17/ResNeSt%EF%BC%9ASplit-Attention%20Networks/</loc>
+    <lastmod>2023-05-21</lastmod>
+  </url>
+  <url>
+    <loc>https://shaogui.life/2020/05/13/CSPNet%EF%BC%9AA%20New%20Backbone%20that%20can%20Enhance%20Learning%20Capability%20of%20CNN/</loc>
+    <lastmod>2023-05-21</lastmod>
+  </url>
+  <url>
+    <loc>https://shaogui.life/2019/02/21/DPN%EF%BC%9ADual%20Path%20Networks/</loc>
+    <lastmod>2023-05-21</lastmod>
+  </url>
+  <url>
+    <loc>https://shaogui.life/2018/07/16/DenseNet%EF%BC%9ADensely%20Connected%20Convolutional%20Networks/</loc>
+    <lastmod>2023-05-21</lastmod>
+  </url>
+  <url>
+    <loc>https://shaogui.life/2018/06/22/ResNeXt%EF%BC%9AAggregated%20Residual%20Transformations%20for%20Deep%20Neural%20Networks/</loc>
+    <lastmod>2023-05-21</lastmod>
+  </url>
+  <url>
+    <loc>https://shaogui.life/2018/03/15/ResNet%EF%BC%9ADeep%20Residual%20Learning%20for%20Image%20Recognition/</loc>
+    <lastmod>2023-05-21</lastmod>
+  </url>
+  <url>
+    <loc>https://shaogui.life/2017/12/21/GoogleNetv4%EF%BC%9AInception-ResNet%20and%20the%20Impact%20of%20Residual%20Connections%20on%20Learning/</loc>
+    <lastmod>2023-05-21</lastmod>
+  </url>
+  <url>
+    <loc>https://shaogui.life/2017/12/11/GoogleNetv3%EF%BC%9ARethinking%20the%20Inception%20Architecture%20for%20Computer%20Vision/</loc>
+    <lastmod>2023-05-21</lastmod>
+  </url>
+  <url>
+    <loc>https://shaogui.life/2017/11/02/GoogleNetv2%EF%BC%9ABatch%20Normalization%EF%BC%9AAccelerating%20Deep%20Network%20Training%20by%20Reducing%20Internal%20Covariate%20Shift/</loc>
+    <lastmod>2023-05-21</lastmod>
+  </url>
+  <url>
+    <loc>https://shaogui.life/2017/10/28/GoogLeNetv1%EF%BC%9AGoing%20deeper%20with%20convolutions/</loc>
+    <lastmod>2023-05-21</lastmod>
+  </url>
+  <url>
+    <loc>https://shaogui.life/2017/10/16/VGG%EF%BC%9AVery%20Deep%20Convolutional%20Networks%20for%20Large-Scale%20Image%20Recognition/</loc>
+    <lastmod>2023-05-21</lastmod>
+  </url>
+  <url>
+    <loc>https://shaogui.life/2017/10/09/OverFeat%EF%BC%9AIntegrated%20Recognition,%20Localization%20and%20Detection%20using%20Convolutional%20Networks/</loc>
+    <lastmod>2023-05-21</lastmod>
+  </url>
+  <url>
+    <loc>https://shaogui.life/2020/09/25/NIN%EF%BC%9ANetwork%20In%20Network/</loc>
+    <lastmod>2023-05-21</lastmod>
+  </url>
+  <url>
+    <loc>https://shaogui.life/2017/09/21/ZFNet%EF%BC%9AVisualizing%20and%20Understanding%20Convolutional%20Networks/</loc>
+    <lastmod>2023-05-21</lastmod>
+  </url>
+  <url>
+    <loc>https://shaogui.life/2017/09/12/AlexNet%EF%BC%9AImageNet%20classification%20with%20deep%20convolutional%20neural%20networks/</loc>
+    <lastmod>2023-05-21</lastmod>
+  </url>
+  <url>
+    <loc>https://shaogui.life/2022/12/11/Res2Net%EF%BC%9AA%20New%20Multi-scale%20Backbone%20Architecture/</loc>
+    <lastmod>2023-05-21</lastmod>
+  </url>
+  <url>
+    <loc>https://shaogui.life/2020/07/16/ShuffleNetV2%EF%BC%9APractical%20Guidelines%20for%20Efficient%20CNN%20Architecture%20Design/</loc>
+    <lastmod>2023-05-21</lastmod>
+  </url>
+  <url>
+    <loc>https://shaogui.life/2019/02/12/Xception%EF%BC%9ADeep%20Learning%20with%20Depthwise%20Separable%20Convolutions/</loc>
+    <lastmod>2023-05-21</lastmod>
+  </url>
+  <url>
     <loc>https://shaogui.life/2023/05/19/%E6%88%91%E7%9A%84%E7%9B%AE%E6%A0%87%E6%A3%80%E6%B5%8B%E4%B9%A0%E8%B7%AF%E7%BA%BF/</loc>
     <lastmod>2023-05-21</lastmod>
   </url>
   <url>
+    <loc>https://shaogui.life/2021/04/21/CenterNet%EF%BC%9AKeypoint%20Triplets%20for%20Object%20Detection/</loc>
+    <lastmod>2023-05-21</lastmod>
+  </url>
+  <url>
+    <loc>https://shaogui.life/2021/02/21/CornerNet%EF%BC%9ADetecting%20Objects%20as%20Paired%20Keypoints/</loc>
+    <lastmod>2023-05-21</lastmod>
+  </url>
+  <url>
+    <loc>https://shaogui.life/2022/03/21/FCOS%EF%BC%9AFully%20Convolutional%20One-Stage%20Object%20Detection/</loc>
+    <lastmod>2023-05-21</lastmod>
+  </url>
+  <url>
     <loc>https://shaogui.life/2020/04/23/YOLOv4%EF%BC%9AOptimal%20Speed%20and%20Accuracy%20of%20Object%20Detection/</loc>
+    <lastmod>2023-05-21</lastmod>
+  </url>
+  <url>
+    <loc>https://shaogui.life/2019/08/21/RetinaNet%EF%BC%9AFocal%20Loss%20for%20Dense%20Object%20Detection/</loc>
+    <lastmod>2023-05-21</lastmod>
+  </url>
+  <url>
+    <loc>https://shaogui.life/2022/03/21/EfficientDet%EF%BC%9AScalable%20and%20Efficient%20Object%20Detection/</loc>
     <lastmod>2023-05-21</lastmod>
   </url>
   <url>
@@ -45,15 +213,7 @@
     <lastmod>2023-05-21</lastmod>
   </url>
   <url>
-    <loc>https://shaogui.life/2019/08/21/RetinaNet%EF%BC%9AFocal%20Loss%20for%20Dense%20Object%20Detection/</loc>
-    <lastmod>2023-05-21</lastmod>
-  </url>
-  <url>
     <loc>https://shaogui.life/2019/09/23/YOLOv3%EF%BC%9AAn%20Incremental%20Improvement/</loc>
-    <lastmod>2023-05-21</lastmod>
-  </url>
-  <url>
-    <loc>https://shaogui.life/2022/03/21/EfficientDet%EF%BC%9AScalable%20and%20Efficient%20Object%20Detection/</loc>
     <lastmod>2023-05-21</lastmod>
   </url>
   <url>
@@ -78,18 +238,6 @@
   </url>
   <url>
     <loc>https://shaogui.life/2023/04/11/YOLOv7%EF%BC%9ATrainable%20bag-of-freebies%20sets%20new%20state-of-the-art%20for%20real-time%20object%20detectors/</loc>
-    <lastmod>2023-05-21</lastmod>
-  </url>
-  <url>
-    <loc>https://shaogui.life/2021/02/21/CornerNet%EF%BC%9ADetecting%20Objects%20as%20Paired%20Keypoints/</loc>
-    <lastmod>2023-05-21</lastmod>
-  </url>
-  <url>
-    <loc>https://shaogui.life/2021/04/21/CenterNet%EF%BC%9AKeypoint%20Triplets%20for%20Object%20Detection/</loc>
-    <lastmod>2023-05-21</lastmod>
-  </url>
-  <url>
-    <loc>https://shaogui.life/2022/03/21/FCOS%EF%BC%9AFully%20Convolutional%20One-Stage%20Object%20Detection/</loc>
     <lastmod>2023-05-21</lastmod>
   </url>
   <url>
