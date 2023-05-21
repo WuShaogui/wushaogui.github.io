@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://shaogui.life/2023/05/21/YOLOv4%EF%BC%9AOptimal%20Speed%20and%20Accuracy%20of%20Object%20Detection/</loc>
+    <lastmod>2023-05-21</lastmod>
+  </url>
+  <url>
     <loc>https://shaogui.life/2017/06/03/RCNN%EF%BC%9ARich%20feature%20hierarchies%20for%20accurate%20object%20detection%20and%20semantic%20segmentation/</loc>
     <lastmod>2023-05-21</lastmod>
   </url>
@@ -42,10 +46,6 @@
   </url>
   <url>
     <loc>https://shaogui.life/2019/09/23/YOLOv3%EF%BC%9AAn%20Incremental%20Improvement/</loc>
-    <lastmod>2023-05-21</lastmod>
-  </url>
-  <url>
-    <loc>https://shaogui.life/2023/05/21/YOLOv4%EF%BC%9AOptimal%20Speed%20and%20Accuracy%20of%20Object%20Detection/</loc>
     <lastmod>2023-05-21</lastmod>
   </url>
   <url>
