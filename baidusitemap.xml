@@ -1,6 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://shaogui.life/2023/05/15/%E6%88%91%E7%9A%84%E8%AF%AD%E4%B9%89%E5%88%86%E5%89%B2%E5%AD%A6%E4%B9%A0%E8%B7%AF%E7%BA%BF/</loc>
+    <lastmod>2023-05-21</lastmod>
+  </url>
+  <url>
+    <loc>https://shaogui.life/2023/05/16/%E6%88%91%E7%9A%84%E7%9B%AE%E6%A0%87%E6%A3%80%E6%B5%8B%E4%B9%A0%E8%B7%AF%E7%BA%BF/</loc>
+    <lastmod>2023-05-21</lastmod>
+  </url>
+  <url>
+    <loc>https://shaogui.life/2023/05/15/%E6%88%91%E7%9A%84%E4%BA%BA%E4%BD%93%E5%A7%BF%E6%80%81%E4%BC%B0%E8%AE%A1%E5%AD%A6%E4%B9%A0%E8%B7%AF%E7%BA%BF/</loc>
+    <lastmod>2023-05-21</lastmod>
+  </url>
+  <url>
+    <loc>https://shaogui.life/2023/05/14/%E6%88%91%E7%9A%84%E5%AE%9E%E4%BE%8B%E5%88%86%E5%89%B2%E5%AD%A6%E4%B9%A0%E8%B7%AF%E7%BA%BF/</loc>
+    <lastmod>2023-05-21</lastmod>
+  </url>
+  <url>
+    <loc>https://shaogui.life/2023/05/12/%E6%88%91%E7%9A%84OCR%E5%AD%A6%E4%B9%A0%E8%B7%AF%E7%BA%BF/</loc>
+    <lastmod>2023-05-21</lastmod>
+  </url>
+  <url>
     <loc>https://shaogui.life/2023/04/26/TOOD%EF%BC%9ATask-aligned%20One-stage%20Object%20Detection/</loc>
     <lastmod>2023-05-21</lastmod>
   </url>
@@ -301,10 +321,6 @@
     <lastmod>2023-05-21</lastmod>
   </url>
   <url>
-    <loc>https://shaogui.life/2023/05/19/%E6%88%91%E7%9A%84%E7%9B%AE%E6%A0%87%E6%A3%80%E6%B5%8B%E4%B9%A0%E8%B7%AF%E7%BA%BF/</loc>
-    <lastmod>2023-05-21</lastmod>
-  </url>
-  <url>
     <loc>https://shaogui.life/2021/04/21/CenterNet%EF%BC%9AKeypoint%20Triplets%20for%20Object%20Detection/</loc>
     <lastmod>2023-05-21</lastmod>
   </url>
@@ -335,22 +351,6 @@
   <url>
     <loc>https://shaogui.life/2023/05/20/Segment%20Anything/</loc>
     <lastmod>2023-05-21</lastmod>
-  </url>
-  <url>
-    <loc>https://shaogui.life/2023/05/14/%E6%88%91%E7%9A%84%E4%BA%BA%E4%BD%93%E5%A7%BF%E6%80%81%E4%BC%B0%E8%AE%A1%E5%AD%A6%E4%B9%A0%E8%B7%AF%E7%BA%BF/</loc>
-    <lastmod>2023-05-20</lastmod>
-  </url>
-  <url>
-    <loc>https://shaogui.life/2023/05/13/%E6%88%91%E7%9A%84%E5%AE%9E%E4%BE%8B%E5%88%86%E5%89%B2%E5%AD%A6%E4%B9%A0%E8%B7%AF%E7%BA%BF/</loc>
-    <lastmod>2023-05-20</lastmod>
-  </url>
-  <url>
-    <loc>https://shaogui.life/2023/05/15/%E6%88%91%E7%9A%84%E8%AF%AD%E4%B9%89%E5%88%86%E5%89%B2%E5%AD%A6%E4%B9%A0%E8%B7%AF%E7%BA%BF/</loc>
-    <lastmod>2023-05-20</lastmod>
-  </url>
-  <url>
-    <loc>https://shaogui.life/2023/05/10/%E6%88%91%E7%9A%84OCR%E5%AD%A6%E4%B9%A0%E8%B7%AF%E7%BA%BF/</loc>
-    <lastmod>2023-05-20</lastmod>
   </url>
   <url>
     <loc>https://shaogui.life/2021/10/20/CRNN%EF%BC%9A%20An%20End-to-End%20Trainable%20Neural%20Network%20for%20Image-based%20Sequence%20Recognition%20and%20Its%20Application%20to%20Scene%20Text%20Recognition/</loc>

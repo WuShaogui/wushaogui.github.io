@@ -2,7 +2,7 @@
 <search>
   <entry>
     <title>我的目标检测习路线</title>
-    <url>/2023/05/19/%E6%88%91%E7%9A%84%E7%9B%AE%E6%A0%87%E6%A3%80%E6%B5%8B%E4%B9%A0%E8%B7%AF%E7%BA%BF/</url>
+    <url>/2023/05/16/%E6%88%91%E7%9A%84%E7%9B%AE%E6%A0%87%E6%A3%80%E6%B5%8B%E4%B9%A0%E8%B7%AF%E7%BA%BF/</url>
     <content><![CDATA[<p><img src="../source/Excalidraw/Drawing%202023-02-09%2015.44.06.excalidraw.png" alt="Drawing 2023-02-09 15.44.06.excalidraw" /></p>
 <p>本文总结自己目前对 OCR 的认识，和学习过程</p>
 <a id="more"></a>
@@ -150,7 +150,7 @@
   </entry>
   <entry>
     <title>我的人体姿态估计学习路线</title>
-    <url>/2023/05/14/%E6%88%91%E7%9A%84%E4%BA%BA%E4%BD%93%E5%A7%BF%E6%80%81%E4%BC%B0%E8%AE%A1%E5%AD%A6%E4%B9%A0%E8%B7%AF%E7%BA%BF/</url>
+    <url>/2023/05/15/%E6%88%91%E7%9A%84%E4%BA%BA%E4%BD%93%E5%A7%BF%E6%80%81%E4%BC%B0%E8%AE%A1%E5%AD%A6%E4%B9%A0%E8%B7%AF%E7%BA%BF/</url>
     <content><![CDATA[<p><img src="https://picgo-1304919305.cos.ap-guangzhou.myqcloud.com/picGo/Drawing%202023-04-13%2023.28.32.excalidraw.png" alt="Drawing 2023-04-13 23.28.32.excalidraw" /></p>
 <p>本文总结自己目前对人体姿态估计的认识，和学习过程</p>
 <a id="more"></a>
@@ -219,7 +219,7 @@ M834 80h400000v40h-400000z'/></svg></span></span></span><span class="vlist-s">�
   </entry>
   <entry>
     <title>我的实例分割学习路线</title>
-    <url>/2023/05/13/%E6%88%91%E7%9A%84%E5%AE%9E%E4%BE%8B%E5%88%86%E5%89%B2%E5%AD%A6%E4%B9%A0%E8%B7%AF%E7%BA%BF/</url>
+    <url>/2023/05/14/%E6%88%91%E7%9A%84%E5%AE%9E%E4%BE%8B%E5%88%86%E5%89%B2%E5%AD%A6%E4%B9%A0%E8%B7%AF%E7%BA%BF/</url>
     <content><![CDATA[<p><img src="https://picgo-1304919305.cos.ap-guangzhou.myqcloud.com/picGo/Drawing%202023-03-22%2013.39.58.excalidraw.png" alt="Drawing 2023-03-22 13.39.58.excalidraw" /></p>
 <p>本文总结自己目前对实例分割 的认识，和学习过程</p>
 <a id="more"></a>
@@ -285,6 +285,53 @@ M834 80h400000v40h-400000z'/></svg></span></span></span><span class="vlist-s">�
       </tags>
   </entry>
   <entry>
+    <title>我的OCR学习路线</title>
+    <url>/2023/05/12/%E6%88%91%E7%9A%84OCR%E5%AD%A6%E4%B9%A0%E8%B7%AF%E7%BA%BF/</url>
+    <content><![CDATA[<p><img src="https://picgo-1304919305.cos.ap-guangzhou.myqcloud.com/picGo/Drawing%202023-04-11%2018.42.57.excalidraw.png" alt="Drawing 2023-04-11 18.42.57.excalidraw" /></p>
+<p>本文总结自己目前对 OCR 的认识，和学习过程</p>
+<a id="more"></a>
+<h1 id="什么是-ocr"><a class="markdownIt-Anchor" href="#什么是-ocr"></a> 什么是 OCR ？</h1>
+<ul>
+<li><img src="https://picgo-1304919305.cos.ap-guangzhou.myqcloud.com/picGo/FOTS-20230409214506.png" alt="" /></li>
+<li>OCR （Optical Character Recognition，光学字符识别）指将打字、手写或印刷文本的图像电子或机械转换为机器编码文本的过程</li>
+<li><strong>文本检测 (Text detection)</strong> ：<strong>检测文本的所在位置和范围及其布局</strong>，可以使用传统的 ROI 提取实现，也可使用目标检测去实现，如 Faster R-CNN，[[FCN]]</li>
+<li><strong>文本识别 (Text recognition)</strong>：<strong>对文本内容进行识别</strong>，将图像中的文本信息转化为文本信息</li>
+<li><strong>文本定位 (Text Spotting)</strong> ：分文本检测 (Text detection) 文本识别 (Text recognition)统一到一起的简称</li>
+</ul>
+<h1 id="ocr-的方法"><a class="markdownIt-Anchor" href="#ocr-的方法"></a> OCR 的方法？</h1>
+<ul>
+<li><img src="https://picgo-1304919305.cos.ap-guangzhou.myqcloud.com/picGo/Drawing%202023-04-11%2018.42.57.excalidraw.png" alt="Drawing 2023-04-11 18.42.57.excalidraw" /></li>
+<li><strong>文本检测 (Text detection)</strong> ：其实就是检测文本行<strong>实例</strong>，可以使用目标检测的方法，也可使用语义分割的方法</li>
+<li><strong>文本识别 (Text recognition)</strong> ：这个是 OCR 的重点，主要有 3 条路线</li>
+<li><strong>文本定位 (Text Spotting)</strong> ：分为两种，但阶段和双阶段</li>
+</ul>
+<h1 id="评价指标-字符评价"><a class="markdownIt-Anchor" href="#评价指标-字符评价"></a> 评价指标-字符评价</h1>
+<ul>
+<li>以字符 （文字和标点符号） 为单位的统计和分析，适用于通用印刷体、手写体类非结构化数据的OCR应用评测</li>
+<li><strong>字符召回率</strong>：预测正确的字符总数占<strong>总符号</strong>的比例</li>
+<li><strong>字符准确率</strong>：预测正确的字符占<strong>总测试结果</strong>的比例</li>
+<li><strong>F-socre</strong>：字符召回率和字符准确率的综合评价指标</li>
+</ul>
+<h1 id="评价指标-文本段评价"><a class="markdownIt-Anchor" href="#评价指标-文本段评价"></a> 评价指标-文本段评价</h1>
+<ul>
+<li>以字段为单位的统计和分析，适用于卡证类、票据类等结构化程度较高的 OCR 应用评测</li>
+<li><strong>字段召回率</strong>：完全识别准确的字段总数占<strong>总字段</strong>的比例</li>
+<li><strong>字段准确率</strong>：完全识别准确的字段占<strong>总测试结果</strong>的比例</li>
+<li><strong>最小编辑距离</strong>：编辑距离是针对二个字符串（例如英文字）的差异程度的量化量测，通过替换、插入、删除，将预测结果修正为gt所需操作步骤，最小编辑距离表示最少操作步数</li>
+<li><strong>全图编辑距离</strong>：整个文本段的编辑距离</li>
+<li><strong>归一化编辑距离</strong>: 编辑距离除以字符串长度</li>
+</ul>
+<h1 id="学习路线"><a class="markdownIt-Anchor" href="#学习路线"></a> 学习路线</h1>
+<p><img src="https://picgo-1304919305.cos.ap-guangzhou.myqcloud.com/picGo/Drawing%202023-03-22%2014.25.52.excalidraw.png" alt="Drawing 2023-03-22 14.25.52.excalidraw" /></p>
+]]></content>
+      <categories>
+        <category>深度学习</category>
+      </categories>
+      <tags>
+        <tag>OCR</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>我的图片分类习路线</title>
     <url>/2023/05/10/%E6%88%91%E7%9A%84%E5%9B%BE%E7%89%87%E5%88%86%E7%B1%BB%E4%B9%A0%E8%B7%AF%E7%BA%BF/</url>
     <content><![CDATA[<p><img src="https://picgo-1304919305.cos.ap-guangzhou.myqcloud.com/picGo/Drawing%202023-02-09%2023.12.59.excalidraw.png" alt="Drawing 2023-02-09 23.12.59.excalidraw" /></p>
@@ -333,53 +380,6 @@ M834 80h400000v40h-400000z'/></svg></span></span></span><span class="vlist-s">�
       </categories>
       <tags>
         <tag>图片分类</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>我的OCR学习路线</title>
-    <url>/2023/05/10/%E6%88%91%E7%9A%84OCR%E5%AD%A6%E4%B9%A0%E8%B7%AF%E7%BA%BF/</url>
-    <content><![CDATA[<p><img src="https://picgo-1304919305.cos.ap-guangzhou.myqcloud.com/picGo/Drawing%202023-04-11%2018.42.57.excalidraw.png" alt="Drawing 2023-04-11 18.42.57.excalidraw" /></p>
-<p>本文总结自己目前对 OCR 的认识，和学习过程</p>
-<a id="more"></a>
-<h1 id="什么是-ocr"><a class="markdownIt-Anchor" href="#什么是-ocr"></a> 什么是 OCR ？</h1>
-<ul>
-<li><img src="https://picgo-1304919305.cos.ap-guangzhou.myqcloud.com/picGo/FOTS-20230409214506.png" alt="" /></li>
-<li>OCR （Optical Character Recognition，光学字符识别）指将打字、手写或印刷文本的图像电子或机械转换为机器编码文本的过程</li>
-<li><strong>文本检测 (Text detection)</strong> ：<strong>检测文本的所在位置和范围及其布局</strong>，可以使用传统的 ROI 提取实现，也可使用目标检测去实现，如 Faster R-CNN，[[FCN]]</li>
-<li><strong>文本识别 (Text recognition)</strong>：<strong>对文本内容进行识别</strong>，将图像中的文本信息转化为文本信息</li>
-<li><strong>文本定位 (Text Spotting)</strong> ：分文本检测 (Text detection) 文本识别 (Text recognition)统一到一起的简称</li>
-</ul>
-<h1 id="ocr-的方法"><a class="markdownIt-Anchor" href="#ocr-的方法"></a> OCR 的方法？</h1>
-<ul>
-<li><img src="https://picgo-1304919305.cos.ap-guangzhou.myqcloud.com/picGo/Drawing%202023-04-11%2018.42.57.excalidraw.png" alt="Drawing 2023-04-11 18.42.57.excalidraw" /></li>
-<li><strong>文本检测 (Text detection)</strong> ：其实就是检测文本行<strong>实例</strong>，可以使用目标检测的方法，也可使用语义分割的方法</li>
-<li><strong>文本识别 (Text recognition)</strong> ：这个是 OCR 的重点，主要有 3 条路线</li>
-<li><strong>文本定位 (Text Spotting)</strong> ：分为两种，但阶段和双阶段</li>
-</ul>
-<h1 id="评价指标-字符评价"><a class="markdownIt-Anchor" href="#评价指标-字符评价"></a> 评价指标-字符评价</h1>
-<ul>
-<li>以字符 （文字和标点符号） 为单位的统计和分析，适用于通用印刷体、手写体类非结构化数据的OCR应用评测</li>
-<li><strong>字符召回率</strong>：预测正确的字符总数占<strong>总符号</strong>的比例</li>
-<li><strong>字符准确率</strong>：预测正确的字符占<strong>总测试结果</strong>的比例</li>
-<li><strong>F-socre</strong>：字符召回率和字符准确率的综合评价指标</li>
-</ul>
-<h1 id="评价指标-文本段评价"><a class="markdownIt-Anchor" href="#评价指标-文本段评价"></a> 评价指标-文本段评价</h1>
-<ul>
-<li>以字段为单位的统计和分析，适用于卡证类、票据类等结构化程度较高的 OCR 应用评测</li>
-<li><strong>字段召回率</strong>：完全识别准确的字段总数占<strong>总字段</strong>的比例</li>
-<li><strong>字段准确率</strong>：完全识别准确的字段占<strong>总测试结果</strong>的比例</li>
-<li><strong>最小编辑距离</strong>：编辑距离是针对二个字符串（例如英文字）的差异程度的量化量测，通过替换、插入、删除，将预测结果修正为gt所需操作步骤，最小编辑距离表示最少操作步数</li>
-<li><strong>全图编辑距离</strong>：整个文本段的编辑距离</li>
-<li><strong>归一化编辑距离</strong>: 编辑距离除以字符串长度</li>
-</ul>
-<h1 id="学习路线"><a class="markdownIt-Anchor" href="#学习路线"></a> 学习路线</h1>
-<p><img src="https://picgo-1304919305.cos.ap-guangzhou.myqcloud.com/picGo/Drawing%202023-03-22%2014.25.52.excalidraw.png" alt="Drawing 2023-03-22 14.25.52.excalidraw" /></p>
-]]></content>
-      <categories>
-        <category>深度学习</category>
-      </categories>
-      <tags>
-        <tag>OCR</tag>
       </tags>
   </entry>
   <entry>
