@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://shaogui.life/2023/05/19/%E6%88%91%E7%9A%84%E7%9B%AE%E6%A0%87%E6%A3%80%E6%B5%8B%E4%B9%A0%E8%B7%AF%E7%BA%BF/</loc>
+    
+    <lastmod>2023-05-21</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://shaogui.life/2020/04/23/YOLOv4%EF%BC%9AOptimal%20Speed%20and%20Accuracy%20of%20Object%20Detection/</loc>
     
     <lastmod>2023-05-21</lastmod>
@@ -282,13 +289,6 @@
   </url>
   
   <url>
-    <loc>https://shaogui.life/2022/01/22/OCNet%EF%BC%9AObject%20Context%20Network%20for%20Scene%20Parsing/</loc>
-    
-    <lastmod>2023-05-20</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://shaogui.life/2021/04/02/CPNet%EF%BC%9AContext%20Prior%20for%20Scene%20Segmentation/</loc>
     
     <lastmod>2023-05-20</lastmod>
@@ -296,14 +296,7 @@
   </url>
   
   <url>
-    <loc>https://shaogui.life/2022/01/23/Segmentation%20Transformer%EF%BC%9AObject-Contextual%20Representations%20for%20Semantic%20Segmentation/</loc>
-    
-    <lastmod>2023-05-20</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://shaogui.life/2021/03/29/SEAM%EF%BC%9ASelf-supervised%20Equivariant%20Attention%20Mechanism%20for%20Weakly%20Supervised%20Semantic%20Segmentation/</loc>
+    <loc>https://shaogui.life/2022/01/22/OCNet%EF%BC%9AObject%20Context%20Network%20for%20Scene%20Parsing/</loc>
     
     <lastmod>2023-05-20</lastmod>
     
@@ -325,6 +318,20 @@
   
   <url>
     <loc>https://shaogui.life/2019/04/12/PSANet%EF%BC%9APoint-wise%20Spatial%20Attention%20Network%20for%20Scene%20Parsing/</loc>
+    
+    <lastmod>2023-05-20</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://shaogui.life/2021/03/29/SEAM%EF%BC%9ASelf-supervised%20Equivariant%20Attention%20Mechanism%20for%20Weakly%20Supervised%20Semantic%20Segmentation/</loc>
+    
+    <lastmod>2023-05-20</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://shaogui.life/2022/01/23/Segmentation%20Transformer%EF%BC%9AObject-Contextual%20Representations%20for%20Semantic%20Segmentation/</loc>
     
     <lastmod>2023-05-20</lastmod>
     
@@ -436,14 +443,14 @@
   </url>
   
   <url>
-    <loc>https://shaogui.life/2020/02/26/EMANet%EF%BC%9AExpectation-Maximization%20Attention%20Networks%20for%20Semantic%20Segmentation/</loc>
+    <loc>https://shaogui.life/2017/03/25/DeconvNet%EF%BC%9ALearning%20Deconvolution%20Network%20for%20Semantic%20Segmentation/</loc>
     
     <lastmod>2023-05-20</lastmod>
     
   </url>
   
   <url>
-    <loc>https://shaogui.life/2019/04/13/Unet++%EF%BC%9AA%20Nested%20U-Net%20Architecture%20for%20Medical%20Image%20Segmentation/</loc>
+    <loc>https://shaogui.life/2020/02/26/EMANet%EF%BC%9AExpectation-Maximization%20Attention%20Networks%20for%20Semantic%20Segmentation/</loc>
     
     <lastmod>2023-05-20</lastmod>
     
@@ -457,21 +464,7 @@
   </url>
   
   <url>
-    <loc>https://shaogui.life/2017/03/25/DeconvNet%EF%BC%9ALearning%20Deconvolution%20Network%20for%20Semantic%20Segmentation/</loc>
-    
-    <lastmod>2023-05-20</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://shaogui.life/2021/02/20/Strip%20Pooling%EF%BC%9ARethinking%20Spatial%20Pooling%20for%20Scene%20Parsing/</loc>
-    
-    <lastmod>2023-05-20</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://shaogui.life/2020/11/23/DMNet%EF%BC%9ADynamic%20Multi-Scale%20Filters%20for%20Semantic%20Segmentation/</loc>
+    <loc>https://shaogui.life/2019/04/13/Unet++%EF%BC%9AA%20Nested%20U-Net%20Architecture%20for%20Medical%20Image%20Segmentation/</loc>
     
     <lastmod>2023-05-20</lastmod>
     
@@ -485,7 +478,21 @@
   </url>
   
   <url>
+    <loc>https://shaogui.life/2020/11/23/DMNet%EF%BC%9ADynamic%20Multi-Scale%20Filters%20for%20Semantic%20Segmentation/</loc>
+    
+    <lastmod>2023-05-20</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://shaogui.life/2020/04/21/Gated-SCNN%EF%BC%9AGated%20Shape%20CNNs%20for%20Semantic%20Segmentation/</loc>
+    
+    <lastmod>2023-05-20</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://shaogui.life/2021/02/20/Strip%20Pooling%EF%BC%9ARethinking%20Spatial%20Pooling%20for%20Scene%20Parsing/</loc>
     
     <lastmod>2023-05-20</lastmod>
     
@@ -1285,14 +1292,14 @@
   </url>
   
   <url>
-    <loc>https://shaogui.life/tags/%E8%BD%BB%E9%87%8F/</loc>
+    <loc>https://shaogui.life/tags/%E8%AF%AD%E4%B9%89%E5%88%86%E5%89%B2/</loc>
     <lastmod>2023-05-21</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://shaogui.life/tags/%E8%AF%AD%E4%B9%89%E5%88%86%E5%89%B2/</loc>
+    <loc>https://shaogui.life/tags/%E8%BD%BB%E9%87%8F/</loc>
     <lastmod>2023-05-21</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -1523,14 +1530,14 @@
   </url>
   
   <url>
-    <loc>https://shaogui.life/tags/Mxnet/</loc>
+    <loc>https://shaogui.life/tags/%E5%AE%9E%E4%BE%8B%E5%88%86%E5%89%B2/</loc>
     <lastmod>2023-05-21</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://shaogui.life/tags/%E5%AE%9E%E4%BE%8B%E5%88%86%E5%89%B2/</loc>
+    <loc>https://shaogui.life/tags/Mxnet/</loc>
     <lastmod>2023-05-21</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -1565,14 +1572,14 @@
   </url>
   
   <url>
-    <loc>https://shaogui.life/tags/%E5%BC%B1%E7%9B%91%E7%9D%A3/</loc>
+    <loc>https://shaogui.life/tags/numpy/</loc>
     <lastmod>2023-05-21</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://shaogui.life/tags/numpy/</loc>
+    <loc>https://shaogui.life/tags/%E5%BC%B1%E7%9B%91%E7%9D%A3/</loc>
     <lastmod>2023-05-21</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -1635,14 +1642,14 @@
   </url>
   
   <url>
-    <loc>https://shaogui.life/tags/WPS/</loc>
+    <loc>https://shaogui.life/tags/%E6%96%87%E4%BB%B6%E5%85%B1%E4%BA%AB/</loc>
     <lastmod>2023-05-21</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://shaogui.life/tags/%E6%96%87%E4%BB%B6%E5%85%B1%E4%BA%AB/</loc>
+    <loc>https://shaogui.life/tags/WPS/</loc>
     <lastmod>2023-05-21</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -1705,7 +1712,7 @@
   </url>
   
   <url>
-    <loc>https://shaogui.life/tags/tensorflow/</loc>
+    <loc>https://shaogui.life/tags/opencv/</loc>
     <lastmod>2023-05-21</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -1719,7 +1726,7 @@
   </url>
   
   <url>
-    <loc>https://shaogui.life/tags/opencv/</loc>
+    <loc>https://shaogui.life/tags/tensorflow/</loc>
     <lastmod>2023-05-21</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
