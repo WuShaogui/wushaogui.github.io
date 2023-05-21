@@ -1,7 +1,115 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://shaogui.life/2023/02/19/YOLOv6%EF%BC%9AA%20Single-Stage%20Object%20Detection%20Framework%20for%20Industrial%20Applications/</loc>
+    <loc>https://shaogui.life/2023/04/26/TOOD%EF%BC%9ATask-aligned%20One-stage%20Object%20Detection/</loc>
+    <lastmod>2023-05-21</lastmod>
+  </url>
+  <url>
+    <loc>https://shaogui.life/2023/04/11/HSSN%EF%BC%9ADeep%20Hierarchical%20Semantic%20Segmentation/</loc>
+    <lastmod>2023-05-21</lastmod>
+  </url>
+  <url>
+    <loc>https://shaogui.life/2023/03/25/EAST%EF%BC%9AAn%20Efficient%20and%20Accurate%20Scene%20Text%20Detector/</loc>
+    <lastmod>2023-05-21</lastmod>
+  </url>
+  <url>
+    <loc>https://shaogui.life/2023/04/18/YOLOv7%EF%BC%9ATrainable%20bag-of-freebies%20sets%20new%20state-of-the-art%20for%20real-time%20object%20detectors/</loc>
+    <lastmod>2023-05-21</lastmod>
+  </url>
+  <url>
+    <loc>https://shaogui.life/2023/03/16/SAST%EF%BC%9AA%20Single-Shot%20Arbitrarily-Shaped%20Text%20Detector%20based%20on%20Context%20Attended%20Multi-Task%20Learning/</loc>
+    <lastmod>2023-05-21</lastmod>
+  </url>
+  <url>
+    <loc>https://shaogui.life/2023/03/13/FOTS%EF%BC%9AFast%20Oriented%20Text%20Spotting%20with%20a%20Unified%20Network/</loc>
+    <lastmod>2023-05-21</lastmod>
+  </url>
+  <url>
+    <loc>https://shaogui.life/2023/03/12/%E6%96%87%E6%9C%AC%E6%A3%80%E6%B5%8B%E4%B9%8BDB%E5%92%8CDB++/</loc>
+    <lastmod>2023-05-21</lastmod>
+  </url>
+  <url>
+    <loc>https://shaogui.life/2023/03/06/CNN%E4%B9%8B%E7%BB%93%E6%9E%84%E9%87%8D%E5%8F%82%E6%95%B0%E5%8C%96/</loc>
+    <lastmod>2023-05-21</lastmod>
+  </url>
+  <url>
+    <loc>https://shaogui.life/2023/02/20/ConvNeXt%20V2%EF%BC%9ACo-designing%20and%20Scaling%20ConvNets%20with%20Masked%20Autoencoders/</loc>
+    <lastmod>2023-05-21</lastmod>
+  </url>
+  <url>
+    <loc>https://shaogui.life/2023/01/10/%E4%BA%BA%E5%B7%A5%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C(ANN)%E7%9A%84%E7%90%86%E8%A7%A3/</loc>
+    <lastmod>2023-05-21</lastmod>
+  </url>
+  <url>
+    <loc>https://shaogui.life/2023/02/10/YOLOv6%EF%BC%9AA%20Single-Stage%20Object%20Detection%20Framework%20for%20Industrial%20Applications/</loc>
+    <lastmod>2023-05-21</lastmod>
+  </url>
+  <url>
+    <loc>https://shaogui.life/2023/02/03/ConvNeXt%EF%BC%9AA%20ConvNet%20for%20the%202020s/</loc>
+    <lastmod>2023-05-21</lastmod>
+  </url>
+  <url>
+    <loc>https://shaogui.life/2022/04/21/FCOS%EF%BC%9AFully%20Convolutional%20One-Stage%20Object%20Detection/</loc>
+    <lastmod>2023-05-21</lastmod>
+  </url>
+  <url>
+    <loc>https://shaogui.life/2022/10/04/OAA%EF%BC%9AOnline%20Attention%20Accumulation%20for%20Weakly%20Supervised%20Semantic%20Segmentation/</loc>
+    <lastmod>2023-05-21</lastmod>
+  </url>
+  <url>
+    <loc>https://shaogui.life/2022/09/23/YOLOX%EF%BC%9AExceeding%20YOLO%20Series%20in%202021/</loc>
+    <lastmod>2023-05-21</lastmod>
+  </url>
+  <url>
+    <loc>https://shaogui.life/2017/06/28/NIN%EF%BC%9ANetwork%20In%20Network/</loc>
+    <lastmod>2023-05-21</lastmod>
+  </url>
+  <url>
+    <loc>https://shaogui.life/2021/02/27/MaskRCNN/</loc>
+    <lastmod>2023-05-21</lastmod>
+  </url>
+  <url>
+    <loc>https://shaogui.life/2020/03/03/RCNN%EF%BC%9ARich%20feature%20hierarchies%20for%20accurate%20object%20detection%20and%20semantic%20segmentation/</loc>
+    <lastmod>2023-05-21</lastmod>
+  </url>
+  <url>
+    <loc>https://shaogui.life/2020/04/15/RetinaNet%EF%BC%9AFocal%20Loss%20for%20Dense%20Object%20Detection/</loc>
+    <lastmod>2023-05-21</lastmod>
+  </url>
+  <url>
+    <loc>https://shaogui.life/2020/08/12/MobileNetv1%EF%BC%9AEfficient%20Convolutional%20Neural%20Networks%20for%20Mobile%20Vision%20Applications/</loc>
+    <lastmod>2023-05-21</lastmod>
+  </url>
+  <url>
+    <loc>https://shaogui.life/2020/08/02/CBST%EF%BC%9ADomain%20Adaptation%20for%20Semantic%20Segmentation%20via%20Class-Balanced%20Self-Training/</loc>
+    <lastmod>2023-05-21</lastmod>
+  </url>
+  <url>
+    <loc>https://shaogui.life/2020/07/22/SegAN%EF%BC%9AAdversarial%20Network%20with%20Multi-scale%20L1%20Loss%20for%20Medical%20Image%20Segmentation/</loc>
+    <lastmod>2023-05-21</lastmod>
+  </url>
+  <url>
+    <loc>https://shaogui.life/2020/06/20/DFANet%EF%BC%9ADeep%20Feature%20Aggregation%20for%20Real-Time%20Semantic%20Segmentation/</loc>
+    <lastmod>2023-05-21</lastmod>
+  </url>
+  <url>
+    <loc>https://shaogui.life/2020/05/26/CCNet%EF%BC%9ACriss-Cross%20Attention%20for%20Semantic%20Segmentation/</loc>
+    <lastmod>2023-05-21</lastmod>
+  </url>
+  <url>
+    <loc>https://shaogui.life/2020/04/16/Non-local%20Neural%20Networks/</loc>
+    <lastmod>2023-05-21</lastmod>
+  </url>
+  <url>
+    <loc>https://shaogui.life/2017/03/02/AlexNet%EF%BC%9AImageNet%20classification%20with%20deep%20convolutional%20neural%20networks/</loc>
+    <lastmod>2023-05-21</lastmod>
+  </url>
+  <url>
+    <loc>https://shaogui.life/2017/06/21/ZFNet%EF%BC%9AVisualizing%20and%20Understanding%20Convolutional%20Networks/</loc>
+    <lastmod>2023-05-21</lastmod>
+  </url>
+  <url>
+    <loc>https://shaogui.life/2019/02/19/DeepLabv3%EF%BC%9ARethinking%20Atrous%20Convolution%20for%20Semantic%20Image%20Segmentation/</loc>
     <lastmod>2023-05-21</lastmod>
   </url>
   <url>
@@ -34,10 +142,6 @@
   </url>
   <url>
     <loc>https://shaogui.life/2020/05/10/SPPNet%EF%BC%9ASpatial%20Pyramid%20Pooling%20in%20Deep%20Convolutional%20Networks%20for%20Visual%20Recognition/</loc>
-    <lastmod>2023-05-21</lastmod>
-  </url>
-  <url>
-    <loc>https://shaogui.life/2020/05/03/RCNN%EF%BC%9ARich%20feature%20hierarchies%20for%20accurate%20object%20detection%20and%20semantic%20segmentation/</loc>
     <lastmod>2023-05-21</lastmod>
   </url>
   <url>
@@ -78,14 +182,6 @@
   </url>
   <url>
     <loc>https://shaogui.life/2016/12/21/LeNet%EF%BC%9AGradient-Based%20Learning%20Applied%20to%20Document%20Recognition/</loc>
-    <lastmod>2023-05-21</lastmod>
-  </url>
-  <url>
-    <loc>https://shaogui.life/2023/03/22/ConvNeXt%20V2%EF%BC%9ACo-designing%20and%20Scaling%20ConvNets%20with%20Masked%20Autoencoders/</loc>
-    <lastmod>2023-05-21</lastmod>
-  </url>
-  <url>
-    <loc>https://shaogui.life/2023/02/12/ConvNeXt%EF%BC%9AA%20ConvNet%20for%20the%202020s/</loc>
     <lastmod>2023-05-21</lastmod>
   </url>
   <url>
@@ -141,10 +237,6 @@
     <lastmod>2023-05-21</lastmod>
   </url>
   <url>
-    <loc>https://shaogui.life/2019/08/12/MobileNetv1%EF%BC%9AEfficient%20Convolutional%20Neural%20Networks%20for%20Mobile%20Vision%20Applications/</loc>
-    <lastmod>2023-05-21</lastmod>
-  </url>
-  <url>
     <loc>https://shaogui.life/2017/09/28/SqueezeNet%EF%BC%9AAlexNet-level%20accuracy%20with%2050x%20fewer%20parameters%20and%200.5MB%20model%20size/</loc>
     <lastmod>2023-05-21</lastmod>
   </url>
@@ -197,18 +289,6 @@
     <lastmod>2023-05-21</lastmod>
   </url>
   <url>
-    <loc>https://shaogui.life/2020/09/25/NIN%EF%BC%9ANetwork%20In%20Network/</loc>
-    <lastmod>2023-05-21</lastmod>
-  </url>
-  <url>
-    <loc>https://shaogui.life/2017/09/21/ZFNet%EF%BC%9AVisualizing%20and%20Understanding%20Convolutional%20Networks/</loc>
-    <lastmod>2023-05-21</lastmod>
-  </url>
-  <url>
-    <loc>https://shaogui.life/2017/09/12/AlexNet%EF%BC%9AImageNet%20classification%20with%20deep%20convolutional%20neural%20networks/</loc>
-    <lastmod>2023-05-21</lastmod>
-  </url>
-  <url>
     <loc>https://shaogui.life/2022/12/11/Res2Net%EF%BC%9AA%20New%20Multi-scale%20Backbone%20Architecture/</loc>
     <lastmod>2023-05-21</lastmod>
   </url>
@@ -233,14 +313,6 @@
     <lastmod>2023-05-21</lastmod>
   </url>
   <url>
-    <loc>https://shaogui.life/2022/03/21/FCOS%EF%BC%9AFully%20Convolutional%20One-Stage%20Object%20Detection/</loc>
-    <lastmod>2023-05-21</lastmod>
-  </url>
-  <url>
-    <loc>https://shaogui.life/2019/08/21/RetinaNet%EF%BC%9AFocal%20Loss%20for%20Dense%20Object%20Detection/</loc>
-    <lastmod>2023-05-21</lastmod>
-  </url>
-  <url>
     <loc>https://shaogui.life/2022/03/21/EfficientDet%EF%BC%9AScalable%20and%20Efficient%20Object%20Detection/</loc>
     <lastmod>2023-05-21</lastmod>
   </url>
@@ -261,24 +333,8 @@
     <lastmod>2023-05-21</lastmod>
   </url>
   <url>
-    <loc>https://shaogui.life/2022/10/11/YOLOX%EF%BC%9AExceeding%20YOLO%20Series%20in%202021/</loc>
-    <lastmod>2023-05-21</lastmod>
-  </url>
-  <url>
-    <loc>https://shaogui.life/2023/05/21/TOOD%EF%BC%9ATask-aligned%20One-stage%20Object%20Detection/</loc>
-    <lastmod>2023-05-21</lastmod>
-  </url>
-  <url>
-    <loc>https://shaogui.life/2023/04/11/YOLOv7%EF%BC%9ATrainable%20bag-of-freebies%20sets%20new%20state-of-the-art%20for%20real-time%20object%20detectors/</loc>
-    <lastmod>2023-05-21</lastmod>
-  </url>
-  <url>
     <loc>https://shaogui.life/2023/05/20/Segment%20Anything/</loc>
     <lastmod>2023-05-21</lastmod>
-  </url>
-  <url>
-    <loc>https://shaogui.life/2023/03/01/%E4%BA%BA%E5%B7%A5%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C(ANN)%E7%9A%84%E7%90%86%E8%A7%A3/</loc>
-    <lastmod>2023-05-20</lastmod>
   </url>
   <url>
     <loc>https://shaogui.life/2023/05/14/%E6%88%91%E7%9A%84%E4%BA%BA%E4%BD%93%E5%A7%BF%E6%80%81%E4%BC%B0%E8%AE%A1%E5%AD%A6%E4%B9%A0%E8%B7%AF%E7%BA%BF/</loc>
@@ -297,23 +353,11 @@
     <lastmod>2023-05-20</lastmod>
   </url>
   <url>
-    <loc>https://shaogui.life/2019/05/20/Non-local%20Neural%20Networks/</loc>
-    <lastmod>2023-05-20</lastmod>
-  </url>
-  <url>
     <loc>https://shaogui.life/2021/10/20/CRNN%EF%BC%9A%20An%20End-to-End%20Trainable%20Neural%20Network%20for%20Image-based%20Sequence%20Recognition%20and%20Its%20Application%20to%20Scene%20Text%20Recognition/</loc>
     <lastmod>2023-05-20</lastmod>
   </url>
   <url>
-    <loc>https://shaogui.life/2017/08/01/DeepLabv3%EF%BC%9ARethinking%20Atrous%20Convolution%20for%20Semantic%20Image%20Segmentation/</loc>
-    <lastmod>2023-05-20</lastmod>
-  </url>
-  <url>
     <loc>https://shaogui.life/2019/03/29/DeepLabv3+%EF%BC%9AEncoder-Decoder%20with%20Atrous%20Separable%20Convolution%20for%20Semantic%20Image%20Segmentation/</loc>
-    <lastmod>2023-05-20</lastmod>
-  </url>
-  <url>
-    <loc>https://shaogui.life/2023/04/09/FOTS%EF%BC%9AFast%20Oriented%20Text%20Spotting%20with%20a%20Unified%20Network/</loc>
     <lastmod>2023-05-20</lastmod>
   </url>
   <url>
@@ -365,23 +409,7 @@
     <lastmod>2023-05-20</lastmod>
   </url>
   <url>
-    <loc>https://shaogui.life/2019/08/02/CBST%EF%BC%9ADomain%20Adaptation%20for%20Semantic%20Segmentation%20via%20Class-Balanced%20Self-Training/</loc>
-    <lastmod>2023-05-20</lastmod>
-  </url>
-  <url>
-    <loc>https://shaogui.life/2023/04/15/HSSN%EF%BC%9ADeep%20Hierarchical%20Semantic%20Segmentation/</loc>
-    <lastmod>2023-05-20</lastmod>
-  </url>
-  <url>
-    <loc>https://shaogui.life/2022/10/11/OAA%EF%BC%9AOnline%20Attention%20Accumulation%20for%20Weakly%20Supervised%20Semantic%20Segmentation/</loc>
-    <lastmod>2023-05-20</lastmod>
-  </url>
-  <url>
     <loc>https://shaogui.life/2021/09/23/DRNet%EF%BC%9ALearning%20Dynamic%20Routing%20for%20Semantic%20Segmentation/</loc>
-    <lastmod>2023-05-20</lastmod>
-  </url>
-  <url>
-    <loc>https://shaogui.life/2019/07/22/SegAN%EF%BC%9AAdversarial%20Network%20with%20Multi-scale%20L1%20Loss%20for%20Medical%20Image%20Segmentation/</loc>
     <lastmod>2023-05-20</lastmod>
   </url>
   <url>
@@ -405,15 +433,7 @@
     <lastmod>2023-05-20</lastmod>
   </url>
   <url>
-    <loc>https://shaogui.life/2019/06/20/DFANet%EF%BC%9ADeep%20Feature%20Aggregation%20for%20Real-Time%20Semantic%20Segmentation/</loc>
-    <lastmod>2023-05-20</lastmod>
-  </url>
-  <url>
     <loc>https://shaogui.life/2019/03/20/BiSeNet%EF%BC%9ABilateral%20Segmentation%20Network%20for%20Real-time%20Semantic%20Segmentation/</loc>
-    <lastmod>2023-05-20</lastmod>
-  </url>
-  <url>
-    <loc>https://shaogui.life/2019/05/26/CCNet%EF%BC%9ACriss-Cross%20Attention%20for%20Semantic%20Segmentation/</loc>
     <lastmod>2023-05-20</lastmod>
   </url>
   <url>
@@ -517,27 +537,11 @@
     <lastmod>2023-05-20</lastmod>
   </url>
   <url>
-    <loc>https://shaogui.life/2023/04/11/EAST%EF%BC%9AAn%20Efficient%20and%20Accurate%20Scene%20Text%20Detector/</loc>
-    <lastmod>2023-05-20</lastmod>
-  </url>
-  <url>
-    <loc>https://shaogui.life/2023/04/07/CNN%E4%B9%8B%E7%BB%93%E6%9E%84%E9%87%8D%E5%8F%82%E6%95%B0%E5%8C%96/</loc>
-    <lastmod>2023-05-20</lastmod>
-  </url>
-  <url>
-    <loc>https://shaogui.life/2023/04/08/%E6%96%87%E6%9C%AC%E6%A3%80%E6%B5%8B%E4%B9%8BDB%E5%92%8CDB++/</loc>
-    <lastmod>2023-05-20</lastmod>
-  </url>
-  <url>
     <loc>https://shaogui.life/2022/06/23/vit%EF%BC%9AAn%20Image%20is%20Worth%2016x16%20Words%EF%BC%9ATransformers%20for%20Image%20Recognition%20at%20Scale/</loc>
     <lastmod>2023-05-20</lastmod>
   </url>
   <url>
     <loc>https://shaogui.life/2021/02/10/YOLACT%EF%BC%9AReal-time%20Instance%20Segmentation/</loc>
-    <lastmod>2023-05-20</lastmod>
-  </url>
-  <url>
-    <loc>https://shaogui.life/2020/03/27/MaskRCNN/</loc>
     <lastmod>2023-05-20</lastmod>
   </url>
   <url>
@@ -559,10 +563,6 @@
   <url>
     <loc>https://shaogui.life/2022/08/10/SOTR%EF%BC%9ASegmenting%20Objects%20with%20Transformers/</loc>
     <lastmod>2023-05-20</lastmod>
-  </url>
-  <url>
-    <loc>https://shaogui.life/2023/04/10/SAST%EF%BC%9AA%20Single-Shot%20Arbitrarily-Shaped%20Text%20Detector%20based%20on%20Context%20Attended%20Multi-Task%20Learning/</loc>
-    <lastmod>2023-04-10</lastmod>
   </url>
   <url>
     <loc>https://shaogui.life/2018/09/19/NetworkX%E7%B3%BB%E5%88%97%E6%95%99%E7%A8%8B(6)-%E5%AF%B9graph%E8%BF%9B%E8%A1%8C%E6%93%8D%E4%BD%9C/</loc>
