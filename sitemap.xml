@@ -681,6 +681,13 @@
   </url>
   
   <url>
+    <loc>https://shaogui.life/2022/01/22/OCNet%EF%BC%9AObject%20Context%20Network%20for%20Scene%20Parsing/</loc>
+    
+    <lastmod>2023-05-20</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://shaogui.life/2021/04/02/CPNet%EF%BC%9AContext%20Prior%20for%20Scene%20Segmentation/</loc>
     
     <lastmod>2023-05-20</lastmod>
@@ -688,7 +695,14 @@
   </url>
   
   <url>
-    <loc>https://shaogui.life/2022/01/22/OCNet%EF%BC%9AObject%20Context%20Network%20for%20Scene%20Parsing/</loc>
+    <loc>https://shaogui.life/2022/01/23/Segmentation%20Transformer%EF%BC%9AObject-Contextual%20Representations%20for%20Semantic%20Segmentation/</loc>
+    
+    <lastmod>2023-05-20</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://shaogui.life/2021/03/29/SEAM%EF%BC%9ASelf-supervised%20Equivariant%20Attention%20Mechanism%20for%20Weakly%20Supervised%20Semantic%20Segmentation/</loc>
     
     <lastmod>2023-05-20</lastmod>
     
@@ -710,20 +724,6 @@
   
   <url>
     <loc>https://shaogui.life/2019/04/12/PSANet%EF%BC%9APoint-wise%20Spatial%20Attention%20Network%20for%20Scene%20Parsing/</loc>
-    
-    <lastmod>2023-05-20</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://shaogui.life/2021/03/29/SEAM%EF%BC%9ASelf-supervised%20Equivariant%20Attention%20Mechanism%20for%20Weakly%20Supervised%20Semantic%20Segmentation/</loc>
-    
-    <lastmod>2023-05-20</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://shaogui.life/2022/01/23/Segmentation%20Transformer%EF%BC%9AObject-Contextual%20Representations%20for%20Semantic%20Segmentation/</loc>
     
     <lastmod>2023-05-20</lastmod>
     
@@ -793,7 +793,7 @@
   </url>
   
   <url>
-    <loc>https://shaogui.life/2020/09/22/APCNet%EF%BC%9AAdaptive%20Pyramid%20Context%20Network%20for%20Semantic%20Segmentation/</loc>
+    <loc>https://shaogui.life/2021/02/20/Strip%20Pooling%EF%BC%9ARethinking%20Spatial%20Pooling%20for%20Scene%20Parsing/</loc>
     
     <lastmod>2023-05-20</lastmod>
     
@@ -807,14 +807,14 @@
   </url>
   
   <url>
-    <loc>https://shaogui.life/2020/04/21/Gated-SCNN%EF%BC%9AGated%20Shape%20CNNs%20for%20Semantic%20Segmentation/</loc>
+    <loc>https://shaogui.life/2020/09/22/APCNet%EF%BC%9AAdaptive%20Pyramid%20Context%20Network%20for%20Semantic%20Segmentation/</loc>
     
     <lastmod>2023-05-20</lastmod>
     
   </url>
   
   <url>
-    <loc>https://shaogui.life/2021/02/20/Strip%20Pooling%EF%BC%9ARethinking%20Spatial%20Pooling%20for%20Scene%20Parsing/</loc>
+    <loc>https://shaogui.life/2020/04/21/Gated-SCNN%EF%BC%9AGated%20Shape%20CNNs%20for%20Semantic%20Segmentation/</loc>
     
     <lastmod>2023-05-20</lastmod>
     
@@ -849,6 +849,20 @@
   </url>
   
   <url>
+    <loc>https://shaogui.life/2022/03/18/HRNet%EF%BC%9ADeep%20High-Resolution%20Representation%20Learning%20for%20Visual%20Recognition/</loc>
+    
+    <lastmod>2023-05-20</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://shaogui.life/2022/03/16/Simple%20Baselines%20for%20Human%20Pose%20Estimation%20and%20Tracking/</loc>
+    
+    <lastmod>2023-05-20</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://shaogui.life/2022/03/15/CPN%EF%BC%9ACascaded%20Pyramid%20Network%20for%20Multi-Person%20Pose%20Estimation/</loc>
     
     <lastmod>2023-05-20</lastmod>
@@ -863,21 +877,7 @@
   </url>
   
   <url>
-    <loc>https://shaogui.life/2022/03/18/HRNet%EF%BC%9ADeep%20High-Resolution%20Representation%20Learning%20for%20Visual%20Recognition/</loc>
-    
-    <lastmod>2023-05-20</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://shaogui.life/2022/03/10/RMPE%EF%BC%9ARegional%20Multi-person%20Pose%20Estimation/</loc>
-    
-    <lastmod>2023-05-20</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://shaogui.life/2022/03/16/Simple%20Baselines%20for%20Human%20Pose%20Estimation%20and%20Tracking/</loc>
     
     <lastmod>2023-05-20</lastmod>
     
@@ -912,14 +912,14 @@
   </url>
   
   <url>
-    <loc>https://shaogui.life/2022/02/26/Hourglass%EF%BC%9AStacked%20Hourglass%20Networks%20for%20Human%20Pose%20Estimation/</loc>
+    <loc>https://shaogui.life/2022/02/28/Pose%20Attention%EF%BC%9AMulti-Context%20Attention%20for%20Human%20Pose%20Estimation/</loc>
     
     <lastmod>2023-05-20</lastmod>
     
   </url>
   
   <url>
-    <loc>https://shaogui.life/2022/02/28/Pose%20Attention%EF%BC%9AMulti-Context%20Attention%20for%20Human%20Pose%20Estimation/</loc>
+    <loc>https://shaogui.life/2022/02/26/Hourglass%EF%BC%9AStacked%20Hourglass%20Networks%20for%20Human%20Pose%20Estimation/</loc>
     
     <lastmod>2023-05-20</lastmod>
     
@@ -1346,14 +1346,14 @@
   </url>
   
   <url>
-    <loc>https://shaogui.life/2021/02/18/Hexo%E5%AD%A6%E4%B9%A0(1)-%E5%88%9D%E6%AC%A1%E4%BD%BF%E7%94%A8/</loc>
+    <loc>https://shaogui.life/2021/02/21/Hexo%E5%AD%A6%E4%B9%A0(2)-%E5%9B%BE%E5%BA%8A%E6%90%AD%E5%BB%BA/</loc>
     
     <lastmod>2023-04-05</lastmod>
     
   </url>
   
   <url>
-    <loc>https://shaogui.life/2021/02/21/Hexo%E5%AD%A6%E4%B9%A0(2)-%E5%9B%BE%E5%BA%8A%E6%90%AD%E5%BB%BA/</loc>
+    <loc>https://shaogui.life/2021/02/18/Hexo%E5%AD%A6%E4%B9%A0(1)-%E5%88%9D%E6%AC%A1%E4%BD%BF%E7%94%A8/</loc>
     
     <lastmod>2023-04-05</lastmod>
     
@@ -1698,6 +1698,13 @@
   </url>
   
   <url>
+    <loc>https://shaogui.life/tags/Calibre/</loc>
+    <lastmod>2023-05-22</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://shaogui.life/tags/%E7%9B%AE%E6%A0%87%E6%A3%80%E6%B5%8B/</loc>
     <lastmod>2023-05-22</lastmod>
     <changefreq>daily</changefreq>
@@ -1706,13 +1713,6 @@
   
   <url>
     <loc>https://shaogui.life/tags/anchor-free/</loc>
-    <lastmod>2023-05-22</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://shaogui.life/tags/Calibre/</loc>
     <lastmod>2023-05-22</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -1824,20 +1824,6 @@
   </url>
   
   <url>
-    <loc>https://shaogui.life/tags/%E4%BA%BA%E4%BD%93%E5%A7%BF%E6%80%81%E6%A3%80%E6%B5%8B/</loc>
-    <lastmod>2023-05-22</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://shaogui.life/tags/%E5%AE%9E%E4%BE%8B%E5%88%86%E5%89%B2/</loc>
-    <lastmod>2023-05-22</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://shaogui.life/tags/Linux/</loc>
     <lastmod>2023-05-22</lastmod>
     <changefreq>daily</changefreq>
@@ -1846,6 +1832,20 @@
   
   <url>
     <loc>https://shaogui.life/tags/%E6%96%87%E6%9C%AC%E5%A4%84%E7%90%86/</loc>
+    <lastmod>2023-05-22</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://shaogui.life/tags/%E4%BA%BA%E4%BD%93%E5%A7%BF%E6%80%81%E6%A3%80%E6%B5%8B/</loc>
+    <lastmod>2023-05-22</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://shaogui.life/tags/%E5%AE%9E%E4%BE%8B%E5%88%86%E5%89%B2/</loc>
     <lastmod>2023-05-22</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -1880,13 +1880,6 @@
   </url>
   
   <url>
-    <loc>https://shaogui.life/tags/%E5%BC%B1%E7%9B%91%E7%9D%A3/</loc>
-    <lastmod>2023-05-22</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://shaogui.life/tags/python/</loc>
     <lastmod>2023-05-22</lastmod>
     <changefreq>daily</changefreq>
@@ -1895,6 +1888,13 @@
   
   <url>
     <loc>https://shaogui.life/tags/numpy/</loc>
+    <lastmod>2023-05-22</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://shaogui.life/tags/%E5%BC%B1%E7%9B%91%E7%9D%A3/</loc>
     <lastmod>2023-05-22</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -1915,14 +1915,14 @@
   </url>
   
   <url>
-    <loc>https://shaogui.life/tags/GAN/</loc>
+    <loc>https://shaogui.life/tags/%E6%96%87%E5%AD%97%E8%AF%86%E5%88%AB/</loc>
     <lastmod>2023-05-22</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://shaogui.life/tags/%E6%96%87%E5%AD%97%E8%AF%86%E5%88%AB/</loc>
+    <loc>https://shaogui.life/tags/GAN/</loc>
     <lastmod>2023-05-22</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -1964,14 +1964,14 @@
   </url>
   
   <url>
-    <loc>https://shaogui.life/tags/%E6%96%87%E4%BB%B6%E5%85%B1%E4%BA%AB/</loc>
+    <loc>https://shaogui.life/tags/WPS/</loc>
     <lastmod>2023-05-22</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://shaogui.life/tags/WPS/</loc>
+    <loc>https://shaogui.life/tags/%E6%96%87%E4%BB%B6%E5%85%B1%E4%BA%AB/</loc>
     <lastmod>2023-05-22</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -2041,14 +2041,14 @@
   </url>
   
   <url>
-    <loc>https://shaogui.life/tags/%E6%9C%BA%E5%99%A8%E8%A7%86%E8%A7%89/</loc>
+    <loc>https://shaogui.life/tags/tensorflow/</loc>
     <lastmod>2023-05-22</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://shaogui.life/tags/tensorflow/</loc>
+    <loc>https://shaogui.life/tags/%E6%9C%BA%E5%99%A8%E8%A7%86%E8%A7%89/</loc>
     <lastmod>2023-05-22</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -2069,13 +2069,6 @@
   </url>
   
   <url>
-    <loc>https://shaogui.life/tags/%E9%93%BE%E5%BC%8F%E6%B1%82%E5%AF%BC/</loc>
-    <lastmod>2023-05-22</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://shaogui.life/tags/%E9%83%A8%E7%BD%B2/</loc>
     <lastmod>2023-05-22</lastmod>
     <changefreq>daily</changefreq>
@@ -2084,6 +2077,13 @@
   
   <url>
     <loc>https://shaogui.life/tags/%E5%8A%A0%E5%AF%86/</loc>
+    <lastmod>2023-05-22</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://shaogui.life/tags/%E9%93%BE%E5%BC%8F%E6%B1%82%E5%AF%BC/</loc>
     <lastmod>2023-05-22</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -2111,13 +2111,6 @@
   </url>
   
   <url>
-    <loc>https://shaogui.life/tags/Firefox/</loc>
-    <lastmod>2023-05-22</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://shaogui.life/tags/%E7%89%88%E6%9C%AC%E7%AE%A1%E7%90%86/</loc>
     <lastmod>2023-05-22</lastmod>
     <changefreq>daily</changefreq>
@@ -2126,6 +2119,13 @@
   
   <url>
     <loc>https://shaogui.life/tags/git/</loc>
+    <lastmod>2023-05-22</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://shaogui.life/tags/Firefox/</loc>
     <lastmod>2023-05-22</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
