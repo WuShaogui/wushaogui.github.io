@@ -1516,8 +1516,8 @@ M834 80h400000v40h-400000z'/></svg></span></span></span><span class="vlist-s">�
         <category>深度学习</category>
       </categories>
       <tags>
-        <tag>轻量</tag>
         <tag>语义分割</tag>
+        <tag>轻量</tag>
       </tags>
   </entry>
   <entry>
@@ -2816,8 +2816,8 @@ M834 80h400000v40h-400000z'/></svg></span></span></span><span class="vlist-s">�
 </ul>
 ]]></content>
       <tags>
-        <tag>轻量</tag>
         <tag>语义分割</tag>
+        <tag>轻量</tag>
       </tags>
   </entry>
   <entry>
@@ -2848,8 +2848,8 @@ M834 80h400000v40h-400000z'/></svg></span></span></span><span class="vlist-s">�
         <category>深度学习</category>
       </categories>
       <tags>
-        <tag>轻量</tag>
         <tag>语义分割</tag>
+        <tag>轻量</tag>
       </tags>
   </entry>
   <entry>
@@ -8976,8 +8976,8 @@ D_K\cdot D_K\cdot\alpha M\cdot D_F\cdot D_F+\alpha M\cdot\alpha N\cdot D_F\cdot 
         <category>深度学习</category>
       </categories>
       <tags>
-        <tag>轻量</tag>
         <tag>语义分割</tag>
+        <tag>轻量</tag>
       </tags>
   </entry>
   <entry>
@@ -16511,33 +16511,6 @@ Zotero的神级插件，这玩意可以自动获取导入文件的元数据，�
       </tags>
   </entry>
   <entry>
-    <title>linux的文件夹共享功能设置</title>
-    <url>/2016/06/01/linux%E7%9A%84%E6%96%87%E4%BB%B6%E5%A4%B9%E5%85%B1%E4%BA%AB%E5%8A%9F%E8%83%BD%E8%AE%BE%E7%BD%AE/</url>
-    <content><![CDATA[<p>本文解释linux系统向其他系统共享文件的流程，并以ipad访问过程演示</p>
-<span id="more"></span>
-<p>1.新建共享文件夹<br />
-<img src="https://picgo-1304919305.cos.ap-guangzhou.myqcloud.com/picGo/202304082045372.png" alt="enter description here" /></p>
-<p>2.设置共享用户<br />
-<img src="https://picgo-1304919305.cos.ap-guangzhou.myqcloud.com/picGo/202304082046890.png" alt="enter description here" /></p>
-<blockquote>
-<p>好像要求用户wu先是系统用户</p>
-</blockquote>
-<p>3.终端访问</p>
-<p><img src="https://picgo-1304919305.cos.ap-guangzhou.myqcloud.com/picGo/202304082046943.png" alt="enter description here" /></p>
-<p><img src="https://picgo-1304919305.cos.ap-guangzhou.myqcloud.com/picGo/202304082046556.png" alt="enter description here" /></p>
-<blockquote>
-<p>！需填写密码</p>
-</blockquote>
-]]></content>
-      <categories>
-        <category>软件工具</category>
-      </categories>
-      <tags>
-        <tag>Linux</tag>
-        <tag>文件共享</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>linux上wps系统缺失字体</title>
     <url>/2016/06/01/linux%E4%B8%8Awps%E7%B3%BB%E7%BB%9F%E7%BC%BA%E5%A4%B1%E5%AD%97%E4%BD%93/</url>
     <content><![CDATA[<p>在Linux上新安装WPS后，第一次打开就出现以下问题：</p>
@@ -16570,6 +16543,33 @@ Linux上缺少windows字体，把字体添加上去即可。</p>
       <tags>
         <tag>Linux</tag>
         <tag>WPS</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>linux的文件夹共享功能设置</title>
+    <url>/2016/06/01/linux%E7%9A%84%E6%96%87%E4%BB%B6%E5%A4%B9%E5%85%B1%E4%BA%AB%E5%8A%9F%E8%83%BD%E8%AE%BE%E7%BD%AE/</url>
+    <content><![CDATA[<p>本文解释linux系统向其他系统共享文件的流程，并以ipad访问过程演示</p>
+<span id="more"></span>
+<p>1.新建共享文件夹<br />
+<img src="https://picgo-1304919305.cos.ap-guangzhou.myqcloud.com/picGo/202304082045372.png" alt="enter description here" /></p>
+<p>2.设置共享用户<br />
+<img src="https://picgo-1304919305.cos.ap-guangzhou.myqcloud.com/picGo/202304082046890.png" alt="enter description here" /></p>
+<blockquote>
+<p>好像要求用户wu先是系统用户</p>
+</blockquote>
+<p>3.终端访问</p>
+<p><img src="https://picgo-1304919305.cos.ap-guangzhou.myqcloud.com/picGo/202304082046943.png" alt="enter description here" /></p>
+<p><img src="https://picgo-1304919305.cos.ap-guangzhou.myqcloud.com/picGo/202304082046556.png" alt="enter description here" /></p>
+<blockquote>
+<p>！需填写密码</p>
+</blockquote>
+]]></content>
+      <categories>
+        <category>软件工具</category>
+      </categories>
+      <tags>
+        <tag>Linux</tag>
+        <tag>文件共享</tag>
       </tags>
   </entry>
   <entry>
