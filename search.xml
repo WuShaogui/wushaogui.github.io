@@ -5634,8 +5634,8 @@ s76,-153,76,-153s77,-151,77,-151c0.7,0.7,35.7,202,105,604c67.3,400.7,102,602.7,1
       </categories>
       <tags>
         <tag>Hexo</tag>
-        <tag>博客</tag>
         <tag>Next</tag>
+        <tag>博客</tag>
       </tags>
   </entry>
   <entry>
@@ -5771,8 +5771,8 @@ s76,-153,76,-153s77,-151,77,-151c0.7,0.7,35.7,202,105,604c67.3,400.7,102,602.7,1
       </categories>
       <tags>
         <tag>Hexo</tag>
-        <tag>博客</tag>
         <tag>Next</tag>
+        <tag>博客</tag>
       </tags>
   </entry>
   <entry>
@@ -6079,51 +6079,6 @@ M834 80h400000v40h-400000z'/></svg></span></span></span><span class="vlist-s">�
   </entry>
   <entry>
     <title>Linux上利用gitee为Hexo配置图床服务</title>
-    <url>/2021/02/21/Hexo%E5%AD%A6%E4%B9%A0(2)-%E5%9B%BE%E5%BA%8A%E6%90%AD%E5%BB%BA/</url>
-    <content><![CDATA[<p>本文通过小书匠为hexo搭建图床服务，图床搭建在gitee中，国内访问速度可以</p>
-<a id="more"></a>
-<p>搭建的步骤主要分为两个步骤</p>
-<h2 id="新建图床仓库并获取令牌"><a class="markdownIt-Anchor" href="#新建图床仓库并获取令牌"></a> 新建图床仓库并获取令牌</h2>
-<p><strong>新建仓库</strong></p>
-<p>打开gitee，新建一个<code>公开的</code>仓库，用于做图床的存储库</p>
-<p><strong>获得令牌</strong></p>
-<p>令牌运行应用自行上传图片到gitee，所以需要提前获得，在gitee个人设置选项找到<code>私人令牌</code>，按下图配置新建一个令牌</p>
-<p><img src="https://gitee.com/savecoding/imagesbed/raw/master/PicGo/image-20210221172720292.png" alt="image-20210221172720292" /></p>
-<h2 id="配置markdown编辑器"><a class="markdownIt-Anchor" href="#配置markdown编辑器"></a> 配置Markdown编辑器</h2>
-<h3 id="配置-typora"><a class="markdownIt-Anchor" href="#配置-typora"></a> 配置 Typora<sup class="footnote-ref"><a href="#fn1" id="fnref1">[1]</a></sup></h3>
-<p>打开Typora偏好设置，依次配置下面内容：</p>
-<p><img src="https://gitee.com/savecoding/imagesbed/raw/master/PicGo/image-20210221173149180.png" alt="image-20210221173149180" /></p>
-<p>第5步需要下载<code>PicGo-Core</code>，耐心等到下载完成；</p>
-<p>第6步配置文件按以下配置</p>
-<figure class="highlight json"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="attr">&quot;picBed&quot;</span>: &#123;</span><br><span class="line">    <span class="attr">&quot;current&quot;</span>: <span class="string">&quot;gitee&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;uploader&quot;</span>: <span class="string">&quot;gitee&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;gitee&quot;</span>: &#123;</span><br><span class="line">      <span class="attr">&quot;branch&quot;</span>: <span class="string">&quot;master&quot;</span>,</span><br><span class="line">      <span class="attr">&quot;customPath&quot;</span>: <span class="string">&quot;yearMonth&quot;</span>,</span><br><span class="line">      <span class="attr">&quot;customUrl&quot;</span>: <span class="string">&quot;&quot;</span>,</span><br><span class="line">      <span class="attr">&quot;path&quot;</span>: <span class="string">&quot;PicGo/&quot;</span>,</span><br><span class="line">      <span class="attr">&quot;repo&quot;</span>: <span class="string">&quot;xxxx&quot;</span>, <span class="comment">//用户名/仓库名称</span></span><br><span class="line">      <span class="attr">&quot;token&quot;</span>: <span class="string">&quot;xxxx&quot;</span> <span class="comment">// gitee上面的私人令牌</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="attr">&quot;picgoPlugins&quot;</span>: &#123;</span><br><span class="line">    <span class="attr">&quot;picgo-plugin-gitee-uploader&quot;</span>: <span class="literal">true</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>配置文件的<code>repo</code>在仓库的浏览地址找到</p>
-<p><img src="https://gitee.com/savecoding/imagesbed/raw/master/PicGo/image-20210221174346189.png" alt="image-20210221174346189" /></p>
-<p>配置文件的<code>path</code>为仓库下的一个文件夹，<code>token</code>为第一步申请的</p>
-<p>点击第7步前需要安装picgo的<code>gitee-uploader</code>插件，安装下面的命令安装<code>gitee-uploader</code>插件</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> C:\Users\%用户名%\AppData\Roaming\Typora\picgo\win64</span><br><span class="line">picgo.exe install gitee-uploader</span><br><span class="line">picgo.exe install super-prefix</span><br></pre></td></tr></table></figure>
-<p>点击第7步，出现下面提示，则配置成功</p>
-<p><img src="https://gitee.com/savecoding/imagesbed/raw/master/PicGo/image-20210221175128485.png" alt="image-20210221175128485" /></p>
-<p>注意：在linux上已经试过用<code>PicGo-2.2.2.AppImage</code>配置<code>Typora</code>，但是出现一个难以忍受的bug，图片上传成功后居然不重命名，其实图片链接已经保存在粘贴板中，需要手动复制上去</p>
-<p><strong>参考资料：</strong></p>
-<hr class="footnotes-sep" />
-<section class="footnotes">
-<ol class="footnotes-list">
-<li id="fn1" class="footnote-item"><p><a href="https://blog.csdn.net/in_the_road/article/details/105733292">Typora自动上传图片配置，集成PicGo-Core，文件以时间戳命名</a> <a href="#fnref1" class="footnote-backref">↩︎</a></p>
-</li>
-</ol>
-</section>
-]]></content>
-      <categories>
-        <category>软件工具</category>
-      </categories>
-      <tags>
-        <tag>Hexo</tag>
-        <tag>博客</tag>
-        <tag>Next</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Linux上利用gitee为Hexo配置图床服务</title>
     <url>/2021/02/21/Hexo%E5%9B%BE%E5%BA%8A%E6%90%AD%E5%BB%BA/</url>
     <content><![CDATA[<p>本文通过小书匠为hexo搭建图床服务，图床搭建在gitee中，国内访问速度可以</p>
 <a id="more"></a>
@@ -6168,8 +6123,53 @@ M834 80h400000v40h-400000z'/></svg></span></span></span><span class="vlist-s">�
       </categories>
       <tags>
         <tag>Hexo</tag>
-        <tag>博客</tag>
         <tag>Next</tag>
+        <tag>博客</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Linux上利用gitee为Hexo配置图床服务</title>
+    <url>/2021/02/21/Hexo%E5%AD%A6%E4%B9%A0(2)-%E5%9B%BE%E5%BA%8A%E6%90%AD%E5%BB%BA/</url>
+    <content><![CDATA[<p>本文通过小书匠为hexo搭建图床服务，图床搭建在gitee中，国内访问速度可以</p>
+<a id="more"></a>
+<p>搭建的步骤主要分为两个步骤</p>
+<h2 id="新建图床仓库并获取令牌"><a class="markdownIt-Anchor" href="#新建图床仓库并获取令牌"></a> 新建图床仓库并获取令牌</h2>
+<p><strong>新建仓库</strong></p>
+<p>打开gitee，新建一个<code>公开的</code>仓库，用于做图床的存储库</p>
+<p><strong>获得令牌</strong></p>
+<p>令牌运行应用自行上传图片到gitee，所以需要提前获得，在gitee个人设置选项找到<code>私人令牌</code>，按下图配置新建一个令牌</p>
+<p><img src="https://gitee.com/savecoding/imagesbed/raw/master/PicGo/image-20210221172720292.png" alt="image-20210221172720292" /></p>
+<h2 id="配置markdown编辑器"><a class="markdownIt-Anchor" href="#配置markdown编辑器"></a> 配置Markdown编辑器</h2>
+<h3 id="配置-typora"><a class="markdownIt-Anchor" href="#配置-typora"></a> 配置 Typora<sup class="footnote-ref"><a href="#fn1" id="fnref1">[1]</a></sup></h3>
+<p>打开Typora偏好设置，依次配置下面内容：</p>
+<p><img src="https://gitee.com/savecoding/imagesbed/raw/master/PicGo/image-20210221173149180.png" alt="image-20210221173149180" /></p>
+<p>第5步需要下载<code>PicGo-Core</code>，耐心等到下载完成；</p>
+<p>第6步配置文件按以下配置</p>
+<figure class="highlight json"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="attr">&quot;picBed&quot;</span>: &#123;</span><br><span class="line">    <span class="attr">&quot;current&quot;</span>: <span class="string">&quot;gitee&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;uploader&quot;</span>: <span class="string">&quot;gitee&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;gitee&quot;</span>: &#123;</span><br><span class="line">      <span class="attr">&quot;branch&quot;</span>: <span class="string">&quot;master&quot;</span>,</span><br><span class="line">      <span class="attr">&quot;customPath&quot;</span>: <span class="string">&quot;yearMonth&quot;</span>,</span><br><span class="line">      <span class="attr">&quot;customUrl&quot;</span>: <span class="string">&quot;&quot;</span>,</span><br><span class="line">      <span class="attr">&quot;path&quot;</span>: <span class="string">&quot;PicGo/&quot;</span>,</span><br><span class="line">      <span class="attr">&quot;repo&quot;</span>: <span class="string">&quot;xxxx&quot;</span>, <span class="comment">//用户名/仓库名称</span></span><br><span class="line">      <span class="attr">&quot;token&quot;</span>: <span class="string">&quot;xxxx&quot;</span> <span class="comment">// gitee上面的私人令牌</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="attr">&quot;picgoPlugins&quot;</span>: &#123;</span><br><span class="line">    <span class="attr">&quot;picgo-plugin-gitee-uploader&quot;</span>: <span class="literal">true</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>配置文件的<code>repo</code>在仓库的浏览地址找到</p>
+<p><img src="https://gitee.com/savecoding/imagesbed/raw/master/PicGo/image-20210221174346189.png" alt="image-20210221174346189" /></p>
+<p>配置文件的<code>path</code>为仓库下的一个文件夹，<code>token</code>为第一步申请的</p>
+<p>点击第7步前需要安装picgo的<code>gitee-uploader</code>插件，安装下面的命令安装<code>gitee-uploader</code>插件</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> C:\Users\%用户名%\AppData\Roaming\Typora\picgo\win64</span><br><span class="line">picgo.exe install gitee-uploader</span><br><span class="line">picgo.exe install super-prefix</span><br></pre></td></tr></table></figure>
+<p>点击第7步，出现下面提示，则配置成功</p>
+<p><img src="https://gitee.com/savecoding/imagesbed/raw/master/PicGo/image-20210221175128485.png" alt="image-20210221175128485" /></p>
+<p>注意：在linux上已经试过用<code>PicGo-2.2.2.AppImage</code>配置<code>Typora</code>，但是出现一个难以忍受的bug，图片上传成功后居然不重命名，其实图片链接已经保存在粘贴板中，需要手动复制上去</p>
+<p><strong>参考资料：</strong></p>
+<hr class="footnotes-sep" />
+<section class="footnotes">
+<ol class="footnotes-list">
+<li id="fn1" class="footnote-item"><p><a href="https://blog.csdn.net/in_the_road/article/details/105733292">Typora自动上传图片配置，集成PicGo-Core，文件以时间戳命名</a> <a href="#fnref1" class="footnote-backref">↩︎</a></p>
+</li>
+</ol>
+</section>
+]]></content>
+      <categories>
+        <category>软件工具</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
+        <tag>Next</tag>
+        <tag>博客</tag>
       </tags>
   </entry>
   <entry>
@@ -6615,8 +6615,8 @@ M834 80h400000v40h-400000z'/></svg></span></span></span><span class="vlist-s">�
       </categories>
       <tags>
         <tag>Hexo</tag>
-        <tag>博客</tag>
         <tag>Next</tag>
+        <tag>博客</tag>
       </tags>
   </entry>
   <entry>
@@ -6809,8 +6809,8 @@ M834 80h400000v40h-400000z'/></svg></span></span></span><span class="vlist-s">�
       </categories>
       <tags>
         <tag>Hexo</tag>
-        <tag>博客</tag>
         <tag>Next</tag>
+        <tag>博客</tag>
       </tags>
   </entry>
   <entry>

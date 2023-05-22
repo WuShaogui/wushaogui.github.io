@@ -381,11 +381,19 @@
     <lastmod>2023-05-20</lastmod>
   </url>
   <url>
+    <loc>https://shaogui.life/2022/01/22/OCNet%EF%BC%9AObject%20Context%20Network%20for%20Scene%20Parsing/</loc>
+    <lastmod>2023-05-20</lastmod>
+  </url>
+  <url>
     <loc>https://shaogui.life/2021/04/02/CPNet%EF%BC%9AContext%20Prior%20for%20Scene%20Segmentation/</loc>
     <lastmod>2023-05-20</lastmod>
   </url>
   <url>
-    <loc>https://shaogui.life/2022/01/22/OCNet%EF%BC%9AObject%20Context%20Network%20for%20Scene%20Parsing/</loc>
+    <loc>https://shaogui.life/2022/01/23/Segmentation%20Transformer%EF%BC%9AObject-Contextual%20Representations%20for%20Semantic%20Segmentation/</loc>
+    <lastmod>2023-05-20</lastmod>
+  </url>
+  <url>
+    <loc>https://shaogui.life/2021/03/29/SEAM%EF%BC%9ASelf-supervised%20Equivariant%20Attention%20Mechanism%20for%20Weakly%20Supervised%20Semantic%20Segmentation/</loc>
     <lastmod>2023-05-20</lastmod>
   </url>
   <url>
@@ -398,14 +406,6 @@
   </url>
   <url>
     <loc>https://shaogui.life/2019/04/12/PSANet%EF%BC%9APoint-wise%20Spatial%20Attention%20Network%20for%20Scene%20Parsing/</loc>
-    <lastmod>2023-05-20</lastmod>
-  </url>
-  <url>
-    <loc>https://shaogui.life/2021/03/29/SEAM%EF%BC%9ASelf-supervised%20Equivariant%20Attention%20Mechanism%20for%20Weakly%20Supervised%20Semantic%20Segmentation/</loc>
-    <lastmod>2023-05-20</lastmod>
-  </url>
-  <url>
-    <loc>https://shaogui.life/2022/01/23/Segmentation%20Transformer%EF%BC%9AObject-Contextual%20Representations%20for%20Semantic%20Segmentation/</loc>
     <lastmod>2023-05-20</lastmod>
   </url>
   <url>
@@ -445,7 +445,7 @@
     <lastmod>2023-05-20</lastmod>
   </url>
   <url>
-    <loc>https://shaogui.life/2020/09/22/APCNet%EF%BC%9AAdaptive%20Pyramid%20Context%20Network%20for%20Semantic%20Segmentation/</loc>
+    <loc>https://shaogui.life/2021/02/20/Strip%20Pooling%EF%BC%9ARethinking%20Spatial%20Pooling%20for%20Scene%20Parsing/</loc>
     <lastmod>2023-05-20</lastmod>
   </url>
   <url>
@@ -453,11 +453,11 @@
     <lastmod>2023-05-20</lastmod>
   </url>
   <url>
-    <loc>https://shaogui.life/2020/04/21/Gated-SCNN%EF%BC%9AGated%20Shape%20CNNs%20for%20Semantic%20Segmentation/</loc>
+    <loc>https://shaogui.life/2020/09/22/APCNet%EF%BC%9AAdaptive%20Pyramid%20Context%20Network%20for%20Semantic%20Segmentation/</loc>
     <lastmod>2023-05-20</lastmod>
   </url>
   <url>
-    <loc>https://shaogui.life/2021/02/20/Strip%20Pooling%EF%BC%9ARethinking%20Spatial%20Pooling%20for%20Scene%20Parsing/</loc>
+    <loc>https://shaogui.life/2020/04/21/Gated-SCNN%EF%BC%9AGated%20Shape%20CNNs%20for%20Semantic%20Segmentation/</loc>
     <lastmod>2023-05-20</lastmod>
   </url>
   <url>
@@ -477,6 +477,14 @@
     <lastmod>2023-05-20</lastmod>
   </url>
   <url>
+    <loc>https://shaogui.life/2022/03/18/HRNet%EF%BC%9ADeep%20High-Resolution%20Representation%20Learning%20for%20Visual%20Recognition/</loc>
+    <lastmod>2023-05-20</lastmod>
+  </url>
+  <url>
+    <loc>https://shaogui.life/2022/03/16/Simple%20Baselines%20for%20Human%20Pose%20Estimation%20and%20Tracking/</loc>
+    <lastmod>2023-05-20</lastmod>
+  </url>
+  <url>
     <loc>https://shaogui.life/2022/03/15/CPN%EF%BC%9ACascaded%20Pyramid%20Network%20for%20Multi-Person%20Pose%20Estimation/</loc>
     <lastmod>2023-05-20</lastmod>
   </url>
@@ -485,15 +493,7 @@
     <lastmod>2023-05-20</lastmod>
   </url>
   <url>
-    <loc>https://shaogui.life/2022/03/18/HRNet%EF%BC%9ADeep%20High-Resolution%20Representation%20Learning%20for%20Visual%20Recognition/</loc>
-    <lastmod>2023-05-20</lastmod>
-  </url>
-  <url>
     <loc>https://shaogui.life/2022/03/10/RMPE%EF%BC%9ARegional%20Multi-person%20Pose%20Estimation/</loc>
-    <lastmod>2023-05-20</lastmod>
-  </url>
-  <url>
-    <loc>https://shaogui.life/2022/03/16/Simple%20Baselines%20for%20Human%20Pose%20Estimation%20and%20Tracking/</loc>
     <lastmod>2023-05-20</lastmod>
   </url>
   <url>
@@ -513,11 +513,11 @@
     <lastmod>2023-05-20</lastmod>
   </url>
   <url>
-    <loc>https://shaogui.life/2022/02/26/Hourglass%EF%BC%9AStacked%20Hourglass%20Networks%20for%20Human%20Pose%20Estimation/</loc>
+    <loc>https://shaogui.life/2022/02/28/Pose%20Attention%EF%BC%9AMulti-Context%20Attention%20for%20Human%20Pose%20Estimation/</loc>
     <lastmod>2023-05-20</lastmod>
   </url>
   <url>
-    <loc>https://shaogui.life/2022/02/28/Pose%20Attention%EF%BC%9AMulti-Context%20Attention%20for%20Human%20Pose%20Estimation/</loc>
+    <loc>https://shaogui.life/2022/02/26/Hourglass%EF%BC%9AStacked%20Hourglass%20Networks%20for%20Human%20Pose%20Estimation/</loc>
     <lastmod>2023-05-20</lastmod>
   </url>
   <url>
@@ -761,11 +761,11 @@
     <lastmod>2023-04-08</lastmod>
   </url>
   <url>
-    <loc>https://shaogui.life/2021/02/18/Hexo%E5%AD%A6%E4%B9%A0(1)-%E5%88%9D%E6%AC%A1%E4%BD%BF%E7%94%A8/</loc>
+    <loc>https://shaogui.life/2021/02/21/Hexo%E5%AD%A6%E4%B9%A0(2)-%E5%9B%BE%E5%BA%8A%E6%90%AD%E5%BB%BA/</loc>
     <lastmod>2023-04-05</lastmod>
   </url>
   <url>
-    <loc>https://shaogui.life/2021/02/21/Hexo%E5%AD%A6%E4%B9%A0(2)-%E5%9B%BE%E5%BA%8A%E6%90%AD%E5%BB%BA/</loc>
+    <loc>https://shaogui.life/2021/02/18/Hexo%E5%AD%A6%E4%B9%A0(1)-%E5%88%9D%E6%AC%A1%E4%BD%BF%E7%94%A8/</loc>
     <lastmod>2023-04-05</lastmod>
   </url>
   <url>
