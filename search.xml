@@ -5504,8 +5504,8 @@ s76,-153,76,-153s77,-151,77,-151c0.7,0.7,35.7,202,105,604c67.3,400.7,102,602.7,1
       </categories>
       <tags>
         <tag>Hexo</tag>
-        <tag>博客</tag>
         <tag>Next</tag>
+        <tag>博客</tag>
       </tags>
   </entry>
   <entry>
@@ -5851,8 +5851,8 @@ M834 80h400000v40h-400000z'/></svg></span></span></span><span class="vlist-s">�
       </categories>
       <tags>
         <tag>Hexo</tag>
-        <tag>博客</tag>
         <tag>Next</tag>
+        <tag>博客</tag>
       </tags>
   </entry>
   <entry>
@@ -6109,6 +6109,41 @@ M834 80h400000v40h-400000z'/></svg></span></span></span><span class="vlist-s">�
       </tags>
   </entry>
   <entry>
+    <title>Hexo博客速度优化</title>
+    <url>/2021/02/19/Hexo%E5%AD%A6%E4%B9%A0(4)-%E8%AE%BF%E9%97%AE%E9%80%9F%E5%BA%A6%E4%BC%98%E5%8C%96/</url>
+    <content><![CDATA[<p>本文对Hexo博客进行访问优化，使得访问速度更快了，主要是安装hexo-neat插件，实现对html、css、js、image等静态资源的高效压缩。通过压缩这些静态资源，可以减少请求的数据量从而达到优化博客访问速度的目的</p>
+<span id="more"></span>
+<h2 id="资源压缩"><a class="markdownIt-Anchor" href="#资源压缩"></a> 资源压缩<sup class="footnote-ref"><a href="#fn1" id="fnref1">[1]</a></sup></h2>
+<p><strong>安装插件</strong></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install hexo-neat --save</span><br></pre></td></tr></table></figure>
+<p><strong>配置插件</strong><br />
+打开博客根目录文件<code>_config.yml</code>，添加以下配置</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># hexo-neat 压缩</span></span><br><span class="line">neat_enable: <span class="literal">true</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 压缩html</span></span><br><span class="line">neat_html:</span><br><span class="line">  <span class="built_in">enable</span>: <span class="literal">true</span></span><br><span class="line">  exclude:</span><br><span class="line"><span class="comment"># 压缩css  </span></span><br><span class="line">neat_css:</span><br><span class="line">  <span class="built_in">enable</span>: <span class="literal">true</span></span><br><span class="line">  exclude:</span><br><span class="line">    - <span class="string">&#x27;**/*.min.css&#x27;</span></span><br><span class="line"><span class="comment"># 压缩js</span></span><br><span class="line">neat_js:</span><br><span class="line">  <span class="built_in">enable</span>: <span class="literal">true</span></span><br><span class="line">  mangle: <span class="literal">true</span></span><br><span class="line">  output:</span><br><span class="line">  compress:</span><br><span class="line">  exclude:</span><br><span class="line">    - <span class="string">&#x27;**/*.min.js&#x27;</span></span><br><span class="line">    - <span class="string">&#x27;**/jquery.fancybox.pack.js&#x27;</span></span><br><span class="line">    - <span class="string">&#x27;**/index.js&#x27;</span></span><br></pre></td></tr></table></figure>
+<h2 id="图片懒加载"><a class="markdownIt-Anchor" href="#图片懒加载"></a> 图片懒加载<sup class="footnote-ref"><a href="#fn2" id="fnref2">[2]</a></sup></h2>
+<p>即文字先出来，图片慢慢出来，显著提高加载速度</p>
+<p><strong>安装插件</strong></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install hexo-lazyload-image --save</span><br></pre></td></tr></table></figure>
+<p><strong>配置文件</strong></p>
+<p>打开配置文件<code>_config.yml</code>，添加以下配置</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 图片懒加载</span></span><br><span class="line">lazyload:</span><br><span class="line">  <span class="built_in">enable</span>: <span class="literal">true</span> </span><br><span class="line">  onlypost: <span class="literal">false</span></span><br><span class="line">  loadingImg: /images/loading.gif <span class="comment">#如果不填写图片则使用默认的图片</span></span><br></pre></td></tr></table></figure>
+<hr class="footnotes-sep" />
+<section class="footnotes">
+<ol class="footnotes-list">
+<li id="fn1" class="footnote-item"><p><a href="https://www.difashi.com/2020-02/20-hexo-neat.html">hexo优化静态JS等资源压缩</a> <a href="#fnref1" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn2" class="footnote-item"><p><a href="https://www.cnblogs.com/lfri/p/12221963.html">Hexo-Next提高加载速度</a> <a href="#fnref2" class="footnote-backref">↩︎</a></p>
+</li>
+</ol>
+</section>
+]]></content>
+      <categories>
+        <category>软件工具</category>
+      </categories>
+      <tags>
+        <tag>hexo</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Hexo安装Next主题</title>
     <url>/2021/02/19/Hexo%E5%AD%A6%E4%B9%A0(3)-%E5%AE%89%E8%A3%85Next%E4%B8%BB%E9%A2%98/</url>
     <content><![CDATA[<p>基于github pages完成博客搭建后，已经可以正常发文了，但是文字展示不美观，本文展示如何在Linux为Hexo博客安装Next主题，并进行详细配置</p>
@@ -6298,43 +6333,8 @@ M834 80h400000v40h-400000z'/></svg></span></span></span><span class="vlist-s">�
       </categories>
       <tags>
         <tag>Hexo</tag>
-        <tag>博客</tag>
         <tag>Next</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Hexo博客速度优化</title>
-    <url>/2021/02/19/Hexo%E5%AD%A6%E4%B9%A0(4)-%E8%AE%BF%E9%97%AE%E9%80%9F%E5%BA%A6%E4%BC%98%E5%8C%96/</url>
-    <content><![CDATA[<p>本文对Hexo博客进行访问优化，使得访问速度更快了，主要是安装hexo-neat插件，实现对html、css、js、image等静态资源的高效压缩。通过压缩这些静态资源，可以减少请求的数据量从而达到优化博客访问速度的目的</p>
-<span id="more"></span>
-<h2 id="资源压缩"><a class="markdownIt-Anchor" href="#资源压缩"></a> 资源压缩<sup class="footnote-ref"><a href="#fn1" id="fnref1">[1]</a></sup></h2>
-<p><strong>安装插件</strong></p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install hexo-neat --save</span><br></pre></td></tr></table></figure>
-<p><strong>配置插件</strong><br />
-打开博客根目录文件<code>_config.yml</code>，添加以下配置</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># hexo-neat 压缩</span></span><br><span class="line">neat_enable: <span class="literal">true</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 压缩html</span></span><br><span class="line">neat_html:</span><br><span class="line">  <span class="built_in">enable</span>: <span class="literal">true</span></span><br><span class="line">  exclude:</span><br><span class="line"><span class="comment"># 压缩css  </span></span><br><span class="line">neat_css:</span><br><span class="line">  <span class="built_in">enable</span>: <span class="literal">true</span></span><br><span class="line">  exclude:</span><br><span class="line">    - <span class="string">&#x27;**/*.min.css&#x27;</span></span><br><span class="line"><span class="comment"># 压缩js</span></span><br><span class="line">neat_js:</span><br><span class="line">  <span class="built_in">enable</span>: <span class="literal">true</span></span><br><span class="line">  mangle: <span class="literal">true</span></span><br><span class="line">  output:</span><br><span class="line">  compress:</span><br><span class="line">  exclude:</span><br><span class="line">    - <span class="string">&#x27;**/*.min.js&#x27;</span></span><br><span class="line">    - <span class="string">&#x27;**/jquery.fancybox.pack.js&#x27;</span></span><br><span class="line">    - <span class="string">&#x27;**/index.js&#x27;</span></span><br></pre></td></tr></table></figure>
-<h2 id="图片懒加载"><a class="markdownIt-Anchor" href="#图片懒加载"></a> 图片懒加载<sup class="footnote-ref"><a href="#fn2" id="fnref2">[2]</a></sup></h2>
-<p>即文字先出来，图片慢慢出来，显著提高加载速度</p>
-<p><strong>安装插件</strong></p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install hexo-lazyload-image --save</span><br></pre></td></tr></table></figure>
-<p><strong>配置文件</strong></p>
-<p>打开配置文件<code>_config.yml</code>，添加以下配置</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 图片懒加载</span></span><br><span class="line">lazyload:</span><br><span class="line">  <span class="built_in">enable</span>: <span class="literal">true</span> </span><br><span class="line">  onlypost: <span class="literal">false</span></span><br><span class="line">  loadingImg: /images/loading.gif <span class="comment">#如果不填写图片则使用默认的图片</span></span><br></pre></td></tr></table></figure>
-<hr class="footnotes-sep" />
-<section class="footnotes">
-<ol class="footnotes-list">
-<li id="fn1" class="footnote-item"><p><a href="https://www.difashi.com/2020-02/20-hexo-neat.html">hexo优化静态JS等资源压缩</a> <a href="#fnref1" class="footnote-backref">↩︎</a></p>
-</li>
-<li id="fn2" class="footnote-item"><p><a href="https://www.cnblogs.com/lfri/p/12221963.html">Hexo-Next提高加载速度</a> <a href="#fnref2" class="footnote-backref">↩︎</a></p>
-</li>
-</ol>
-</section>
-]]></content>
-      <categories>
-        <category>软件工具</category>
-      </categories>
-      <tags>
-        <tag>hexo</tag>
+        <tag>博客</tag>
       </tags>
   </entry>
   <entry>
