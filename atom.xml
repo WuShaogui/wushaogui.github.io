@@ -3,11 +3,11 @@
   <title>年轻人起来冲</title>
   
   
-  <link href="https://shaogui.life/atom.xml" rel="self"/>
+  <link href="https://www.shaogui.life/atom.xml" rel="self"/>
   
-  <link href="https://shaogui.life/"/>
+  <link href="https://www.shaogui.life/"/>
   <updated>2023-05-21T01:56:48.227Z</updated>
-  <id>https://shaogui.life/</id>
+  <id>https://www.shaogui.life/</id>
   
   <author>
     <name>Shaogui</name>
@@ -18,8 +18,8 @@
   
   <entry>
     <title>Segment Anything</title>
-    <link href="https://shaogui.life/Segment%20Anything/"/>
-    <id>https://shaogui.life/Segment%20Anything/</id>
+    <link href="https://www.shaogui.life/Segment%20Anything/"/>
+    <id>https://www.shaogui.life/Segment%20Anything/</id>
     <published>2023-05-20T11:36:23.000Z</published>
     <updated>2023-05-21T01:56:48.227Z</updated>
     
@@ -30,19 +30,19 @@
     
     
     
-    <category term="深度学习" scheme="https://shaogui.life/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
+    <category term="深度学习" scheme="https://www.shaogui.life/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
     
     
-    <category term="transformer" scheme="https://shaogui.life/tags/transformer/"/>
+    <category term="transformer" scheme="https://www.shaogui.life/tags/transformer/"/>
     
-    <category term="分割" scheme="https://shaogui.life/tags/%E5%88%86%E5%89%B2/"/>
+    <category term="分割" scheme="https://www.shaogui.life/tags/%E5%88%86%E5%89%B2/"/>
     
   </entry>
   
   <entry>
     <title>我的目标检测习路线</title>
-    <link href="https://shaogui.life/%E6%88%91%E7%9A%84%E7%9B%AE%E6%A0%87%E6%A3%80%E6%B5%8B%E4%B9%A0%E8%B7%AF%E7%BA%BF/"/>
-    <id>https://shaogui.life/%E6%88%91%E7%9A%84%E7%9B%AE%E6%A0%87%E6%A3%80%E6%B5%8B%E4%B9%A0%E8%B7%AF%E7%BA%BF/</id>
+    <link href="https://www.shaogui.life/%E6%88%91%E7%9A%84%E7%9B%AE%E6%A0%87%E6%A3%80%E6%B5%8B%E4%B9%A0%E8%B7%AF%E7%BA%BF/"/>
+    <id>https://www.shaogui.life/%E6%88%91%E7%9A%84%E7%9B%AE%E6%A0%87%E6%A3%80%E6%B5%8B%E4%B9%A0%E8%B7%AF%E7%BA%BF/</id>
     <published>2023-05-16T07:43:54.000Z</published>
     <updated>2023-05-21T08:24:06.235Z</updated>
     
@@ -54,17 +54,17 @@
     
     
     
-    <category term="深度学习" scheme="https://shaogui.life/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
+    <category term="深度学习" scheme="https://www.shaogui.life/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
     
     
-    <category term="目标检测" scheme="https://shaogui.life/tags/%E7%9B%AE%E6%A0%87%E6%A3%80%E6%B5%8B/"/>
+    <category term="目标检测" scheme="https://www.shaogui.life/tags/%E7%9B%AE%E6%A0%87%E6%A3%80%E6%B5%8B/"/>
     
   </entry>
   
   <entry>
     <title>我的语义分割学习路线</title>
-    <link href="https://shaogui.life/%E6%88%91%E7%9A%84%E8%AF%AD%E4%B9%89%E5%88%86%E5%89%B2%E5%AD%A6%E4%B9%A0%E8%B7%AF%E7%BA%BF/"/>
-    <id>https://shaogui.life/%E6%88%91%E7%9A%84%E8%AF%AD%E4%B9%89%E5%88%86%E5%89%B2%E5%AD%A6%E4%B9%A0%E8%B7%AF%E7%BA%BF/</id>
+    <link href="https://www.shaogui.life/%E6%88%91%E7%9A%84%E8%AF%AD%E4%B9%89%E5%88%86%E5%89%B2%E5%AD%A6%E4%B9%A0%E8%B7%AF%E7%BA%BF/"/>
+    <id>https://www.shaogui.life/%E6%88%91%E7%9A%84%E8%AF%AD%E4%B9%89%E5%88%86%E5%89%B2%E5%AD%A6%E4%B9%A0%E8%B7%AF%E7%BA%BF/</id>
     <published>2023-05-15T15:30:22.000Z</published>
     <updated>2023-05-25T14:35:55.518Z</updated>
     
@@ -76,17 +76,17 @@
     
     
     
-    <category term="深度学习" scheme="https://shaogui.life/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
+    <category term="深度学习" scheme="https://www.shaogui.life/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
     
     
-    <category term="语义分割" scheme="https://shaogui.life/tags/%E8%AF%AD%E4%B9%89%E5%88%86%E5%89%B2/"/>
+    <category term="语义分割" scheme="https://www.shaogui.life/tags/%E8%AF%AD%E4%B9%89%E5%88%86%E5%89%B2/"/>
     
   </entry>
   
   <entry>
     <title>我的人体姿态估计学习路线</title>
-    <link href="https://shaogui.life/%E6%88%91%E7%9A%84%E4%BA%BA%E4%BD%93%E5%A7%BF%E6%80%81%E4%BC%B0%E8%AE%A1%E5%AD%A6%E4%B9%A0%E8%B7%AF%E7%BA%BF/"/>
-    <id>https://shaogui.life/%E6%88%91%E7%9A%84%E4%BA%BA%E4%BD%93%E5%A7%BF%E6%80%81%E4%BC%B0%E8%AE%A1%E5%AD%A6%E4%B9%A0%E8%B7%AF%E7%BA%BF/</id>
+    <link href="https://www.shaogui.life/%E6%88%91%E7%9A%84%E4%BA%BA%E4%BD%93%E5%A7%BF%E6%80%81%E4%BC%B0%E8%AE%A1%E5%AD%A6%E4%B9%A0%E8%B7%AF%E7%BA%BF/"/>
+    <id>https://www.shaogui.life/%E6%88%91%E7%9A%84%E4%BA%BA%E4%BD%93%E5%A7%BF%E6%80%81%E4%BC%B0%E8%AE%A1%E5%AD%A6%E4%B9%A0%E8%B7%AF%E7%BA%BF/</id>
     <published>2023-05-15T14:30:22.000Z</published>
     <updated>2023-05-21T08:18:36.857Z</updated>
     
@@ -98,17 +98,17 @@
     
     
     
-    <category term="深度学习" scheme="https://shaogui.life/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
+    <category term="深度学习" scheme="https://www.shaogui.life/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
     
     
-    <category term="人体姿态估计" scheme="https://shaogui.life/tags/%E4%BA%BA%E4%BD%93%E5%A7%BF%E6%80%81%E4%BC%B0%E8%AE%A1/"/>
+    <category term="人体姿态估计" scheme="https://www.shaogui.life/tags/%E4%BA%BA%E4%BD%93%E5%A7%BF%E6%80%81%E4%BC%B0%E8%AE%A1/"/>
     
   </entry>
   
   <entry>
     <title>我的实例分割学习路线</title>
-    <link href="https://shaogui.life/%E6%88%91%E7%9A%84%E5%AE%9E%E4%BE%8B%E5%88%86%E5%89%B2%E5%AD%A6%E4%B9%A0%E8%B7%AF%E7%BA%BF/"/>
-    <id>https://shaogui.life/%E6%88%91%E7%9A%84%E5%AE%9E%E4%BE%8B%E5%88%86%E5%89%B2%E5%AD%A6%E4%B9%A0%E8%B7%AF%E7%BA%BF/</id>
+    <link href="https://www.shaogui.life/%E6%88%91%E7%9A%84%E5%AE%9E%E4%BE%8B%E5%88%86%E5%89%B2%E5%AD%A6%E4%B9%A0%E8%B7%AF%E7%BA%BF/"/>
+    <id>https://www.shaogui.life/%E6%88%91%E7%9A%84%E5%AE%9E%E4%BE%8B%E5%88%86%E5%89%B2%E5%AD%A6%E4%B9%A0%E8%B7%AF%E7%BA%BF/</id>
     <published>2023-05-14T15:55:34.000Z</published>
     <updated>2023-05-21T08:18:31.144Z</updated>
     
@@ -120,17 +120,17 @@
     
     
     
-    <category term="深度学习" scheme="https://shaogui.life/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
+    <category term="深度学习" scheme="https://www.shaogui.life/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
     
     
-    <category term="实例分割" scheme="https://shaogui.life/tags/%E5%AE%9E%E4%BE%8B%E5%88%86%E5%89%B2/"/>
+    <category term="实例分割" scheme="https://www.shaogui.life/tags/%E5%AE%9E%E4%BE%8B%E5%88%86%E5%89%B2/"/>
     
   </entry>
   
   <entry>
     <title>我的OCR学习路线</title>
-    <link href="https://shaogui.life/%E6%88%91%E7%9A%84OCR%E5%AD%A6%E4%B9%A0%E8%B7%AF%E7%BA%BF/"/>
-    <id>https://shaogui.life/%E6%88%91%E7%9A%84OCR%E5%AD%A6%E4%B9%A0%E8%B7%AF%E7%BA%BF/</id>
+    <link href="https://www.shaogui.life/%E6%88%91%E7%9A%84OCR%E5%AD%A6%E4%B9%A0%E8%B7%AF%E7%BA%BF/"/>
+    <id>https://www.shaogui.life/%E6%88%91%E7%9A%84OCR%E5%AD%A6%E4%B9%A0%E8%B7%AF%E7%BA%BF/</id>
     <published>2023-05-12T05:09:54.000Z</published>
     <updated>2023-05-21T08:18:23.254Z</updated>
     
@@ -142,17 +142,17 @@
     
     
     
-    <category term="深度学习" scheme="https://shaogui.life/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
+    <category term="深度学习" scheme="https://www.shaogui.life/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
     
     
-    <category term="OCR" scheme="https://shaogui.life/tags/OCR/"/>
+    <category term="OCR" scheme="https://www.shaogui.life/tags/OCR/"/>
     
   </entry>
   
   <entry>
     <title>我的图片分类习路线</title>
-    <link href="https://shaogui.life/%E6%88%91%E7%9A%84%E5%9B%BE%E7%89%87%E5%88%86%E7%B1%BB%E4%B9%A0%E8%B7%AF%E7%BA%BF/"/>
-    <id>https://shaogui.life/%E6%88%91%E7%9A%84%E5%9B%BE%E7%89%87%E5%88%86%E7%B1%BB%E4%B9%A0%E8%B7%AF%E7%BA%BF/</id>
+    <link href="https://www.shaogui.life/%E6%88%91%E7%9A%84%E5%9B%BE%E7%89%87%E5%88%86%E7%B1%BB%E4%B9%A0%E8%B7%AF%E7%BA%BF/"/>
+    <id>https://www.shaogui.life/%E6%88%91%E7%9A%84%E5%9B%BE%E7%89%87%E5%88%86%E7%B1%BB%E4%B9%A0%E8%B7%AF%E7%BA%BF/</id>
     <published>2023-05-10T15:55:34.000Z</published>
     <updated>2023-05-21T07:33:27.950Z</updated>
     
@@ -164,17 +164,17 @@
     
     
     
-    <category term="深度学习" scheme="https://shaogui.life/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
+    <category term="深度学习" scheme="https://www.shaogui.life/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
     
     
-    <category term="图片分类" scheme="https://shaogui.life/tags/%E5%9B%BE%E7%89%87%E5%88%86%E7%B1%BB/"/>
+    <category term="图片分类" scheme="https://www.shaogui.life/tags/%E5%9B%BE%E7%89%87%E5%88%86%E7%B1%BB/"/>
     
   </entry>
   
   <entry>
     <title>TOOD：Task-aligned One-stage Object Detection</title>
-    <link href="https://shaogui.life/TOOD%EF%BC%9ATask-aligned%20One-stage%20Object%20Detection/"/>
-    <id>https://shaogui.life/TOOD%EF%BC%9ATask-aligned%20One-stage%20Object%20Detection/</id>
+    <link href="https://www.shaogui.life/TOOD%EF%BC%9ATask-aligned%20One-stage%20Object%20Detection/"/>
+    <id>https://www.shaogui.life/TOOD%EF%BC%9ATask-aligned%20One-stage%20Object%20Detection/</id>
     <published>2023-04-26T03:42:22.000Z</published>
     <updated>2023-05-21T08:14:56.233Z</updated>
     
@@ -185,17 +185,17 @@
     
     
     
-    <category term="深度学习" scheme="https://shaogui.life/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
+    <category term="深度学习" scheme="https://www.shaogui.life/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
     
     
-    <category term="目标检测" scheme="https://shaogui.life/tags/%E7%9B%AE%E6%A0%87%E6%A3%80%E6%B5%8B/"/>
+    <category term="目标检测" scheme="https://www.shaogui.life/tags/%E7%9B%AE%E6%A0%87%E6%A3%80%E6%B5%8B/"/>
     
   </entry>
   
   <entry>
     <title>YOLOv7：Trainable bag-of-freebies sets new state-of-the-art for real-time object detectors</title>
-    <link href="https://shaogui.life/YOLOv7%EF%BC%9ATrainable%20bag-of-freebies%20sets%20new%20state-of-the-art%20for%20real-time%20object%20detectors/"/>
-    <id>https://shaogui.life/YOLOv7%EF%BC%9ATrainable%20bag-of-freebies%20sets%20new%20state-of-the-art%20for%20real-time%20object%20detectors/</id>
+    <link href="https://www.shaogui.life/YOLOv7%EF%BC%9ATrainable%20bag-of-freebies%20sets%20new%20state-of-the-art%20for%20real-time%20object%20detectors/"/>
+    <id>https://www.shaogui.life/YOLOv7%EF%BC%9ATrainable%20bag-of-freebies%20sets%20new%20state-of-the-art%20for%20real-time%20object%20detectors/</id>
     <published>2023-04-18T03:49:49.000Z</published>
     <updated>2023-05-21T08:13:08.478Z</updated>
     
@@ -206,21 +206,21 @@
     
     
     
-    <category term="深度学习" scheme="https://shaogui.life/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
+    <category term="深度学习" scheme="https://www.shaogui.life/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
     
     
-    <category term="目标检测" scheme="https://shaogui.life/tags/%E7%9B%AE%E6%A0%87%E6%A3%80%E6%B5%8B/"/>
+    <category term="目标检测" scheme="https://www.shaogui.life/tags/%E7%9B%AE%E6%A0%87%E6%A3%80%E6%B5%8B/"/>
     
-    <category term="anchor-base" scheme="https://shaogui.life/tags/anchor-base/"/>
+    <category term="anchor-base" scheme="https://www.shaogui.life/tags/anchor-base/"/>
     
-    <category term="one-stage" scheme="https://shaogui.life/tags/one-stage/"/>
+    <category term="one-stage" scheme="https://www.shaogui.life/tags/one-stage/"/>
     
   </entry>
   
   <entry>
     <title>HSSN：Deep Hierarchical Semantic Segmentation</title>
-    <link href="https://shaogui.life/HSSN%EF%BC%9ADeep%20Hierarchical%20Semantic%20Segmentation/"/>
-    <id>https://shaogui.life/HSSN%EF%BC%9ADeep%20Hierarchical%20Semantic%20Segmentation/</id>
+    <link href="https://www.shaogui.life/HSSN%EF%BC%9ADeep%20Hierarchical%20Semantic%20Segmentation/"/>
+    <id>https://www.shaogui.life/HSSN%EF%BC%9ADeep%20Hierarchical%20Semantic%20Segmentation/</id>
     <published>2023-04-11T14:54:52.000Z</published>
     <updated>2023-05-21T08:13:59.121Z</updated>
     
@@ -231,17 +231,17 @@
     
     
     
-    <category term="深度学习" scheme="https://shaogui.life/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
+    <category term="深度学习" scheme="https://www.shaogui.life/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
     
     
-    <category term="语义分割" scheme="https://shaogui.life/tags/%E8%AF%AD%E4%B9%89%E5%88%86%E5%89%B2/"/>
+    <category term="语义分割" scheme="https://www.shaogui.life/tags/%E8%AF%AD%E4%B9%89%E5%88%86%E5%89%B2/"/>
     
   </entry>
   
   <entry>
     <title>EAST：An Efficient and Accurate Scene Text Detector</title>
-    <link href="https://shaogui.life/EAST%EF%BC%9AAn%20Efficient%20and%20Accurate%20Scene%20Text%20Detector/"/>
-    <id>https://shaogui.life/EAST%EF%BC%9AAn%20Efficient%20and%20Accurate%20Scene%20Text%20Detector/</id>
+    <link href="https://www.shaogui.life/EAST%EF%BC%9AAn%20Efficient%20and%20Accurate%20Scene%20Text%20Detector/"/>
+    <id>https://www.shaogui.life/EAST%EF%BC%9AAn%20Efficient%20and%20Accurate%20Scene%20Text%20Detector/</id>
     <published>2023-03-25T14:35:22.000Z</published>
     <updated>2023-05-25T14:41:15.046Z</updated>
     
@@ -252,19 +252,19 @@
     
     
     
-    <category term="深度学习" scheme="https://shaogui.life/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
+    <category term="深度学习" scheme="https://www.shaogui.life/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
     
     
-    <category term="OCR" scheme="https://shaogui.life/tags/OCR/"/>
+    <category term="OCR" scheme="https://www.shaogui.life/tags/OCR/"/>
     
-    <category term="文本检测" scheme="https://shaogui.life/tags/%E6%96%87%E6%9C%AC%E6%A3%80%E6%B5%8B/"/>
+    <category term="文本检测" scheme="https://www.shaogui.life/tags/%E6%96%87%E6%9C%AC%E6%A3%80%E6%B5%8B/"/>
     
   </entry>
   
   <entry>
     <title>SAST：A Single-Shot Arbitrarily-Shaped Text Detector based on Context Attended Multi-Task Learning</title>
-    <link href="https://shaogui.life/SAST%EF%BC%9AA%20Single-Shot%20Arbitrarily-Shaped%20Text%20Detector%20based%20on%20Context%20Attended%20Multi-Task%20Learning/"/>
-    <id>https://shaogui.life/SAST%EF%BC%9AA%20Single-Shot%20Arbitrarily-Shaped%20Text%20Detector%20based%20on%20Context%20Attended%20Multi-Task%20Learning/</id>
+    <link href="https://www.shaogui.life/SAST%EF%BC%9AA%20Single-Shot%20Arbitrarily-Shaped%20Text%20Detector%20based%20on%20Context%20Attended%20Multi-Task%20Learning/"/>
+    <id>https://www.shaogui.life/SAST%EF%BC%9AA%20Single-Shot%20Arbitrarily-Shaped%20Text%20Detector%20based%20on%20Context%20Attended%20Multi-Task%20Learning/</id>
     <published>2023-03-16T15:20:53.000Z</published>
     <updated>2023-05-21T08:12:54.131Z</updated>
     
@@ -275,19 +275,19 @@
     
     
     
-    <category term="深度学习" scheme="https://shaogui.life/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
+    <category term="深度学习" scheme="https://www.shaogui.life/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
     
     
-    <category term="OCR" scheme="https://shaogui.life/tags/OCR/"/>
+    <category term="OCR" scheme="https://www.shaogui.life/tags/OCR/"/>
     
-    <category term="文本检测" scheme="https://shaogui.life/tags/%E6%96%87%E6%9C%AC%E6%A3%80%E6%B5%8B/"/>
+    <category term="文本检测" scheme="https://www.shaogui.life/tags/%E6%96%87%E6%9C%AC%E6%A3%80%E6%B5%8B/"/>
     
   </entry>
   
   <entry>
     <title>FOTS：Fast Oriented Text Spotting with a Unified Network</title>
-    <link href="https://shaogui.life/FOTS%EF%BC%9AFast%20Oriented%20Text%20Spotting%20with%20a%20Unified%20Network/"/>
-    <id>https://shaogui.life/FOTS%EF%BC%9AFast%20Oriented%20Text%20Spotting%20with%20a%20Unified%20Network/</id>
+    <link href="https://www.shaogui.life/FOTS%EF%BC%9AFast%20Oriented%20Text%20Spotting%20with%20a%20Unified%20Network/"/>
+    <id>https://www.shaogui.life/FOTS%EF%BC%9AFast%20Oriented%20Text%20Spotting%20with%20a%20Unified%20Network/</id>
     <published>2023-03-13T13:42:24.000Z</published>
     <updated>2023-05-21T08:12:23.546Z</updated>
     
@@ -299,19 +299,19 @@
     
     
     
-    <category term="深度学习" scheme="https://shaogui.life/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
+    <category term="深度学习" scheme="https://www.shaogui.life/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
     
     
-    <category term="OCR" scheme="https://shaogui.life/tags/OCR/"/>
+    <category term="OCR" scheme="https://www.shaogui.life/tags/OCR/"/>
     
-    <category term="文本定位" scheme="https://shaogui.life/tags/%E6%96%87%E6%9C%AC%E5%AE%9A%E4%BD%8D/"/>
+    <category term="文本定位" scheme="https://www.shaogui.life/tags/%E6%96%87%E6%9C%AC%E5%AE%9A%E4%BD%8D/"/>
     
   </entry>
   
   <entry>
     <title>文本检测之DB和DB++</title>
-    <link href="https://shaogui.life/%E6%96%87%E6%9C%AC%E6%A3%80%E6%B5%8B%E4%B9%8BDB%E5%92%8CDB++/"/>
-    <id>https://shaogui.life/%E6%96%87%E6%9C%AC%E6%A3%80%E6%B5%8B%E4%B9%8BDB%E5%92%8CDB++/</id>
+    <link href="https://www.shaogui.life/%E6%96%87%E6%9C%AC%E6%A3%80%E6%B5%8B%E4%B9%8BDB%E5%92%8CDB++/"/>
+    <id>https://www.shaogui.life/%E6%96%87%E6%9C%AC%E6%A3%80%E6%B5%8B%E4%B9%8BDB%E5%92%8CDB++/</id>
     <published>2023-03-12T07:03:50.000Z</published>
     <updated>2023-05-25T14:42:29.194Z</updated>
     
@@ -323,19 +323,19 @@
     
     
     
-    <category term="深度学习" scheme="https://shaogui.life/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
+    <category term="深度学习" scheme="https://www.shaogui.life/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
     
     
-    <category term="OCR" scheme="https://shaogui.life/tags/OCR/"/>
+    <category term="OCR" scheme="https://www.shaogui.life/tags/OCR/"/>
     
-    <category term="文本检测" scheme="https://shaogui.life/tags/%E6%96%87%E6%9C%AC%E6%A3%80%E6%B5%8B/"/>
+    <category term="文本检测" scheme="https://www.shaogui.life/tags/%E6%96%87%E6%9C%AC%E6%A3%80%E6%B5%8B/"/>
     
   </entry>
   
   <entry>
     <title>CNN之结构重参数化</title>
-    <link href="https://shaogui.life/CNN%E4%B9%8B%E7%BB%93%E6%9E%84%E9%87%8D%E5%8F%82%E6%95%B0%E5%8C%96/"/>
-    <id>https://shaogui.life/CNN%E4%B9%8B%E7%BB%93%E6%9E%84%E9%87%8D%E5%8F%82%E6%95%B0%E5%8C%96/</id>
+    <link href="https://www.shaogui.life/CNN%E4%B9%8B%E7%BB%93%E6%9E%84%E9%87%8D%E5%8F%82%E6%95%B0%E5%8C%96/"/>
+    <id>https://www.shaogui.life/CNN%E4%B9%8B%E7%BB%93%E6%9E%84%E9%87%8D%E5%8F%82%E6%95%B0%E5%8C%96/</id>
     <published>2023-03-06T04:40:44.000Z</published>
     <updated>2023-05-21T08:08:54.887Z</updated>
     
@@ -346,19 +346,19 @@
     
     
     
-    <category term="深度学习" scheme="https://shaogui.life/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
+    <category term="深度学习" scheme="https://www.shaogui.life/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
     
     
-    <category term="CNN" scheme="https://shaogui.life/tags/CNN/"/>
+    <category term="CNN" scheme="https://www.shaogui.life/tags/CNN/"/>
     
-    <category term="结构重参数化" scheme="https://shaogui.life/tags/%E7%BB%93%E6%9E%84%E9%87%8D%E5%8F%82%E6%95%B0%E5%8C%96/"/>
+    <category term="结构重参数化" scheme="https://www.shaogui.life/tags/%E7%BB%93%E6%9E%84%E9%87%8D%E5%8F%82%E6%95%B0%E5%8C%96/"/>
     
   </entry>
   
   <entry>
     <title>ConvNeXt V2：Co-designing and Scaling ConvNets with Masked Autoencoders</title>
-    <link href="https://shaogui.life/ConvNeXt%20V2%EF%BC%9ACo-designing%20and%20Scaling%20ConvNets%20with%20Masked%20Autoencoders/"/>
-    <id>https://shaogui.life/ConvNeXt%20V2%EF%BC%9ACo-designing%20and%20Scaling%20ConvNets%20with%20Masked%20Autoencoders/</id>
+    <link href="https://www.shaogui.life/ConvNeXt%20V2%EF%BC%9ACo-designing%20and%20Scaling%20ConvNets%20with%20Masked%20Autoencoders/"/>
+    <id>https://www.shaogui.life/ConvNeXt%20V2%EF%BC%9ACo-designing%20and%20Scaling%20ConvNets%20with%20Masked%20Autoencoders/</id>
     <published>2023-02-20T05:27:03.000Z</published>
     <updated>2023-05-22T10:10:51.147Z</updated>
     
@@ -369,17 +369,17 @@
     
     
     
-    <category term="深度学习" scheme="https://shaogui.life/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
+    <category term="深度学习" scheme="https://www.shaogui.life/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
     
     
-    <category term="图片分类" scheme="https://shaogui.life/tags/%E5%9B%BE%E7%89%87%E5%88%86%E7%B1%BB/"/>
+    <category term="图片分类" scheme="https://www.shaogui.life/tags/%E5%9B%BE%E7%89%87%E5%88%86%E7%B1%BB/"/>
     
   </entry>
   
   <entry>
     <title>YOLOv6：A Single-Stage Object Detection Framework for Industrial Applications</title>
-    <link href="https://shaogui.life/YOLOv6%EF%BC%9AA%20Single-Stage%20Object%20Detection%20Framework%20for%20Industrial%20Applications/"/>
-    <id>https://shaogui.life/YOLOv6%EF%BC%9AA%20Single-Stage%20Object%20Detection%20Framework%20for%20Industrial%20Applications/</id>
+    <link href="https://www.shaogui.life/YOLOv6%EF%BC%9AA%20Single-Stage%20Object%20Detection%20Framework%20for%20Industrial%20Applications/"/>
+    <id>https://www.shaogui.life/YOLOv6%EF%BC%9AA%20Single-Stage%20Object%20Detection%20Framework%20for%20Industrial%20Applications/</id>
     <published>2023-02-10T03:46:04.000Z</published>
     <updated>2023-05-21T08:07:33.832Z</updated>
     
@@ -390,21 +390,21 @@
     
     
     
-    <category term="深度学习" scheme="https://shaogui.life/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
+    <category term="深度学习" scheme="https://www.shaogui.life/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
     
     
-    <category term="目标检测" scheme="https://shaogui.life/tags/%E7%9B%AE%E6%A0%87%E6%A3%80%E6%B5%8B/"/>
+    <category term="目标检测" scheme="https://www.shaogui.life/tags/%E7%9B%AE%E6%A0%87%E6%A3%80%E6%B5%8B/"/>
     
-    <category term="anchor-free" scheme="https://shaogui.life/tags/anchor-free/"/>
+    <category term="anchor-free" scheme="https://www.shaogui.life/tags/anchor-free/"/>
     
-    <category term="one-stage" scheme="https://shaogui.life/tags/one-stage/"/>
+    <category term="one-stage" scheme="https://www.shaogui.life/tags/one-stage/"/>
     
   </entry>
   
   <entry>
     <title>ConvNeXt：A ConvNet for the 2020s</title>
-    <link href="https://shaogui.life/ConvNeXt%EF%BC%9AA%20ConvNet%20for%20the%202020s/"/>
-    <id>https://shaogui.life/ConvNeXt%EF%BC%9AA%20ConvNet%20for%20the%202020s/</id>
+    <link href="https://www.shaogui.life/ConvNeXt%EF%BC%9AA%20ConvNet%20for%20the%202020s/"/>
+    <id>https://www.shaogui.life/ConvNeXt%EF%BC%9AA%20ConvNet%20for%20the%202020s/</id>
     <published>2023-02-03T05:26:59.000Z</published>
     <updated>2023-05-22T10:11:14.834Z</updated>
     
@@ -415,17 +415,17 @@
     
     
     
-    <category term="深度学习" scheme="https://shaogui.life/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
+    <category term="深度学习" scheme="https://www.shaogui.life/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
     
     
-    <category term="图片分类" scheme="https://shaogui.life/tags/%E5%9B%BE%E7%89%87%E5%88%86%E7%B1%BB/"/>
+    <category term="图片分类" scheme="https://www.shaogui.life/tags/%E5%9B%BE%E7%89%87%E5%88%86%E7%B1%BB/"/>
     
   </entry>
   
   <entry>
     <title>PP-LiteSeg：A Superior Real-Time Semantic Segmentation Model</title>
-    <link href="https://shaogui.life/PP-LiteSeg%EF%BC%9AA%20Superior%20Real-Time%20Semantic%20Segmentation%20Model/"/>
-    <id>https://shaogui.life/PP-LiteSeg%EF%BC%9AA%20Superior%20Real-Time%20Semantic%20Segmentation%20Model/</id>
+    <link href="https://www.shaogui.life/PP-LiteSeg%EF%BC%9AA%20Superior%20Real-Time%20Semantic%20Segmentation%20Model/"/>
+    <id>https://www.shaogui.life/PP-LiteSeg%EF%BC%9AA%20Superior%20Real-Time%20Semantic%20Segmentation%20Model/</id>
     <published>2023-01-28T12:42:20.000Z</published>
     <updated>2023-05-20T11:03:07.544Z</updated>
     
@@ -436,19 +436,19 @@
     
     
     
-    <category term="深度学习" scheme="https://shaogui.life/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
+    <category term="深度学习" scheme="https://www.shaogui.life/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
     
     
-    <category term="语义分割" scheme="https://shaogui.life/tags/%E8%AF%AD%E4%B9%89%E5%88%86%E5%89%B2/"/>
+    <category term="语义分割" scheme="https://www.shaogui.life/tags/%E8%AF%AD%E4%B9%89%E5%88%86%E5%89%B2/"/>
     
-    <category term="轻量" scheme="https://shaogui.life/tags/%E8%BD%BB%E9%87%8F/"/>
+    <category term="轻量" scheme="https://www.shaogui.life/tags/%E8%BD%BB%E9%87%8F/"/>
     
   </entry>
   
   <entry>
     <title>GhostNetV2：Enhance Cheap Operation with Long-Range Attention</title>
-    <link href="https://shaogui.life/GhostNetV2%EF%BC%9AEnhance%20Cheap%20Operation%20with%20Long-Range%20Attention/"/>
-    <id>https://shaogui.life/GhostNetV2%EF%BC%9AEnhance%20Cheap%20Operation%20with%20Long-Range%20Attention/</id>
+    <link href="https://www.shaogui.life/GhostNetV2%EF%BC%9AEnhance%20Cheap%20Operation%20with%20Long-Range%20Attention/"/>
+    <id>https://www.shaogui.life/GhostNetV2%EF%BC%9AEnhance%20Cheap%20Operation%20with%20Long-Range%20Attention/</id>
     <published>2023-01-13T15:56:37.000Z</published>
     <updated>2023-05-22T10:16:15.746Z</updated>
     
@@ -459,12 +459,12 @@
     
     
     
-    <category term="深度学习" scheme="https://shaogui.life/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
+    <category term="深度学习" scheme="https://www.shaogui.life/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
     
     
-    <category term="图片分类" scheme="https://shaogui.life/tags/%E5%9B%BE%E7%89%87%E5%88%86%E7%B1%BB/"/>
+    <category term="图片分类" scheme="https://www.shaogui.life/tags/%E5%9B%BE%E7%89%87%E5%88%86%E7%B1%BB/"/>
     
-    <category term="轻量" scheme="https://shaogui.life/tags/%E8%BD%BB%E9%87%8F/"/>
+    <category term="轻量" scheme="https://www.shaogui.life/tags/%E8%BD%BB%E9%87%8F/"/>
     
   </entry>
   
