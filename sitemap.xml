@@ -2068,13 +2068,6 @@
   </url>
   
   <url>
-    <loc>https://www.shaogui.life/tags/%E4%BA%BA%E4%BD%93%E5%A7%BF%E6%80%81%E4%BC%B0%E8%AE%A1/</loc>
-    <lastmod>2023-05-25</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://www.shaogui.life/tags/CNN/</loc>
     <lastmod>2023-05-25</lastmod>
     <changefreq>weekly</changefreq>
@@ -2083,6 +2076,13 @@
   
   <url>
     <loc>https://www.shaogui.life/tags/%E7%BB%93%E6%9E%84%E9%87%8D%E5%8F%82%E6%95%B0%E5%8C%96/</loc>
+    <lastmod>2023-05-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.shaogui.life/tags/%E4%BA%BA%E4%BD%93%E5%A7%BF%E6%80%81%E4%BC%B0%E8%AE%A1/</loc>
     <lastmod>2023-05-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -2145,14 +2145,14 @@
   </url>
   
   <url>
-    <loc>https://www.shaogui.life/tags/two-stage/</loc>
+    <loc>https://www.shaogui.life/tags/%E6%96%87%E6%9C%AC%E5%AE%9A%E4%BD%8D/</loc>
     <lastmod>2023-05-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://www.shaogui.life/tags/%E6%96%87%E6%9C%AC%E5%AE%9A%E4%BD%8D/</loc>
+    <loc>https://www.shaogui.life/tags/two-stage/</loc>
     <lastmod>2023-05-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -2418,6 +2418,13 @@
   </url>
   
   <url>
+    <loc>https://www.shaogui.life/tags/LSTM/</loc>
+    <lastmod>2023-05-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://www.shaogui.life/tags/windows10/</loc>
     <lastmod>2023-05-25</lastmod>
     <changefreq>weekly</changefreq>
@@ -2426,13 +2433,6 @@
   
   <url>
     <loc>https://www.shaogui.life/tags/%E8%99%9A%E6%8B%9F%E6%9C%BA/</loc>
-    <lastmod>2023-05-25</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.shaogui.life/tags/LSTM/</loc>
     <lastmod>2023-05-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -2460,14 +2460,14 @@
   </url>
   
   <url>
-    <loc>https://www.shaogui.life/tags/Windows/</loc>
+    <loc>https://www.shaogui.life/tags/%E8%BA%AB%E4%BB%BD%E8%AF%81/</loc>
     <lastmod>2023-05-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://www.shaogui.life/tags/%E8%BA%AB%E4%BB%BD%E8%AF%81/</loc>
+    <loc>https://www.shaogui.life/tags/Windows/</loc>
     <lastmod>2023-05-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -2482,6 +2482,13 @@
   
   <url>
     <loc>https://www.shaogui.life/tags/%E5%8A%A0%E5%AF%86/</loc>
+    <lastmod>2023-05-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.shaogui.life/tags/%E9%93%BE%E5%BC%8F%E6%B1%82%E5%AF%BC/</loc>
     <lastmod>2023-05-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -2509,7 +2516,7 @@
   </url>
   
   <url>
-    <loc>https://www.shaogui.life/tags/%E9%93%BE%E5%BC%8F%E6%B1%82%E5%AF%BC/</loc>
+    <loc>https://www.shaogui.life/tags/Firefox/</loc>
     <lastmod>2023-05-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -2517,13 +2524,6 @@
   
   <url>
     <loc>https://www.shaogui.life/tags/%E5%91%BD%E5%90%8D/</loc>
-    <lastmod>2023-05-25</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.shaogui.life/tags/Firefox/</loc>
     <lastmod>2023-05-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
